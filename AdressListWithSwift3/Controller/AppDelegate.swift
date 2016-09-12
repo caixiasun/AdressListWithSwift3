@@ -13,10 +13,15 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var tabBarController = YTTabBarController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        self.window = UIWindow(frame: kScreenBounds)
+        self.window?.rootViewController = tabBarController
+        self.window?.backgroundColor = WhiteColor
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 
@@ -90,4 +95,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
+let application = UIApplication.shared
+let appDelegate = application.delegate as! AppDelegate
+let tabBarController = appDelegate.tabBarController
+let tabBar = tabBarController.tabBar
 
