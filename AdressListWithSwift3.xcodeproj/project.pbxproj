@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00168B711D87A0D400DB858D /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00168B701D87A0D400DB858D /* MessageView.swift */; };
+		0034C90C1D87F23000A8C4D4 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0034C90A1D87F23000A8C4D4 /* User+CoreDataClass.swift */; };
+		0034C90D1D87F23000A8C4D4 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0034C90B1D87F23000A8C4D4 /* User+CoreDataProperties.swift */; };
+		0034C90F1D87F9B100A8C4D4 /* CoreDataTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0034C90E1D87F9B100A8C4D4 /* CoreDataTools.swift */; };
 		009561321D86435F00EF0D5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 009561301D86435F00EF0D5A /* Main.storyboard */; };
 		009561371D86436000EF0D5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 009561361D86436000EF0D5A /* Assets.xcassets */; };
 		0095613A1D86436000EF0D5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 009561381D86436000EF0D5A /* LaunchScreen.storyboard */; };
@@ -18,7 +22,6 @@
 		0095616E1D864C0F00EF0D5A /* ETFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561651D864C0F00EF0D5A /* ETFrame.swift */; };
 		0095616F1D864C0F00EF0D5A /* ETTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561661D864C0F00EF0D5A /* ETTools.swift */; };
 		009561701D864C0F00EF0D5A /* ETView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561671D864C0F00EF0D5A /* ETView.swift */; };
-		009561711D864C0F00EF0D5A /* CoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0095616A1D864C0F00EF0D5A /* CoverView.swift */; };
 		009561731D864E1600EF0D5A /* ContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561721D864E1600EF0D5A /* ContactController.swift */; };
 		009561761D864E3300EF0D5A /* LeaveListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561741D864E3300EF0D5A /* LeaveListController.swift */; };
 		009561771D864E3300EF0D5A /* LeaveListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009561751D864E3300EF0D5A /* LeaveListController.xib */; };
@@ -38,11 +41,7 @@
 		009561941D86527500EF0D5A /* LeaveDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009561921D86527500EF0D5A /* LeaveDetailController.xib */; };
 		009561971D8654F300EF0D5A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561961D8654F300EF0D5A /* UserModel.swift */; };
 		0095619B1D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 009561991D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodeld */; };
-		009561A41D8679CE00EF0D5A /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561A21D8679CE00EF0D5A /* User+CoreDataClass.swift */; };
-		009561A51D8679CE00EF0D5A /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561A31D8679CE00EF0D5A /* User+CoreDataProperties.swift */; };
 		00C832DB1D86989900802D12 /* AdressListTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C832DA1D86989900802D12 /* AdressListTool.swift */; };
-		00C832DE1D86A3D800802D12 /* ChooseImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C832DC1D86A3D800802D12 /* ChooseImageController.swift */; };
-		00C832DF1D86A3D800802D12 /* ChooseImageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C832DD1D86A3D800802D12 /* ChooseImageController.xib */; };
 		00C832E51D86AF1E00802D12 /* UIImage+YTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C832E41D86AF1E00802D12 /* UIImage+YTImage.m */; };
 		66CD801A26D3DD91BE6FF90F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADD75A7526AE7F4D9B5801EE /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -58,6 +57,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00168B701D87A0D400DB858D /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		0034C90A1D87F23000A8C4D4 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0034C90B1D87F23000A8C4D4 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0034C90E1D87F9B100A8C4D4 /* CoreDataTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTools.swift; sourceTree = "<group>"; };
 		009561291D86435F00EF0D5A /* AdressListWithSwift3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdressListWithSwift3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		009561311D86435F00EF0D5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		009561361D86436000EF0D5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,7 +76,6 @@
 		009561651D864C0F00EF0D5A /* ETFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETFrame.swift; sourceTree = "<group>"; };
 		009561661D864C0F00EF0D5A /* ETTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETTools.swift; sourceTree = "<group>"; };
 		009561671D864C0F00EF0D5A /* ETView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETView.swift; sourceTree = "<group>"; };
-		0095616A1D864C0F00EF0D5A /* CoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverView.swift; sourceTree = "<group>"; };
 		009561721D864E1600EF0D5A /* ContactController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactController.swift; sourceTree = "<group>"; };
 		009561741D864E3300EF0D5A /* LeaveListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaveListController.swift; sourceTree = "<group>"; };
 		009561751D864E3300EF0D5A /* LeaveListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaveListController.xib; sourceTree = "<group>"; };
@@ -94,11 +96,7 @@
 		009561921D86527500EF0D5A /* LeaveDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaveDetailController.xib; sourceTree = "<group>"; };
 		009561961D8654F300EF0D5A /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		0095619A1D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AdressListWithSwift3.xcdatamodel; sourceTree = "<group>"; };
-		009561A21D8679CE00EF0D5A /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		009561A31D8679CE00EF0D5A /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		00C832DA1D86989900802D12 /* AdressListTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdressListTool.swift; sourceTree = "<group>"; };
-		00C832DC1D86A3D800802D12 /* ChooseImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseImageController.swift; sourceTree = "<group>"; };
-		00C832DD1D86A3D800802D12 /* ChooseImageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseImageController.xib; sourceTree = "<group>"; };
 		00C832E31D86AF1E00802D12 /* UIImage+YTImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YTImage.h"; sourceTree = "<group>"; };
 		00C832E41D86AF1E00802D12 /* UIImage+YTImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YTImage.m"; sourceTree = "<group>"; };
 		1395E843211852FACD605482 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -184,8 +182,6 @@
 				009561531D864BDE00EF0D5A /* Detail */,
 				009561541D864BDE00EF0D5A /* Edit */,
 				009561551D864BDE00EF0D5A /* New */,
-				00C832DC1D86A3D800802D12 /* ChooseImageController.swift */,
-				00C832DD1D86A3D800802D12 /* ChooseImageController.xib */,
 			);
 			path = Contact;
 			sourceTree = "<group>";
@@ -332,17 +328,9 @@
 		009561681D864C0F00EF0D5A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				009561691D864C0F00EF0D5A /* CoverView */,
+				00168B701D87A0D400DB858D /* MessageView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		009561691D864C0F00EF0D5A /* CoverView */ = {
-			isa = PBXGroup;
-			children = (
-				0095616A1D864C0F00EF0D5A /* CoverView.swift */,
-			);
-			path = CoverView;
 			sourceTree = "<group>";
 		};
 		009561951D86537200EF0D5A /* Other_files */ = {
@@ -361,9 +349,10 @@
 		009561981D8678BE00EF0D5A /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				009561A21D8679CE00EF0D5A /* User+CoreDataClass.swift */,
-				009561A31D8679CE00EF0D5A /* User+CoreDataProperties.swift */,
 				009561991D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodeld */,
+				0034C90A1D87F23000A8C4D4 /* User+CoreDataClass.swift */,
+				0034C90B1D87F23000A8C4D4 /* User+CoreDataProperties.swift */,
+				0034C90E1D87F9B100A8C4D4 /* CoreDataTools.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -480,7 +469,6 @@
 				0095618C1D86524300EF0D5A /* EditContactController.xib in Resources */,
 				009561801D8651D200EF0D5A /* ContactDetailController.xib in Resources */,
 				009561841D8651F500EF0D5A /* AdressListCell.xib in Resources */,
-				00C832DF1D86A3D800802D12 /* ChooseImageController.xib in Resources */,
 				009561881D86522000EF0D5A /* ContactDetailCell.xib in Resources */,
 				0095617C1D86503800EF0D5A /* NewContactController.xib in Resources */,
 				009561901D86526400EF0D5A /* ApplyLeaveController.xib in Resources */,
@@ -553,25 +541,25 @@
 			files = (
 				0095616C1D864C0F00EF0D5A /* YTTabBarController.swift in Sources */,
 				0095619B1D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodeld in Sources */,
+				0034C90F1D87F9B100A8C4D4 /* CoreDataTools.swift in Sources */,
 				0095615E1D864BDE00EF0D5A /* AppDelegate.swift in Sources */,
 				00C832DB1D86989900802D12 /* AdressListTool.swift in Sources */,
 				0095618F1D86526400EF0D5A /* ApplyLeaveController.swift in Sources */,
 				0095617F1D8651D200EF0D5A /* ContactDetailController.swift in Sources */,
-				009561711D864C0F00EF0D5A /* CoverView.swift in Sources */,
 				009561761D864E3300EF0D5A /* LeaveListController.swift in Sources */,
 				00C832E51D86AF1E00802D12 /* UIImage+YTImage.m in Sources */,
-				00C832DE1D86A3D800802D12 /* ChooseImageController.swift in Sources */,
+				0034C90C1D87F23000A8C4D4 /* User+CoreDataClass.swift in Sources */,
 				009561831D8651F500EF0D5A /* AdressListCell.swift in Sources */,
 				0095616E1D864C0F00EF0D5A /* ETFrame.swift in Sources */,
 				009561931D86527500EF0D5A /* LeaveDetailController.swift in Sources */,
+				00168B711D87A0D400DB858D /* MessageView.swift in Sources */,
 				009561701D864C0F00EF0D5A /* ETView.swift in Sources */,
 				009561871D86522000EF0D5A /* ContactDetailCell.swift in Sources */,
 				0095616B1D864C0F00EF0D5A /* YTNavigationController.swift in Sources */,
 				0095617B1D86503800EF0D5A /* NewContactController.swift in Sources */,
-				009561A41D8679CE00EF0D5A /* User+CoreDataClass.swift in Sources */,
 				009561731D864E1600EF0D5A /* ContactController.swift in Sources */,
 				0095618B1D86524300EF0D5A /* EditContactController.swift in Sources */,
-				009561A51D8679CE00EF0D5A /* User+CoreDataProperties.swift in Sources */,
+				0034C90D1D87F23000A8C4D4 /* User+CoreDataProperties.swift in Sources */,
 				009561971D8654F300EF0D5A /* UserModel.swift in Sources */,
 				0095616F1D864C0F00EF0D5A /* ETTools.swift in Sources */,
 				0095616D1D864C0F00EF0D5A /* ETColor.swift in Sources */,

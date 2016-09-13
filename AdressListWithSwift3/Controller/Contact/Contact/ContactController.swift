@@ -39,6 +39,25 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
         self.navigationItem.title = "所有联系人"
         let addBtn = ETDrawButton(frame: CGRect(x:0, y:0, width:kNavigationBar_button_w, height:kNavigationBar_button_w), Img: UIImage(named: "add.png"), Target: self, Action: #selector(ContactController.addAction))        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addBtn)
+        
+        //test
+        let addBtn2 = ETDrawButton(frame: CGRect(x:0, y:0, width:kNavigationBar_button_w, height:kNavigationBar_button_w), Img: UIImage(named: "add.png"), Target: self, Action: #selector(ContactController.testAction(item:)))
+        addBtn2.tag = 2
+        let addBtn3 = ETDrawButton(frame: CGRect(x:0, y:0, width:kNavigationBar_button_w, height:kNavigationBar_button_w), Img: UIImage(named: "add.png"), Target: self, Action: #selector(ContactController.testAction(item:)))
+        addBtn3.tag = 3
+        self.navigationItem.leftBarButtonItems = [UIBarButtonItem(customView: addBtn2),UIBarButtonItem(customView: addBtn3)]
+    }
+    func testAction(item:UIButton)
+    {
+        if item.tag == 2 { //读取
+            let arr = getDataFromCoreData()
+            for item in arr {
+                let user:User? = item as? User
+                print("name : ", user?.name , "tel: " , user?.tel , "address: " , user?.address , "email : " , user?.email)
+            }
+        }else{//删除
+            deleteCoreData(ConditionDic: ["name":"周杰伦"])
+        }
     }
     
     func addAction()
@@ -98,7 +117,6 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
     
     func initSubviews()
     {
-        //CGRectMake(0, 64, kScreenWidth, kScreenHeight-64)
         let tableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.plain)
         tableView.register(UINib(nibName: _cellReuseIdentifier, bundle: nil), forCellReuseIdentifier: _cellReuseIdentifier)
         tableView.dataSource = self

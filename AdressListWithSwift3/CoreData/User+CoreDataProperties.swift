@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  
 //
-//  Created by caixiasun on 16/9/12.
+//  Created by caixiasun on 16/9/13.
 //
 //
 
@@ -18,9 +18,10 @@ extension User {
 
     @NSManaged public var address: String?
     @NSManaged public var email: String?
-    @NSManaged public var headImg: String?
+    @NSManaged public var headImg: NSData?
     @NSManaged public var isLeave: Bool
     @NSManaged public var name: String?
-    @NSManaged public var telephone: String?
+    @NSManaged public var tel: String?
+    @NSManaged public var birthDay: String?
 
 }

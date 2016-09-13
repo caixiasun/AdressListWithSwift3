@@ -12,6 +12,7 @@ class UserModel: NSObject {
 
     var name:String?
     var tel:String?
+    var headImg:UIImage?
     var email:String?
     var address:String?
     var birthday:String?

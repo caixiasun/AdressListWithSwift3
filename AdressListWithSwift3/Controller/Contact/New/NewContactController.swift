@@ -28,16 +28,34 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
     @IBOutlet weak var _birthDayTextField: UITextField!
     @IBOutlet weak var _addressTextField: UITextField!
     
-    var _alertController:UIAlertController!
+    var _uploadAlertController:UIAlertController!
+    var _modifyAlertController:UIAlertController!
     var _imagePickerController:UIImagePickerController!
+    var _messageView:MessageView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.initSubviews()
         
+        self.initGesture()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        _nameTextField.becomeFirstResponder()
     }
     //MARK:- init method
+    func initGesture()
+    {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        self.view.addGestureRecognizer(tap)
+    }
+    func tapAction()
+    {
+        self.view.endEditing(true)
+    }
     func initSubviews()
     {
         self.initNaviBar()
@@ -48,6 +66,7 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         self.initAlertController()
         self.initImagePickerController()
         
+        _messageView = addMessageView(InView: self.view)
     }
     
     func initNaviBar()
@@ -68,8 +87,8 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
     func initAlertController()
     {
         weak var blockSelf = self
-        _alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-        _alertController.view.tintColor = MainColor
+        _uploadAlertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        _uploadAlertController.view.tintColor = MainColor
         let takePhoto = UIAlertAction(title: "拍照", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
             blockSelf?.actionAction(action: action)
         }
@@ -79,9 +98,29 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         let cancel = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel) { (action:UIAlertAction) in
             blockSelf?.actionAction(action: action)
         }
-        _alertController?.addAction(takePhoto)
-        _alertController?.addAction(photoLib)
-        _alertController?.addAction(cancel)
+        _uploadAlertController?.addAction(takePhoto)
+        _uploadAlertController?.addAction(photoLib)
+        _uploadAlertController?.addAction(cancel)
+        
+        _modifyAlertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        _modifyAlertController.view.tintColor = MainColor
+        let takePhoto2 = UIAlertAction(title: "拍照", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+            blockSelf?.actionAction(action: action)
+        }
+        let photoLib2 = UIAlertAction(title: "从相册选择", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+            blockSelf?.actionAction(action: action)
+        }
+        let cancel2 = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel) { (action:UIAlertAction) in
+            blockSelf?.actionAction(action: action)
+        }
+        let delete = UIAlertAction(title: "删除照片", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
+            blockSelf?.actionAction(action: action)
+        }
+        
+        _modifyAlertController.addAction(takePhoto2)
+        _modifyAlertController.addAction(photoLib2)
+        _modifyAlertController.addAction(delete)
+        _modifyAlertController.addAction(cancel2)
     }
     func initImagePickerController()
     {
@@ -89,24 +128,51 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         _imagePickerController.delegate = self
         // 设置是否可以管理已经存在的图片或者视频
         _imagePickerController.allowsEditing = true
-        
     }
     
     //MARK:- action method
     @IBAction func itemAction(sender: UIButton) {
+        self.view.endEditing(true)
         switch sender.tag {
         case 1://导航上的cancel
             exitThisController()
             break
         case 2://导航上的done
-            exitThisController()
+            if self.isCanSave() {
+                //将联系人保存到本地
+                let userModel = self.saveData()
+                addCoreData(Model: userModel)
+                
+                //发送请求新建联系人
+                
+                //成功后退出本界面(并发送通知刷新所有联系人界面)
+                exitThisController()
+            }
             break
-        case 3://上传头像
-            self.present(_alertController, animated: true, completion: nil)
+        case 3://上传头像 或 更换头像
+            if _loadImgBtn.title(for: .normal) == kTitle_headImg_upload {
+                self.present(_uploadAlertController, animated: true, completion: nil)
+            }else{
+                self.present(_modifyAlertController, animated: true, completion: nil)
+            }
             break
         default:
             break
         }
+    }
+    func saveData() -> UserModel
+    {
+        let userModel = UserModel()
+        userModel.name = _nameTextField.text
+        userModel.tel = _telTextField.text
+        if _loadImgBtn.title(for: .normal) == kTitle_headImg_change {
+            userModel.headImg = _headImg.image
+        }
+        userModel.email = _emailTextField.text
+        userModel.birthday = _birthDayTextField.text
+        userModel.address = _addressTextField.text
+        
+        return userModel
     }
     func exitThisController()
     {
@@ -116,20 +182,38 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
     func actionAction(action:UIAlertAction)
     {
         if action.title == "拍照" {
-            print("1111")
+            self.getImageFromPhotoLib(type: .camera)
         }else if action.title == "从相册选择" {
-            self.getImageFromPhotoLib()
+            self.getImageFromPhotoLib(type: .photoLibrary)
+        }else if action.title == "删除照片" {
+            _headImg.image = UIImage(named: "head")
+            self.updateUploadHeadBtn(status: false)
         }
     }
     
-    func getImageFromPhotoLib()
+    func getImageFromPhotoLib(type:UIImagePickerControllerSourceType)
     {
-        _imagePickerController.sourceType = .photoLibrary
+        _imagePickerController.sourceType = type
         //判断是否支持相册
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             self.present(_imagePickerController, animated: true, completion: nil)
         }
     }
+    
+    // 判断是否可以保存
+    func isCanSave() -> Bool
+    {
+        if (_nameTextField.text?.isEmpty)! {
+            _messageView?.setMessage(Message: "请输入姓名！", Duration: 1)
+            return false
+        }
+        if (_telTextField.text?.isEmpty)! {
+            _messageView?.setMessage(Message: "请输入电话号码！", Duration: 1)
+            return false
+        }
+        return true
+    }
+    
     
     //MARK:- UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
@@ -139,17 +223,32 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         if type == "public.image"
         {
             let img = info[UIImagePickerControllerOriginalImage] as? UIImage
-            picker.dismiss(animated: true, completion: nil)
-            let w:CGFloat = (img?.size.width)!*0.5
-            let v:CGFloat = w*0.5
-            let newImg = img?.getSubImage(CGRect(x: kScreenWidth*0.5, y: kScreenHeight*0.5, width: w, height: w))
+            let newImgData = UIImageJPEGRepresentation(img!, 1)
+            let newImg = UIImage(data: newImgData!)
             _headImg.image = newImg
             
+            //修改“上传头像”按钮的状态
+            self.updateUploadHeadBtn(status: true)
+            
+            picker.dismiss(animated: true, completion: nil)
         }
         
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    //修改“上传头像”按钮状态：title和titleColor
+    func updateUploadHeadBtn(status:Bool)
+    {
+        if status {//选择过图片了
+            _loadImgBtn.setTitle(kTitle_headImg_change, for: .normal)
+            _loadImgBtn.setTitleColor(MainColor, for: .normal)
+        }else{
+            _loadImgBtn.setTitle(kTitle_headImg_upload, for: .normal)
+            _loadImgBtn.setTitleColor(WhiteColor, for: .normal)
+            
+        }
     }
     
 }

@@ -2,7 +2,7 @@
 //  User+CoreDataClass.swift
 //  
 //
-//  Created by caixiasun on 16/9/12.
+//  Created by caixiasun on 16/9/13.
 //
 //
 
