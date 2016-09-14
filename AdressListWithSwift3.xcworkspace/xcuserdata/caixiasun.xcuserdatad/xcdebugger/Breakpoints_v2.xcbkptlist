@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AdressListWithSwift3/CoreData/CoreDataTools.swift"
-            timestampString = "495453010.662036"
+            timestampString = "495527558.136736"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "deleteCoreData(ConditionDic:)"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "printAllDataWithCoreData()"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

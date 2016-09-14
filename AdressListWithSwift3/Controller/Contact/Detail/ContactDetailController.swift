@@ -56,8 +56,11 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
     @IBAction func itemAction(sender:UIButton)
     {
         switch sender.tag {
-        case 1:
-            let controller = YTNavigationController(rootViewController: EditContactController())
+        case 1:/// Edit
+            ///test data   构建测试数据
+            let vc = EditContactController()
+            vc.userModel = initTestDataWithModel()
+            let controller = YTNavigationController(rootViewController: vc)
             controller.initNavigationBar()
             self.present(controller, animated: false, completion: nil)
             break
@@ -152,3 +155,5 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
     }
     
 }
+
+
