@@ -1,9 +1,9 @@
 //
-//  Test.swift
-//  L05TableViewDemo
+//  YTColor.swift
+//  AdressListWithSwift3
 //
-//  Created by Enjoytouch on 16/3/9.
-//  Copyright © 2016年 CaixiaSun. All rights reserved.
+//  Created by caixiasun on 2016/9/16.
+//  Copyright © 2016年 yatou. All rights reserved.
 //
 
 import UIKit
@@ -50,3 +50,4 @@ let MainColor = colorWithHexString(hex: "35C6FF")
 let DeepGrayColor = colorWithHexString(hex: "7A7A7F")//搜索框的颜色
 let PageGrayColor = colorWithHexString(hex: "F6F6F6")
 let LineColor = colorWithHexString(hex: "C9C7CD")
+

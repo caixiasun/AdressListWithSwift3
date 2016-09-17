@@ -1,9 +1,9 @@
 //
-//  ETTools.swift
-//  LoadWebDataDemo01
+//  YTTools.swift
+//  AdressListWithSwift3
 //
-//  Created by Enjoytouch on 16/3/16.
-//  Copyright © 2016年 CaixiaSun. All rights reserved.
+//  Created by caixiasun on 2016/9/16.
+//  Copyright © 2016年 yatou. All rights reserved.
 //
 
 import UIKit
@@ -29,5 +29,3 @@ func setCornerRadius(view:UIView, radius:CGFloat)
     view.layer.cornerRadius = radius
     view.layer.masksToBounds = true
 }
-
-

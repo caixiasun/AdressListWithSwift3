@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -10,16 +10,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LeaveDetailController" customModule="AdressListWithSwift3" customModuleProvider="target">
             <connections>
-                <outlet property="_dateLab" destination="y6w-ZN-tHb" id="rgd-kl-x5d"/>
-                <outlet property="_headImg" destination="DlJ-he-Mp8" id="18M-ND-QS9"/>
-                <outlet property="_line1_height" destination="1OT-09-xG5" id="dYx-Uj-8oe"/>
-                <outlet property="_line2_height" destination="z3V-Df-Nah" id="qxY-WK-SGw"/>
-                <outlet property="_line3_height" destination="nHg-T9-bm5" id="PwX-v4-Mjz"/>
-                <outlet property="_line4_height" destination="RTa-FH-jf7" id="LsR-Kz-3fC"/>
-                <outlet property="_nameLab" destination="9jP-Y8-ED2" id="36s-IF-fjX"/>
-                <outlet property="_positionLab" destination="45L-9p-nUK" id="jJu-US-3QG"/>
-                <outlet property="_reasonLab" destination="fZ2-fB-Me6" id="EYe-qF-yQe"/>
-                <outlet property="_telLab" destination="a1k-MC-tA6" id="lqP-h0-MOJ"/>
+                <outlet property="dateLab" destination="y6w-ZN-tHb" id="AfM-aH-Ruf"/>
+                <outlet property="headImg" destination="DlJ-he-Mp8" id="8C2-cn-VoX"/>
+                <outlet property="line1_height" destination="1OT-09-xG5" id="Wq0-hl-HlI"/>
+                <outlet property="line2_height" destination="z3V-Df-Nah" id="Fpn-bJ-SG3"/>
+                <outlet property="line3_height" destination="nHg-T9-bm5" id="RLK-eg-1Pg"/>
+                <outlet property="line4_height" destination="RTa-FH-jf7" id="beR-tW-iMX"/>
+                <outlet property="nameLab" destination="9jP-Y8-ED2" id="N9x-sf-qvT"/>
+                <outlet property="positionLab" destination="45L-9p-nUK" id="ic8-Vl-Ccd"/>
+                <outlet property="reasonLab" destination="fZ2-fB-Me6" id="0zD-qB-ud7"/>
+                <outlet property="telLab" destination="a1k-MC-tA6" id="i2g-qB-yl6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

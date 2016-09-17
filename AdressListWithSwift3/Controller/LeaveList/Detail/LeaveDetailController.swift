@@ -10,16 +10,16 @@ import UIKit
 
 class LeaveDetailController: UIViewController {
     
-    @IBOutlet weak var _line1_height: NSLayoutConstraint!
-    @IBOutlet weak var _line2_height: NSLayoutConstraint!
-    @IBOutlet weak var _line3_height: NSLayoutConstraint!
-    @IBOutlet weak var _line4_height: NSLayoutConstraint!
-    @IBOutlet weak var _headImg: UIImageView!
-    @IBOutlet weak var _nameLab: UILabel!
-    @IBOutlet weak var _telLab: UILabel!
-    @IBOutlet weak var _positionLab: UILabel!
-    @IBOutlet weak var _dateLab: UILabel!
-    @IBOutlet weak var _reasonLab: UILabel!
+    @IBOutlet weak var line1_height: NSLayoutConstraint!
+    @IBOutlet weak var line2_height: NSLayoutConstraint!
+    @IBOutlet weak var line3_height: NSLayoutConstraint!
+    @IBOutlet weak var line4_height: NSLayoutConstraint!
+    @IBOutlet weak var headImg: UIImageView!
+    @IBOutlet weak var nameLab: UILabel!
+    @IBOutlet weak var telLab: UILabel!
+    @IBOutlet weak var positionLab: UILabel!
+    @IBOutlet weak var dateLab: UILabel!
+    @IBOutlet weak var reasonLab: UILabel!
     
     
     override func viewDidLoad() {
@@ -35,12 +35,12 @@ class LeaveDetailController: UIViewController {
         self.navigationController?.navigationBar.barStyle = UIBarStyle.default
         self.navigationController?.navigationBar.tintColor = WhiteColor
         
-        _line1_height.constant = 0.5
-        _line2_height.constant = 0.5
-        _line3_height.constant = 0.5
-        _line4_height.constant = 0.5
+        self.line1_height.constant = 0.5
+        self.line2_height.constant = 0.5
+        self.line3_height.constant = 0.5
+        self.line4_height.constant = 0.5
         
-        setCornerRadius(view: _headImg, radius: kRadius_headImg_common)
+        setCornerRadius(view: self.headImg, radius: kRadius_headImg_common)
     }
     
     @IBAction func itemAction(sender: UIButton) {

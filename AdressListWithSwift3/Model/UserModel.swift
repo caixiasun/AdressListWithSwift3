@@ -16,5 +16,6 @@ class UserModel: NSObject {
     var email:String?
     var address:String?
     var birthday:String?
-    var count:Int = 0    
+    var count:Int = 0
+    var idNum:Int = 0 //id
 }

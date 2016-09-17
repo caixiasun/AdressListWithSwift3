@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		00168B711D87A0D400DB858D /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00168B701D87A0D400DB858D /* MessageView.swift */; };
+		002CDF141D8C007600BA0B6E /* YTColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002CDF131D8C007600BA0B6E /* YTColor.swift */; };
+		002CDF161D8C00BC00BA0B6E /* YTFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002CDF151D8C00BC00BA0B6E /* YTFrame.swift */; };
+		002CDF181D8C030B00BA0B6E /* YTTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002CDF171D8C030B00BA0B6E /* YTTools.swift */; };
+		002CDF1A1D8C033B00BA0B6E /* YTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002CDF191D8C033B00BA0B6E /* YTView.swift */; };
 		0034C90C1D87F23000A8C4D4 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0034C90A1D87F23000A8C4D4 /* User+CoreDataClass.swift */; };
 		0034C90D1D87F23000A8C4D4 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0034C90B1D87F23000A8C4D4 /* User+CoreDataProperties.swift */; };
 		0034C90F1D87F9B100A8C4D4 /* CoreDataTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0034C90E1D87F9B100A8C4D4 /* CoreDataTools.swift */; };
@@ -18,10 +22,6 @@
 		0095615E1D864BDE00EF0D5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561501D864BDE00EF0D5A /* AppDelegate.swift */; };
 		0095616B1D864C0F00EF0D5A /* YTNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561611D864C0F00EF0D5A /* YTNavigationController.swift */; };
 		0095616C1D864C0F00EF0D5A /* YTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561621D864C0F00EF0D5A /* YTTabBarController.swift */; };
-		0095616D1D864C0F00EF0D5A /* ETColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561641D864C0F00EF0D5A /* ETColor.swift */; };
-		0095616E1D864C0F00EF0D5A /* ETFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561651D864C0F00EF0D5A /* ETFrame.swift */; };
-		0095616F1D864C0F00EF0D5A /* ETTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561661D864C0F00EF0D5A /* ETTools.swift */; };
-		009561701D864C0F00EF0D5A /* ETView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561671D864C0F00EF0D5A /* ETView.swift */; };
 		009561731D864E1600EF0D5A /* ContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561721D864E1600EF0D5A /* ContactController.swift */; };
 		009561761D864E3300EF0D5A /* LeaveListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561741D864E3300EF0D5A /* LeaveListController.swift */; };
 		009561771D864E3300EF0D5A /* LeaveListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009561751D864E3300EF0D5A /* LeaveListController.xib */; };
@@ -41,6 +41,8 @@
 		009561941D86527500EF0D5A /* LeaveDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009561921D86527500EF0D5A /* LeaveDetailController.xib */; };
 		009561971D8654F300EF0D5A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561961D8654F300EF0D5A /* UserModel.swift */; };
 		0095619B1D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 009561991D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodeld */; };
+		009F18201D8C30F9000E2A41 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 009F181F1D8C30F9000E2A41 /* data.json */; };
+		009F18221D8C48AA000E2A41 /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009F18211D8C48AA000E2A41 /* DataCenter.swift */; };
 		00C832DB1D86989900802D12 /* AdressListTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C832DA1D86989900802D12 /* AdressListTool.swift */; };
 		00C832E51D86AF1E00802D12 /* UIImage+YTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C832E41D86AF1E00802D12 /* UIImage+YTImage.m */; };
 		66CD801A26D3DD91BE6FF90F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADD75A7526AE7F4D9B5801EE /* libPods.a */; };
@@ -58,6 +60,10 @@
 
 /* Begin PBXFileReference section */
 		00168B701D87A0D400DB858D /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		002CDF131D8C007600BA0B6E /* YTColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTColor.swift; sourceTree = "<group>"; };
+		002CDF151D8C00BC00BA0B6E /* YTFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTFrame.swift; sourceTree = "<group>"; };
+		002CDF171D8C030B00BA0B6E /* YTTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTTools.swift; sourceTree = "<group>"; };
+		002CDF191D8C033B00BA0B6E /* YTView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTView.swift; sourceTree = "<group>"; };
 		0034C90A1D87F23000A8C4D4 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0034C90B1D87F23000A8C4D4 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0034C90E1D87F9B100A8C4D4 /* CoreDataTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTools.swift; sourceTree = "<group>"; };
@@ -72,10 +78,6 @@
 		009561501D864BDE00EF0D5A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		009561611D864C0F00EF0D5A /* YTNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTNavigationController.swift; sourceTree = "<group>"; };
 		009561621D864C0F00EF0D5A /* YTTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTTabBarController.swift; sourceTree = "<group>"; };
-		009561641D864C0F00EF0D5A /* ETColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETColor.swift; sourceTree = "<group>"; };
-		009561651D864C0F00EF0D5A /* ETFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETFrame.swift; sourceTree = "<group>"; };
-		009561661D864C0F00EF0D5A /* ETTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETTools.swift; sourceTree = "<group>"; };
-		009561671D864C0F00EF0D5A /* ETView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETView.swift; sourceTree = "<group>"; };
 		009561721D864E1600EF0D5A /* ContactController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactController.swift; sourceTree = "<group>"; };
 		009561741D864E3300EF0D5A /* LeaveListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaveListController.swift; sourceTree = "<group>"; };
 		009561751D864E3300EF0D5A /* LeaveListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaveListController.xib; sourceTree = "<group>"; };
@@ -96,6 +98,8 @@
 		009561921D86527500EF0D5A /* LeaveDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaveDetailController.xib; sourceTree = "<group>"; };
 		009561961D8654F300EF0D5A /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		0095619A1D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AdressListWithSwift3.xcdatamodel; sourceTree = "<group>"; };
+		009F181F1D8C30F9000E2A41 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		009F18211D8C48AA000E2A41 /* DataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCenter.swift; sourceTree = "<group>"; };
 		00C832DA1D86989900802D12 /* AdressListTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdressListTool.swift; sourceTree = "<group>"; };
 		00C832E31D86AF1E00802D12 /* UIImage+YTImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YTImage.h"; sourceTree = "<group>"; };
 		00C832E41D86AF1E00802D12 /* UIImage+YTImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YTImage.m"; sourceTree = "<group>"; };
@@ -123,6 +127,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		002CDF1F1D8C2F4D00BA0B6E /* DataCenter */ = {
+			isa = PBXGroup;
+			children = (
+				009F181F1D8C30F9000E2A41 /* data.json */,
+				009F18211D8C48AA000E2A41 /* DataCenter.swift */,
+			);
+			path = DataCenter;
+			sourceTree = "<group>";
+		};
 		009561201D86435F00EF0D5A = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +163,7 @@
 				0095614F1D864BDE00EF0D5A /* Controller */,
 				0095615A1D864BDE00EF0D5A /* Model */,
 				0095615B1D864BDE00EF0D5A /* View */,
+				002CDF1F1D8C2F4D00BA0B6E /* DataCenter */,
 				009561951D86537200EF0D5A /* Other_files */,
 				009561981D8678BE00EF0D5A /* CoreData */,
 			);
@@ -315,10 +329,10 @@
 		009561631D864C0F00EF0D5A /* Toos */ = {
 			isa = PBXGroup;
 			children = (
-				009561641D864C0F00EF0D5A /* ETColor.swift */,
-				009561651D864C0F00EF0D5A /* ETFrame.swift */,
-				009561661D864C0F00EF0D5A /* ETTools.swift */,
-				009561671D864C0F00EF0D5A /* ETView.swift */,
+				002CDF131D8C007600BA0B6E /* YTColor.swift */,
+				002CDF151D8C00BC00BA0B6E /* YTFrame.swift */,
+				002CDF171D8C030B00BA0B6E /* YTTools.swift */,
+				002CDF191D8C033B00BA0B6E /* YTView.swift */,
 				00C832E31D86AF1E00802D12 /* UIImage+YTImage.h */,
 				00C832E41D86AF1E00802D12 /* UIImage+YTImage.m */,
 			);
@@ -470,6 +484,7 @@
 				009561801D8651D200EF0D5A /* ContactDetailController.xib in Resources */,
 				009561841D8651F500EF0D5A /* AdressListCell.xib in Resources */,
 				009561881D86522000EF0D5A /* ContactDetailCell.xib in Resources */,
+				009F18201D8C30F9000E2A41 /* data.json in Resources */,
 				0095617C1D86503800EF0D5A /* NewContactController.xib in Resources */,
 				009561901D86526400EF0D5A /* ApplyLeaveController.xib in Resources */,
 				009561321D86435F00EF0D5A /* Main.storyboard in Resources */,
@@ -542,27 +557,28 @@
 				0095616C1D864C0F00EF0D5A /* YTTabBarController.swift in Sources */,
 				0095619B1D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodeld in Sources */,
 				0034C90F1D87F9B100A8C4D4 /* CoreDataTools.swift in Sources */,
+				002CDF141D8C007600BA0B6E /* YTColor.swift in Sources */,
 				0095615E1D864BDE00EF0D5A /* AppDelegate.swift in Sources */,
 				00C832DB1D86989900802D12 /* AdressListTool.swift in Sources */,
 				0095618F1D86526400EF0D5A /* ApplyLeaveController.swift in Sources */,
 				0095617F1D8651D200EF0D5A /* ContactDetailController.swift in Sources */,
 				009561761D864E3300EF0D5A /* LeaveListController.swift in Sources */,
+				002CDF1A1D8C033B00BA0B6E /* YTView.swift in Sources */,
 				00C832E51D86AF1E00802D12 /* UIImage+YTImage.m in Sources */,
 				0034C90C1D87F23000A8C4D4 /* User+CoreDataClass.swift in Sources */,
 				009561831D8651F500EF0D5A /* AdressListCell.swift in Sources */,
-				0095616E1D864C0F00EF0D5A /* ETFrame.swift in Sources */,
 				009561931D86527500EF0D5A /* LeaveDetailController.swift in Sources */,
 				00168B711D87A0D400DB858D /* MessageView.swift in Sources */,
-				009561701D864C0F00EF0D5A /* ETView.swift in Sources */,
 				009561871D86522000EF0D5A /* ContactDetailCell.swift in Sources */,
 				0095616B1D864C0F00EF0D5A /* YTNavigationController.swift in Sources */,
+				009F18221D8C48AA000E2A41 /* DataCenter.swift in Sources */,
 				0095617B1D86503800EF0D5A /* NewContactController.swift in Sources */,
 				009561731D864E1600EF0D5A /* ContactController.swift in Sources */,
 				0095618B1D86524300EF0D5A /* EditContactController.swift in Sources */,
 				0034C90D1D87F23000A8C4D4 /* User+CoreDataProperties.swift in Sources */,
+				002CDF181D8C030B00BA0B6E /* YTTools.swift in Sources */,
 				009561971D8654F300EF0D5A /* UserModel.swift in Sources */,
-				0095616F1D864C0F00EF0D5A /* ETTools.swift in Sources */,
-				0095616D1D864C0F00EF0D5A /* ETColor.swift in Sources */,
+				002CDF161D8C00BC00BA0B6E /* YTFrame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

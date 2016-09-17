@@ -21,11 +21,11 @@ class YTTabBarController: UITabBarController {
         let tabBarTintColor = colorWithHexString(hex:"2CA6D7")
         self.tabBar.tintColor = tabBarTintColor
         self.tabBar.backgroundImage = UIImage(named: "white.png")
-        let height = ETHeight(obj: self.tabBar)
+        let height = getYTHeight(obj: self.tabBar)
         
         let blurtEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
         let effect = UIVisualEffectView(effect: blurtEffect)
-        setETSize(obj: effect, size: CGSize(width:kScreenWidth, height:height))
+        setYTSize(obj: effect, size: CGSize(width:kScreenWidth, height:height))
         self.tabBar.addSubview(effect)
         
         let naviContact = YTNavigationController(rootViewController: ContactController())

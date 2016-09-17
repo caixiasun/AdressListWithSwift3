@@ -10,22 +10,21 @@ import UIKit
 
 class ContactDetailController: UIViewController, UITableViewDelegate,UITableViewDataSource{
     
-    @IBOutlet weak var _headImg: UIImageView!
-    @IBOutlet weak var _nameLab: UILabel!
-    @IBOutlet weak var _headImgTapBtn: UIButton!
+    @IBOutlet weak var headImg: UIImageView!
+    @IBOutlet weak var nameLab: UILabel!
+    @IBOutlet weak var headImgTapBtn: UIButton!
     
-    @IBOutlet weak var _tablView: UITableView!
-    let _cellIdentifier = "ContactDetailCell"
-    var _dataSource:NSDictionary?
-    var _userModel:UserModel?
+    @IBOutlet weak var tablView: UITableView!
+    let cellIdentifier = "ContactDetailCell"
+    var dataSource:NSDictionary?
+    var userModel:UserModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.initSubviews()
         
-        //模拟请求
-        self.getData()
+       self.nameLab.text = userModel?.name
         
     }
     
@@ -36,18 +35,18 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
         
         self.initNaviBar()
         
-        _tablView.register(UINib(nibName: _cellIdentifier, bundle: nil), forCellReuseIdentifier: _cellIdentifier)
-        _dataSource = NSDictionary()
+        self.tablView.register(UINib(nibName: self.cellIdentifier, bundle: nil), forCellReuseIdentifier: self.cellIdentifier)
+        self.dataSource = NSDictionary()
         
-        setCornerRadius(view: _headImg, radius: kRadius_headImg_common)
-        setCornerRadius(view: _headImgTapBtn, radius: kRadius_headImg_common)
+        setCornerRadius(view: self.headImg, radius: kRadius_headImg_common)
+        setCornerRadius(view: self.headImgTapBtn, radius: kRadius_headImg_common)
     }
     func initNaviBar()
     {
         self.navigationController?.navigationBar.barStyle = UIBarStyle.default
         self.navigationController?.navigationBar.tintColor = WhiteColor
         
-        let editBtn = ETDrawButton(title: "Edit", TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(ContactDetailController.itemAction(sender:)))
+        let editBtn = YTDrawButton(title: "Edit", TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(ContactDetailController.itemAction(sender:)))
         editBtn.tag = 1
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: editBtn)
     }
@@ -78,7 +77,7 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return (_userModel?.count)!
+            return 4
         }else{//发送信息 模块
             return 2
         }
@@ -91,25 +90,25 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: _cellIdentifier, for: indexPath) as! ContactDetailCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! ContactDetailCell
         if indexPath.section == 0 {
             cell.telLab.isHidden = false
             switch indexPath.row {
             case 0:
                 cell.titleLab.text = "电话号码"
-                cell.telLab.text = _userModel?.tel
+                cell.telLab.text = self.userModel?.tel
                 break
             case 1:
                 cell.titleLab.text = "电子邮件"
-                cell.telLab.text = _userModel?.email
+                cell.telLab.text = self.userModel?.email
                 break
             case 2:
                 cell.titleLab.text = "出生日期"
-                cell.telLab.text = _userModel?.birthday
+                cell.telLab.text = self.userModel?.birthday
                 break
             case 3:
                 cell.titleLab.text = "家庭住址"
-                cell.telLab.text = _userModel?.address
+                cell.telLab.text = self.userModel?.address
                 break
             default:
                 break
@@ -129,7 +128,7 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0://拨打电话
-            let tel = "tel://" + (_userModel?.tel)!
+            let tel = "tel://" + (self.userModel?.tel)!
             let url = URL(string: tel)
             if application.canOpenURL(url!) {
                 application.open(url!)
@@ -140,18 +139,6 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
         }
         
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-   
-   
-    
-    
-    func getData()
-    {
-        let dic1 = ["name":"丫头","tel":"15214141452","email":"","address":"中国香港","birthday":"1990.01.01"]
-        _userModel = UserModel.mj_object(withKeyValues: dic1) as UserModel
-        _nameLab.text = _userModel?.name
-        _userModel?.count = dic1.count - 1
-        _tablView.reloadData()
     }
     
 }

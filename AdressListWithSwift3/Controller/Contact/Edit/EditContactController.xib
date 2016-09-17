@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -10,14 +10,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditContactController" customModule="AdressListWithSwift3" customModuleProvider="target">
             <connections>
-                <outlet property="_addressTextField" destination="qNa-gN-zrC" id="Q9s-i0-T2x"/>
-                <outlet property="_birthDayTextField" destination="M1a-3k-1LL" id="rPM-3K-dY9"/>
-                <outlet property="_deleteBtn" destination="uWF-yr-sMg" id="tto-hk-Fe5"/>
-                <outlet property="_emailTextField" destination="LIU-D4-ofR" id="lqS-2S-T0R"/>
-                <outlet property="_headImg" destination="H11-1R-Ifu" id="55N-gQ-o77"/>
-                <outlet property="_nameTextFileld" destination="pBv-tB-TPk" id="VCP-Ej-jPM"/>
-                <outlet property="_tapBtnHeadImg" destination="rfO-Lj-NxA" id="JwV-4a-w8C"/>
-                <outlet property="_telTextField" destination="pFQ-dl-zeK" id="iUl-6i-l2c"/>
+                <outlet property="addressTextField" destination="qNa-gN-zrC" id="jrj-a2-Xdu"/>
+                <outlet property="birthDayTextField" destination="M1a-3k-1LL" id="IsT-AO-crv"/>
+                <outlet property="deleteBtn" destination="uWF-yr-sMg" id="3iK-mv-LCH"/>
+                <outlet property="emailTextField" destination="LIU-D4-ofR" id="bAq-th-K7G"/>
+                <outlet property="headImg" destination="H11-1R-Ifu" id="04j-xB-DdW"/>
+                <outlet property="nameTextFileld" destination="pBv-tB-TPk" id="7PF-t9-btX"/>
+                <outlet property="tapBtnHeadImg" destination="rfO-Lj-NxA" id="95n-Em-fNS"/>
+                <outlet property="telTextField" destination="pFQ-dl-zeK" id="kK1-Zu-kLG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

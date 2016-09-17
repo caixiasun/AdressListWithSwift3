@@ -18,10 +18,9 @@ class AdressListCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func setContent(data:UserModel)
+    {
+        self.nameLab.text = data.name
     }
     
 }

@@ -10,12 +10,12 @@ import UIKit
 
 class ApplyLeaveController: UIViewController ,UITextFieldDelegate{
     
-    @IBOutlet weak var _reasonTextView: UITextView!
+    @IBOutlet weak var reasonTextView: UITextView!
     
-    @IBOutlet weak var _nameTextField: UITextField!
-    @IBOutlet weak var _telTextField: UITextField!
-    @IBOutlet weak var _positionTextField: UITextField!
-    @IBOutlet weak var _dateTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var telTextField: UITextField!
+    @IBOutlet weak var positionTextField: UITextField!
+    @IBOutlet weak var dateTextField: UITextField!
     
     
     override func viewDidLoad() {
@@ -29,20 +29,20 @@ class ApplyLeaveController: UIViewController ,UITextFieldDelegate{
         self.initNaviBar()
         
         
-        _reasonTextView.text = "请假理由"
-        _reasonTextView.layer.borderColor = LineColor.cgColor
-        _reasonTextView.layer.borderWidth = 0.5
-        setCornerRadius(view: _reasonTextView, radius: 10)
+        reasonTextView.text = "请假理由"
+        reasonTextView.layer.borderColor = LineColor.cgColor
+        reasonTextView.layer.borderWidth = 0.5
+        setCornerRadius(view: reasonTextView, radius: 10)
     }
     func initNaviBar()
     {
         self.navigationItem.title = "请假申请"
         
-        let cancelBtn = ETDrawButton(title: "Cancel", TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(ApplyLeaveController.itemAction(sender:)))
+        let cancelBtn = YTDrawButton(title: "Cancel", TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(ApplyLeaveController.itemAction(sender:)))
         cancelBtn.tag = 1
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: cancelBtn)
         
-        let doneBtn = ETDrawButton(title: "Submit", TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(ApplyLeaveController.itemAction(sender:)))        
+        let doneBtn = YTDrawButton(title: "Submit", TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(ApplyLeaveController.itemAction(sender:)))
         doneBtn.tag = 2
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: doneBtn)
     }

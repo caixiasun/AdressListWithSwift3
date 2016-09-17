@@ -10,19 +10,19 @@ import UIKit
 
 class EditContactController: UIViewController {
     
-    @IBOutlet weak var _headImg: UIImageView!
-    @IBOutlet weak var _tapBtnHeadImg: UIButton!
-    @IBOutlet weak var _nameTextFileld: UITextField!
-    @IBOutlet weak var _telTextField: UITextField!
-    @IBOutlet weak var _birthDayTextField: UITextField!
-    @IBOutlet weak var _addressTextField: UITextField!
-    @IBOutlet weak var _emailTextField: UITextField!
-    @IBOutlet weak var _deleteBtn: UIButton!
+    @IBOutlet weak var headImg: UIImageView!
+    @IBOutlet weak var tapBtnHeadImg: UIButton!
+    @IBOutlet weak var nameTextFileld: UITextField!
+    @IBOutlet weak var telTextField: UITextField!
+    @IBOutlet weak var birthDayTextField: UITextField!
+    @IBOutlet weak var addressTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var deleteBtn: UIButton!
     
     //用于从详情界面接收数据
     var userModel:UserModel?
-    var _messageView:MessageView?
-    var _alerController:UIAlertController?
+    var messageView:MessageView?
+    var alerController:UIAlertController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,40 +36,40 @@ class EditContactController: UIViewController {
         self.initNaviBar()
         
         
-        setCornerRadius(view: _tapBtnHeadImg, radius: kRadius_headImg_common)
-        setCornerRadius(view: _headImg, radius: kRadius_headImg_common)
+        setCornerRadius(view: self.tapBtnHeadImg, radius: kRadius_headImg_common)
+        setCornerRadius(view: self.headImg, radius: kRadius_headImg_common)
         
-        _deleteBtn.layer.borderColor = LineColor.cgColor
-        _deleteBtn.layer.borderWidth = 0.5
-        setCornerRadius(view: _deleteBtn, radius: 10)
+        self.deleteBtn.layer.borderColor = LineColor.cgColor
+        self.deleteBtn.layer.borderWidth = 0.5
+        setCornerRadius(view: self.deleteBtn, radius: 10)
         
-        _messageView = addMessageView(InView: self.view)
+        self.messageView = addMessageView(InView: self.view)
         
-        _headImg.image = userModel?.headImg
-        _nameTextFileld.text = userModel?.name
-        _telTextField.text = userModel?.tel
-        _emailTextField.text = userModel?.email
-        _birthDayTextField.text = userModel?.birthday
-        _addressTextField.text = userModel?.address
+        self.headImg.image = userModel?.headImg
+        self.nameTextFileld.text = userModel?.name
+        self.telTextField.text = userModel?.tel
+        self.emailTextField.text = userModel?.email
+        self.birthDayTextField.text = userModel?.birthday
+        self.addressTextField.text = userModel?.address
         
         weak var block = self
-        _alerController = UIAlertController(title: "温馨提醒：", message: "您尚未做任何修改，确认要退出本界面吗？", preferredStyle: .alert)
+        self.alerController = UIAlertController(title: "温馨提醒：", message: "您尚未做任何修改，确认要退出本界面吗？", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "取消", style: .cancel) { (action:UIAlertAction) in
             block?.alerAction(action: action)
         }
         let confirm = UIAlertAction(title: "确定", style: .default) { (action:UIAlertAction) in
             block?.alerAction(action: action)
         }
-        _alerController?.addAction(cancel)
-        _alerController?.addAction(confirm)
+        self.alerController?.addAction(cancel)
+        self.alerController?.addAction(confirm)
     }
     func initNaviBar()
     {
-        let cancelBtn = ETDrawButton(title: "Cancel", TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(EditContactController.itemAction(sender:)))
+        let cancelBtn = YTDrawButton(title: "Cancel", TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(EditContactController.itemAction(sender:)))
         cancelBtn.tag = 1
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: cancelBtn)
         
-        let doneBtn = ETDrawButton(title: "Done", TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(EditContactController.itemAction(sender:)))
+        let doneBtn = YTDrawButton(title: "Done", TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(EditContactController.itemAction(sender:)))
         doneBtn.tag = 2
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: doneBtn)
     }
@@ -98,25 +98,25 @@ class EditContactController: UIViewController {
     func saveModify()
     {
         //如果所有字段都和原始的model相同，则不需要保存，
-        let headStatus = (userModel?.headImg == _headImg.image)
-        let nameStatus = (userModel?.name == _nameTextFileld.text)
-        let telStatus = (userModel?.tel == _telTextField.text)
-        let emailStatus = (userModel?.email == _emailTextField.text)
-        let birthStatus = (userModel?.birthday == _birthDayTextField.text)
-        let addressStatus = (userModel?.address == _addressTextField.text)
+        let headStatus = (userModel?.headImg == self.headImg.image)
+        let nameStatus = (userModel?.name == self.nameTextFileld.text)
+        let telStatus = (userModel?.tel == self.telTextField.text)
+        let emailStatus = (userModel?.email == self.emailTextField.text)
+        let birthStatus = (userModel?.birthday == self.birthDayTextField.text)
+        let addressStatus = (userModel?.address == self.addressTextField.text)
         if headStatus && nameStatus && telStatus && emailStatus && birthStatus && addressStatus {
-            present(_alerController!, animated: true, completion: nil)
+            present(self.alerController!, animated: true, completion: nil)
             return ;
         }
         
         //有改动，保存修改
         let tel = userModel?.tel
-        userModel?.headImg = _headImg.image
-        userModel?.name = _nameTextFileld.text
-        userModel?.tel = _telTextField.text
-        userModel?.email = _emailTextField.text
-        userModel?.birthday = _birthDayTextField.text
-        userModel?.address = _addressTextField.text
+        userModel?.headImg = self.headImg.image
+        userModel?.name = self.nameTextFileld.text
+        userModel?.tel = self.telTextField.text
+        userModel?.email = self.emailTextField.text
+        userModel?.birthday = self.birthDayTextField.text
+        userModel?.address = self.addressTextField.text
         updateDataWithCoreData(Model: userModel!, Where: tel!)
         
         exitThisController()

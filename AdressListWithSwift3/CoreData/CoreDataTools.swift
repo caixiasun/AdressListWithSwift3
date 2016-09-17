@@ -79,6 +79,26 @@ func deleteCoreData(ConditionDic conditionDic:NSMutableDictionary)
 func updateDataWithCoreData(Model userModel:UserModel, Where condition:String)
 {
     let request:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: EntityName)
+    let entity:NSEntityDescription = NSEntityDescription.entity(forEntityName: EntityName, in: appDelegate.managedObjectContext)!
+    request.entity = entity
+    do{
+        let userList = try appDelegate.managedObjectContext.fetch(request) as! [User] as NSArray
+        if userList.count != 0 {
+            let user = userList[0] as! User
+            user.headImg = UIImageJPEGRepresentation(userModel.headImg!, 1) as NSData?
+            user.name = userModel.name
+            user.tel = userModel.tel
+            user.email = userModel.email
+            user.birthDay = userModel.birthday
+            user.address = userModel.address
+            try appDelegate.managedObjectContext.save()
+            print("修改成功 ~ ~")
+        }else{
+            print("修改失败，没有符合条件的联系人！")
+        }
+    }catch{
+        print("修改失败 ~ ~")
+    }
     
 }
 //读取数据
