@@ -30,7 +30,7 @@
                 <constraint firstItem="zYi-ex-9wr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="14T-oX-ns5"/>
                 <constraint firstItem="zYi-ex-9wr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5g3-du-zvb"/>
                 <constraint firstAttribute="trailing" secondItem="zYi-ex-9wr" secondAttribute="trailing" id="csS-7Z-ijK"/>
-                <constraint firstAttribute="bottom" secondItem="zYi-ex-9wr" secondAttribute="bottom" id="gSA-AG-4Sj"/>
+                <constraint firstAttribute="bottom" secondItem="zYi-ex-9wr" secondAttribute="bottom" constant="-49" id="gSA-AG-4Sj"/>
             </constraints>
         </view>
     </objects>

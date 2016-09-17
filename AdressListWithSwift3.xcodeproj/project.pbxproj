@@ -15,8 +15,6 @@
 		0034C90C1D87F23000A8C4D4 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0034C90A1D87F23000A8C4D4 /* User+CoreDataClass.swift */; };
 		0034C90D1D87F23000A8C4D4 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0034C90B1D87F23000A8C4D4 /* User+CoreDataProperties.swift */; };
 		0034C90F1D87F9B100A8C4D4 /* CoreDataTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0034C90E1D87F9B100A8C4D4 /* CoreDataTools.swift */; };
-		009561321D86435F00EF0D5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 009561301D86435F00EF0D5A /* Main.storyboard */; };
-		009561371D86436000EF0D5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 009561361D86436000EF0D5A /* Assets.xcassets */; };
 		0095613A1D86436000EF0D5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 009561381D86436000EF0D5A /* LaunchScreen.storyboard */; };
 		009561451D86436100EF0D5A /* AdressListWithSwift3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561441D86436100EF0D5A /* AdressListWithSwift3Tests.swift */; };
 		0095615E1D864BDE00EF0D5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561501D864BDE00EF0D5A /* AppDelegate.swift */; };
@@ -42,10 +40,11 @@
 		009561971D8654F300EF0D5A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561961D8654F300EF0D5A /* UserModel.swift */; };
 		0095619B1D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 009561991D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodeld */; };
 		009F18201D8C30F9000E2A41 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 009F181F1D8C30F9000E2A41 /* data.json */; };
-		009F18221D8C48AA000E2A41 /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009F18211D8C48AA000E2A41 /* DataCenter.swift */; };
 		00C832DB1D86989900802D12 /* AdressListTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C832DA1D86989900802D12 /* AdressListTool.swift */; };
 		00C832E51D86AF1E00802D12 /* UIImage+YTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C832E41D86AF1E00802D12 /* UIImage+YTImage.m */; };
-		66CD801A26D3DD91BE6FF90F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADD75A7526AE7F4D9B5801EE /* libPods.a */; };
+		012F14910562DDD5A2DA8DBB /* libPods-AdressListWithSwift3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D32268DFBA6ACB35AC45AA /* libPods-AdressListWithSwift3.a */; };
+		452A60571D8D6C1C00B19BCA /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452A60561D8D6C1C00B19BCA /* DataCenter.swift */; };
+		45ADFA3B1D8D114600A58BE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45ADFA3A1D8D114600A58BE8 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,8 +67,6 @@
 		0034C90B1D87F23000A8C4D4 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0034C90E1D87F9B100A8C4D4 /* CoreDataTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTools.swift; sourceTree = "<group>"; };
 		009561291D86435F00EF0D5A /* AdressListWithSwift3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdressListWithSwift3.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		009561311D86435F00EF0D5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		009561361D86436000EF0D5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		009561391D86436000EF0D5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0095613B1D86436000EF0D5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		009561401D86436100EF0D5A /* AdressListWithSwift3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdressListWithSwift3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,13 +96,14 @@
 		009561961D8654F300EF0D5A /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		0095619A1D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AdressListWithSwift3.xcdatamodel; sourceTree = "<group>"; };
 		009F181F1D8C30F9000E2A41 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
-		009F18211D8C48AA000E2A41 /* DataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCenter.swift; sourceTree = "<group>"; };
 		00C832DA1D86989900802D12 /* AdressListTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdressListTool.swift; sourceTree = "<group>"; };
 		00C832E31D86AF1E00802D12 /* UIImage+YTImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YTImage.h"; sourceTree = "<group>"; };
 		00C832E41D86AF1E00802D12 /* UIImage+YTImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YTImage.m"; sourceTree = "<group>"; };
-		1395E843211852FACD605482 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		ADD75A7526AE7F4D9B5801EE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4319F2D63E06F8BB30B3224 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		0D876DD66BFC90101C9907BC /* Pods-AdressListWithSwift3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdressListWithSwift3.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AdressListWithSwift3/Pods-AdressListWithSwift3.debug.xcconfig"; sourceTree = "<group>"; };
+		32D32268DFBA6ACB35AC45AA /* libPods-AdressListWithSwift3.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdressListWithSwift3.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		452A60561D8D6C1C00B19BCA /* DataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCenter.swift; sourceTree = "<group>"; };
+		45ADFA3A1D8D114600A58BE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CBA5475F49F78B881E861EDE /* Pods-AdressListWithSwift3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdressListWithSwift3.release.xcconfig"; path = "Pods/Target Support Files/Pods-AdressListWithSwift3/Pods-AdressListWithSwift3.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66CD801A26D3DD91BE6FF90F /* libPods.a in Frameworks */,
+				012F14910562DDD5A2DA8DBB /* libPods-AdressListWithSwift3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				009F181F1D8C30F9000E2A41 /* data.json */,
-				009F18211D8C48AA000E2A41 /* DataCenter.swift */,
+				452A60561D8D6C1C00B19BCA /* DataCenter.swift */,
 			);
 			path = DataCenter;
 			sourceTree = "<group>";
@@ -143,8 +141,8 @@
 				0095615F1D864C0F00EF0D5A /* YTCore */,
 				009561431D86436100EF0D5A /* AdressListWithSwift3Tests */,
 				0095612A1D86435F00EF0D5A /* Products */,
-				3807576B5852A4A42F938643 /* Pods */,
-				63EC3E7043A7EE68FACD92DC /* Frameworks */,
+				2CF4CBC189F13995FAEB075A /* Pods */,
+				3E31F172030BAA117023B77E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -350,8 +348,7 @@
 		009561951D86537200EF0D5A /* Other_files */ = {
 			isa = PBXGroup;
 			children = (
-				009561301D86435F00EF0D5A /* Main.storyboard */,
-				009561361D86436000EF0D5A /* Assets.xcassets */,
+				45ADFA3A1D8D114600A58BE8 /* Assets.xcassets */,
 				009561381D86436000EF0D5A /* LaunchScreen.storyboard */,
 				0095613B1D86436000EF0D5A /* Info.plist */,
 				009561781D864EA100EF0D5A /* Bridge-Header.h */,
@@ -371,19 +368,19 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		3807576B5852A4A42F938643 /* Pods */ = {
+		2CF4CBC189F13995FAEB075A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1395E843211852FACD605482 /* Pods.debug.xcconfig */,
-				F4319F2D63E06F8BB30B3224 /* Pods.release.xcconfig */,
+				0D876DD66BFC90101C9907BC /* Pods-AdressListWithSwift3.debug.xcconfig */,
+				CBA5475F49F78B881E861EDE /* Pods-AdressListWithSwift3.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		63EC3E7043A7EE68FACD92DC /* Frameworks */ = {
+		3E31F172030BAA117023B77E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ADD75A7526AE7F4D9B5801EE /* libPods.a */,
+				32D32268DFBA6ACB35AC45AA /* libPods-AdressListWithSwift3.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -395,12 +392,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 009561491D86436100EF0D5A /* Build configuration list for PBXNativeTarget "AdressListWithSwift3" */;
 			buildPhases = (
-				D24A328AF85B011D10C428AA /* Check Pods Manifest.lock */,
+				29785F857670C6F4B8DF7D06 /* [CP] Check Pods Manifest.lock */,
 				009561251D86435F00EF0D5A /* Sources */,
 				009561261D86435F00EF0D5A /* Frameworks */,
 				009561271D86435F00EF0D5A /* Resources */,
-				DC9FB9FD1A461A39E3E277D4 /* Embed Pods Frameworks */,
-				C8B8311502F31217575FED42 /* Copy Pods Resources */,
+				8C00A5BA5DCE619572D4B5FF /* [CP] Embed Pods Frameworks */,
+				207D6C5A1EBD04CF0D39A504 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -479,7 +476,7 @@
 			files = (
 				0095613A1D86436000EF0D5A /* LaunchScreen.storyboard in Resources */,
 				009561771D864E3300EF0D5A /* LeaveListController.xib in Resources */,
-				009561371D86436000EF0D5A /* Assets.xcassets in Resources */,
+				45ADFA3B1D8D114600A58BE8 /* Assets.xcassets in Resources */,
 				0095618C1D86524300EF0D5A /* EditContactController.xib in Resources */,
 				009561801D8651D200EF0D5A /* ContactDetailController.xib in Resources */,
 				009561841D8651F500EF0D5A /* AdressListCell.xib in Resources */,
@@ -487,7 +484,6 @@
 				009F18201D8C30F9000E2A41 /* data.json in Resources */,
 				0095617C1D86503800EF0D5A /* NewContactController.xib in Resources */,
 				009561901D86526400EF0D5A /* ApplyLeaveController.xib in Resources */,
-				009561321D86435F00EF0D5A /* Main.storyboard in Resources */,
 				009561941D86527500EF0D5A /* LeaveDetailController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,29 +498,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C8B8311502F31217575FED42 /* Copy Pods Resources */ = {
+		207D6C5A1EBD04CF0D39A504 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AdressListWithSwift3/Pods-AdressListWithSwift3-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D24A328AF85B011D10C428AA /* Check Pods Manifest.lock */ = {
+		29785F857670C6F4B8DF7D06 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -532,19 +528,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		DC9FB9FD1A461A39E3E277D4 /* Embed Pods Frameworks */ = {
+		8C00A5BA5DCE619572D4B5FF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AdressListWithSwift3/Pods-AdressListWithSwift3-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -562,6 +558,7 @@
 				00C832DB1D86989900802D12 /* AdressListTool.swift in Sources */,
 				0095618F1D86526400EF0D5A /* ApplyLeaveController.swift in Sources */,
 				0095617F1D8651D200EF0D5A /* ContactDetailController.swift in Sources */,
+				452A60571D8D6C1C00B19BCA /* DataCenter.swift in Sources */,
 				009561761D864E3300EF0D5A /* LeaveListController.swift in Sources */,
 				002CDF1A1D8C033B00BA0B6E /* YTView.swift in Sources */,
 				00C832E51D86AF1E00802D12 /* UIImage+YTImage.m in Sources */,
@@ -571,7 +568,6 @@
 				00168B711D87A0D400DB858D /* MessageView.swift in Sources */,
 				009561871D86522000EF0D5A /* ContactDetailCell.swift in Sources */,
 				0095616B1D864C0F00EF0D5A /* YTNavigationController.swift in Sources */,
-				009F18221D8C48AA000E2A41 /* DataCenter.swift in Sources */,
 				0095617B1D86503800EF0D5A /* NewContactController.swift in Sources */,
 				009561731D864E1600EF0D5A /* ContactController.swift in Sources */,
 				0095618B1D86524300EF0D5A /* EditContactController.swift in Sources */,
@@ -601,14 +597,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		009561301D86435F00EF0D5A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				009561311D86435F00EF0D5A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		009561381D86436000EF0D5A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -717,12 +705,13 @@
 		};
 		0095614A1D86436100EF0D5A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1395E843211852FACD605482 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 0D876DD66BFC90101C9907BC /* Pods-AdressListWithSwift3.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = FG75MFKDAB;
 				INFOPLIST_FILE = AdressListWithSwift3/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.enjoytouch.AdressListWithSwift3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -733,12 +722,13 @@
 		};
 		0095614B1D86436100EF0D5A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F4319F2D63E06F8BB30B3224 /* Pods.release.xcconfig */;
+			baseConfigurationReference = CBA5475F49F78B881E861EDE /* Pods-AdressListWithSwift3.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = FG75MFKDAB;
 				INFOPLIST_FILE = AdressListWithSwift3/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.enjoytouch.AdressListWithSwift3;
 				PRODUCT_NAME = "$(TARGET_NAME)";

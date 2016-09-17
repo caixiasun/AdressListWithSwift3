@@ -56,14 +56,13 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
     {
         switch sender.tag {
         case 1:/// Edit
-            ///test data   构建测试数据
             let vc = EditContactController()
-            vc.userModel = initTestDataWithModel()
+            vc.userModel = self.userModel
             let controller = YTNavigationController(rootViewController: vc)
             controller.initNavigationBar()
             self.present(controller, animated: false, completion: nil)
             break
-        case 2:
+        case 2://点击头像,查看大图
             
             break
         default:
@@ -104,7 +103,7 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
                 break
             case 2:
                 cell.titleLab.text = "出生日期"
-                cell.telLab.text = self.userModel?.birthday
+                cell.telLab.text = self.userModel?.birthDay
                 break
             case 3:
                 cell.titleLab.text = "家庭住址"

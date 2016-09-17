@@ -78,6 +78,7 @@ class MessageView: UIView {
     {
         _titleLab?.isHidden = true
         _loadingView?.isHidden = false
+        self.isHidden = false
         setYTCenterX(obj: _loadingView!, x: message_w*0.5)
         setYTCenterY(obj: _loadingView!, y: message_w*0.5)
         _loadingView?.startAnimating()

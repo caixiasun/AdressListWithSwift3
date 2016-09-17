@@ -29,6 +29,7 @@ class EditContactController: UIViewController {
         
         self.initSubviews()
         
+        self.initData()
         
     }
     func initSubviews()
@@ -45,12 +46,7 @@ class EditContactController: UIViewController {
         
         self.messageView = addMessageView(InView: self.view)
         
-        self.headImg.image = userModel?.headImg
-        self.nameTextFileld.text = userModel?.name
-        self.telTextField.text = userModel?.tel
-        self.emailTextField.text = userModel?.email
-        self.birthDayTextField.text = userModel?.birthday
-        self.addressTextField.text = userModel?.address
+        
         
         weak var block = self
         self.alerController = UIAlertController(title: "温馨提醒：", message: "您尚未做任何修改，确认要退出本界面吗？", preferredStyle: .alert)
@@ -73,6 +69,19 @@ class EditContactController: UIViewController {
         doneBtn.tag = 2
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: doneBtn)
     }
+    func initData()
+    {
+        if ((userModel?.headImg) != nil) {
+            self.headImg.image = userModel?.headImg
+        }
+        
+        self.nameTextFileld.text = userModel?.name
+        self.telTextField.text = userModel?.tel
+        self.emailTextField.text = userModel?.email
+        self.addressTextField.text = userModel?.address
+        self.birthDayTextField.text = userModel?.birthDay
+    }
+    //MARK: -action method
     @IBAction func itemAction(sender:UIButton)
     {
         switch sender.tag {
@@ -85,6 +94,8 @@ class EditContactController: UIViewController {
             break
         case 3://删除联系人
             deleteCoreData(ConditionDic: ["tel":userModel?.tel])
+            self.messageView?.setMessage(Message: "删除成功!", Duration: 1)
+            perform(#selector(returnRootViewController), with: nil, afterDelay: 2)
             break
         default:
             break
@@ -94,6 +105,13 @@ class EditContactController: UIViewController {
     {
         self.navigationController!.dismiss(animated: true, completion: nil)
     }
+    //返回跟视图
+    func returnRootViewController()
+    {
+        let viewControllers = appDelegate.tabBarController.viewControllers
+        
+    }
+    
     //保存修改
     func saveModify()
     {
@@ -102,7 +120,7 @@ class EditContactController: UIViewController {
         let nameStatus = (userModel?.name == self.nameTextFileld.text)
         let telStatus = (userModel?.tel == self.telTextField.text)
         let emailStatus = (userModel?.email == self.emailTextField.text)
-        let birthStatus = (userModel?.birthday == self.birthDayTextField.text)
+        let birthStatus = (userModel?.birthDay == self.birthDayTextField.text)
         let addressStatus = (userModel?.address == self.addressTextField.text)
         if headStatus && nameStatus && telStatus && emailStatus && birthStatus && addressStatus {
             present(self.alerController!, animated: true, completion: nil)
@@ -115,7 +133,7 @@ class EditContactController: UIViewController {
         userModel?.name = self.nameTextFileld.text
         userModel?.tel = self.telTextField.text
         userModel?.email = self.emailTextField.text
-        userModel?.birthday = self.birthDayTextField.text
+        userModel?.birthDay = self.birthDayTextField.text
         userModel?.address = self.addressTextField.text
         updateDataWithCoreData(Model: userModel!, Where: tel!)
         

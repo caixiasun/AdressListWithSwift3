@@ -35,7 +35,7 @@ class YTTabBarController: UITabBarController {
         
         let naviLeaveList = YTNavigationController(rootViewController: LeaveListController())
         naviLeaveList.initNavigationBar()
-        let itemLeaveList = UITabBarItem(title: "请假列表", image: UIImage(named: "message.png"), selectedImage: UIImage(named: "message.png"))
+        let itemLeaveList = UITabBarItem(title: "请假列表", image: UIImage(named: "tu.png"), selectedImage: UIImage(named: "tu.png"))
         naviLeaveList.tabBarItem = itemLeaveList
         
         self.viewControllers = [naviContact,naviLeaveList]

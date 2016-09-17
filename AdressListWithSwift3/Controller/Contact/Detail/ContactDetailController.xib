@@ -37,7 +37,11 @@
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBf-7q-M3y" userLabel="tapBtn"/>
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBf-7q-M3y" userLabel="tapBtn">
+                                    <connections>
+                                        <action selector="itemActionWithSender:" destination="-1" eventType="touchUpInside" id="hIU-BP-ccC"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="Ok1-EI-WRr" firstAttribute="centerY" secondItem="qnW-lQ-RAO" secondAttribute="centerY" id="GaU-Bi-uey"/>
@@ -82,6 +86,6 @@
         </view>
     </objects>
     <resources>
-        <image name="head" width="35" height="35"/>
+        <image name="head" width="87" height="87"/>
     </resources>
 </document>

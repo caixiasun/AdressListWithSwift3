@@ -169,7 +169,7 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
             userModel.headImg = self.headImg.image
         }
         userModel.email = self.emailTextField.text
-        userModel.birthday = self.birthDayTextField.text
+        userModel.birthDay = self.birthDayTextField.text
         userModel.address = self.addressTextField.text
         
         return userModel

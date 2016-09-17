@@ -50,4 +50,5 @@ let MainColor = colorWithHexString(hex: "35C6FF")
 let DeepGrayColor = colorWithHexString(hex: "7A7A7F")//搜索框的颜色
 let PageGrayColor = colorWithHexString(hex: "F6F6F6")
 let LineColor = colorWithHexString(hex: "C9C7CD")
+let TextGrayColor = colorWithHexString(hex: "555555")
 

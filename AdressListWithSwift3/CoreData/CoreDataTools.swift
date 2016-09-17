@@ -16,21 +16,28 @@ class CoreDataTools: NSObject {
 ///CoreData操作
 let EntityName = "User"
 
-//添加数据
-func addCoreData(Model userModel:UserModel)
+//返回新的
+
+//添加一条数据entity
+func getEntity(Model userModel:UserModel) ->User
 {
     let entity = NSEntityDescription.insertNewObject(forEntityName: EntityName, into: appDelegate.managedObjectContext) as! User
     entity.name = userModel.name
     entity.tel = userModel.tel
-    if !((userModel.email?.isEmpty)!) {
+    if userModel.email != nil && !((userModel.email?.isEmpty)!) {
         entity.email = userModel.email
     }
-    if !((userModel.address?.isEmpty)!) {
+    if userModel.address != nil && !((userModel.address?.isEmpty)!) {
         entity.address = userModel.address
     }
-    if !((userModel.birthday?.isEmpty)!) {
-        entity.birthDay = userModel.birthday
+    if userModel.birthDay != nil && !((userModel.birthDay?.isEmpty)!) {
+        entity.birthDay = userModel.birthDay
     }
+    return entity
+}
+func addCoreData(Model userModel:UserModel)
+{
+    let _ = getEntity(Model: userModel)
     do
     {
         try appDelegate.managedObjectContext.save()
@@ -40,6 +47,16 @@ func addCoreData(Model userModel:UserModel)
         print("添加失败！！")
     }
 }
+//添加多条数据
+//参数:modelList   数组:  对象类型:UserModel
+func addCoreDataFromArray(ModelList modelList:NSArray)
+{
+    for item in modelList {
+        let model = item as! UserModel
+        addCoreData(Model: model)
+    }
+}
+
 //删除数据
 //参数：conditionDic 条件字典，
 func deleteCoreData(ConditionDic conditionDic:NSMutableDictionary)
@@ -89,7 +106,7 @@ func updateDataWithCoreData(Model userModel:UserModel, Where condition:String)
             user.name = userModel.name
             user.tel = userModel.tel
             user.email = userModel.email
-            user.birthDay = userModel.birthday
+            user.birthDay = userModel.birthDay
             user.address = userModel.address
             try appDelegate.managedObjectContext.save()
             print("修改成功 ~ ~")
@@ -127,7 +144,7 @@ func initTestDataWithModel() -> UserModel
     model.name = "丫头"
     model.tel = "15921815736"
     model.email = "123@456"
-    model.birthday = "1990.02.03"
+    model.birthDay = "1990.02.03"
     model.address = "中国上海普陀区"
     model.headImg = UIImage(named: "head.png")
     return model

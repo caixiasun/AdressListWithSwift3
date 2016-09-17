@@ -23,6 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        
+        //第一次启动 设置userDefaults
+        let dataCenter = DataCenter.shareInstance()
+        if dataCenter.isFirstLaunch() {
+//            dataCenter.data.setObject("1", forKey: kFirstLaunch as NSString)
+//            dataCenter.data.setObject(1, forKey: kFirstLaunch as NSString)
+//            dataCenter.setObject(1, forKey: "isFirstLaunch" as NSCopying)
+        }
+        
                 
         return true
     }

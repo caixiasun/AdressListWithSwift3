@@ -13,5 +13,6 @@
 #import "MJExtension.h"
 #import "Reachability.h"
 #import "UIImage+YTImage.h"
+#import "AFNetworking.h"
 
 #endif /* Bridge_Header_h */

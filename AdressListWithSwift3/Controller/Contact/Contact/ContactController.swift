@@ -37,12 +37,24 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
         self.view.bringSubview(toFront: searchCoverView!)
         
         self.messageView = addMessageView(InView: self.view)
-        self.messageView?.isHidden = false
         self.messageView?.setMessageLoading()
         
-        //模拟网络延迟加载本地数据
+        self.getData()
         
-        DispatchQueue.global().asyncAfter(deadline: DispatchTime.now()+0.3) {
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.messageView?.setMessageLoading()
+        self.getData()
+        
+    }
+    
+    //模拟网络延迟加载本地数据
+    func getData()
+    {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.3) {
             self.dataSource = getContactFromLocal()
             self.tableView?.reloadData()
             self.messageView?.hideMessage()
@@ -153,6 +165,7 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
         tableView.register(UINib(nibName: self.cellReuseIdentifier, bundle: nil), forCellReuseIdentifier: self.cellReuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
+//        tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0)
         self.view.addSubview(tableView)
         self.tableView = tableView;
         

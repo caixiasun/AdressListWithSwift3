@@ -39,6 +39,7 @@
                 <outlet property="flagImg" destination="6DV-bd-xOo" id="WGf-Ee-DvZ"/>
                 <outlet property="nameLab" destination="m4Q-gJ-t2L" id="OG0-Un-ae0"/>
             </connections>
+            <point key="canvasLocation" x="-149" y="53"/>
         </tableViewCell>
     </objects>
     <resources>
