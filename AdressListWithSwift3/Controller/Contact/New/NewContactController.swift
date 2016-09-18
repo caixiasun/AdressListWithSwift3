@@ -62,6 +62,7 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         
         setCornerRadius(view: self.loadImgBtn, radius: kRadius_headImg_common)
         setCornerRadius(view: self.headImg, radius: kRadius_headImg_common)
+        setBorder(view: self.headImg)
         
         self.initAlertController()
         self.initImagePickerController()
@@ -88,7 +89,7 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
     {
         weak var blockSelf = self
         self.uploadAlertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-        self.uploadAlertController.view.tintColor = MainColor
+        self.uploadAlertController.view.tintColor = DeepMainColor
         let takePhoto = UIAlertAction(title: "拍照", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
             blockSelf?.actionAction(action: action)
         }
@@ -103,7 +104,7 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         self.uploadAlertController?.addAction(cancel)
         
         self.modifyAlertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-        self.modifyAlertController.view.tintColor = MainColor
+        self.modifyAlertController.view.tintColor = DeepMainColor
         let takePhoto2 = UIAlertAction(title: "拍照", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
             blockSelf?.actionAction(action: action)
         }
@@ -146,7 +147,8 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
                 //发送请求新建联系人
                 
                 //成功后退出本界面(并发送通知刷新所有联系人界面)
-                exitThisController()
+                self.messageView?.setMessage(Message: "添加成功！", Duration: 1)
+                perform(#selector(exitThisController), with: nil, afterDelay: 1.5)
             }
             break
         case 3://上传头像 或 更换头像
@@ -205,10 +207,12 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
     {
         if (self.nameTextField.text?.isEmpty)! {
             self.messageView?.setMessage(Message: "请输入姓名！", Duration: 1)
+            self.nameTextField.becomeFirstResponder()
             return false
         }
         if (self.telTextField.text?.isEmpty)! {
             self.messageView?.setMessage(Message: "请输入电话号码！", Duration: 1)
+            self.telTextField.becomeFirstResponder()
             return false
         }
         return true
@@ -223,7 +227,7 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         if type == "public.image"
         {
             let img = info[UIImagePickerControllerOriginalImage] as? UIImage
-            let newImgData = UIImageJPEGRepresentation(img!, 1)
+            let newImgData = UIImageJPEGRepresentation(img!, kCompression_index_headImg)
             let newImg = UIImage(data: newImgData!)
             self.headImg.image = newImg
             
@@ -246,7 +250,7 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
             self.loadImgBtn.setTitleColor(MainColor, for: .normal)
         }else{
             self.loadImgBtn.setTitle(kTitle_headImg_upload, for: .normal)
-            self.loadImgBtn.setTitleColor(WhiteColor, for: .normal)
+            self.loadImgBtn.setTitleColor(TextGrayColor, for: .normal)
             
         }
     }

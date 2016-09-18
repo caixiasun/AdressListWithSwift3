@@ -8,15 +8,31 @@
 
 import UIKit
 import CoreData
+import UserNotifications
+
+let application = UIApplication.shared
+let appDelegate = application.delegate as! AppDelegate
+let tabBarController = appDelegate.tabBarController
+let tabBar = tabBarController.tabBar
+
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     var tabBarController = YTTabBarController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        self.initWindow()
+        self.initPush()
+        
+        self.registerNotification(alerTime: 3)
+                
+        return true
+    }
+    func initWindow()
+    {
         self.window = UIWindow(frame: kScreenBounds)
         self.window?.rootViewController = tabBarController
         self.window?.backgroundColor = WhiteColor
@@ -24,20 +40,87 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         
-        //第一次启动 设置userDefaults
-        let dataCenter = DataCenter.shareInstance()
-        if dataCenter.isFirstLaunch() {
-//            dataCenter.data.setObject("1", forKey: kFirstLaunch as NSString)
-//            dataCenter.data.setObject(1, forKey: kFirstLaunch as NSString)
-//            dataCenter.setObject(1, forKey: "isFirstLaunch" as NSCopying)
-        }
+        print(UIDevice.current.identifierForVendor)
+    }
+    
+    //注册推送
+    func initPush()
+    {
+        if (kSystemVersionNum_Greater_Than_Or_Equal_To_10) {
+            // 使用 UNUserNotificationCenter 来管理通知
+            let center = UNUserNotificationCenter.current()
+            //监听回调事件
+            center.delegate = self;
+            
+            //iOS 10 使用以下方法注册，才能得到授权
+            center.requestAuthorization(options: [UNAuthorizationOptions.alert,UNAuthorizationOptions.badge], completionHandler: { (granted:Bool, error:Error?) -> Void in
+                if (granted) {
+                    //点击允许
+                    print("注册通知成功")
+                    //获取当前的通知设置，UNNotificationSettings 是只读对象，不能直接修改，只能通过以下方法获取
+                    center.getNotificationSettings(completionHandler: { (settings:UNNotificationSettings) in
+                        print("2222222222")
+                    })
+                } else {
+                    //点击不允许
+                    print("注册通知失败")
+                }
+            })
+            UIApplication.shared.registerForRemoteNotifications()
         
-                
-        return true
+        }
+    }
+    //本地推送
+    func registerNotification(alerTime:Int) {
+    
+        // 使用 UNUserNotificationCenter 来管理通知
+        let center = UNUserNotificationCenter.current()
+    
+        //需创建一个包含待通知内容的 UNMutableNotificationContent 对象，注意不是 UNNotificationContent ,此对象为不可变对象。
+        let content = UNMutableNotificationContent()
+        content.title = NSString.localizedUserNotificationString(forKey: "Hello!", arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: "Hello_message_body", arguments: nil)
+        content.sound = UNNotificationSound.default()
+    
+        // 在 alertTime 后推送本地推送
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(alerTime), repeats: false)
+        let request = UNNotificationRequest(identifier: "FiveSecond", content: content, trigger: trigger)
+        //添加推送成功后的处理！
+        center.add(request) { (error:Error?) in
+            let alert = UIAlertController(title: "本地通知", message: "成功添加推送", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(cancel)
+            UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    //MARK: - UNUserNotificationCenterDelegate
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        //1. 处理通知
+        
+        //2. 处理完成后条用 completionHandler ，用于指示在前台显示通知的形式
+        completionHandler(UNNotificationPresentationOptions.alert);
+        
+        print("3333333333")
     }
     
     
-
+    
+    //当推送注册成功时 系统会回调以下方法 会得到一个 deviceToken
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let token = String(data: deviceToken, encoding: .utf8)
+        print("token = ",token)
+        
+    }
+    //当推送注册失败时 系统会回调
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        
+    }
+    //当有消息推送到设备 并且点击消息启动app 时会回调 userInfo 就是服务器推送到客户端的数据
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -122,9 +205,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-
-let application = UIApplication.shared
-let appDelegate = application.delegate as! AppDelegate
-let tabBarController = appDelegate.tabBarController
-let tabBar = tabBarController.tabBar
-

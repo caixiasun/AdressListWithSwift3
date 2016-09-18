@@ -41,6 +41,7 @@ class LeaveDetailController: UIViewController {
         self.line4_height.constant = 0.5
         
         setCornerRadius(view: self.headImg, radius: kRadius_headImg_common)
+        setBorder(view: self.headImg)
     }
     
     @IBAction func itemAction(sender: UIButton) {

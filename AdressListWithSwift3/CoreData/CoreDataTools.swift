@@ -33,6 +33,9 @@ func getEntity(Model userModel:UserModel) ->User
     if userModel.birthDay != nil && !((userModel.birthDay?.isEmpty)!) {
         entity.birthDay = userModel.birthDay
     }
+    if userModel.headImg != nil {
+        entity.headImg = UIImageJPEGRepresentation(userModel.headImg!, kCompression_index_headImg) as NSData?
+    }
     return entity
 }
 func addCoreData(Model userModel:UserModel)
@@ -93,16 +96,23 @@ func deleteCoreData(ConditionDic conditionDic:NSMutableDictionary)
 }
 //修改数据  
 //参数：新数据model      where：条件  规定始终使用 tel 作为判断条件。
-func updateDataWithCoreData(Model userModel:UserModel, Where condition:String)
+func updateDataWithCoreData(Model userModel:UserModel, Where condiArray:NSArray)
 {
     let request:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: EntityName)
     let entity:NSEntityDescription = NSEntityDescription.entity(forEntityName: EntityName, in: appDelegate.managedObjectContext)!
+    var name = condiArray[0] as! String
+    name.insert("\'", at: name.startIndex)
+    name.append("\'")
+    let condition1 = "name=\(name)"
+    let condition2 = "tel=\(condiArray[1])"
+    let predicate = NSPredicate(format: condition1, condition2,"")
     request.entity = entity
+    request.predicate = predicate
     do{
         let userList = try appDelegate.managedObjectContext.fetch(request) as! [User] as NSArray
         if userList.count != 0 {
             let user = userList[0] as! User
-            user.headImg = UIImageJPEGRepresentation(userModel.headImg!, 1) as NSData?
+            user.headImg = UIImageJPEGRepresentation(userModel.headImg!, kCompression_index_headImg) as NSData?
             user.name = userModel.name
             user.tel = userModel.tel
             user.email = userModel.email
@@ -119,22 +129,27 @@ func updateDataWithCoreData(Model userModel:UserModel, Where condition:String)
     
 }
 //读取数据
-func getDataFromCoreData() -> NSArray
+func getDataFromCoreData() -> NSMutableArray
 {
     var dataSource = NSArray()
+    let resultList = NSMutableArray()
     let request : NSFetchRequest<NSFetchRequestResult> = NSFetchRequest()
     let entity:NSEntityDescription? = NSEntityDescription.entity(forEntityName: EntityName, in: appDelegate.managedObjectContext)
     request.entity = entity
     do{
         dataSource = try appDelegate.managedObjectContext.fetch(request) as! [User] as NSArray
+        for item in dataSource {
+            let user = item as! User
+            let model = UserModel.initWithUser(nUser: user)
+            resultList.add(model)
+        }
         print("数据读取成功 ~ ~")
     }catch{
         print("get_coredata_fail!")
     }
     
-    return dataSource
+    return resultList
 }
-
 
 //  -----------------------  测试部分  ----------------------------
 ///构建测试数据
@@ -155,7 +170,7 @@ func printAllDataWithCoreData()
 {
     let array = getDataFromCoreData()
     for item in array {
-        let user = item as! User
+        let user = item as! UserModel
         print("name=",user.name,"tel=",user.tel,"email=",user.email,"address=",user.address)
     }
 }

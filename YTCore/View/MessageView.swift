@@ -86,6 +86,11 @@ class MessageView: UIView {
         setYTTop(obj: self, top: kScreenHeight*0.3)
         setYTCenterX(obj: self, x: kScreenWidth*0.5)
     }
+    func setMessageLoading(Duration duration:TimeInterval)
+    {
+        setMessageLoading()
+        perform(#selector(hideMessage), with: nil, afterDelay: duration)
+    }
 }
 
 //在视图上添加MessageView

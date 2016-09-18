@@ -37,9 +37,6 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
         self.view.bringSubview(toFront: searchCoverView!)
         
         self.messageView = addMessageView(InView: self.view)
-        self.messageView?.setMessageLoading()
-        
-        self.getData()
         
         
     }
@@ -48,17 +45,25 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
         
         self.messageView?.setMessageLoading()
         self.getData()
-        
     }
     
     //模拟网络延迟加载本地数据
     func getData()
     {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.3) {
-            self.dataSource = getContactFromLocal()
-            self.tableView?.reloadData()
-            self.messageView?.hideMessage()
+        if dataCenter.isFirstLaunch() {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.3) {
+                self.dataSource = getContactFromLocal()
+                self.tableView?.reloadData()
+                self.messageView?.hideMessage()
+            }
+        }else {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.3) {
+                self.dataSource = getDataFromCoreData()
+                self.tableView?.reloadData()
+                self.messageView?.hideMessage()
+            }
         }
+        
     }
     
     //MARK:- init method
@@ -73,7 +78,7 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
     {
         let navi = YTNavigationController(rootViewController: NewContactController())
         navi.initNavigationBar()
-        self.present(navi, animated: true, completion: nil)
+        self.present(navi, animated: false, completion: nil)
     }
     
     func initSearchView()
@@ -122,7 +127,7 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
         setYTLeft(obj: searchLab, left: getYTRight(obj: self.searchImg!)+6)
         setYTCenterY(obj: searchLab, y: centerY)
         searchLab.text = "搜索联系人"
-        searchLab.textColor = searchColor
+        searchLab.textColor = colorWithHexString(hex: "999999")
         searchLab.font = UIFont.systemFont(ofSize: 16)
         searchLab.textAlignment = NSTextAlignment.center
         searchView.addSubview(searchLab)

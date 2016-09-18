@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -15,8 +15,8 @@
                 <outlet property="deleteBtn" destination="uWF-yr-sMg" id="3iK-mv-LCH"/>
                 <outlet property="emailTextField" destination="LIU-D4-ofR" id="bAq-th-K7G"/>
                 <outlet property="headImg" destination="H11-1R-Ifu" id="04j-xB-DdW"/>
+                <outlet property="loadImgBtn" destination="rfO-Lj-NxA" id="TI2-Xq-5jk"/>
                 <outlet property="nameTextFileld" destination="pBv-tB-TPk" id="7PF-t9-btX"/>
-                <outlet property="tapBtnHeadImg" destination="rfO-Lj-NxA" id="95n-Em-fNS"/>
                 <outlet property="telTextField" destination="pFQ-dl-zeK" id="kK1-Zu-kLG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -36,11 +36,14 @@
                                         <constraint firstAttribute="width" secondItem="H11-1R-Ifu" secondAttribute="height" id="uoB-Em-yTl"/>
                                     </constraints>
                                 </imageView>
-                                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfO-Lj-NxA" userLabel="tapBtn">
+                                <button opaque="NO" alpha="0.5" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfO-Lj-NxA" userLabel="tapBtn">
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <state key="normal" title="上传头像">
                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="itemActionWithSender:" destination="-1" eventType="touchUpInside" id="Vqa-7h-p0s"/>
+                                    </connections>
                                 </button>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="丫头" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pBv-tB-TPk">
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>

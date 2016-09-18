@@ -24,8 +24,27 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
         
         self.initSubviews()
         
-       self.nameLab.text = userModel?.name
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshContent(noti:)), name: NSNotification.Name(rawValue: kNotification_refresh_contact_detail_from_edit), object: nil)
         
+        self.nameLab.text = userModel?.name
+        if userModel?.headImg != nil {
+            self.headImg.image = userModel?.headImg
+        }
+    }
+    func refreshContent(noti:NSNotification)
+    {
+        self.nameLab.text = userModel?.name
+        if userModel?.headImg != nil {
+            self.headImg.image = userModel?.headImg
+        }
+        let model = noti.userInfo?["model"] as! UserModel
+        self.userModel = model
+        self.tablView.reloadData()
+    }
+    
+    deinit {
+        //移除通知
+        NotificationCenter.default.removeObserver(self)
     }
     
     //MARK:- init method
@@ -39,6 +58,7 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
         self.dataSource = NSDictionary()
         
         setCornerRadius(view: self.headImg, radius: kRadius_headImg_common)
+        setBorder(view: self.headImg)
         setCornerRadius(view: self.headImgTapBtn, radius: kRadius_headImg_common)
     }
     func initNaviBar()

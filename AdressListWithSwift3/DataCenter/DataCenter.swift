@@ -2,17 +2,14 @@
 //  DataCenter.swift
 //  AdressListWithSwift3
 //
-//  Created by 侯康柱 on 2016/9/17.
+//  Created by caixiasun on 2016/9/17.
 //  Copyright © 2016年 yatou. All rights reserved.
 //
 
 import UIKit
 
 let kFirstLaunch = "isFirstLaunch"
-//let center = DataCenter()
 class DataCenter: AnyObject {
-//    var data:[String:Any] = Dictionary()
-//    var data: Dictionary = Dictionary()
     //单例
     static let center:DataCenter = DataCenter()
      var dataCenter:NSMutableDictionary = NSMutableDictionary()
@@ -29,9 +26,10 @@ class DataCenter: AnyObject {
         }
         return isFirst
     }
-    func setObject(Obj obj:AnyObject, ForKey key:String)
+    func setFirstLaunch()
     {
-        dataCenter.setObject(obj, forKey: key as NSCopying)
+        let userDefault = UserDefaults.standard
+        userDefault.set(1, forKey: kFirstLaunch)
     }
 }
 let dataCenter = DataCenter.shareInstance()
@@ -48,7 +46,11 @@ func getContactFromLocal() -> NSMutableArray
         let jsonDic = json as! Dictionary<String,Any>
         let datalist = jsonDic["data"] as! NSArray
         userList = UserModel.mj_objectArray(withKeyValuesArray: datalist)
-        addCoreDataFromArray(ModelList: userList!)
+        if dataCenter.isFirstLaunch() { // 第一次启动 设置userDefaults  如果是第一次获取数据，则保存到本地
+            dataCenter.setFirstLaunch()
+            addCoreDataFromArray(ModelList: userList!)
+        }
+        
     }catch let erro as Error!{
         print("读取本地数据出现错误！",erro)
     }

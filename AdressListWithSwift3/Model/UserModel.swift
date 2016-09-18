@@ -26,13 +26,13 @@ class UserModel: NSObject {
         model.name = user.name
         model.tel = user.tel
         model.isLeave = user.isLeave
-        if !((user.email?.isEmpty)!) {
+        if user.email != nil && !((user.email?.isEmpty)!) {
             model.email = user.email
         }
-        if !((user.address?.isEmpty)!) {
+        if user.address != nil && !((user.address?.isEmpty)!) {
             model.address = user.address
         }
-        if !((user.birthDay?.isEmpty)!) {
+        if user.birthDay != nil && !((user.birthDay?.isEmpty)!) {
             model.birthDay = user.birthDay
         }
         if (user.headImg != nil) {
@@ -50,9 +50,9 @@ func requestContact()
     let params = ["lat": 39.26, "lon": 41.03, "cnt":0]
     let type="application/json"
     let sets=NSSet()
-    let afn = AFHTTPRequestOperationManager()
-    afn.responseSerializer.acceptableContentTypes = sets.adding(type)
-    afn.get(url, parameters: params, success: { (oper, data) -> Void in
+    let manager = AFHTTPRequestOperationManager()
+    manager.responseSerializer.acceptableContentTypes = sets.adding(type)
+    manager.get(url, parameters: params, success: { (oper, data) -> Void in
         let dic = data as! Dictionary<String, Any>
         let str = dic["data"]
         print(str)

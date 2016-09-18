@@ -29,3 +29,9 @@ func setCornerRadius(view:UIView, radius:CGFloat)
     view.layer.cornerRadius = radius
     view.layer.masksToBounds = true
 }
+
+func setBorder(view:UIView)
+{
+    view.layer.borderColor = GrayColor.cgColor
+    view.layer.borderWidth = 0.2
+}

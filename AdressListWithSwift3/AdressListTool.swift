@@ -14,3 +14,10 @@ let kRadius_headImg_common:CGFloat = 40
 ///头像上的按钮标题
 let kTitle_headImg_upload = "上传头像"
 let kTitle_headImg_change = "更换头像"
+
+///头像压缩指数
+let kCompression_index_headImg:CGFloat = 0.5
+
+//NotificationName
+//从eidt界面发出，刷新详情界面
+let kNotification_refresh_contact_detail_from_edit = "kNotifictionRefreshContactDetailFromEdit"

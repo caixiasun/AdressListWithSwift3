@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -30,7 +30,7 @@
                 <constraint firstItem="zYi-ex-9wr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="14T-oX-ns5"/>
                 <constraint firstItem="zYi-ex-9wr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5g3-du-zvb"/>
                 <constraint firstAttribute="trailing" secondItem="zYi-ex-9wr" secondAttribute="trailing" id="csS-7Z-ijK"/>
-                <constraint firstAttribute="bottom" secondItem="zYi-ex-9wr" secondAttribute="bottom" constant="-49" id="gSA-AG-4Sj"/>
+                <constraint firstAttribute="bottom" secondItem="zYi-ex-9wr" secondAttribute="bottom" id="gSA-AG-4Sj"/>
             </constraints>
         </view>
     </objects>
