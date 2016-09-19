@@ -18,7 +18,7 @@ class AdressListCell: UITableViewCell {
         // Initialization code
     }
 
-    func setContent(data:UserModel)
+    func setContent(data:UserData)
     {
         self.nameLab.text = data.name
     }

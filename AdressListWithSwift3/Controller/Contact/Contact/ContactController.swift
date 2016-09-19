@@ -215,13 +215,13 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellReuseIdentifier, for: indexPath) as! AdressListCell
-        cell.setContent(data: self.dataSource?[indexPath.row] as! UserModel)
+        cell.setContent(data: self.dataSource?[indexPath.row] as! UserData)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = ContactDetailController()
         controller.hidesBottomBarWhenPushed = true
-        controller.userModel = self.dataSource?.object(at: indexPath.row) as? UserModel
+        controller.userData = self.dataSource?.object(at: indexPath.row) as? UserData
         self.navigationController?.pushViewController(controller, animated: true)
         
         tableView.deselectRow(at: indexPath, animated: true)

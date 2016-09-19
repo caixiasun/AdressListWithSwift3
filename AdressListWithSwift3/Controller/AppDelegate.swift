@@ -17,7 +17,7 @@ let tabBar = tabBarController.tabBar
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate ,UITabBarControllerDelegate{
 
     var window: UIWindow?
     var tabBarController = YTTabBarController()
@@ -27,12 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         self.initWindow()
         self.initPush()
         
-        self.registerNotification(alerTime: 3)
+//        self.registerNotification(alerTime: 3)
+        
+        self.loadLoginVC()
                 
         return true
     }
     func initWindow()
     {
+        tabBarController.delegate = self
         self.window = UIWindow(frame: kScreenBounds)
         self.window?.rootViewController = tabBarController
         self.window?.backgroundColor = WhiteColor
@@ -41,6 +44,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         
         print(UIDevice.current.identifierForVendor)
+        
+        
+    }
+    
+    func loadLoginVC()
+    {
+        //若没有登录，则加载登录界面
+        if !dataCenter.isAlreadyLogin() {
+            let navi = YTNavigationController(rootViewController: LoginController())
+            navi.initNavigationBar()
+            self.window?.rootViewController?.present(navi, animated: true, completion: nil)
+        }
     }
     
     //注册推送
@@ -204,4 +219,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         }
     }
 
+    //MARK: -UITabBarControllerDelegate
+    public func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        let navi = viewController as! YTNavigationController
+        if navi.index >= 2 {//请假列表
+            if !dataCenter.isAlreadyLogin() { //未登录
+                self.loadLoginVC()
+                return false
+            }
+        }
+        return true
+    }
 }
+
+

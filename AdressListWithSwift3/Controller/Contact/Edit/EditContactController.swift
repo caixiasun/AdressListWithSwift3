@@ -20,7 +20,7 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
     @IBOutlet weak var deleteBtn: UIButton!
     
     //用于从详情界面接收数据
-    var userModel:UserModel?
+    var userData:UserData?
     var messageView:MessageView?
     var alerController:UIAlertController?
     let doneMessage = "您尚未做任何修改，确认要退出本界面吗？"
@@ -46,9 +46,8 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
         setCornerRadius(view: self.loadImgBtn, radius: kRadius_headImg_common)
         setCornerRadius(view: self.headImg, radius: kRadius_headImg_common)
         setBorder(view: self.headImg)
-        
-        self.deleteBtn.layer.borderColor = LineColor.cgColor
-        self.deleteBtn.layer.borderWidth = 0.5
+    
+        setBorder(view: self.deleteBtn)
         setCornerRadius(view: self.deleteBtn, radius: 10)
         
         self.messageView = addMessageView(InView: self.view)
@@ -72,11 +71,11 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
     }
     func initNaviBar()
     {
-        let cancelBtn = YTDrawButton(title: "Cancel", TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(EditContactController.itemAction(sender:)))
+        let cancelBtn = YTDrawButton(title: kTitle_cancel_button, TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(EditContactController.itemAction(sender:)))
         cancelBtn.tag = 1
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: cancelBtn)
         
-        let doneBtn = YTDrawButton(title: "Done", TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(EditContactController.itemAction(sender:)))
+        let doneBtn = YTDrawButton(title: kTitle_done_button, TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(EditContactController.itemAction(sender:)))
         doneBtn.tag = 2
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: doneBtn)
     }
@@ -103,7 +102,7 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
         let takePhoto2 = UIAlertAction(title: "拍照", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
             blockSelf?.actionAction(action: action)
         }
-        let photoLib2 = UIAlertAction(title: "从相册选择", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+        let photoLib2 = UIAlertAction(title: "更换头像", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
             blockSelf?.actionAction(action: action)
         }
         let cancel2 = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel) { (action:UIAlertAction) in
@@ -127,16 +126,16 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
     }
     func initData()
     {
-        if ((userModel?.headImg) != nil) {
-            self.headImg.image = userModel?.headImg
+        if ((userData?.headImg) != nil) {
+            self.headImg.image = userData?.headImg
             self.updateUploadHeadBtn(status: true)
         }
         
-        self.nameTextFileld.text = userModel?.name
-        self.telTextField.text = userModel?.tel
-        self.emailTextField.text = userModel?.email
-        self.addressTextField.text = userModel?.address
-        self.birthDayTextField.text = userModel?.birthDay
+        self.nameTextFileld.text = userData?.name
+        self.telTextField.text = userData?.tel
+        self.emailTextField.text = userData?.email
+        self.addressTextField.text = userData?.address
+        self.birthDayTextField.text = userData?.birthDay
     }
     //MARK: -action method
     @IBAction func itemAction(sender:UIButton)
@@ -183,32 +182,32 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
     func saveModify()
     {
         //如果所有字段都和原始的model相同，则不需要保存，
-        let headStatus = (userModel?.headImg == self.headImg.image)
-        let nameStatus = (userModel?.name == self.nameTextFileld.text)
-        let telStatus = (userModel?.tel == self.telTextField.text)
-        let emailStatus = (userModel?.email == self.emailTextField.text)
-        let birthStatus = (userModel?.birthDay == self.birthDayTextField.text)
-        let addressStatus = (userModel?.address == self.addressTextField.text)
+        let headStatus = (userData?.headImg == self.headImg.image)
+        let nameStatus = (userData?.name == self.nameTextFileld.text)
+        let telStatus = (userData?.tel == self.telTextField.text)
+        let emailStatus = (userData?.email == self.emailTextField.text)
+        let birthStatus = (userData?.birthDay == self.birthDayTextField.text)
+        let addressStatus = (userData?.address == self.addressTextField.text)
         if headStatus && nameStatus && telStatus && emailStatus && birthStatus && addressStatus {
             present(self.alerController!, animated: true, completion: nil)
             return ;
         }
         
         //有改动，保存修改
-        let tel = userModel?.tel
-        let name = userModel?.name
-        userModel?.headImg = self.headImg.image
-        userModel?.name = self.nameTextFileld.text
-        userModel?.tel = self.telTextField.text
-        userModel?.email = self.emailTextField.text
-        userModel?.birthDay = self.birthDayTextField.text
-        userModel?.address = self.addressTextField.text
-        let aa = NSArray(array: [name,tel])
-        updateDataWithCoreData(Model: userModel!, Where: aa)
+        let tel = userData?.tel
+        let name = userData?.name
+        userData?.headImg = self.headImg.image
+        userData?.name = self.nameTextFileld.text
+        userData?.tel = self.telTextField.text
+        userData?.email = self.emailTextField.text
+        userData?.birthDay = self.birthDayTextField.text
+        userData?.address = self.addressTextField.text
+        let array = NSArray(array: [name,tel])
+        updateDataWithCoreData(Model: userData!, Where: array)
         
         self.view.endEditing(true)
         self.messageView?.setMessage(Message: "修改成功！", Duration: 1)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: kNotification_refresh_contact_detail_from_edit), object: nil, userInfo: ["model":userModel])
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: kNotification_refresh_contact_detail_from_edit), object: nil, userInfo: ["model":userData])
         perform(#selector(exitThisController), with: nil, afterDelay: 1.5)
     }
     
@@ -225,7 +224,7 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
             if action.title == "取消" {
                 
             }else{
-                deleteCoreData(ConditionDic: ["tel":userModel?.tel])
+                deleteCoreData(ConditionDic: ["tel":userData?.tel])
                 self.messageView?.setMessage(Message: "删除成功!", Duration: 1)
                 perform(#selector(returnRootViewController), with: nil, afterDelay: 2)
             }
@@ -236,7 +235,7 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
     {
         if action.title == "拍照" {
             self.getImageFromPhotoLib(type: .camera)
-        }else if action.title == "从相册选择" {
+        }else if action.title == "从相册选择" || action.title == "更换头像" {
             self.getImageFromPhotoLib(type: .photoLibrary)
         }else if action.title == "删除照片" {
             self.headImg.image = UIImage(named: "head")
@@ -260,9 +259,7 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
         if type == "public.image"
         {
             let img = info[UIImagePickerControllerOriginalImage] as? UIImage
-            let newImgData = UIImageJPEGRepresentation(img!, kCompression_index_headImg)
-            let newImg = UIImage(data: newImgData!)
-            self.headImg.image = newImg
+            self.headImg.image = cropToBounds(image: img!)
             
             //修改“上传头像”按钮的状态
             self.updateUploadHeadBtn(status: true)

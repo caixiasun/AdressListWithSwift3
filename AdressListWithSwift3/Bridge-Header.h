@@ -14,5 +14,6 @@
 #import "Reachability.h"
 #import "UIImage+YTImage.h"
 #import "AFNetworking.h"
+#import "UIImageView+HighlightedWebCache.h"
 
 #endif /* Bridge_Header_h */

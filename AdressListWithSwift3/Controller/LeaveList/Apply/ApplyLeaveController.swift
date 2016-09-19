@@ -38,11 +38,11 @@ class ApplyLeaveController: UIViewController ,UITextFieldDelegate{
     {
         self.navigationItem.title = "请假申请"
         
-        let cancelBtn = YTDrawButton(title: "Cancel", TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(ApplyLeaveController.itemAction(sender:)))
+        let cancelBtn = YTDrawButton(title: kTitle_cancel_button, TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(ApplyLeaveController.itemAction(sender:)))
         cancelBtn.tag = 1
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: cancelBtn)
         
-        let doneBtn = YTDrawButton(title: "Submit", TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(ApplyLeaveController.itemAction(sender:)))
+        let doneBtn = YTDrawButton(title: kTitle_submit_button, TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(ApplyLeaveController.itemAction(sender:)))
         doneBtn.tag = 2
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: doneBtn)
     }
@@ -82,4 +82,5 @@ class ApplyLeaveController: UIViewController ,UITextFieldDelegate{
             break
         }
     }
+    
 }

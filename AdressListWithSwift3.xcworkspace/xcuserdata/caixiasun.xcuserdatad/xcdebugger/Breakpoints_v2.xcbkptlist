@@ -9,29 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AdressListWithSwift3/Controller/AppDelegate.swift"
-            timestampString = "495885821.633559"
+            filePath = "AdressListWithSwift3/DataCenter/DataCenter.swift"
+            timestampString = "495974425.326396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "application(_:didRegisterForRemoteNotificationsWithDeviceToken:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AdressListWithSwift3/Controller/AppDelegate.swift"
-            timestampString = "495885802.268364"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "initWindow()"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "saveUserData(Data:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

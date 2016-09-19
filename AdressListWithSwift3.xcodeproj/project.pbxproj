@@ -8,13 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		00168B711D87A0D400DB858D /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00168B701D87A0D400DB858D /* MessageView.swift */; };
+		001E6F921D8FB9A00099999D /* RequestTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001E6F911D8FB9A00099999D /* RequestTool.swift */; };
+		001E6F961D8FBA070099999D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001E6F941D8FBA070099999D /* LoginController.swift */; };
+		001E6F971D8FBA070099999D /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 001E6F951D8FBA070099999D /* LoginController.xib */; };
 		002CDF141D8C007600BA0B6E /* YTColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002CDF131D8C007600BA0B6E /* YTColor.swift */; };
 		002CDF161D8C00BC00BA0B6E /* YTFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002CDF151D8C00BC00BA0B6E /* YTFrame.swift */; };
 		002CDF181D8C030B00BA0B6E /* YTTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002CDF171D8C030B00BA0B6E /* YTTools.swift */; };
 		002CDF1A1D8C033B00BA0B6E /* YTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002CDF191D8C033B00BA0B6E /* YTView.swift */; };
-		0034C90C1D87F23000A8C4D4 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0034C90A1D87F23000A8C4D4 /* User+CoreDataClass.swift */; };
-		0034C90D1D87F23000A8C4D4 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0034C90B1D87F23000A8C4D4 /* User+CoreDataProperties.swift */; };
 		0034C90F1D87F9B100A8C4D4 /* CoreDataTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0034C90E1D87F9B100A8C4D4 /* CoreDataTools.swift */; };
+		0090BFD01D8FCA4A00CAC075 /* UserResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFCF1D8FCA4A00CAC075 /* UserResultData.swift */; };
+		0090BFD21D8FCA5500CAC075 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFD11D8FCA5500CAC075 /* UserData.swift */; };
+		0090BFD51D8FD8E400CAC075 /* ErrorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFD41D8FD8E400CAC075 /* ErrorData.swift */; };
+		0090BFDC1D8FE23100CAC075 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFDA1D8FE23100CAC075 /* User+CoreDataClass.swift */; };
+		0090BFDD1D8FE23100CAC075 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFDB1D8FE23100CAC075 /* User+CoreDataProperties.swift */; };
+		0090BFE11D8FECC000CAC075 /* MyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFDF1D8FECC000CAC075 /* MyController.swift */; };
+		0090BFE21D8FECC000CAC075 /* MyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0090BFE01D8FECC000CAC075 /* MyController.xib */; };
 		0095613A1D86436000EF0D5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 009561381D86436000EF0D5A /* LaunchScreen.storyboard */; };
 		009561451D86436100EF0D5A /* AdressListWithSwift3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561441D86436100EF0D5A /* AdressListWithSwift3Tests.swift */; };
 		0095615E1D864BDE00EF0D5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561501D864BDE00EF0D5A /* AppDelegate.swift */; };
@@ -61,13 +69,21 @@
 
 /* Begin PBXFileReference section */
 		00168B701D87A0D400DB858D /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		001E6F911D8FB9A00099999D /* RequestTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTool.swift; sourceTree = "<group>"; };
+		001E6F941D8FBA070099999D /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		001E6F951D8FBA070099999D /* LoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginController.xib; sourceTree = "<group>"; };
 		002CDF131D8C007600BA0B6E /* YTColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTColor.swift; sourceTree = "<group>"; };
 		002CDF151D8C00BC00BA0B6E /* YTFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTFrame.swift; sourceTree = "<group>"; };
 		002CDF171D8C030B00BA0B6E /* YTTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTTools.swift; sourceTree = "<group>"; };
 		002CDF191D8C033B00BA0B6E /* YTView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTView.swift; sourceTree = "<group>"; };
-		0034C90A1D87F23000A8C4D4 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		0034C90B1D87F23000A8C4D4 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0034C90E1D87F9B100A8C4D4 /* CoreDataTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTools.swift; sourceTree = "<group>"; };
+		0090BFCF1D8FCA4A00CAC075 /* UserResultData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserResultData.swift; sourceTree = "<group>"; };
+		0090BFD11D8FCA5500CAC075 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		0090BFD41D8FD8E400CAC075 /* ErrorData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorData.swift; sourceTree = "<group>"; };
+		0090BFDA1D8FE23100CAC075 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0090BFDB1D8FE23100CAC075 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0090BFDF1D8FECC000CAC075 /* MyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyController.swift; sourceTree = "<group>"; };
+		0090BFE01D8FECC000CAC075 /* MyController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyController.xib; sourceTree = "<group>"; };
 		009561291D86435F00EF0D5A /* AdressListWithSwift3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdressListWithSwift3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		009561391D86436000EF0D5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0095613B1D86436000EF0D5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -131,13 +147,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		001E6F931D8FB9F30099999D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				001E6F941D8FBA070099999D /* LoginController.swift */,
+				001E6F951D8FBA070099999D /* LoginController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		002CDF1F1D8C2F4D00BA0B6E /* DataCenter */ = {
 			isa = PBXGroup;
 			children = (
 				009F181F1D8C30F9000E2A41 /* data.json */,
 				452A60561D8D6C1C00B19BCA /* DataCenter.swift */,
+				0090BFD31D8FD8CF00CAC075 /* Error */,
+				0090BFCE1D8FCA2D00CAC075 /* User */,
 			);
 			path = DataCenter;
+			sourceTree = "<group>";
+		};
+		0090BFCE1D8FCA2D00CAC075 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				0090BFCF1D8FCA4A00CAC075 /* UserResultData.swift */,
+				0090BFD11D8FCA5500CAC075 /* UserData.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		0090BFD31D8FD8CF00CAC075 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				0090BFD41D8FD8E400CAC075 /* ErrorData.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		0090BFDE1D8FECAE00CAC075 /* My */ = {
+			isa = PBXGroup;
+			children = (
+				0090BFDF1D8FECC000CAC075 /* MyController.swift */,
+				0090BFE01D8FECC000CAC075 /* MyController.xib */,
+			);
+			path = My;
 			sourceTree = "<group>";
 		};
 		009561201D86435F00EF0D5A = {
@@ -188,8 +241,10 @@
 			isa = PBXGroup;
 			children = (
 				009561501D864BDE00EF0D5A /* AppDelegate.swift */,
+				001E6F931D8FB9F30099999D /* Login */,
 				009561511D864BDE00EF0D5A /* Contact */,
 				009561561D864BDE00EF0D5A /* LeaveList */,
+				0090BFDE1D8FECAE00CAC075 /* My */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -281,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				009561961D8654F300EF0D5A /* UserModel.swift */,
+				001E6F911D8FB9A00099999D /* RequestTool.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -369,8 +425,8 @@
 			isa = PBXGroup;
 			children = (
 				009561991D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodeld */,
-				0034C90A1D87F23000A8C4D4 /* User+CoreDataClass.swift */,
-				0034C90B1D87F23000A8C4D4 /* User+CoreDataProperties.swift */,
+				0090BFDA1D8FE23100CAC075 /* User+CoreDataClass.swift */,
+				0090BFDB1D8FE23100CAC075 /* User+CoreDataProperties.swift */,
 				0034C90E1D87F9B100A8C4D4 /* CoreDataTools.swift */,
 			);
 			path = CoreData;
@@ -407,6 +463,7 @@
 				009561271D86435F00EF0D5A /* Resources */,
 				8C00A5BA5DCE619572D4B5FF /* [CP] Embed Pods Frameworks */,
 				207D6C5A1EBD04CF0D39A504 /* [CP] Copy Pods Resources */,
+				B23B95C0D2631D25EF01D1A5 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -489,6 +546,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0095613A1D86436000EF0D5A /* LaunchScreen.storyboard in Resources */,
+				0090BFE21D8FECC000CAC075 /* MyController.xib in Resources */,
+				001E6F971D8FBA070099999D /* LoginController.xib in Resources */,
 				009561771D864E3300EF0D5A /* LeaveListController.xib in Resources */,
 				45ADFA3B1D8D114600A58BE8 /* Assets.xcassets in Resources */,
 				0095618C1D86524300EF0D5A /* EditContactController.xib in Resources */,
@@ -557,6 +616,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AdressListWithSwift3/Pods-AdressListWithSwift3-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B23B95C0D2631D25EF01D1A5 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AdressListWithSwift3/Pods-AdressListWithSwift3-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -567,6 +641,7 @@
 				0095616C1D864C0F00EF0D5A /* YTTabBarController.swift in Sources */,
 				0095619B1D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodeld in Sources */,
 				0034C90F1D87F9B100A8C4D4 /* CoreDataTools.swift in Sources */,
+				0090BFD01D8FCA4A00CAC075 /* UserResultData.swift in Sources */,
 				002CDF141D8C007600BA0B6E /* YTColor.swift in Sources */,
 				0095615E1D864BDE00EF0D5A /* AppDelegate.swift in Sources */,
 				00C832DB1D86989900802D12 /* AdressListTool.swift in Sources */,
@@ -577,16 +652,21 @@
 				009561761D864E3300EF0D5A /* LeaveListController.swift in Sources */,
 				002CDF1A1D8C033B00BA0B6E /* YTView.swift in Sources */,
 				00C832E51D86AF1E00802D12 /* UIImage+YTImage.m in Sources */,
-				0034C90C1D87F23000A8C4D4 /* User+CoreDataClass.swift in Sources */,
+				0090BFDC1D8FE23100CAC075 /* User+CoreDataClass.swift in Sources */,
+				0090BFDD1D8FE23100CAC075 /* User+CoreDataProperties.swift in Sources */,
+				001E6F961D8FBA070099999D /* LoginController.swift in Sources */,
+				0090BFD51D8FD8E400CAC075 /* ErrorData.swift in Sources */,
 				009561831D8651F500EF0D5A /* AdressListCell.swift in Sources */,
 				009561931D86527500EF0D5A /* LeaveDetailController.swift in Sources */,
+				0090BFD21D8FCA5500CAC075 /* UserData.swift in Sources */,
 				00168B711D87A0D400DB858D /* MessageView.swift in Sources */,
 				009561871D86522000EF0D5A /* ContactDetailCell.swift in Sources */,
+				0090BFE11D8FECC000CAC075 /* MyController.swift in Sources */,
 				0095616B1D864C0F00EF0D5A /* YTNavigationController.swift in Sources */,
 				0095617B1D86503800EF0D5A /* NewContactController.swift in Sources */,
 				009561731D864E1600EF0D5A /* ContactController.swift in Sources */,
+				001E6F921D8FB9A00099999D /* RequestTool.swift in Sources */,
 				0095618B1D86524300EF0D5A /* EditContactController.swift in Sources */,
-				0034C90D1D87F23000A8C4D4 /* User+CoreDataProperties.swift in Sources */,
 				002CDF181D8C030B00BA0B6E /* YTTools.swift in Sources */,
 				009561971D8654F300EF0D5A /* UserModel.swift in Sources */,
 				002CDF161D8C00BC00BA0B6E /* YTFrame.swift in Sources */,
@@ -735,8 +815,8 @@
 				SWIFT_VERSION = 3.0;
 				WARNING_CFLAGS = (
 					"-Wno-deprecated-declarations",
-					"-W-no-enum-conversion",
-					"-W-no-unused-variable",
+					"-Wenum-conversion",
+					"-Wunused-variable",
 				);
 			};
 			name = Debug;
@@ -757,8 +837,8 @@
 				SWIFT_VERSION = 3.0;
 				WARNING_CFLAGS = (
 					"-Wno-deprecated-declarations",
-					"-W-no-enum-conversion",
-					"-W-no-unused-variable",
+					"-Wenum-conversion",
+					"-Wunused-variable",
 				);
 			};
 			name = Release;

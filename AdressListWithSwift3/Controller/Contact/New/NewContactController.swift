@@ -76,11 +76,11 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         let navi = self.navigationController as! YTNavigationController
         navi.initNavigationBar()
         
-        let cancelBtn = YTDrawButton(title: "Cancel", TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(NewContactController.itemAction(sender:)))
+        let cancelBtn = YTDrawButton(title: kTitle_cancel_button, TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(NewContactController.itemAction(sender:)))
         cancelBtn.tag = 1
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: cancelBtn)
         
-        let doneBtn = YTDrawButton(title: "Done", TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(NewContactController.itemAction(sender:)))
+        let doneBtn = YTDrawButton(title: kTitle_done_button, TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(NewContactController.itemAction(sender:)))
         doneBtn.tag = 2
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: doneBtn)
     }
@@ -108,7 +108,7 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         let takePhoto2 = UIAlertAction(title: "拍照", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
             blockSelf?.actionAction(action: action)
         }
-        let photoLib2 = UIAlertAction(title: "从相册选择", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+        let photoLib2 = UIAlertAction(title: "更换头像", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
             blockSelf?.actionAction(action: action)
         }
         let cancel2 = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel) { (action:UIAlertAction) in
@@ -141,8 +141,8 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         case 2://导航上的done
             if self.isCanSave() {
                 //将联系人保存到本地
-                let userModel = self.saveData()
-                addCoreData(Model: userModel)
+                let data = self.saveData()
+                addCoreData(Model: data)
                 
                 //发送请求新建联系人
                 
@@ -162,19 +162,19 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
             break
         }
     }
-    func saveData() -> UserModel
+    func saveData() -> UserData
     {
-        let userModel = UserModel()
-        userModel.name = self.nameTextField.text
-        userModel.tel = self.telTextField.text
+        let data = UserData()
+        data.name = self.nameTextField.text
+        data.tel = self.telTextField.text
         if self.loadImgBtn.title(for: .normal) == kTitle_headImg_change {
-            userModel.headImg = self.headImg.image
+            data.headImg = self.headImg.image
         }
-        userModel.email = self.emailTextField.text
-        userModel.birthDay = self.birthDayTextField.text
-        userModel.address = self.addressTextField.text
+        data.email = self.emailTextField.text
+        data.birthDay = self.birthDayTextField.text
+        data.address = self.addressTextField.text
         
-        return userModel
+        return data
     }
     func exitThisController()
     {
@@ -185,7 +185,7 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
     {
         if action.title == "拍照" {
             self.getImageFromPhotoLib(type: .camera)
-        }else if action.title == "从相册选择" {
+        }else if action.title == "从相册选择" || action.title == "更换头像" {
             self.getImageFromPhotoLib(type: .photoLibrary)
         }else if action.title == "删除照片" {
             self.headImg.image = UIImage(named: "head")
@@ -227,9 +227,7 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         if type == "public.image"
         {
             let img = info[UIImagePickerControllerOriginalImage] as? UIImage
-            let newImgData = UIImageJPEGRepresentation(img!, kCompression_index_headImg)
-            let newImg = UIImage(data: newImgData!)
-            self.headImg.image = newImg
+            self.headImg.image = cropToBounds(image: img!)
             
             //修改“上传头像”按钮的状态
             self.updateUploadHeadBtn(status: true)

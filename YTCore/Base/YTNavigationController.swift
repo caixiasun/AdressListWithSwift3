@@ -9,6 +9,8 @@
 import UIKit
 
 class YTNavigationController: UINavigationController {
+    
+    var index:Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -19,28 +19,29 @@ let EntityName = "User"
 //返回新的
 
 //添加一条数据entity
-func getEntity(Model userModel:UserModel) ->User
+func getEntity(Model data:UserData) ->User
 {
     let entity = NSEntityDescription.insertNewObject(forEntityName: EntityName, into: appDelegate.managedObjectContext) as! User
-    entity.name = userModel.name
-    entity.tel = userModel.tel
-    if userModel.email != nil && !((userModel.email?.isEmpty)!) {
-        entity.email = userModel.email
+    entity.name = data.name
+    entity.tel = data.tel
+    if data.email != nil && !((data.email?.isEmpty)!) {
+        entity.email = data.email
     }
-    if userModel.address != nil && !((userModel.address?.isEmpty)!) {
-        entity.address = userModel.address
+    if data.address != nil && !((data.address?.isEmpty)!) {
+        entity.address = data.address
     }
-    if userModel.birthDay != nil && !((userModel.birthDay?.isEmpty)!) {
-        entity.birthDay = userModel.birthDay
+    if data.birthDay != nil && !((data.birthDay?.isEmpty)!) {
+        entity.birthDay = data.birthDay
     }
-    if userModel.headImg != nil {
-        entity.headImg = UIImageJPEGRepresentation(userModel.headImg!, kCompression_index_headImg) as NSData?
+    if data.headImg != nil {
+          //内存问题，等接口，暂时不存头像
+        entity.headImg = UIImageJPEGRepresentation(data.headImg!, kCompression_index_headImg) as NSData?
     }
     return entity
 }
-func addCoreData(Model userModel:UserModel)
+func addCoreData(Model data:UserData)
 {
-    let _ = getEntity(Model: userModel)
+    let _ = getEntity(Model: data)
     do
     {
         try appDelegate.managedObjectContext.save()
@@ -51,12 +52,12 @@ func addCoreData(Model userModel:UserModel)
     }
 }
 //添加多条数据
-//参数:modelList   数组:  对象类型:UserModel
+//参数:modelList   数组:  对象类型:UserData
 func addCoreDataFromArray(ModelList modelList:NSArray)
 {
     for item in modelList {
-        let model = item as! UserModel
-        addCoreData(Model: model)
+        let data = item as! UserData
+        addCoreData(Model: data)
     }
 }
 
@@ -96,7 +97,7 @@ func deleteCoreData(ConditionDic conditionDic:NSMutableDictionary)
 }
 //修改数据  
 //参数：新数据model      where：条件  规定始终使用 tel 作为判断条件。
-func updateDataWithCoreData(Model userModel:UserModel, Where condiArray:NSArray)
+func updateDataWithCoreData(Model userData:UserData, Where condiArray:NSArray)
 {
     let request:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: EntityName)
     let entity:NSEntityDescription = NSEntityDescription.entity(forEntityName: EntityName, in: appDelegate.managedObjectContext)!
@@ -112,12 +113,13 @@ func updateDataWithCoreData(Model userModel:UserModel, Where condiArray:NSArray)
         let userList = try appDelegate.managedObjectContext.fetch(request) as! [User] as NSArray
         if userList.count != 0 {
             let user = userList[0] as! User
-            user.headImg = UIImageJPEGRepresentation(userModel.headImg!, kCompression_index_headImg) as NSData?
-            user.name = userModel.name
-            user.tel = userModel.tel
-            user.email = userModel.email
-            user.birthDay = userModel.birthDay
-            user.address = userModel.address
+            //内存问题，等接口，暂时不存头像
+            user.headImg = UIImageJPEGRepresentation(userData.headImg!, kCompression_index_headImg) as NSData?
+            user.name = userData.name
+            user.tel = userData.tel
+            user.email = userData.email
+            user.birthDay = userData.birthDay
+            user.address = userData.address
             try appDelegate.managedObjectContext.save()
             print("修改成功 ~ ~")
         }else{
@@ -140,8 +142,8 @@ func getDataFromCoreData() -> NSMutableArray
         dataSource = try appDelegate.managedObjectContext.fetch(request) as! [User] as NSArray
         for item in dataSource {
             let user = item as! User
-            let model = UserModel.initWithUser(nUser: user)
-            resultList.add(model)
+            let data = UserData.initWithUser(nUser: user)
+            resultList.add(data)
         }
         print("数据读取成功 ~ ~")
     }catch{
@@ -153,16 +155,16 @@ func getDataFromCoreData() -> NSMutableArray
 
 //  -----------------------  测试部分  ----------------------------
 ///构建测试数据
-func initTestDataWithModel() -> UserModel
+func initTestDataWithModel() -> UserData
 {
-    let model = UserModel()
-    model.name = "丫头"
-    model.tel = "15921815736"
-    model.email = "123@456"
-    model.birthDay = "1990.02.03"
-    model.address = "中国上海普陀区"
-    model.headImg = UIImage(named: "head.png")
-    return model
+    let data = UserData()
+    data.name = "丫头"
+    data.tel = "15921815736"
+    data.email = "123@456"
+    data.birthDay = "1990.02.03"
+    data.address = "中国上海普陀区"
+    data.headImg = UIImage(named: "head.png")
+    return data
 }
 
 //查询所有数据并输出
@@ -170,7 +172,7 @@ func printAllDataWithCoreData()
 {
     let array = getDataFromCoreData()
     for item in array {
-        let user = item as! UserModel
+        let user = item as! UserData
         print("name=",user.name,"tel=",user.tel,"email=",user.email,"address=",user.address)
     }
 }

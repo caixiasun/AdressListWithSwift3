@@ -165,7 +165,7 @@
                                         <constraint firstItem="eI8-KM-jFe" firstAttribute="leading" secondItem="drw-Ic-snw" secondAttribute="leading" constant="24" id="q4y-aT-Tp7"/>
                                     </constraints>
                                 </view>
-                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWF-yr-sMg">
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWF-yr-sMg">
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="LuN-hK-Pth"/>
                                     </constraints>

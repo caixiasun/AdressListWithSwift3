@@ -29,20 +29,27 @@ class YTTabBarController: UITabBarController {
         self.tabBar.addSubview(effect)
         
         let naviContact = YTNavigationController(rootViewController: ContactController())
+        naviContact.index = 1
         naviContact.initNavigationBar()
         let itemContact = UITabBarItem(title: "首页", image: UIImage(named: "home.png"), selectedImage: UIImage(named: "home.png"))
         naviContact.tabBarItem = itemContact
         
         let naviLeaveList = YTNavigationController(rootViewController: LeaveListController())
+        naviLeaveList.index = 2
         naviLeaveList.initNavigationBar()
-        let itemLeaveList = UITabBarItem(title: "请假列表", image: UIImage(named: "tu.png"), selectedImage: UIImage(named: "tu.png"))
+        let itemLeaveList = UITabBarItem(title: "请假列表", image: UIImage(named: "leave.png"), selectedImage: UIImage(named: "leave.png"))
         naviLeaveList.tabBarItem = itemLeaveList
         
-        self.viewControllers = [naviContact,naviLeaveList]
+        let naviMy = YTNavigationController(rootViewController: MyController())
+        naviMy.index = 3
+        naviMy.initNavigationBar()
+        let itemMy = UITabBarItem(title: "个人信息", image: UIImage(named: "my.png"), selectedImage: UIImage(named: "my.png"))
+        naviMy.tabBarItem = itemMy
+        
+        self.viewControllers = [naviContact,naviLeaveList,naviMy]
     }
    func setTabBarHidden(status:Bool)
     {
         tabBar.isHidden = status
     }
-
 }

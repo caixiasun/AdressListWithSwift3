@@ -17,7 +17,7 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
     @IBOutlet weak var tablView: UITableView!
     let cellIdentifier = "ContactDetailCell"
     var dataSource:NSDictionary?
-    var userModel:UserModel?
+    var userData:UserData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,19 +26,19 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
         
         NotificationCenter.default.addObserver(self, selector: #selector(refreshContent(noti:)), name: NSNotification.Name(rawValue: kNotification_refresh_contact_detail_from_edit), object: nil)
         
-        self.nameLab.text = userModel?.name
-        if userModel?.headImg != nil {
-            self.headImg.image = userModel?.headImg
+        self.nameLab.text = userData?.name
+        if userData?.headImg != nil {
+            self.headImg.image = userData?.headImg
         }
     }
     func refreshContent(noti:NSNotification)
     {
-        self.nameLab.text = userModel?.name
-        if userModel?.headImg != nil {
-            self.headImg.image = userModel?.headImg
+        self.nameLab.text = userData?.name
+        if userData?.headImg != nil {
+            self.headImg.image = userData?.headImg
         }
-        let model = noti.userInfo?["model"] as! UserModel
-        self.userModel = model
+        let model = noti.userInfo?["model"] as! UserData
+        self.userData = model
         self.tablView.reloadData()
     }
     
@@ -66,7 +66,7 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
         self.navigationController?.navigationBar.barStyle = UIBarStyle.default
         self.navigationController?.navigationBar.tintColor = WhiteColor
         
-        let editBtn = YTDrawButton(title: "Edit", TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(ContactDetailController.itemAction(sender:)))
+        let editBtn = YTDrawButton(title: kTitle_edit_button, TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(ContactDetailController.itemAction(sender:)))
         editBtn.tag = 1
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: editBtn)
     }
@@ -77,7 +77,7 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
         switch sender.tag {
         case 1:/// Edit
             let vc = EditContactController()
-            vc.userModel = self.userModel
+            vc.userData = self.userData
             let controller = YTNavigationController(rootViewController: vc)
             controller.initNavigationBar()
             self.present(controller, animated: false, completion: nil)
@@ -115,19 +115,19 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
             switch indexPath.row {
             case 0:
                 cell.titleLab.text = "电话号码"
-                cell.telLab.text = self.userModel?.tel
+                cell.telLab.text = self.userData?.tel
                 break
             case 1:
                 cell.titleLab.text = "电子邮件"
-                cell.telLab.text = self.userModel?.email
+                cell.telLab.text = self.userData?.email
                 break
             case 2:
                 cell.titleLab.text = "出生日期"
-                cell.telLab.text = self.userModel?.birthDay
+                cell.telLab.text = self.userData?.birthDay
                 break
             case 3:
                 cell.titleLab.text = "家庭住址"
-                cell.telLab.text = self.userModel?.address
+                cell.telLab.text = self.userData?.address
                 break
             default:
                 break
@@ -147,7 +147,7 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0://拨打电话
-            let tel = "tel://" + (self.userModel?.tel)!
+            let tel = "tel://" + (self.userData?.tel)!
             let url = URL(string: tel)
             if application.canOpenURL(url!) {
                 application.open(url!)
