@@ -13,11 +13,16 @@ class ErrorData: NSObject {
     var code:String?
     var error:String?
     class func initWithError(obj:Any?) -> ErrorData{
-        let errorObj = obj as! Dictionary<String,Any>
+        let errorObj = obj as? Dictionary<String,Any>
         let errorData = ErrorData()
-        errorData.message = errorObj["message"] as! String?
-        errorData.code = errorObj["code"] as! String?
-        errorData.error = errorObj["error"] as! String?
+        if errorObj == nil {
+            errorData.message = "未知错误！"
+            return errorData
+        }
+        
+        errorData.message = errorObj?["message"] as! String?
+        errorData.code = errorObj?["code"] as! String?
+        errorData.error = errorObj?["error"] as! String?
         return errorData
     }
 }

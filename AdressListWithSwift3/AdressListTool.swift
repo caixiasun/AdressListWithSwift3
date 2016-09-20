@@ -16,6 +16,11 @@ let kTitle_headImg_upload = "上传头像"
 let kTitle_headImg_change = "更换头像"
 let kMobile = "mobile"
 let kPassword = "password"
+let kToken = "token"
+let kName = "name"
+let kID = "id"
+let kEmail = "email"
+let kPassword_value = "11111"
 
 //按钮标题
 let kTitle_cancel_button = "Cancel"

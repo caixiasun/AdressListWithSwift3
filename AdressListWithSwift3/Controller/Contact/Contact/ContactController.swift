@@ -10,7 +10,7 @@ import UIKit
 
 let searchViewHeight:CGFloat = 45
 
-class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
+class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,ContactModelDelegate {
     
     var searchView:UIView?
     var textField:UITextField?
@@ -24,6 +24,7 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
     let cellReuseIdentifier = "AdressListCell"
     let headerIdentifier = "HeaderReuseIdentifier"
     var messageView:MessageView?
+    let contactModel:ContactModel = ContactModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,33 +38,15 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
         self.view.bringSubview(toFront: searchCoverView!)
         
         self.messageView = addMessageView(InView: self.view)
-        
+        self.contactModel.delegate = self
         
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.messageView?.setMessageLoading()
-        self.getData()
-    }
-    
-    //模拟网络延迟加载本地数据
-    func getData()
-    {
-        if dataCenter.isFirstLaunch() {
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.3) {
-                self.dataSource = getContactFromLocal()
-                self.tableView?.reloadData()
-                self.messageView?.hideMessage()
-            }
-        }else {
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.3) {
-                self.dataSource = getDataFromCoreData()
-                self.tableView?.reloadData()
-                self.messageView?.hideMessage()
-            }
-        }
-        
+        //请求列表
+        self.contactModel.requestContactList()
     }
     
     //MARK:- init method
@@ -182,22 +165,23 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
         })
         
         self.dataSource = NSMutableArray()
-        
-        /*_sectionArray = NSMutableArray()
-        _sectionArray?.addObjects(from: ["A","B","C","D","E","F","G","H","I"])*/
     }
     
     //MARK:- UITableViewDelegate,UITableViewDataSource
-    /*
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return (_dataSource?.count)!
+        return (self.dataSource?.count)!
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return _sectionArray?.object(at: section) as? String
+        if section == 0 {
+            return "全部"
+        }
+        let data = self.dataSource?.object(at: section) as! ContactData
+        return data.name
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headView = UITableViewHeaderFooterView.init(reuseIdentifier: _headerIdentifier)
+        let headView = UITableViewHeaderFooterView.init(reuseIdentifier: headerIdentifier)
         let view = UIView(frame:headView.bounds)
         view.backgroundColor = PageGrayColor
         headView.addSubview(view)
@@ -206,22 +190,24 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 35
     }
- */
+ 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
+        return 50
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (self.dataSource?.count)!
+        return ((self.dataSource?.object(at: section) as! ContactData).member?.count)!
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellReuseIdentifier, for: indexPath) as! AdressListCell
-        cell.setContent(data: self.dataSource?[indexPath.row] as! UserData)
+        let data = (self.dataSource?.object(at: indexPath.section) as! ContactData).member?.object(at: indexPath.row) as! UserData
+        cell.setContent(data: data)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = ContactDetailController()
         controller.hidesBottomBarWhenPushed = true
-        controller.userData = self.dataSource?.object(at: indexPath.row) as? UserData
+        let data = (self.dataSource?.object(at: indexPath.section) as! ContactData).member?.object(at: indexPath.row) as! UserData
+        controller.userData = data
         self.navigationController?.pushViewController(controller, animated: true)
         
         tableView.deselectRow(at: indexPath, animated: true)
@@ -248,5 +234,23 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
+    }
+    
+    //MARK: -ContactModelDelegate
+    func requestContactListSucc(result: ContactRestultData) {
+        self.messageView?.hideMessage()
+        var message:String? = "列表获取成功！"
+        if result.total == 0 {
+            message = message! + "但服务器没有数据，暂时使用本地假数据"
+        }else{
+            //将列表存入coredata，记得卸载程序，抹掉假数据。
+            self.dataSource = result.data
+            self.tableView?.reloadData()
+        }
+        self.messageView?.setMessage(Message: message!, Duration: 1)
+    }
+    func requestContactListfail(error: ErrorData) {
+        self.messageView?.hideMessage()
+        self.messageView?.setMessage(Message: error.message!, Duration: 1)
     }
 }

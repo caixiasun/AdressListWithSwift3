@@ -18,9 +18,36 @@ class AdressListCell: UITableViewCell {
         // Initialization code
     }
 
-    func setContent(data:UserData)
+    func setContent(data:AnyObject)
     {
-        self.nameLab.text = data.name
+        if data.isKind(of: UserData.classForCoder()) {
+            let newData = data as! UserData
+            self.nameLab.text = newData.name
+        }
+        
+        if data.isKind(of: LeaveListData.classForCoder()) {
+            let newData = data as! LeaveListData
+            self.nameLab.text = newData.name
+            var imgName = "leaved.png"
+            switch newData.status {
+            case 0://0:待审核
+                
+                break
+            case 1://1:已通过
+                imgName = "leaveing.png"
+                break
+            case 2://2:未通过
+                break
+            default:
+                break
+            }
+            self.flagImg.isHidden = false
+            self.flagImg.image = UIImage(named: imgName)
+            
+            return
+        }
+        
+        
     }
     
 }

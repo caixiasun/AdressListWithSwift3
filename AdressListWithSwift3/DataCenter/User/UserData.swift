@@ -25,6 +25,7 @@ class UserData: NSObject,NSCoding {
     var nickName:String?
     var token:String?
     var status:Int = 0 //账号状态 0：启用；1：禁用
+    var level:String?//联系人列表请求的：用户级别
     
     static func initWithUser(nUser user:User) -> UserData
     {
@@ -68,9 +69,12 @@ class UserData: NSObject,NSCoding {
         aCoder.encode(self.position, forKey: "position")
         aCoder.encode(self.sex, forKey: "sex")
         aCoder.encode(self.nickName, forKey: "nickName")
+        aCoder.encode(self.token, forKey: "token")
         aCoder.encode(self.count, forKey: "count")
         aCoder.encode(self.idNum, forKey: "idNum")
         aCoder.encode(self.status, forKey: "status")
+        aCoder.encode(self.isLeave, forKey: "isLeave")
+        aCoder.encode(self.level, forKey: "level")
     }
     required init?(coder aDecoder: NSCoder) {
         super.init()
@@ -85,9 +89,12 @@ class UserData: NSObject,NSCoding {
         self.position = aDecoder.decodeObject(forKey: "position") as! String?
         self.sex = aDecoder.decodeObject(forKey: "sex") as! String?
         self.nickName = aDecoder.decodeObject(forKey: "nickName") as! String?
+        self.token = aDecoder.decodeObject(forKey: "token") as! String?
+        self.level = aDecoder.decodeObject(forKey: "level") as! String?
         self.count = Int(aDecoder.decodeCInt(forKey: "count"))
         self.idNum = Int(aDecoder.decodeCInt(forKey: "idNum"))
         self.status = Int(aDecoder.decodeCInt(forKey: "status"))
+        self.isLeave = aDecoder.decodeBool(forKey: "isLeave")
     }
     
     override init() {

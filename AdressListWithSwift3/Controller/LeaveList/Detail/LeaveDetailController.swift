@@ -17,9 +17,11 @@ class LeaveDetailController: UIViewController {
     @IBOutlet weak var headImg: UIImageView!
     @IBOutlet weak var nameLab: UILabel!
     @IBOutlet weak var telLab: UILabel!
-    @IBOutlet weak var positionLab: UILabel!
-    @IBOutlet weak var dateLab: UILabel!
+    @IBOutlet weak var positionLab: UILabel!    
     @IBOutlet weak var reasonLab: UILabel!
+    @IBOutlet weak var startDateLab: UILabel!
+    @IBOutlet weak var endDateLab: UILabel!
+    var data:LeaveListData?
     
     
     override func viewDidLoad() {
@@ -27,6 +29,7 @@ class LeaveDetailController: UIViewController {
         
         self.initSubviews()
         
+        self.initContent()
     }
     func initSubviews()
     {
@@ -42,6 +45,13 @@ class LeaveDetailController: UIViewController {
         
         setCornerRadius(view: self.headImg, radius: kRadius_headImg_common)
         setBorder(view: self.headImg)
+    }
+    
+    func initContent()
+    {
+        self.nameLab.text = data?.name
+        self.startDateLab.text = data?.started
+        self.endDateLab.text = data?.ended
     }
     
     @IBAction func itemAction(sender: UIButton) {

@@ -45,7 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
         print(UIDevice.current.identifierForVendor)
         
-        
     }
     
     func loadLoginVC()
@@ -229,6 +228,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             }
         }
         return true
+    }
+    //切换tabBar到首页
+    func setTabBarSelectViewController(index:Int)
+    {
+        tabBarController.selectedIndex = index
     }
 }
 

@@ -16,6 +16,14 @@
 		002CDF181D8C030B00BA0B6E /* YTTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002CDF171D8C030B00BA0B6E /* YTTools.swift */; };
 		002CDF1A1D8C033B00BA0B6E /* YTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002CDF191D8C033B00BA0B6E /* YTView.swift */; };
 		0034C90F1D87F9B100A8C4D4 /* CoreDataTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0034C90E1D87F9B100A8C4D4 /* CoreDataTools.swift */; };
+		0055CC3F1D90CB4D008C6D30 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055CC3E1D90CB4D008C6D30 /* ContactModel.swift */; };
+		0055CC421D90D009008C6D30 /* ContactRestultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055CC411D90D009008C6D30 /* ContactRestultData.swift */; };
+		0055CC441D90E5AB008C6D30 /* ContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055CC431D90E5AB008C6D30 /* ContactData.swift */; };
+		0055CCB01D910C40008C6D30 /* LeaveListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055CCAF1D910C40008C6D30 /* LeaveListModel.swift */; };
+		0055CCB31D910C90008C6D30 /* LeaveListResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055CCB21D910C90008C6D30 /* LeaveListResultData.swift */; };
+		0055CCB51D910CBE008C6D30 /* LeaveListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055CCB41D910CBE008C6D30 /* LeaveListData.swift */; };
+		0055CCB71D910D94008C6D30 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055CCB61D910D94008C6D30 /* BaseModel.swift */; };
+		0055CCBA1D912419008C6D30 /* SuccessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055CCB91D912419008C6D30 /* SuccessData.swift */; };
 		0090BFD01D8FCA4A00CAC075 /* UserResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFCF1D8FCA4A00CAC075 /* UserResultData.swift */; };
 		0090BFD21D8FCA5500CAC075 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFD11D8FCA5500CAC075 /* UserData.swift */; };
 		0090BFD51D8FD8E400CAC075 /* ErrorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFD41D8FD8E400CAC075 /* ErrorData.swift */; };
@@ -77,6 +85,14 @@
 		002CDF171D8C030B00BA0B6E /* YTTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTTools.swift; sourceTree = "<group>"; };
 		002CDF191D8C033B00BA0B6E /* YTView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTView.swift; sourceTree = "<group>"; };
 		0034C90E1D87F9B100A8C4D4 /* CoreDataTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTools.swift; sourceTree = "<group>"; };
+		0055CC3E1D90CB4D008C6D30 /* ContactModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
+		0055CC411D90D009008C6D30 /* ContactRestultData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactRestultData.swift; sourceTree = "<group>"; };
+		0055CC431D90E5AB008C6D30 /* ContactData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactData.swift; sourceTree = "<group>"; };
+		0055CCAF1D910C40008C6D30 /* LeaveListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaveListModel.swift; sourceTree = "<group>"; };
+		0055CCB21D910C90008C6D30 /* LeaveListResultData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaveListResultData.swift; sourceTree = "<group>"; };
+		0055CCB41D910CBE008C6D30 /* LeaveListData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaveListData.swift; sourceTree = "<group>"; };
+		0055CCB61D910D94008C6D30 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		0055CCB91D912419008C6D30 /* SuccessData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessData.swift; sourceTree = "<group>"; };
 		0090BFCF1D8FCA4A00CAC075 /* UserResultData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserResultData.swift; sourceTree = "<group>"; };
 		0090BFD11D8FCA5500CAC075 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		0090BFD41D8FD8E400CAC075 /* ErrorData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorData.swift; sourceTree = "<group>"; };
@@ -162,9 +178,38 @@
 				009F181F1D8C30F9000E2A41 /* data.json */,
 				452A60561D8D6C1C00B19BCA /* DataCenter.swift */,
 				0090BFD31D8FD8CF00CAC075 /* Error */,
+				0055CCB81D912401008C6D30 /* Success */,
 				0090BFCE1D8FCA2D00CAC075 /* User */,
+				0055CC401D90CFE6008C6D30 /* Contact */,
+				0055CCB11D910C7B008C6D30 /* LeaveList */,
 			);
 			path = DataCenter;
+			sourceTree = "<group>";
+		};
+		0055CC401D90CFE6008C6D30 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				0055CC411D90D009008C6D30 /* ContactRestultData.swift */,
+				0055CC431D90E5AB008C6D30 /* ContactData.swift */,
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
+		0055CCB11D910C7B008C6D30 /* LeaveList */ = {
+			isa = PBXGroup;
+			children = (
+				0055CCB21D910C90008C6D30 /* LeaveListResultData.swift */,
+				0055CCB41D910CBE008C6D30 /* LeaveListData.swift */,
+			);
+			path = LeaveList;
+			sourceTree = "<group>";
+		};
+		0055CCB81D912401008C6D30 /* Success */ = {
+			isa = PBXGroup;
+			children = (
+				0055CCB91D912419008C6D30 /* SuccessData.swift */,
+			);
+			path = Success;
 			sourceTree = "<group>";
 		};
 		0090BFCE1D8FCA2D00CAC075 /* User */ = {
@@ -335,8 +380,11 @@
 		0095615A1D864BDE00EF0D5A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0055CCB61D910D94008C6D30 /* BaseModel.swift */,
 				009561961D8654F300EF0D5A /* UserModel.swift */,
 				001E6F911D8FB9A00099999D /* RequestTool.swift */,
+				0055CC3E1D90CB4D008C6D30 /* ContactModel.swift */,
+				0055CCAF1D910C40008C6D30 /* LeaveListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -641,11 +689,15 @@
 				0095616C1D864C0F00EF0D5A /* YTTabBarController.swift in Sources */,
 				0095619B1D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodeld in Sources */,
 				0034C90F1D87F9B100A8C4D4 /* CoreDataTools.swift in Sources */,
+				0055CCB71D910D94008C6D30 /* BaseModel.swift in Sources */,
 				0090BFD01D8FCA4A00CAC075 /* UserResultData.swift in Sources */,
 				002CDF141D8C007600BA0B6E /* YTColor.swift in Sources */,
+				0055CCB51D910CBE008C6D30 /* LeaveListData.swift in Sources */,
+				0055CCBA1D912419008C6D30 /* SuccessData.swift in Sources */,
 				0095615E1D864BDE00EF0D5A /* AppDelegate.swift in Sources */,
 				00C832DB1D86989900802D12 /* AdressListTool.swift in Sources */,
 				0095618F1D86526400EF0D5A /* ApplyLeaveController.swift in Sources */,
+				0055CC421D90D009008C6D30 /* ContactRestultData.swift in Sources */,
 				00DCEA3E1D8E722F000C51D8 /* YTCore.swift in Sources */,
 				0095617F1D8651D200EF0D5A /* ContactDetailController.swift in Sources */,
 				452A60571D8D6C1C00B19BCA /* DataCenter.swift in Sources */,
@@ -654,6 +706,8 @@
 				00C832E51D86AF1E00802D12 /* UIImage+YTImage.m in Sources */,
 				0090BFDC1D8FE23100CAC075 /* User+CoreDataClass.swift in Sources */,
 				0090BFDD1D8FE23100CAC075 /* User+CoreDataProperties.swift in Sources */,
+				0055CCB01D910C40008C6D30 /* LeaveListModel.swift in Sources */,
+				0055CCB31D910C90008C6D30 /* LeaveListResultData.swift in Sources */,
 				001E6F961D8FBA070099999D /* LoginController.swift in Sources */,
 				0090BFD51D8FD8E400CAC075 /* ErrorData.swift in Sources */,
 				009561831D8651F500EF0D5A /* AdressListCell.swift in Sources */,
@@ -666,10 +720,12 @@
 				0095617B1D86503800EF0D5A /* NewContactController.swift in Sources */,
 				009561731D864E1600EF0D5A /* ContactController.swift in Sources */,
 				001E6F921D8FB9A00099999D /* RequestTool.swift in Sources */,
+				0055CC441D90E5AB008C6D30 /* ContactData.swift in Sources */,
 				0095618B1D86524300EF0D5A /* EditContactController.swift in Sources */,
 				002CDF181D8C030B00BA0B6E /* YTTools.swift in Sources */,
 				009561971D8654F300EF0D5A /* UserModel.swift in Sources */,
 				002CDF161D8C00BC00BA0B6E /* YTFrame.swift in Sources */,
+				0055CC3F1D90CB4D008C6D30 /* ContactModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

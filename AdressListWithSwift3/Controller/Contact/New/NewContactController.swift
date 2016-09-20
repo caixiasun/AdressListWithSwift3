@@ -17,9 +17,10 @@ enum TextFieldTagStyle:Int {//通过tag区分五个UITextField
     Address = 15,//住址
     Position = 16,//职位
     LeaveDate = 17,//请假时间
-    LeaveReason = 18//请假原因
+    LeaveReason = 18,//请假原因
+    NickName = 19 //昵称
 }
-class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ContactModelDelegate{
     @IBOutlet weak var headImg: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var loadImgBtn: UIButton!
@@ -28,10 +29,13 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
     @IBOutlet weak var birthDayTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     
+    @IBOutlet weak var nickNameTextField: UITextField!
+    
     var uploadAlertController:UIAlertController!
     var modifyAlertController:UIAlertController!
     var imagePickerController:UIImagePickerController!
     var messageView:MessageView?
+    var contactModel:ContactModel = ContactModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +72,7 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         self.initImagePickerController()
         
         self.messageView = addMessageView(InView: self.view)
+        self.contactModel.delegate = self
     }
     
     func initNaviBar()
@@ -140,15 +145,8 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
             break
         case 2://导航上的done
             if self.isCanSave() {
-                //将联系人保存到本地
-                let data = self.saveData()
-                addCoreData(Model: data)
                 
-                //发送请求新建联系人
-                
-                //成功后退出本界面(并发送通知刷新所有联系人界面)
-                self.messageView?.setMessage(Message: "添加成功！", Duration: 1)
-                perform(#selector(exitThisController), with: nil, afterDelay: 1.5)
+                self.saveData()
             }
             break
         case 3://上传头像 或 更换头像
@@ -162,19 +160,45 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
             break
         }
     }
-    func saveData() -> UserData
+    func saveData()
     {
+        let name = self.nameTextField.text
+        let mobile = self.telTextField.text
+        let email = self.emailTextField.text
+        
         let data = UserData()
-        data.name = self.nameTextField.text
-        data.tel = self.telTextField.text
+        data.name = name
+        data.tel = mobile
+        data.email = email
         if self.loadImgBtn.title(for: .normal) == kTitle_headImg_change {
             data.headImg = self.headImg.image
         }
-        data.email = self.emailTextField.text
-        data.birthDay = self.birthDayTextField.text
-        data.address = self.addressTextField.text
+        if !((self.nickNameTextField.text?.isEmpty)!) {
+            data.nickName = self.nickNameTextField.text
+        }
         
-        return data
+        //将联系人保存到本地
+//        addCoreData(Model: data)
+        
+        //发送请求新建联系人
+        var params = Dictionary<String,Any>()
+        params[kName] = name
+        params[kMobile] = mobile
+        params[kEmail] = email
+        if !((self.nickNameTextField.text?.isEmpty)!) {
+            params["nickname"] = self.nickNameTextField.text
+        }
+        params[kToken] = dataCenter.getToken()
+        params["department_id"] = 5
+        params[kPassword] = kPassword_value
+        params["level_id"] = 4
+        self.messageView?.setMessageLoading()
+        self.contactModel.requestNewConatct(param: params)
+        
+        //成功后退出本界面(并发送通知刷新所有联系人界面)
+        self.messageView?.setMessage(Message: "添加成功！", Duration: 1)
+        perform(#selector(exitThisController), with: nil, afterDelay: 1.5)
+        
     }
     func exitThisController()
     {
@@ -215,6 +239,11 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
             self.telTextField.becomeFirstResponder()
             return false
         }
+        if (self.emailTextField.text?.isEmpty)! {
+            self.messageView?.setMessage(Message: "请输入邮件！", Duration: 1)
+            return false
+        }
+        
         return true
     }
     
@@ -253,4 +282,12 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         }
     }
     
+    //MARK: - ContactModelDelegate
+    func requestNewConatctSucc(success: SuccessData) {
+        self.messageView?.hideMessage()
+    }
+    func requestNewConatctFail(error: ErrorData) {
+        self.messageView?.hideMessage()
+        self.messageView?.setMessage(Message: error.message!, Duration: 1)
+    }
 }

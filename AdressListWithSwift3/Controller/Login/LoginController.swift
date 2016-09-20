@@ -70,7 +70,7 @@ class LoginController: UIViewController ,UserModelDelegate{
         
         self.messageView?.setMessageLoading()
         let params = [kMobile:self.telTextField.text!,kPassword:self.psdTextField.text!] as [String : Any]
-        self.userModel?.loginRequest(Params: params)
+        self.userModel?.requestLogin(Params: params)
     }
     func exitThisController()
     {

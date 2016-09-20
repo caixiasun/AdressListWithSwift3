@@ -56,18 +56,31 @@ class DataCenter: AnyObject {
     {
         let userDefault = UserDefaults.standard
         userDefault.removeObject(forKey: kIsLogin)
-//        NSKeyedArchiver.removeObserver(<#T##NSObject#>)
+//        还要删除userData，
+        userDefault.removeObject(forKey: kToken)
     }
     //保存用户数据
     func saveUserData(Data user:UserData)
     {
         NSKeyedArchiver.archiveRootObject(user, toFile: userdata_save_file_path)
+        setToken(token: user.token!)
+        
     }
     //取出用户数据
     func getUserData() -> UserData
     {
         let data = NSKeyedUnarchiver.unarchiveObject(withFile: userdata_save_file_path) as! UserData
         return data
+    }
+    func setToken(token:String)
+    {
+        let userDefault = UserDefaults.standard
+        userDefault.set(token, forKey: kToken)
+    }
+    func getToken() -> String
+    {
+        let userDefault = UserDefaults.standard
+        return userDefault.object(forKey: kToken) as! String
     }
 }
 let dataCenter = DataCenter.shareInstance()

@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LeaveDetailController" customModule="AdressListWithSwift3" customModuleProvider="target">
             <connections>
-                <outlet property="dateLab" destination="y6w-ZN-tHb" id="AfM-aH-Ruf"/>
+                <outlet property="endDateLab" destination="fco-9y-Luz" id="qiA-eb-OPA"/>
                 <outlet property="headImg" destination="DlJ-he-Mp8" id="8C2-cn-VoX"/>
                 <outlet property="line1_height" destination="1OT-09-xG5" id="Wq0-hl-HlI"/>
                 <outlet property="line2_height" destination="z3V-Df-Nah" id="Fpn-bJ-SG3"/>
@@ -19,6 +20,7 @@
                 <outlet property="nameLab" destination="9jP-Y8-ED2" id="N9x-sf-qvT"/>
                 <outlet property="positionLab" destination="45L-9p-nUK" id="ic8-Vl-Ccd"/>
                 <outlet property="reasonLab" destination="fZ2-fB-Me6" id="0zD-qB-ud7"/>
+                <outlet property="startDateLab" destination="JxH-oz-nYh" id="Mn9-Au-9Tj"/>
                 <outlet property="telLab" destination="a1k-MC-tA6" id="i2g-qB-yl6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -71,7 +73,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15215215552" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1k-MC-tA6">
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.20784313730000001" green="0.77647058820000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -91,7 +93,7 @@
                                     <constraints>
                                         <constraint firstItem="fim-BS-zLI" firstAttribute="centerY" secondItem="D5T-ZH-wLB" secondAttribute="centerY" id="3E0-hp-gYl"/>
                                         <constraint firstItem="HAl-xG-NS6" firstAttribute="top" secondItem="D5T-ZH-wLB" secondAttribute="top" id="PHH-pG-AZQ"/>
-                                        <constraint firstAttribute="height" constant="45" id="Y2L-1l-RjC"/>
+                                        <constraint firstAttribute="height" constant="50" id="Y2L-1l-RjC"/>
                                         <constraint firstItem="fim-BS-zLI" firstAttribute="leading" secondItem="D5T-ZH-wLB" secondAttribute="leading" constant="24" id="Y8g-j2-e8C"/>
                                         <constraint firstItem="a1k-MC-tA6" firstAttribute="centerY" secondItem="D5T-ZH-wLB" secondAttribute="centerY" id="pWp-Bh-YYC"/>
                                         <constraint firstItem="yTL-Ww-hoh" firstAttribute="leading" secondItem="D5T-ZH-wLB" secondAttribute="leading" constant="15" id="qVL-4P-TdK"/>
@@ -111,7 +113,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS工程师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45L-9p-nUK">
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -140,25 +142,32 @@
                                             <color key="textColor" red="0.20784313730000001" green="0.77647058820000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016.02.02--2016.03.02" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6w-ZN-tHb">
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRm-XY-Ayu" userLabel="line">
                                             <color key="backgroundColor" red="0.78823529410000004" green="0.78039215689999997" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="nHg-T9-bm5"/>
                                             </constraints>
                                         </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JxH-oz-nYh" userLabel="startDate">
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fco-9y-Luz" userLabel="endDate">
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="fco-9y-Luz" secondAttribute="trailing" constant="24" id="5YY-9h-PnO"/>
+                                        <constraint firstItem="fco-9y-Luz" firstAttribute="top" secondItem="A2c-sJ-h73" secondAttribute="centerY" id="6F4-lA-UNP"/>
                                         <constraint firstAttribute="bottom" secondItem="eRm-XY-Ayu" secondAttribute="bottom" id="ShD-ZP-VZZ"/>
                                         <constraint firstItem="vBy-Um-NiD" firstAttribute="centerY" secondItem="A2c-sJ-h73" secondAttribute="centerY" id="WPa-LY-brv"/>
-                                        <constraint firstAttribute="trailing" secondItem="y6w-ZN-tHb" secondAttribute="trailing" constant="24" id="WiF-Oa-ss8"/>
                                         <constraint firstAttribute="trailing" secondItem="eRm-XY-Ayu" secondAttribute="trailing" id="YuP-bM-NXP"/>
-                                        <constraint firstItem="y6w-ZN-tHb" firstAttribute="centerY" secondItem="A2c-sJ-h73" secondAttribute="centerY" id="aR0-Bx-vxz"/>
+                                        <constraint firstAttribute="trailing" secondItem="JxH-oz-nYh" secondAttribute="trailing" constant="24" id="a9l-Wa-nP8"/>
+                                        <constraint firstItem="JxH-oz-nYh" firstAttribute="bottom" secondItem="A2c-sJ-h73" secondAttribute="centerY" id="cLt-3V-8QP"/>
                                         <constraint firstItem="vBy-Um-NiD" firstAttribute="leading" secondItem="A2c-sJ-h73" secondAttribute="leading" constant="24" id="qrS-x8-drn"/>
                                         <constraint firstItem="eRm-XY-Ayu" firstAttribute="leading" secondItem="A2c-sJ-h73" secondAttribute="leading" constant="15" id="zg6-S4-CcM"/>
                                     </constraints>
@@ -171,7 +180,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="回家养病" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZ2-fB-Me6">
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -240,6 +249,6 @@
         </view>
     </objects>
     <resources>
-        <image name="head" width="35" height="35"/>
+        <image name="head" width="87" height="87"/>
     </resources>
 </document>

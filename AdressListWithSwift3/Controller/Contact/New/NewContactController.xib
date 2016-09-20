@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,12 +11,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewContactController" customModule="AdressListWithSwift3" customModuleProvider="target">
             <connections>
-                <outlet property="addressTextField" destination="QyV-oa-5fV" id="bFd-sI-DAn"/>
-                <outlet property="birthDayTextField" destination="ner-yU-RG0" id="L0c-75-iMC"/>
+                <outlet property="addressTextField" destination="QyV-oa-5fV" id="ZlE-pl-DKK"/>
+                <outlet property="birthDayTextField" destination="ner-yU-RG0" id="n5I-Bq-MCg"/>
                 <outlet property="emailTextField" destination="4bg-fu-0e6" id="3L3-U7-88u"/>
                 <outlet property="headImg" destination="5FA-Ct-NHM" id="Um6-7l-bAY"/>
                 <outlet property="loadImgBtn" destination="odE-Mi-xLk" id="UUl-1g-HQe"/>
                 <outlet property="nameTextField" destination="F7t-BT-aNM" id="IRU-ZR-P2j"/>
+                <outlet property="nickNameTextField" destination="QMC-0g-gAm" id="eQe-Wo-Iog"/>
                 <outlet property="telTextField" destination="Anc-E8-O7Q" id="BO5-Vk-Ms4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -50,15 +52,26 @@
                                 <action selector="itemActionWithSender:" destination="-1" eventType="touchUpInside" id="YR6-Vp-Cms"/>
                             </connections>
                         </button>
+                        <textField opaque="NO" clipsSubviews="YES" tag="19" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="昵称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QMC-0g-gAm" userLabel="nickName">
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="UsI-Vh-GUj"/>
+                            </connections>
+                        </textField>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="2Y9-b4-99q"/>
                         <constraint firstItem="odE-Mi-xLk" firstAttribute="centerX" secondItem="5FA-Ct-NHM" secondAttribute="centerX" id="3eq-30-VEE"/>
+                        <constraint firstItem="QMC-0g-gAm" firstAttribute="trailing" secondItem="F7t-BT-aNM" secondAttribute="trailing" id="6w7-qP-Ngb"/>
                         <constraint firstItem="odE-Mi-xLk" firstAttribute="width" secondItem="5FA-Ct-NHM" secondAttribute="width" id="6wm-lb-43k"/>
                         <constraint firstAttribute="trailing" secondItem="F7t-BT-aNM" secondAttribute="trailing" constant="24" id="LoK-Dr-QOK"/>
+                        <constraint firstItem="QMC-0g-gAm" firstAttribute="leading" secondItem="F7t-BT-aNM" secondAttribute="leading" id="T2q-Ya-gGK"/>
                         <constraint firstItem="5FA-Ct-NHM" firstAttribute="centerY" secondItem="G4i-Br-NOP" secondAttribute="centerY" id="TZh-H4-vWk"/>
+                        <constraint firstItem="QMC-0g-gAm" firstAttribute="top" secondItem="F7t-BT-aNM" secondAttribute="bottom" constant="6" id="aEC-y2-EGk"/>
                         <constraint firstItem="odE-Mi-xLk" firstAttribute="height" secondItem="5FA-Ct-NHM" secondAttribute="height" id="cmD-uE-FdM"/>
-                        <constraint firstItem="F7t-BT-aNM" firstAttribute="centerY" secondItem="5FA-Ct-NHM" secondAttribute="centerY" id="gNX-sK-rJn"/>
+                        <constraint firstItem="F7t-BT-aNM" firstAttribute="bottom" secondItem="5FA-Ct-NHM" secondAttribute="centerY" constant="3" id="gNX-sK-rJn"/>
                         <constraint firstItem="odE-Mi-xLk" firstAttribute="centerY" secondItem="5FA-Ct-NHM" secondAttribute="centerY" id="hAg-5c-ZjJ"/>
                         <constraint firstItem="5FA-Ct-NHM" firstAttribute="leading" secondItem="G4i-Br-NOP" secondAttribute="leading" constant="24" id="lRC-bR-wXI"/>
                         <constraint firstItem="F7t-BT-aNM" firstAttribute="leading" secondItem="5FA-Ct-NHM" secondAttribute="trailing" constant="24" id="oxY-eu-kCt"/>
@@ -222,7 +235,7 @@
                 <constraint firstItem="Zci-Hf-dRx" firstAttribute="centerX" secondItem="G4i-Br-NOP" secondAttribute="centerX" id="MUG-lT-cDT"/>
                 <constraint firstItem="Zci-Hf-dRx" firstAttribute="width" secondItem="G4i-Br-NOP" secondAttribute="width" id="SpN-fd-NSi"/>
                 <constraint firstItem="G4i-Br-NOP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TEI-sV-0fH"/>
-                <constraint firstItem="Zci-Hf-dRx" firstAttribute="top" secondItem="G4i-Br-NOP" secondAttribute="bottom" constant="20" id="YBD-Tz-4Bb"/>
+                <constraint firstItem="Zci-Hf-dRx" firstAttribute="top" secondItem="G4i-Br-NOP" secondAttribute="bottom" constant="50" id="YBD-Tz-4Bb"/>
                 <constraint firstAttribute="trailing" secondItem="G4i-Br-NOP" secondAttribute="trailing" id="bF9-Lr-b0v"/>
             </constraints>
         </view>

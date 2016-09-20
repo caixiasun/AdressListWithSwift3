@@ -142,7 +142,6 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
     {
         switch sender.tag {
         case 1://cancel
-            printAllDataWithCoreData()
             exitThisController()
             break
         case 2://done
