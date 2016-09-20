@@ -42,12 +42,13 @@ class ContactModel: NSObject {
     func requestNewConatct(param: Dictionary<String, Any>)
     {
         let url = urlPrefix + "user/add"
+        print("url:",url)
         manager.get(url, parameters: param, success: { (oper, data) -> Void in
             let dic = data as! Dictionary<String, Any>
             let status = dic["status"] as! String
             if status == "ok" {
-                let result = ContactRestultData.mj_object(withKeyValues: dic)
-                
+                let data = SuccessData.initData()
+                self.delegate?.requestNewConatctSucc!(success: data)
             }else{//请求失败  status=error
                 let errorObj = dic["error"]
                 let data = ErrorData.initWithError(obj: errorObj)
@@ -61,7 +62,31 @@ class ContactModel: NSObject {
         
     }
     
-    
+    //上传头像
+    func requestUploadHeadImg(data:Data)
+    {
+        let url = urlPrefix + "user/headImg"
+        print("url:",url)
+        var param:Dictionary<String, Any> = Dictionary()
+        param[kToken] = dataCenter.getToken()
+        param["file"] = data
+        manager.get(url, parameters: param, success: { (oper, data) -> Void in
+            let dic = data as! Dictionary<String, Any>
+            let status = dic["status"] as! String
+            if status == "ok" {
+                let data = SuccessData.initData()
+                self.delegate?.requestUploadHeadImgSucc!(success: data)
+            }else{//请求失败  status=error
+                let errorObj = dic["error"]
+                let data = ErrorData.initWithError(obj: errorObj)
+                self.delegate?.requestUploadHeadImgFail!(error: data)
+            }
+            
+        }) { (opeation, error) -> Void in
+            let data = ErrorData.initWithError(obj: error)
+            self.delegate?.requestUploadHeadImgFail!(error: data)
+        }
+    }
     
     //将请求到的数据转换成对应的数据类型
     func covertDataToArray(data:ContactRestultData) -> ContactRestultData
@@ -91,4 +116,7 @@ class ContactModel: NSObject {
     
     @objc optional func requestNewConatctSucc(success:SuccessData)
     @objc optional func requestNewConatctFail(error:ErrorData)
+    
+    @objc optional func requestUploadHeadImgSucc(success:SuccessData)
+    @objc optional func requestUploadHeadImgFail(error:ErrorData)
 }

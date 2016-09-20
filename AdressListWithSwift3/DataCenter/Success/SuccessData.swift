@@ -12,16 +12,9 @@ class SuccessData: NSObject {
     var success:String?
     var message:String?
     
-    class func initWithError(obj:Any?) -> SuccessData{
-        let succObj = obj as? Dictionary<String,Any>
+    class func initData() -> SuccessData{
         let succData = SuccessData()
-        if succObj == nil {
-            succData.message = "未知错误！"
-            return succData
-        }
-        
-        succData.message = succObj?["message"] as! String?
-        succData.success = succObj?["success"] as! String?
+        succData.message = "添加成功！"
         return succData
     }
 }

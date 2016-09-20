@@ -172,6 +172,7 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         data.email = email
         if self.loadImgBtn.title(for: .normal) == kTitle_headImg_change {
             data.headImg = self.headImg.image
+            self.contactModel.requestUploadHeadImg(data: UIImageJPEGRepresentation(self.headImg.image!, 1)!)
         }
         if !((self.nickNameTextField.text?.isEmpty)!) {
             data.nickName = self.nickNameTextField.text
@@ -194,11 +195,6 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         params["level_id"] = 4
         self.messageView?.setMessageLoading()
         self.contactModel.requestNewConatct(param: params)
-        
-        //成功后退出本界面(并发送通知刷新所有联系人界面)
-        self.messageView?.setMessage(Message: "添加成功！", Duration: 1)
-        perform(#selector(exitThisController), with: nil, afterDelay: 1.5)
-        
     }
     func exitThisController()
     {
@@ -285,9 +281,18 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
     //MARK: - ContactModelDelegate
     func requestNewConatctSucc(success: SuccessData) {
         self.messageView?.hideMessage()
+        self.messageView?.setMessage(Message: success.message!, Duration: 1)
+        //成功后退出本界面(并发送通知刷新所有联系人界面)
+        perform(#selector(exitThisController), with: nil, afterDelay: 1.5)
     }
     func requestNewConatctFail(error: ErrorData) {
         self.messageView?.hideMessage()
         self.messageView?.setMessage(Message: error.message!, Duration: 1)
+    }
+    func requestUploadHeadImgSucc(result: ContactRestultData) {
+        
+    }
+    func requestUploadHeadImgFail(error: ErrorData) {
+        
     }
 }
