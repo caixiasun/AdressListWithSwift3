@@ -17,7 +17,7 @@ class UserData: NSObject,NSCoding {
     var address:String?
     var birthDay:String?
     var count:Int = 0
-    var idNum:Int = 0 //id
+    var idNum:String? //id
     var isLeave:Bool = false //是否请假
     var department:String?//部门
     var position:String?//职位
@@ -26,6 +26,7 @@ class UserData: NSObject,NSCoding {
     var token:String?
     var status:Int = 0 //账号状态 0：启用；1：禁用
     var level:String?//联系人列表请求的：用户级别
+    var departmentId:Int = 0//部门ID，用于 存储时标识
     
     static func initWithUser(nUser user:User) -> UserData
     {
@@ -33,6 +34,16 @@ class UserData: NSObject,NSCoding {
         model.name = user.name
         model.tel = user.tel
         model.isLeave = user.isLeave
+        model.departmentId = Int(user.departmentId)
+        if user.level != nil && !((user.level?.isEmpty)!) {
+            model.position = user.level
+        }
+        if user.department != nil && !((user.department?.isEmpty)!) {
+            model.department = user.department
+        }
+        if user.id != nil && !((user.id?.isEmpty)!) {
+            model.idNum = user.id
+        }
         if user.email != nil && !((user.email?.isEmpty)!) {
             model.email = user.email
         }
@@ -92,7 +103,7 @@ class UserData: NSObject,NSCoding {
         self.token = aDecoder.decodeObject(forKey: "token") as! String?
         self.level = aDecoder.decodeObject(forKey: "level") as! String?
         self.count = Int(aDecoder.decodeCInt(forKey: "count"))
-        self.idNum = Int(aDecoder.decodeCInt(forKey: "idNum"))
+        self.idNum = aDecoder.decodeObject(forKey: "idNum") as! String?
         self.status = Int(aDecoder.decodeCInt(forKey: "status"))
         self.isLeave = aDecoder.decodeBool(forKey: "isLeave")
     }

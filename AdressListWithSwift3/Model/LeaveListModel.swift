@@ -37,19 +37,35 @@ class LeaveListModel: BaseModel {
             self.delegate?.requestLeaveListFail!(error: data)
         }
     }
+    //请假详情
     func requestLeaveDetail(id:Int)
     {
-        let url = "/leave/detail"
+        let url = urlPrefix + "leave/detail"
         let token = dataCenter.getToken()
         let param = [kID:id,kToken:token] as [String : Any]
+        manager.get(url, parameters: param, success: { (oper, data) -> Void in
+            let dic = data as! Dictionary<String, Any>            
+            let res = LeaveListData.mj_object(withKeyValues: dic["data"])
+            self.delegate?.requestLeaveDetailSucc!(result: res!)
+            
+        }) { (opeation, error) -> Void in
+            let data = ErrorData.initWithError(obj: error)
+            self.delegate?.requestLeaveDetailFail!(error: data)
+        }
+    }
+    //请假申请
+    func requestLeaveApply(param:Dictionary<String, Any>)
+    {
+        let url = urlPrefix + "leave/add"
         manager.get(url, parameters: param, success: { (oper, data) -> Void in
             let dic = data as! Dictionary<String, Any>
             let status = dic["status"] as! String
             if status == "ok" {
-//                let res = LeaveListResultData.mj_object(withKeyValues: dic)
+                let data = SuccessData.initData()
+                self.delegate?.requestLeaveApplySucc!(success: data)
             }else{//请求失败  status=error
-                let errorObj = dic["error"]
-                let data = ErrorData.initWithError(obj: errorObj)
+//                let errorObj = dic["error"]
+                let data = ErrorData.initWithError(obj: nil)
                 self.delegate?.requestLeaveListFail!(error: data)
             }
             
@@ -77,6 +93,9 @@ class LeaveListModel: BaseModel {
     @objc optional func requestLeaveListSucc(result:LeaveListResultData)
     @objc optional func requestLeaveListFail(error:ErrorData)
     
-    @objc optional func requestLeaveDetailSucc(succ:SuccessData)
+    @objc optional func requestLeaveDetailSucc(result:LeaveListData)
     @objc optional func requestLeaveDetailFail(error:ErrorData)
+    
+    @objc optional func requestLeaveApplySucc(success:SuccessData)
+    @objc optional func requestLeaveApplyFail(error:ErrorData)
 }

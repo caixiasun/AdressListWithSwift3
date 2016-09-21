@@ -25,6 +25,7 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
     let headerIdentifier = "HeaderReuseIdentifier"
     var messageView:MessageView?
     let contactModel:ContactModel = ContactModel()
+    var localDataSource:NSMutableArray?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +60,10 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
     
     func addAction()
     {
+        if !dataCenter.isAlreadyLogin() {
+            appDelegate.loadLoginVC()
+            return
+        }
         let navi = YTNavigationController(rootViewController: NewContactController())
         navi.initNavigationBar()
         self.present(navi, animated: false, completion: nil)
@@ -153,7 +158,6 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
         tableView.register(UINib(nibName: self.cellReuseIdentifier, bundle: nil), forCellReuseIdentifier: self.cellReuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
-//        tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0)
         self.view.addSubview(tableView)
         self.tableView = tableView;
         
@@ -165,20 +169,27 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
         })
         
         self.dataSource = NSMutableArray()
+        self.localDataSource = NSMutableArray()
     }
     
     //MARK:- UITableViewDelegate,UITableViewDataSource
-    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return (self.dataSource?.count)!
+        if self.dataSource?.count != 0 {
+            return (self.dataSource?.count)!
+        }else{
+            return (self.localDataSource?.count)!
+        }
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "全部"
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {       
+        if dataSource?.count != 0 {
+            let data = self.dataSource?.object(at: section) as! ContactData
+            return data.name
+        }else{
+            let arr = self.localDataSource?.object(at: section) as! DepartmentData
+            return arr.name
         }
-        let data = self.dataSource?.object(at: section) as! ContactData
-        return data.name
+        
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headView = UITableViewHeaderFooterView.init(reuseIdentifier: headerIdentifier)
@@ -195,18 +206,34 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
         return 50
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ((self.dataSource?.object(at: section) as! ContactData).member?.count)!
+        if self.dataSource?.count == 0
+        {
+            return (self.localDataSource?.object(at: section) as! DepartmentData).list!.count
+        }else{
+            return ((self.dataSource?.object(at: section) as! ContactData).member?.count)!
+        }
+    
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellReuseIdentifier, for: indexPath) as! AdressListCell
-        let data = (self.dataSource?.object(at: indexPath.section) as! ContactData).member?.object(at: indexPath.row) as! UserData
+        var data:UserData
+        if self.dataSource?.count == 0 {
+            data = (self.localDataSource?.object(at: indexPath.section) as! DepartmentData).list!.object(at: indexPath.row) as! UserData
+        }else{
+            data = (self.dataSource?.object(at: indexPath.section) as! ContactData).member?.object(at: indexPath.row) as! UserData
+        }
         cell.setContent(data: data)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = ContactDetailController()
         controller.hidesBottomBarWhenPushed = true
-        let data = (self.dataSource?.object(at: indexPath.section) as! ContactData).member?.object(at: indexPath.row) as! UserData
+        var data:UserData
+        if self.dataSource?.count == 0 {
+            data = (self.localDataSource?.object(at: indexPath.section) as! DepartmentData).list!.object(at: indexPath.row) as! UserData
+        }else{
+            data = (self.dataSource?.object(at: indexPath.section) as! ContactData).member?.object(at: indexPath.row) as! UserData
+        }
         controller.userData = data
         self.navigationController?.pushViewController(controller, animated: true)
         
@@ -239,18 +266,23 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
     //MARK: -ContactModelDelegate
     func requestContactListSucc(result: ContactRestultData) {
         self.messageView?.hideMessage()
-        var message:String? = "列表获取成功！"
         if result.total == 0 {
-            message = message! + "但服务器没有数据，暂时使用本地假数据"
         }else{
             //将列表存入coredata，记得卸载程序，抹掉假数据。
             self.dataSource = result.data
             self.tableView?.reloadData()
         }
-        self.messageView?.setMessage(Message: message!, Duration: 1)
+        //将数据保存到本地
+        addCoreDataFromArray(ModelList: result.data!)
     }
-    func requestContactListfail(error: ErrorData) {
+    func requestContactListFail(error: ErrorData) {
         self.messageView?.hideMessage()
-        self.messageView?.setMessage(Message: error.message!, Duration: 1)
+        self.messageView?.setMessage(Message: error.message!+"已为您加载本地数据！", Duration: 1)
+        if error.code == kNetworkErrorCode {//网络连接问题，加载本地数据
+            self.dataSource?.removeAllObjects()
+            self.localDataSource = getDataFromCoreData()
+            self.tableView?.reloadData()
+        }
+        
     }
 }

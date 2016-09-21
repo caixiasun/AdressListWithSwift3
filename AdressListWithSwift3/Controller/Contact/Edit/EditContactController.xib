@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,6 +18,7 @@
                 <outlet property="headImg" destination="H11-1R-Ifu" id="04j-xB-DdW"/>
                 <outlet property="loadImgBtn" destination="rfO-Lj-NxA" id="TI2-Xq-5jk"/>
                 <outlet property="nameTextFileld" destination="pBv-tB-TPk" id="7PF-t9-btX"/>
+                <outlet property="nickNameTextField" destination="Bw9-Yi-cml" id="EXK-gS-zAa"/>
                 <outlet property="telTextField" destination="pFQ-dl-zeK" id="kK1-Zu-kLG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -52,13 +54,21 @@
                                         <outlet property="delegate" destination="-1" id="zgI-09-cgx"/>
                                     </connections>
                                 </textField>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="昵称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bw9-Yi-cml">
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
                             </subviews>
                             <constraints>
+                                <constraint firstItem="Bw9-Yi-cml" firstAttribute="leading" secondItem="pBv-tB-TPk" secondAttribute="leading" id="0bl-jb-vO3"/>
                                 <constraint firstItem="rfO-Lj-NxA" firstAttribute="height" secondItem="H11-1R-Ifu" secondAttribute="height" id="438-tf-yfN"/>
                                 <constraint firstItem="H11-1R-Ifu" firstAttribute="leading" secondItem="Rzm-dc-8fE" secondAttribute="leading" constant="24" id="5UE-99-Xih"/>
                                 <constraint firstItem="rfO-Lj-NxA" firstAttribute="width" secondItem="H11-1R-Ifu" secondAttribute="width" id="9VE-RP-Arr"/>
-                                <constraint firstItem="pBv-tB-TPk" firstAttribute="centerY" secondItem="H11-1R-Ifu" secondAttribute="centerY" id="LSM-yf-4bZ"/>
+                                <constraint firstItem="pBv-tB-TPk" firstAttribute="bottom" secondItem="H11-1R-Ifu" secondAttribute="centerY" constant="-3" id="LSM-yf-4bZ"/>
                                 <constraint firstItem="rfO-Lj-NxA" firstAttribute="centerY" secondItem="H11-1R-Ifu" secondAttribute="centerY" id="SQQ-6l-q2Y"/>
+                                <constraint firstItem="Bw9-Yi-cml" firstAttribute="top" secondItem="pBv-tB-TPk" secondAttribute="bottom" constant="6" id="Y8Q-wf-jzn"/>
+                                <constraint firstItem="Bw9-Yi-cml" firstAttribute="trailing" secondItem="pBv-tB-TPk" secondAttribute="trailing" id="Y9s-eX-myF"/>
                                 <constraint firstItem="rfO-Lj-NxA" firstAttribute="centerX" secondItem="H11-1R-Ifu" secondAttribute="centerX" id="ZFj-Aa-dRz"/>
                                 <constraint firstItem="pBv-tB-TPk" firstAttribute="leading" secondItem="H11-1R-Ifu" secondAttribute="trailing" constant="24" id="aSX-ea-dIu"/>
                                 <constraint firstItem="H11-1R-Ifu" firstAttribute="centerY" secondItem="Rzm-dc-8fE" secondAttribute="centerY" id="aZf-D5-HNj"/>

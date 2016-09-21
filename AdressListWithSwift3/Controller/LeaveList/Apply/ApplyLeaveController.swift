@@ -8,15 +8,15 @@
 
 import UIKit
 
-class ApplyLeaveController: UIViewController ,UITextFieldDelegate{
+class ApplyLeaveController: UIViewController ,UITextFieldDelegate,LeaveListModelDelegate{
     
     @IBOutlet weak var reasonTextView: UITextView!
+    @IBOutlet weak var startTextField: UITextField!
+    @IBOutlet weak var endTextField: UITextField!
+    @IBOutlet weak var daysTextField: UITextField!
     
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var telTextField: UITextField!
-    @IBOutlet weak var positionTextField: UITextField!
-    @IBOutlet weak var dateTextField: UITextField!
-    
+    var messageView:MessageView?
+    var leaveModel = LeaveListModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +33,9 @@ class ApplyLeaveController: UIViewController ,UITextFieldDelegate{
         reasonTextView.layer.borderColor = LineColor.cgColor
         reasonTextView.layer.borderWidth = 0.5
         setCornerRadius(view: reasonTextView, radius: 10)
+        
+        self.messageView = addMessageView(InView: self.view)
+        self.leaveModel.delegate = self
     }
     func initNaviBar()
     {
@@ -53,7 +56,7 @@ class ApplyLeaveController: UIViewController ,UITextFieldDelegate{
             exitThisController()
             break
         case 2://Submit 提交申请
-            exitThisController()
+            self.submitAction()
             break
         default:
             break
@@ -68,19 +71,61 @@ class ApplyLeaveController: UIViewController ,UITextFieldDelegate{
     //MARK:- UITextFieldDelegate
     func textFieldDidBeginEditing(_ textField: UITextField) {
         switch textField.tag {
-        case TextFieldTagStyle.Name.rawValue://姓名
+        case TextFieldTagStyle.StartDate.rawValue://开始时间
             break
-        case TextFieldTagStyle.Telephone.rawValue://电话
+        case TextFieldTagStyle.EndDate.rawValue://结束时间
             break
-        case TextFieldTagStyle.Position.rawValue://职位
-            break
-        case TextFieldTagStyle.LeaveDate.rawValue://请假时间
+        case TextFieldTagStyle.LeaveDays.rawValue://请假时长
             break
         case TextFieldTagStyle.LeaveReason.rawValue://请假原因
             break
         default:
             break
         }
+    }
+    
+    func submitAction()
+    {
+        if (self.startTextField.text?.isEmpty)! {
+            self.messageView?.setMessage(Message: "请输入开始时间!", Duration: 1)
+            self.startTextField.becomeFirstResponder()
+            return
+        }
+        if (self.endTextField.text?.isEmpty)! {
+            self.messageView?.setMessage(Message: "请输入结束时间!", Duration: 1)
+            self.endTextField.becomeFirstResponder()
+            return
+        }
+        if (self.daysTextField.text?.isEmpty)! {
+            self.messageView?.setMessage(Message: "请输入请假时长：天数!", Duration: 1)
+            self.daysTextField.becomeFirstResponder()
+            return
+        }
+        
+        self.view.endEditing(true)
+        
+        var param = Dictionary<String, Any>()
+        param[kToken] = dataCenter.getToken()
+        param["started"] = self.startTextField.text
+        param["ended"] = self.endTextField.text
+        param["time"] = self.daysTextField.text
+        if !(self.reasonTextView.text?.isEmpty)! {
+            param["reason"] = self.reasonTextView.text
+        }
+        self.messageView?.setMessageLoading()
+        self.leaveModel.requestLeaveApply(param: param)
+    }
+    
+    //MARK: -LeaveListModelDelegate
+    func requestLeaveApplySucc(success: SuccessData) {
+        self.messageView?.hideMessage()
+        self.messageView?.setMessage(Message: "申请已提交,请等待审核！", Duration: 1)
+        perform(#selector(exitThisController), with: nil, afterDelay: 1.5)
+        
+    }
+    func requestLeaveApplyFail(error: ErrorData) {
+        self.messageView?.hideMessage()
+        self.messageView?.setMessage(Message: error.message!, Duration: 1)
     }
     
 }

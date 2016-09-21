@@ -9,11 +9,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ApplyLeaveController" customModule="AdressListWithSwift3" customModuleProvider="target">
             <connections>
-                <outlet property="dateTextField" destination="hEe-gF-L8f" id="Hw2-0h-TIc"/>
-                <outlet property="nameTextField" destination="OzQ-R2-CKx" id="3SU-mk-xZu"/>
-                <outlet property="positionTextField" destination="cKB-p7-7u5" id="REl-PT-s9m"/>
+                <outlet property="daysTextField" destination="cKB-p7-7u5" id="HFg-5c-xeS"/>
+                <outlet property="endTextField" destination="LcN-0U-vof" id="VTc-54-KXq"/>
                 <outlet property="reasonTextView" destination="awX-ym-ra2" id="Iyz-mO-VWc"/>
-                <outlet property="telTextField" destination="LcN-0U-vof" id="oJo-C0-2Ut"/>
+                <outlet property="startTextField" destination="OzQ-R2-CKx" id="fcB-JC-Png"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,16 +21,16 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fiv-dH-IJl" userLabel="nameV">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fiv-dH-IJl" userLabel="startV">
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4c-b5-exA" userLabel="lab">
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开始时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4c-b5-exA" userLabel="lab">
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.20784313730000001" green="0.77647058820000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OzQ-R2-CKx" userLabel="tf">
+                        <textField opaque="NO" clipsSubviews="YES" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="格式：1900-01-01 10:10:02" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OzQ-R2-CKx" userLabel="tf">
                             <color key="textColor" red="0.74509803919999995" green="0.73333333329999995" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
                                 <outlet property="delegate" destination="-1" id="MvL-0i-PQ5"/>
@@ -49,18 +48,18 @@
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="yiB-Zb-5kr"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YLX-Bb-3S2" userLabel="telV">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YLX-Bb-3S2" userLabel="endV">
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="电话" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LcN-0U-vof" userLabel="tf">
+                        <textField opaque="NO" clipsSubviews="YES" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="格式：1900-01-01 10:10:02" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LcN-0U-vof" userLabel="tf">
                             <color key="textColor" red="0.74509803919999995" green="0.73333333329999995" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <textInputTraits key="textInputTraits"/>
                             <connections>
                                 <outlet property="delegate" destination="-1" id="q2j-XB-cyD"/>
                             </connections>
                         </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电话" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xiF-WM-2sG" userLabel="lab">
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="结束时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xiF-WM-2sG" userLabel="lab">
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.20784313730000001" green="0.77647058820000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -74,16 +73,16 @@
                         <constraint firstItem="xiF-WM-2sG" firstAttribute="centerY" secondItem="YLX-Bb-3S2" secondAttribute="centerY" id="dAP-Wg-gNz"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7nW-Aa-V6r" userLabel="posiV">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7nW-Aa-V6r" userLabel="daysV">
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="职位" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNW-uK-vu5" userLabel="lab">
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请假天数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNW-uK-vu5" userLabel="lab">
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.20784313730000001" green="0.77647058820000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="职位" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cKB-p7-7u5" userLabel="tf">
+                        <textField opaque="NO" clipsSubviews="YES" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入天数" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cKB-p7-7u5" userLabel="tf">
                             <color key="textColor" red="0.74509803919999995" green="0.73333333329999995" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
                                 <outlet property="delegate" destination="-1" id="eSg-KY-ZQY"/>
@@ -99,42 +98,17 @@
                         <constraint firstItem="iNW-uK-vu5" firstAttribute="leading" secondItem="7nW-Aa-V6r" secondAttribute="leading" constant="24" id="ed5-ew-7ug"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sAo-pu-Imx" userLabel="dateV">
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请假时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yl7-Gy-nnM" userLabel="lab">
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="textColor" red="0.20784313730000001" green="0.77647058820000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <textField opaque="NO" clipsSubviews="YES" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请假时间" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hEe-gF-L8f" userLabel="tf">
-                            <color key="textColor" red="0.74509803919999995" green="0.73333333329999995" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="-1" id="iVA-sR-5vB"/>
-                            </connections>
-                        </textField>
-                    </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstItem="yl7-Gy-nnM" firstAttribute="centerY" secondItem="sAo-pu-Imx" secondAttribute="centerY" id="1UY-ZC-F8Z"/>
-                        <constraint firstItem="hEe-gF-L8f" firstAttribute="centerY" secondItem="sAo-pu-Imx" secondAttribute="centerY" id="3AP-Tt-Dgi"/>
-                        <constraint firstItem="yl7-Gy-nnM" firstAttribute="leading" secondItem="sAo-pu-Imx" secondAttribute="leading" constant="24" id="auz-c4-Pie"/>
-                        <constraint firstAttribute="trailing" secondItem="hEe-gF-L8f" secondAttribute="trailing" constant="24" id="biN-Dv-dM5"/>
-                        <constraint firstItem="hEe-gF-L8f" firstAttribute="width" secondItem="sAo-pu-Imx" secondAttribute="width" multiplier="0.65:1" id="pzl-tf-kX2"/>
-                    </constraints>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uRb-jk-eer" userLabel="reasonV">
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请假理由" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ezx-69-q5K" userLabel="lab">
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.20784313730000001" green="0.77647058820000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="18" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awX-ym-ra2">
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="textColor" red="0.74509803919999995" green="0.73333333329999995" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             <connections>
                                 <outlet property="delegate" destination="-1" id="84q-HT-dkA"/>
@@ -155,24 +129,21 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fiv-dH-IJl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="3Xp-TM-c8S"/>
-                <constraint firstItem="uRb-jk-eer" firstAttribute="width" secondItem="sAo-pu-Imx" secondAttribute="width" id="Bpt-kc-Ht5"/>
+                <constraint firstItem="uRb-jk-eer" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9Qi-cN-EjC"/>
                 <constraint firstItem="YLX-Bb-3S2" firstAttribute="centerX" secondItem="fiv-dH-IJl" secondAttribute="centerX" id="CTD-mQ-H6L"/>
-                <constraint firstItem="sAo-pu-Imx" firstAttribute="centerX" secondItem="7nW-Aa-V6r" secondAttribute="centerX" id="D9d-fT-Uyd"/>
                 <constraint firstItem="YLX-Bb-3S2" firstAttribute="height" secondItem="fiv-dH-IJl" secondAttribute="height" id="I7e-xI-51H"/>
-                <constraint firstItem="sAo-pu-Imx" firstAttribute="top" secondItem="7nW-Aa-V6r" secondAttribute="bottom" id="LNf-SH-2rB"/>
+                <constraint firstItem="uRb-jk-eer" firstAttribute="width" secondItem="7nW-Aa-V6r" secondAttribute="width" id="Ls7-mn-zgH"/>
+                <constraint firstItem="uRb-jk-eer" firstAttribute="height" secondItem="7nW-Aa-V6r" secondAttribute="height" multiplier="2:1" id="VgT-k0-A4g"/>
                 <constraint firstItem="7nW-Aa-V6r" firstAttribute="height" secondItem="YLX-Bb-3S2" secondAttribute="height" id="WZb-Rf-axk"/>
-                <constraint firstItem="sAo-pu-Imx" firstAttribute="height" secondItem="7nW-Aa-V6r" secondAttribute="height" id="Xpn-0H-VcY"/>
-                <constraint firstItem="uRb-jk-eer" firstAttribute="height" secondItem="sAo-pu-Imx" secondAttribute="height" multiplier="2:1" id="YL1-BP-4rM"/>
-                <constraint firstItem="sAo-pu-Imx" firstAttribute="width" secondItem="7nW-Aa-V6r" secondAttribute="width" id="YwH-ra-ulW"/>
+                <constraint firstItem="7nW-Aa-V6r" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WzW-K4-k6e"/>
                 <constraint firstItem="YLX-Bb-3S2" firstAttribute="top" secondItem="fiv-dH-IJl" secondAttribute="bottom" id="aua-iW-Qsc"/>
                 <constraint firstItem="7nW-Aa-V6r" firstAttribute="centerX" secondItem="YLX-Bb-3S2" secondAttribute="centerX" id="epf-by-w5R"/>
                 <constraint firstItem="YLX-Bb-3S2" firstAttribute="width" secondItem="fiv-dH-IJl" secondAttribute="width" id="fA7-kI-PNx"/>
                 <constraint firstItem="7nW-Aa-V6r" firstAttribute="width" secondItem="YLX-Bb-3S2" secondAttribute="width" id="nBJ-lb-dF6"/>
+                <constraint firstItem="uRb-jk-eer" firstAttribute="top" secondItem="7nW-Aa-V6r" secondAttribute="bottom" id="prF-Ji-Tie"/>
                 <constraint firstItem="7nW-Aa-V6r" firstAttribute="top" secondItem="YLX-Bb-3S2" secondAttribute="bottom" id="u13-vH-emd"/>
-                <constraint firstItem="uRb-jk-eer" firstAttribute="top" secondItem="sAo-pu-Imx" secondAttribute="bottom" id="uxI-4l-Bo2"/>
                 <constraint firstAttribute="trailing" secondItem="fiv-dH-IJl" secondAttribute="trailing" id="w2i-g5-jA4"/>
                 <constraint firstItem="fiv-dH-IJl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wD8-RY-75B"/>
-                <constraint firstItem="uRb-jk-eer" firstAttribute="centerX" secondItem="sAo-pu-Imx" secondAttribute="centerX" id="yu5-6a-Yck"/>
             </constraints>
         </view>
     </objects>

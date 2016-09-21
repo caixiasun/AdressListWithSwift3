@@ -29,8 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
 //        self.registerNotification(alerTime: 3)
         
-        self.loadLoginVC()
-                
+//        self.loadLoginVC()
+        
+//        printAllDataWithCoreData()
+        
         return true
     }
     func initWindow()

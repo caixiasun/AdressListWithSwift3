@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LeaveDetailController: UIViewController {
+class LeaveDetailController: UIViewController,LeaveListModelDelegate {
     
     @IBOutlet weak var line1_height: NSLayoutConstraint!
     @IBOutlet weak var line2_height: NSLayoutConstraint!
@@ -22,14 +22,19 @@ class LeaveDetailController: UIViewController {
     @IBOutlet weak var startDateLab: UILabel!
     @IBOutlet weak var endDateLab: UILabel!
     var data:LeaveListData?
-    
+    var leaveModel:LeaveListModel = LeaveListModel()
+    var messageView:MessageView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.initSubviews()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        self.initContent()
+        self.messageView?.setMessageLoading()
+        self.leaveModel.requestLeaveDetail(id: (data?.idNum)!)
     }
     func initSubviews()
     {
@@ -45,13 +50,18 @@ class LeaveDetailController: UIViewController {
         
         setCornerRadius(view: self.headImg, radius: kRadius_headImg_common)
         setBorder(view: self.headImg)
+        
+        self.messageView = addMessageView(InView: self.view)
+        self.leaveModel.delegate = self
     }
     
     func initContent()
     {
         self.nameLab.text = data?.name
+        self.telLab.text = data?.tel
         self.startDateLab.text = data?.started
         self.endDateLab.text = data?.ended
+        self.reasonLab.text = data?.reason
     }
     
     @IBAction func itemAction(sender: UIButton) {
@@ -63,6 +73,17 @@ class LeaveDetailController: UIViewController {
         default:
             break
         }
+    }
+    
+    //MARK: -LeaveListModelDelegate
+    func requestLeaveDetailSucc(result: LeaveListData) {
+        self.messageView?.hideMessage()
+        self.data = result
+        self.initContent()
+    }
+    func requestLeaveDetailFail(error: ErrorData) {
+        self.messageView?.hideMessage()
+        self.messageView?.setMessage(Message: error.message!, Duration: 1)
     }
     
 }

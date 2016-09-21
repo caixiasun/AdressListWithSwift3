@@ -16,6 +16,20 @@
 		002CDF181D8C030B00BA0B6E /* YTTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002CDF171D8C030B00BA0B6E /* YTTools.swift */; };
 		002CDF1A1D8C033B00BA0B6E /* YTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002CDF191D8C033B00BA0B6E /* YTView.swift */; };
 		0034C90F1D87F9B100A8C4D4 /* CoreDataTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0034C90E1D87F9B100A8C4D4 /* CoreDataTools.swift */; };
+		0055A4D31D92321D00C3893C /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055A4D11D92321D00C3893C /* User+CoreDataClass.swift */; };
+		0055A4D41D92321D00C3893C /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055A4D21D92321D00C3893C /* User+CoreDataProperties.swift */; };
+		0055A4E31D923CA600C3893C /* YTExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055A4E21D923CA600C3893C /* YTExtension.swift */; };
+		0055A4E71D92797800C3893C /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055A4E51D92797800C3893C /* SettingCell.swift */; };
+		0055A4E81D92797800C3893C /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0055A4E61D92797800C3893C /* SettingCell.xib */; };
+		0055A4EE1D92836300C3893C /* MyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055A4EA1D92836300C3893C /* MyController.swift */; };
+		0055A4EF1D92836300C3893C /* MyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0055A4EB1D92836300C3893C /* MyController.xib */; };
+		0055A4F21D92837500C3893C /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055A4F01D92837500C3893C /* SettingController.swift */; };
+		0055A4F31D92837500C3893C /* SettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0055A4F11D92837500C3893C /* SettingController.xib */; };
+		0055A4F61D9284A500C3893C /* MyLeaveRecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055A4F41D9284A500C3893C /* MyLeaveRecordController.swift */; };
+		0055A4F71D9284A500C3893C /* MyLeaveRecordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0055A4F51D9284A500C3893C /* MyLeaveRecordController.xib */; };
+		0055A4FB1D9285B100C3893C /* LeaveRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055A4F91D9285B100C3893C /* LeaveRecordCell.swift */; };
+		0055A4FC1D9285B100C3893C /* LeaveRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0055A4FA1D9285B100C3893C /* LeaveRecordCell.xib */; };
+		0055A4FE1D928FD400C3893C /* MyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055A4FD1D928FD400C3893C /* MyModel.swift */; };
 		0055CC3F1D90CB4D008C6D30 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055CC3E1D90CB4D008C6D30 /* ContactModel.swift */; };
 		0055CC421D90D009008C6D30 /* ContactRestultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055CC411D90D009008C6D30 /* ContactRestultData.swift */; };
 		0055CC441D90E5AB008C6D30 /* ContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055CC431D90E5AB008C6D30 /* ContactData.swift */; };
@@ -27,10 +41,6 @@
 		0090BFD01D8FCA4A00CAC075 /* UserResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFCF1D8FCA4A00CAC075 /* UserResultData.swift */; };
 		0090BFD21D8FCA5500CAC075 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFD11D8FCA5500CAC075 /* UserData.swift */; };
 		0090BFD51D8FD8E400CAC075 /* ErrorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFD41D8FD8E400CAC075 /* ErrorData.swift */; };
-		0090BFDC1D8FE23100CAC075 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFDA1D8FE23100CAC075 /* User+CoreDataClass.swift */; };
-		0090BFDD1D8FE23100CAC075 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFDB1D8FE23100CAC075 /* User+CoreDataProperties.swift */; };
-		0090BFE11D8FECC000CAC075 /* MyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFDF1D8FECC000CAC075 /* MyController.swift */; };
-		0090BFE21D8FECC000CAC075 /* MyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0090BFE01D8FECC000CAC075 /* MyController.xib */; };
 		0095613A1D86436000EF0D5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 009561381D86436000EF0D5A /* LaunchScreen.storyboard */; };
 		009561451D86436100EF0D5A /* AdressListWithSwift3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561441D86436100EF0D5A /* AdressListWithSwift3Tests.swift */; };
 		0095615E1D864BDE00EF0D5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561501D864BDE00EF0D5A /* AppDelegate.swift */; };
@@ -85,6 +95,20 @@
 		002CDF171D8C030B00BA0B6E /* YTTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTTools.swift; sourceTree = "<group>"; };
 		002CDF191D8C033B00BA0B6E /* YTView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTView.swift; sourceTree = "<group>"; };
 		0034C90E1D87F9B100A8C4D4 /* CoreDataTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTools.swift; sourceTree = "<group>"; };
+		0055A4D11D92321D00C3893C /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0055A4D21D92321D00C3893C /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0055A4E21D923CA600C3893C /* YTExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTExtension.swift; sourceTree = "<group>"; };
+		0055A4E51D92797800C3893C /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		0055A4E61D92797800C3893C /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
+		0055A4EA1D92836300C3893C /* MyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyController.swift; sourceTree = "<group>"; };
+		0055A4EB1D92836300C3893C /* MyController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyController.xib; sourceTree = "<group>"; };
+		0055A4F01D92837500C3893C /* SettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
+		0055A4F11D92837500C3893C /* SettingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingController.xib; sourceTree = "<group>"; };
+		0055A4F41D9284A500C3893C /* MyLeaveRecordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyLeaveRecordController.swift; sourceTree = "<group>"; };
+		0055A4F51D9284A500C3893C /* MyLeaveRecordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyLeaveRecordController.xib; sourceTree = "<group>"; };
+		0055A4F91D9285B100C3893C /* LeaveRecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaveRecordCell.swift; sourceTree = "<group>"; };
+		0055A4FA1D9285B100C3893C /* LeaveRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaveRecordCell.xib; sourceTree = "<group>"; };
+		0055A4FD1D928FD400C3893C /* MyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyModel.swift; sourceTree = "<group>"; };
 		0055CC3E1D90CB4D008C6D30 /* ContactModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		0055CC411D90D009008C6D30 /* ContactRestultData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactRestultData.swift; sourceTree = "<group>"; };
 		0055CC431D90E5AB008C6D30 /* ContactData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactData.swift; sourceTree = "<group>"; };
@@ -96,10 +120,6 @@
 		0090BFCF1D8FCA4A00CAC075 /* UserResultData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserResultData.swift; sourceTree = "<group>"; };
 		0090BFD11D8FCA5500CAC075 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		0090BFD41D8FD8E400CAC075 /* ErrorData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorData.swift; sourceTree = "<group>"; };
-		0090BFDA1D8FE23100CAC075 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		0090BFDB1D8FE23100CAC075 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		0090BFDF1D8FECC000CAC075 /* MyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyController.swift; sourceTree = "<group>"; };
-		0090BFE01D8FECC000CAC075 /* MyController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyController.xib; sourceTree = "<group>"; };
 		009561291D86435F00EF0D5A /* AdressListWithSwift3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdressListWithSwift3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		009561391D86436000EF0D5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0095613B1D86436000EF0D5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -186,6 +206,59 @@
 			path = DataCenter;
 			sourceTree = "<group>";
 		};
+		0055A4DD1D923BAD00C3893C /* Extension_system */ = {
+			isa = PBXGroup;
+			children = (
+				0055A4E21D923CA600C3893C /* YTExtension.swift */,
+			);
+			path = Extension_system;
+			sourceTree = "<group>";
+		};
+		0055A4E41D92796600C3893C /* SettingCell */ = {
+			isa = PBXGroup;
+			children = (
+				0055A4E51D92797800C3893C /* SettingCell.swift */,
+				0055A4E61D92797800C3893C /* SettingCell.xib */,
+			);
+			path = SettingCell;
+			sourceTree = "<group>";
+		};
+		0055A4E91D92836300C3893C /* My */ = {
+			isa = PBXGroup;
+			children = (
+				0055A4EA1D92836300C3893C /* MyController.swift */,
+				0055A4EB1D92836300C3893C /* MyController.xib */,
+			);
+			path = My;
+			sourceTree = "<group>";
+		};
+		0055A4EC1D92836300C3893C /* MyLeaveRecored */ = {
+			isa = PBXGroup;
+			children = (
+				0055A4F41D9284A500C3893C /* MyLeaveRecordController.swift */,
+				0055A4F51D9284A500C3893C /* MyLeaveRecordController.xib */,
+			);
+			path = MyLeaveRecored;
+			sourceTree = "<group>";
+		};
+		0055A4ED1D92836300C3893C /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				0055A4F01D92837500C3893C /* SettingController.swift */,
+				0055A4F11D92837500C3893C /* SettingController.xib */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		0055A4F81D92859800C3893C /* LeaveRecordCell */ = {
+			isa = PBXGroup;
+			children = (
+				0055A4F91D9285B100C3893C /* LeaveRecordCell.swift */,
+				0055A4FA1D9285B100C3893C /* LeaveRecordCell.xib */,
+			);
+			path = LeaveRecordCell;
+			sourceTree = "<group>";
+		};
 		0055CC401D90CFE6008C6D30 /* Contact */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,8 +305,9 @@
 		0090BFDE1D8FECAE00CAC075 /* My */ = {
 			isa = PBXGroup;
 			children = (
-				0090BFDF1D8FECC000CAC075 /* MyController.swift */,
-				0090BFE01D8FECC000CAC075 /* MyController.xib */,
+				0055A4E91D92836300C3893C /* My */,
+				0055A4EC1D92836300C3893C /* MyLeaveRecored */,
+				0055A4ED1D92836300C3893C /* Setting */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -385,6 +459,7 @@
 				001E6F911D8FB9A00099999D /* RequestTool.swift */,
 				0055CC3E1D90CB4D008C6D30 /* ContactModel.swift */,
 				0055CCAF1D910C40008C6D30 /* LeaveListModel.swift */,
+				0055A4FD1D928FD400C3893C /* MyModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -392,6 +467,8 @@
 		0095615B1D864BDE00EF0D5A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0055A4F81D92859800C3893C /* LeaveRecordCell */,
+				0055A4E41D92796600C3893C /* SettingCell */,
 				0095615C1D864BDE00EF0D5A /* AdressListCell */,
 				0095615D1D864BDE00EF0D5A /* ContactDetailCell */,
 			);
@@ -419,6 +496,7 @@
 		0095615F1D864C0F00EF0D5A /* YTCore */ = {
 			isa = PBXGroup;
 			children = (
+				0055A4DD1D923BAD00C3893C /* Extension_system */,
 				00DCEA3D1D8E722F000C51D8 /* YTCore.swift */,
 				009561601D864C0F00EF0D5A /* Base */,
 				009561631D864C0F00EF0D5A /* Toos */,
@@ -473,8 +551,8 @@
 			isa = PBXGroup;
 			children = (
 				009561991D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodeld */,
-				0090BFDA1D8FE23100CAC075 /* User+CoreDataClass.swift */,
-				0090BFDB1D8FE23100CAC075 /* User+CoreDataProperties.swift */,
+				0055A4D11D92321D00C3893C /* User+CoreDataClass.swift */,
+				0055A4D21D92321D00C3893C /* User+CoreDataProperties.swift */,
 				0034C90E1D87F9B100A8C4D4 /* CoreDataTools.swift */,
 			);
 			path = CoreData;
@@ -594,17 +672,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				0095613A1D86436000EF0D5A /* LaunchScreen.storyboard in Resources */,
-				0090BFE21D8FECC000CAC075 /* MyController.xib in Resources */,
+				0055A4E81D92797800C3893C /* SettingCell.xib in Resources */,
+				0055A4F71D9284A500C3893C /* MyLeaveRecordController.xib in Resources */,
 				001E6F971D8FBA070099999D /* LoginController.xib in Resources */,
 				009561771D864E3300EF0D5A /* LeaveListController.xib in Resources */,
 				45ADFA3B1D8D114600A58BE8 /* Assets.xcassets in Resources */,
 				0095618C1D86524300EF0D5A /* EditContactController.xib in Resources */,
 				009561801D8651D200EF0D5A /* ContactDetailController.xib in Resources */,
+				0055A4EF1D92836300C3893C /* MyController.xib in Resources */,
 				009561841D8651F500EF0D5A /* AdressListCell.xib in Resources */,
 				009561881D86522000EF0D5A /* ContactDetailCell.xib in Resources */,
+				0055A4F31D92837500C3893C /* SettingController.xib in Resources */,
 				009F18201D8C30F9000E2A41 /* data.json in Resources */,
 				0095617C1D86503800EF0D5A /* NewContactController.xib in Resources */,
 				009561901D86526400EF0D5A /* ApplyLeaveController.xib in Resources */,
+				0055A4FC1D9285B100C3893C /* LeaveRecordCell.xib in Resources */,
 				009561941D86527500EF0D5A /* LeaveDetailController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -697,15 +779,16 @@
 				0095615E1D864BDE00EF0D5A /* AppDelegate.swift in Sources */,
 				00C832DB1D86989900802D12 /* AdressListTool.swift in Sources */,
 				0095618F1D86526400EF0D5A /* ApplyLeaveController.swift in Sources */,
+				0055A4F21D92837500C3893C /* SettingController.swift in Sources */,
 				0055CC421D90D009008C6D30 /* ContactRestultData.swift in Sources */,
 				00DCEA3E1D8E722F000C51D8 /* YTCore.swift in Sources */,
 				0095617F1D8651D200EF0D5A /* ContactDetailController.swift in Sources */,
 				452A60571D8D6C1C00B19BCA /* DataCenter.swift in Sources */,
+				0055A4EE1D92836300C3893C /* MyController.swift in Sources */,
 				009561761D864E3300EF0D5A /* LeaveListController.swift in Sources */,
 				002CDF1A1D8C033B00BA0B6E /* YTView.swift in Sources */,
 				00C832E51D86AF1E00802D12 /* UIImage+YTImage.m in Sources */,
-				0090BFDC1D8FE23100CAC075 /* User+CoreDataClass.swift in Sources */,
-				0090BFDD1D8FE23100CAC075 /* User+CoreDataProperties.swift in Sources */,
+				0055A4D41D92321D00C3893C /* User+CoreDataProperties.swift in Sources */,
 				0055CCB01D910C40008C6D30 /* LeaveListModel.swift in Sources */,
 				0055CCB31D910C90008C6D30 /* LeaveListResultData.swift in Sources */,
 				001E6F961D8FBA070099999D /* LoginController.swift in Sources */,
@@ -715,16 +798,21 @@
 				0090BFD21D8FCA5500CAC075 /* UserData.swift in Sources */,
 				00168B711D87A0D400DB858D /* MessageView.swift in Sources */,
 				009561871D86522000EF0D5A /* ContactDetailCell.swift in Sources */,
-				0090BFE11D8FECC000CAC075 /* MyController.swift in Sources */,
 				0095616B1D864C0F00EF0D5A /* YTNavigationController.swift in Sources */,
+				0055A4D31D92321D00C3893C /* User+CoreDataClass.swift in Sources */,
 				0095617B1D86503800EF0D5A /* NewContactController.swift in Sources */,
+				0055A4E71D92797800C3893C /* SettingCell.swift in Sources */,
 				009561731D864E1600EF0D5A /* ContactController.swift in Sources */,
 				001E6F921D8FB9A00099999D /* RequestTool.swift in Sources */,
+				0055A4FB1D9285B100C3893C /* LeaveRecordCell.swift in Sources */,
+				0055A4FE1D928FD400C3893C /* MyModel.swift in Sources */,
 				0055CC441D90E5AB008C6D30 /* ContactData.swift in Sources */,
 				0095618B1D86524300EF0D5A /* EditContactController.swift in Sources */,
+				0055A4F61D9284A500C3893C /* MyLeaveRecordController.swift in Sources */,
 				002CDF181D8C030B00BA0B6E /* YTTools.swift in Sources */,
 				009561971D8654F300EF0D5A /* UserModel.swift in Sources */,
 				002CDF161D8C00BC00BA0B6E /* YTFrame.swift in Sources */,
+				0055A4E31D923CA600C3893C /* YTExtension.swift in Sources */,
 				0055CC3F1D90CB4D008C6D30 /* ContactModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

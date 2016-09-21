@@ -43,7 +43,7 @@ class YTTabBarController: UITabBarController {
         let naviMy = YTNavigationController(rootViewController: MyController())
         naviMy.index = 3
         naviMy.initNavigationBar()
-        let itemMy = UITabBarItem(title: "个人信息", image: UIImage(named: "my.png"), selectedImage: UIImage(named: "my.png"))
+        let itemMy = UITabBarItem(title: "更多", image: UIImage(named: "my.png"), selectedImage: UIImage(named: "my.png"))
         naviMy.tabBarItem = itemMy
         
         self.viewControllers = [naviContact,naviLeaveList,naviMy]

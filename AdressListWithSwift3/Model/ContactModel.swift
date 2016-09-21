@@ -88,6 +88,29 @@ class ContactModel: NSObject {
         }
     }
     
+    //编辑联系人
+    func requestEditContact(param: Dictionary<String, Any>)
+    {
+        let url = urlPrefix + "user/save"
+        print("url:",url)
+        manager.get(url, parameters: param, success: { (oper, data) -> Void in
+            let dic = data as! Dictionary<String, Any>
+            let status = dic["status"] as! String
+            if status == "ok" {
+                let data = SuccessData.initData()
+                self.delegate?.requestEditContactSucc!(success: data)
+            }else{//请求失败  status=error
+                let errorObj = dic["error"]
+                let data = ErrorData.initWithError(obj: errorObj)
+                self.delegate?.requestEditContactFail!(error: data)
+            }
+            
+        }) { (opeation, error) -> Void in
+            let data = ErrorData.initWithError(obj: error)
+            self.delegate?.requestEditContactFail!(error: data)
+        }
+    }
+    
     //将请求到的数据转换成对应的数据类型
     func covertDataToArray(data:ContactRestultData) -> ContactRestultData
     {
@@ -119,4 +142,7 @@ class ContactModel: NSObject {
     
     @objc optional func requestUploadHeadImgSucc(success:SuccessData)
     @objc optional func requestUploadHeadImgFail(error:ErrorData)
+    
+    @objc optional func requestEditContactSucc(success:SuccessData)
+    @objc optional func requestEditContactFail(error:ErrorData)
 }

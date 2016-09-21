@@ -8,6 +8,8 @@
 
 import UIKit
 
+let kNetworkErrorCode = "5555"
+
 class ErrorData: NSObject {
     var message:String?
     var code:String?
@@ -17,6 +19,7 @@ class ErrorData: NSObject {
         let errorData = ErrorData()
         if errorObj == nil {
             errorData.message = "未知错误！"
+            errorData.code = kNetworkErrorCode
             return errorData
         }
         

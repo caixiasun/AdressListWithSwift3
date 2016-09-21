@@ -8,11 +8,14 @@
 
 import UIKit
 
-class EditContactController: UIViewController ,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+class EditContactController: UIViewController ,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ContactModelDelegate{
     
     @IBOutlet weak var headImg: UIImageView!
     @IBOutlet weak var loadImgBtn: UIButton!
     @IBOutlet weak var nameTextFileld: UITextField!
+    
+    @IBOutlet weak var nickNameTextField: UITextField!
+    
     @IBOutlet weak var telTextField: UITextField!
     @IBOutlet weak var birthDayTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
@@ -25,6 +28,8 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
     var alerController:UIAlertController?
     let doneMessage = "您尚未做任何修改，确认要退出本界面吗？"
     let deleteMessage = "您确定要删除该联系人吗？"
+    var contactModel:ContactModel = ContactModel()
+    var whereArray = NSMutableArray()//用于保存修改联系人的条件（原来的名字和电话）
     
     var uploadAlertController:UIAlertController!
     var modifyAlertController:UIAlertController!
@@ -51,7 +56,7 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
         setCornerRadius(view: self.deleteBtn, radius: 10)
         
         self.messageView = addMessageView(InView: self.view)
-        
+        self.contactModel.delegate = self
         
         
         weak var block = self
@@ -180,6 +185,14 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
     //保存修改
     func saveModify()
     {
+        if (self.nameTextFileld.text?.isEmpty)! {
+            self.messageView?.setMessage(Message: "名字不能为空！", Duration: 1)
+            return
+        }
+        if (self.telTextField.text?.isEmpty)! {
+            self.messageView?.setMessage(Message: "电话不能为空！", Duration: 1)
+            return
+        }
         //如果所有字段都和原始的model相同，则不需要保存，
         let headStatus = (userData?.headImg == self.headImg.image)
         let nameStatus = (userData?.name == self.nameTextFileld.text)
@@ -193,21 +206,32 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
         }
         
         //有改动，保存修改
-        let tel = userData?.tel
-        let name = userData?.name
+        whereArray.removeAllObjects()
+        whereArray.add(userData?.name)
+        whereArray.add(userData?.tel)
+        
         userData?.headImg = self.headImg.image
         userData?.name = self.nameTextFileld.text
         userData?.tel = self.telTextField.text
         userData?.email = self.emailTextField.text
         userData?.birthDay = self.birthDayTextField.text
         userData?.address = self.addressTextField.text
-        let array = NSArray(array: [name,tel])
-        updateDataWithCoreData(Model: userData!, Where: array)
+        userData?.nickName = self.nickNameTextField.text
         
         self.view.endEditing(true)
-        self.messageView?.setMessage(Message: "修改成功！", Duration: 1)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: kNotification_refresh_contact_detail_from_edit), object: nil, userInfo: ["model":userData])
-        perform(#selector(exitThisController), with: nil, afterDelay: 1.5)
+        var params = Dictionary<String, Any>()
+        params[kToken] = dataCenter.getToken()
+        params[kID] = userData?.idNum
+        params[kName] = userData?.name
+        params[kMobile] = userData?.tel
+        if !(userData?.email?.isEmpty)! {
+            params[kEmail] = userData?.email
+        }
+        if !(userData?.nickName?.isEmpty)! {
+            params["nickname"] = userData?.nickName
+        }
+        self.messageView?.setMessageLoading()
+        self.contactModel.requestEditContact(param: params)
     }
     
     // aler action
@@ -284,4 +308,17 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
         }
     }
     
+    //MARK:- ContactModelDelegate
+    func requestEditContactSucc(success: SuccessData) {
+        self.messageView?.hideMessage()
+        self.messageView?.setMessage(Message: "修改成功！", Duration: 1)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: kNotification_refresh_contact_detail_from_edit), object: nil, userInfo: ["model":userData])
+        perform(#selector(exitThisController), with: nil, afterDelay: 1.5)
+        //将数据保存到本地 
+        updateDataWithCoreData(Model: userData!, Where: whereArray)
+    }
+    func requestEditContactFail(error: ErrorData) {
+        self.messageView?.hideMessage()
+        self.messageView?.setMessage(Message: error.message!, Duration: 1)
+    }
 }

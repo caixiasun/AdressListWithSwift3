@@ -76,6 +76,10 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
     {
         switch sender.tag {
         case 1:/// Edit
+            if !dataCenter.isAlreadyLogin() {
+                appDelegate.loadLoginVC()
+                return
+            }
             let vc = EditContactController()
             vc.userData = self.userData
             let controller = YTNavigationController(rootViewController: vc)

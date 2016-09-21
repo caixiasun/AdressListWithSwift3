@@ -9,44 +9,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AdressListWithSwift3/Model/LeaveListModel.swift"
-            timestampString = "496053934.485808"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "requestLeaveList()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "AdressListWithSwift3/Controller/Contact/New/NewContactController.swift"
-            timestampString = "496060237.602048"
+            timestampString = "496136352.122988"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "293"
-            endingLineNumber = "293"
-            landmarkName = "requestUploadHeadImgSucc(result:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AdressListWithSwift3/Controller/Contact/New/NewContactController.swift"
-            timestampString = "496060238.485238"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "296"
-            endingLineNumber = "296"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
             landmarkName = "requestUploadHeadImgFail(error:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -57,46 +25,30 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AdressListWithSwift3/Model/ContactModel.swift"
-            timestampString = "496060541.542426"
+            filePath = "AdressListWithSwift3/Controller/Contact/Edit/EditContactController.swift"
+            timestampString = "496132717.986647"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "requestUploadHeadImg(data:)"
+            startingLineNumber = "313"
+            endingLineNumber = "313"
+            landmarkName = "requestEditContactSucc(success:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AdressListWithSwift3.ContactModel.requestUploadHeadImg (data : Foundation.Data) -&gt; ()"
-                  moduleName = "AdressListWithSwift3"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Enjoytouch/Desktop/AdressListWithSwift3/AdressListWithSwift3/Model/ContactModel.swift"
-                  timestampString = "496060541.765271"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "708">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AdressListWithSwift3.ContactModel.(requestUploadHeadImg (data : Foundation.Data) -&gt; ()).(closure #1)"
-                  moduleName = "AdressListWithSwift3"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Enjoytouch/Desktop/AdressListWithSwift3/AdressListWithSwift3/Model/ContactModel.swift"
-                  timestampString = "496060541.76664"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "32">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdressListWithSwift3/Controller/Contact/Edit/EditContactController.swift"
+            timestampString = "496132717.986647"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "321"
+            endingLineNumber = "321"
+            landmarkName = "requestEditContactFail(error:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

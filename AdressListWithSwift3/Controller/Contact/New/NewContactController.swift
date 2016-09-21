@@ -18,7 +18,10 @@ enum TextFieldTagStyle:Int {//通过tag区分五个UITextField
     Position = 16,//职位
     LeaveDate = 17,//请假时间
     LeaveReason = 18,//请假原因
-    NickName = 19 //昵称
+    NickName = 19, //昵称
+    StartDate = 20,//开始时间
+    EndDate = 21, //结束时间
+    LeaveDays = 22  //请假时长 天数
 }
 class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ContactModelDelegate{
     @IBOutlet weak var headImg: UIImageView!
@@ -36,6 +39,7 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
     var imagePickerController:UIImagePickerController!
     var messageView:MessageView?
     var contactModel:ContactModel = ContactModel()
+    let userData:UserData = UserData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -166,20 +170,16 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         let mobile = self.telTextField.text
         let email = self.emailTextField.text
         
-        let data = UserData()
-        data.name = name
-        data.tel = mobile
-        data.email = email
+        userData.name = name
+        userData.tel = mobile
+        userData.email = email
         if self.loadImgBtn.title(for: .normal) == kTitle_headImg_change {
-            data.headImg = self.headImg.image
+            userData.headImg = self.headImg.image
             self.contactModel.requestUploadHeadImg(data: UIImageJPEGRepresentation(self.headImg.image!, 1)!)
         }
         if !((self.nickNameTextField.text?.isEmpty)!) {
-            data.nickName = self.nickNameTextField.text
+            userData.nickName = self.nickNameTextField.text
         }
-        
-        //将联系人保存到本地
-//        addCoreData(Model: data)
         
         //发送请求新建联系人
         var params = Dictionary<String,Any>()
@@ -284,12 +284,15 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         self.messageView?.setMessage(Message: success.message!, Duration: 1)
         //成功后退出本界面(并发送通知刷新所有联系人界面)
         perform(#selector(exitThisController), with: nil, afterDelay: 1.5)
+        
+        //将联系人保存到本地
+        addCoreData(Model: userData)
     }
     func requestNewConatctFail(error: ErrorData) {
         self.messageView?.hideMessage()
         self.messageView?.setMessage(Message: error.message!, Duration: 1)
     }
-    func requestUploadHeadImgSucc(result: ContactRestultData) {
+    func requestUploadHeadImgSucc(success: SuccessData) {
         
     }
     func requestUploadHeadImgFail(error: ErrorData) {
