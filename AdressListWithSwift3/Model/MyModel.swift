@@ -22,18 +22,49 @@ class MyModel: BaseModel {
             if status == "ok" {
                 let res = LeaveListResultData.mj_object(withKeyValues: dic)
                 let newResult = blockSelf?.convertToModel(data: res!)
-                self.delegate?.requestMyLeaveRecordSucc(result: newResult!)
+                self.delegate?.requestMyLeaveRecordSucc!(result: newResult!)
             }else{//请求失败  status=error
                 //                let errorObj = dic["error"]
                 let data = ErrorData.initWithError(obj: nil)
-                self.delegate?.requestMyLeaveRecordFail(error: data)
+                self.delegate?.requestMyLeaveRecordFail!(error: data)
             }
             
         }) { (opeation, error) -> Void in
             let data = ErrorData.initWithError(obj: error)
-            self.delegate?.requestMyLeaveRecordFail(error: data)
+            self.delegate?.requestMyLeaveRecordFail!(error: data)
         }
     }
+    //上传头像
+    func requestUploadHeadImg(data:Data)
+    {
+//        let url = urlPrefix + "user/headImg"
+        let url = "http://address.uduoo.com/user/headImg"
+        print("url:",url)
+        var param:Dictionary<String, Any> = Dictionary()
+        param[kToken] = dataCenter.getToken()
+//        param["file"] = data
+        let array = ["text/html","text/plain","text/json"  ,"application/json","text/javascript"]
+        let sets=NSSet(array: array) as! Set<AnyHashable>
+        manager.responseSerializer = AFHTTPResponseSerializer()
+        manager.responseSerializer.acceptableContentTypes = sets
+//        manager.requestSerializer = AFHTTPRequestSerializer()
+        
+        
+        manager.post(url, parameters: param, constructingBodyWith: { (formData:AFMultipartFormData?) in
+            formData?.appendPart(withFileData: data, name: "head", fileName: "head.jpg", mimeType: "image/jpeg")
+            
+            }, success: { (oper, data) -> Void in
+                
+                let data = SuccessData.initData()
+                self.delegate?.requestUploadHeadImgSucc!(success: data)
+                
+                
+        }) { (opeation, error) -> Void in
+            let data = ErrorData.initWithError(obj: error)
+            self.delegate?.requestUploadHeadImgFail!(error: data)
+        }
+    }
+    
     //解析model
     func convertToModel(data:LeaveListResultData) ->LeaveListResultData
     {
@@ -48,6 +79,9 @@ class MyModel: BaseModel {
     }
 }
 @objc protocol MyModelDelegate {
-    @objc func requestMyLeaveRecordSucc(result:LeaveListResultData)
-    @objc func requestMyLeaveRecordFail(error:ErrorData)
+    @objc optional func requestMyLeaveRecordSucc(result:LeaveListResultData)
+    @objc optional func requestMyLeaveRecordFail(error:ErrorData)
+    
+    @objc optional func requestUploadHeadImgSucc(success:SuccessData)
+    @objc optional func requestUploadHeadImgFail(error:ErrorData)
 }

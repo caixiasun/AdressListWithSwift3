@@ -175,7 +175,6 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         userData.email = email
         if self.loadImgBtn.title(for: .normal) == kTitle_headImg_change {
             userData.headImg = self.headImg.image
-            self.contactModel.requestUploadHeadImg(data: UIImageJPEGRepresentation(self.headImg.image!, 1)!)
         }
         if !((self.nickNameTextField.text?.isEmpty)!) {
             userData.nickName = self.nickNameTextField.text
@@ -291,11 +290,5 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
     func requestNewConatctFail(error: ErrorData) {
         self.messageView?.hideMessage()
         self.messageView?.setMessage(Message: error.message!, Duration: 1)
-    }
-    func requestUploadHeadImgSucc(success: SuccessData) {
-        
-    }
-    func requestUploadHeadImgFail(error: ErrorData) {
-        
     }
 }

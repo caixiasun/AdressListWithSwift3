@@ -66,6 +66,8 @@
 		009561971D8654F300EF0D5A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561961D8654F300EF0D5A /* UserModel.swift */; };
 		0095619B1D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 009561991D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodeld */; };
 		009F18201D8C30F9000E2A41 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 009F181F1D8C30F9000E2A41 /* data.json */; };
+		00A4DC8E1D9380D300EAD3F0 /* MyInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A4DC8C1D9380D300EAD3F0 /* MyInfoController.swift */; };
+		00A4DC8F1D9380D300EAD3F0 /* MyInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A4DC8D1D9380D300EAD3F0 /* MyInfoController.xib */; };
 		00C832DB1D86989900802D12 /* AdressListTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C832DA1D86989900802D12 /* AdressListTool.swift */; };
 		00C832E51D86AF1E00802D12 /* UIImage+YTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C832E41D86AF1E00802D12 /* UIImage+YTImage.m */; };
 		00DCEA3E1D8E722F000C51D8 /* YTCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCEA3D1D8E722F000C51D8 /* YTCore.swift */; };
@@ -150,6 +152,8 @@
 		009561961D8654F300EF0D5A /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		0095619A1D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AdressListWithSwift3.xcdatamodel; sourceTree = "<group>"; };
 		009F181F1D8C30F9000E2A41 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		00A4DC8C1D9380D300EAD3F0 /* MyInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInfoController.swift; sourceTree = "<group>"; };
+		00A4DC8D1D9380D300EAD3F0 /* MyInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyInfoController.xib; sourceTree = "<group>"; };
 		00C832DA1D86989900802D12 /* AdressListTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdressListTool.swift; sourceTree = "<group>"; };
 		00C832E31D86AF1E00802D12 /* UIImage+YTImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YTImage.h"; sourceTree = "<group>"; };
 		00C832E41D86AF1E00802D12 /* UIImage+YTImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YTImage.m"; sourceTree = "<group>"; };
@@ -306,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				0055A4E91D92836300C3893C /* My */,
+				00A4DC8B1D9380C000EAD3F0 /* MyInfo */,
 				0055A4EC1D92836300C3893C /* MyLeaveRecored */,
 				0055A4ED1D92836300C3893C /* Setting */,
 			);
@@ -558,6 +563,15 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		00A4DC8B1D9380C000EAD3F0 /* MyInfo */ = {
+			isa = PBXGroup;
+			children = (
+				00A4DC8C1D9380D300EAD3F0 /* MyInfoController.swift */,
+				00A4DC8D1D9380D300EAD3F0 /* MyInfoController.xib */,
+			);
+			path = MyInfo;
+			sourceTree = "<group>";
+		};
 		2CF4CBC189F13995FAEB075A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -672,6 +686,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0095613A1D86436000EF0D5A /* LaunchScreen.storyboard in Resources */,
+				00A4DC8F1D9380D300EAD3F0 /* MyInfoController.xib in Resources */,
 				0055A4E81D92797800C3893C /* SettingCell.xib in Resources */,
 				0055A4F71D9284A500C3893C /* MyLeaveRecordController.xib in Resources */,
 				001E6F971D8FBA070099999D /* LoginController.xib in Resources */,
@@ -779,6 +794,7 @@
 				0095615E1D864BDE00EF0D5A /* AppDelegate.swift in Sources */,
 				00C832DB1D86989900802D12 /* AdressListTool.swift in Sources */,
 				0095618F1D86526400EF0D5A /* ApplyLeaveController.swift in Sources */,
+				00A4DC8E1D9380D300EAD3F0 /* MyInfoController.swift in Sources */,
 				0055A4F21D92837500C3893C /* SettingController.swift in Sources */,
 				0055CC421D90D009008C6D30 /* ContactRestultData.swift in Sources */,
 				00DCEA3E1D8E722F000C51D8 /* YTCore.swift in Sources */,

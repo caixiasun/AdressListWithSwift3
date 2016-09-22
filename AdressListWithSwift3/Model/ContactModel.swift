@@ -62,31 +62,7 @@ class ContactModel: NSObject {
         
     }
     
-    //上传头像
-    func requestUploadHeadImg(data:Data)
-    {
-        let url = urlPrefix + "user/headImg"
-        print("url:",url)
-        var param:Dictionary<String, Any> = Dictionary()
-        param[kToken] = dataCenter.getToken()
-        param["file"] = data
-        manager.get(url, parameters: param, success: { (oper, data) -> Void in
-            let dic = data as! Dictionary<String, Any>
-            let status = dic["status"] as! String
-            if status == "ok" {
-                let data = SuccessData.initData()
-                self.delegate?.requestUploadHeadImgSucc!(success: data)
-            }else{//请求失败  status=error
-                let errorObj = dic["error"]
-                let data = ErrorData.initWithError(obj: errorObj)
-                self.delegate?.requestUploadHeadImgFail!(error: data)
-            }
-            
-        }) { (opeation, error) -> Void in
-            let data = ErrorData.initWithError(obj: error)
-            self.delegate?.requestUploadHeadImgFail!(error: data)
-        }
-    }
+    
     
     //编辑联系人
     func requestEditContact(param: Dictionary<String, Any>)
@@ -139,10 +115,7 @@ class ContactModel: NSObject {
     
     @objc optional func requestNewConatctSucc(success:SuccessData)
     @objc optional func requestNewConatctFail(error:ErrorData)
-    
-    @objc optional func requestUploadHeadImgSucc(success:SuccessData)
-    @objc optional func requestUploadHeadImgFail(error:ErrorData)
-    
+        
     @objc optional func requestEditContactSucc(success:SuccessData)
     @objc optional func requestEditContactFail(error:ErrorData)
 }

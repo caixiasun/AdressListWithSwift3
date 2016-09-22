@@ -69,4 +69,12 @@ class MyController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
+    
+    
+    @IBAction func myInfoGesture(_ sender: AnyObject) {
+        let controller = MyInfoController()
+        controller.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+   
 }
