@@ -13,9 +13,10 @@ class SettingCell: UITableViewCell {
     @IBOutlet weak var dicatorImg: UIImageView!    
     @IBOutlet weak var titleLab: UILabel!
     
-    func setContent()
+    func setContent(dic:Dictionary<String,Any>)
     {
-        
+        self.dicatorImg.image = UIImage(named: dic["image"] as! String)
+        self.titleLab.text = dic["title"] as! String?
     }
 
     override func awakeFromNib() {

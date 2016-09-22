@@ -8,17 +8,18 @@
 
 import UIKit
 
-class LeaveListController: UIViewController ,UITableViewDelegate,UITableViewDataSource ,LeaveListModelDelegate{
+class LeaveListController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource ,LeaveListModelDelegate,YTOtherLibToolDelegate{
     
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     var dataSource:NSMutableArray?
     var sectionArray:NSMutableArray?
-    let cellReuseIdentifier = "AdressListCell"
+    let cellReuseIdentifier = "LeaveCell"
     let headerIdentifier = "HeaderReuseIdentifier"
     
     var messageView:MessageView?
     let leaveModel:LeaveListModel = LeaveListModel()
+    var otherlibTool = YTOtherLibTool()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +28,20 @@ class LeaveListController: UIViewController ,UITableViewDelegate,UITableViewData
         
         self.initSubviews()
         
+        self.otherlibTool.delegate = self
+        otherlibTool.addDownPullAnimate(InView: self.collectionView!)
+        self.messageView?.setMessageLoading()
+        self.downpullRequest()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
-        self.messageView?.setMessageLoading()
+        self.collectionView.stopLoading()
+        self.otherlibTool.delegate = nil
+    }
+    func downpullRequest() {
+        
         self.leaveModel.requestLeaveList()
     }
     
@@ -46,7 +55,7 @@ class LeaveListController: UIViewController ,UITableViewDelegate,UITableViewData
     func initSubviews()
     {
         self.automaticallyAdjustsScrollViewInsets = false
-        self.tableView.register(UINib(nibName: self.cellReuseIdentifier, bundle: nil), forCellReuseIdentifier: self.cellReuseIdentifier)
+        self.collectionView.register(UINib(nibName: self.cellReuseIdentifier, bundle: nil), forCellWithReuseIdentifier: cellReuseIdentifier)        
         
         self.dataSource = NSMutableArray()
         
@@ -64,35 +73,34 @@ class LeaveListController: UIViewController ,UITableViewDelegate,UITableViewData
         self.present(navi, animated: true, completion: nil)
     }
     
-    //MARK:- UITableViewDelegate,UITableViewDataSource
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    //MARK: - UICollectionViewDelegate,UICollectionViewDataSource
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (self.dataSource?.count)!
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellReuseIdentifier, for: indexPath) as! AdressListCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath) as! LeaveCell
         cell.setContent(data: self.dataSource?.object(at: indexPath.row) as! LeaveListData)
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let controller = LeaveDetailController()
         controller.data = self.dataSource?.object(at: indexPath.row) as? LeaveListData
         controller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(controller, animated: true)
         
-        tableView.deselectRow(at: indexPath, animated: true)
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
     
     //MARK: -LeaveListModelDelegate
     func requestLeaveListSucc(result: LeaveListResultData) {
         self.messageView?.hideMessage()
+        self.collectionView.stopLoading()
         self.dataSource = result.data
-        self.tableView.reloadData()
+        self.collectionView.reloadData()
     }
     func requestLeaveListFail(error: ErrorData) {
         self.messageView?.hideMessage()
+        self.collectionView.stopLoading()
         self.messageView?.setMessage(Message: error.message!, Duration: 1)
     }
 }

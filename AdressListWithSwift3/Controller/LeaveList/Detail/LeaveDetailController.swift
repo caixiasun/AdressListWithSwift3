@@ -10,10 +10,6 @@ import UIKit
 
 class LeaveDetailController: UIViewController,LeaveListModelDelegate {
     
-    @IBOutlet weak var line1_height: NSLayoutConstraint!
-    @IBOutlet weak var line2_height: NSLayoutConstraint!
-    @IBOutlet weak var line3_height: NSLayoutConstraint!
-    @IBOutlet weak var line4_height: NSLayoutConstraint!
     @IBOutlet weak var headImg: UIImageView!
     @IBOutlet weak var nameLab: UILabel!
     @IBOutlet weak var telLab: UILabel!
@@ -42,11 +38,6 @@ class LeaveDetailController: UIViewController,LeaveListModelDelegate {
         
         self.navigationController?.navigationBar.barStyle = UIBarStyle.default
         self.navigationController?.navigationBar.tintColor = WhiteColor
-        
-        self.line1_height.constant = 0.5
-        self.line2_height.constant = 0.5
-        self.line3_height.constant = 0.5
-        self.line4_height.constant = 0.5
         
         setCornerRadius(view: self.headImg, radius: kRadius_headImg_common)
         setBorder(view: self.headImg)

@@ -36,13 +36,12 @@ class MyController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
         self.tableView.register(UINib(nibName: cellReuseIdentifier, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
         self.tableView.backgroundColor = PageGrayColor
         self.dataSource = NSMutableArray()
-        self.dataSource?.add("我的请假记录")
-        self.dataSource?.add("设置")
+        self.dataSource?.addObjects(from: [["image":"leave.png","title":"我的请假记录"],["image":"leave","title":"设置"]])
     }
     
     //MARK: - UITableViewDelegate,UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return (self.dataSource?.count)!
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 35
@@ -55,7 +54,7 @@ class MyController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! SettingCell
-        cell.titleLab.text = dataSource?.object(at: indexPath.section) as? String
+        cell.setContent(dic: self.dataSource?.object(at: indexPath.section) as! Dictionary<String, Any>)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

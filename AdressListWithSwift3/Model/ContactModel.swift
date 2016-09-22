@@ -18,7 +18,8 @@ class ContactModel: NSObject {
     {
         weak var blockSelf =  self
         let url = urlPrefix + "user/list"
-        manager.get(url, parameters: nil, success: { (oper, data) -> Void in
+        let params = [kToken:dataCenter.getToken() as Any]
+        manager.get(url, parameters: params, success: { (oper, data) -> Void in
             let dic = data as! Dictionary<String, Any>
             let status = dic["status"] as! String
             if status == "ok" {

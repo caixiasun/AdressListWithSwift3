@@ -13,10 +13,6 @@
             <connections>
                 <outlet property="endDateLab" destination="fco-9y-Luz" id="qiA-eb-OPA"/>
                 <outlet property="headImg" destination="DlJ-he-Mp8" id="8C2-cn-VoX"/>
-                <outlet property="line1_height" destination="1OT-09-xG5" id="Wq0-hl-HlI"/>
-                <outlet property="line2_height" destination="z3V-Df-Nah" id="Fpn-bJ-SG3"/>
-                <outlet property="line3_height" destination="nHg-T9-bm5" id="RLK-eg-1Pg"/>
-                <outlet property="line4_height" destination="RTa-FH-jf7" id="beR-tW-iMX"/>
                 <outlet property="nameLab" destination="9jP-Y8-ED2" id="N9x-sf-qvT"/>
                 <outlet property="positionLab" destination="45L-9p-nUK" id="ic8-Vl-Ccd"/>
                 <outlet property="reasonLab" destination="fZ2-fB-Me6" id="0zD-qB-ud7"/>
@@ -80,7 +76,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yTL-Ww-hoh" userLabel="line">
                                             <color key="backgroundColor" red="0.78823529410000004" green="0.78039215689999997" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="1" id="1OT-09-xG5"/>
+                                                <constraint firstAttribute="height" constant="0.5" id="1OT-09-xG5"/>
                                             </constraints>
                                         </view>
                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAl-xG-NS6">
@@ -120,7 +116,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AQ0-va-Y8A" userLabel="line">
                                             <color key="backgroundColor" red="0.78823529410000004" green="0.78039215689999997" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="1" id="z3V-Df-Nah"/>
+                                                <constraint firstAttribute="height" constant="0.5" id="z3V-Df-Nah"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -145,7 +141,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRm-XY-Ayu" userLabel="line">
                                             <color key="backgroundColor" red="0.78823529410000004" green="0.78039215689999997" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="1" id="nHg-T9-bm5"/>
+                                                <constraint firstAttribute="height" constant="0.5" id="nHg-T9-bm5"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JxH-oz-nYh" userLabel="startDate">
@@ -187,7 +183,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvV-Jk-Clm" userLabel="line">
                                             <color key="backgroundColor" red="0.78823529410000004" green="0.78039215689999997" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="1" id="RTa-FH-jf7"/>
+                                                <constraint firstAttribute="height" constant="0.5" id="RTa-FH-jf7"/>
                                             </constraints>
                                         </view>
                                     </subviews>

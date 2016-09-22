@@ -34,7 +34,7 @@ class MyModel: BaseModel {
             self.delegate?.requestMyLeaveRecordFail!(error: data)
         }
     }
-    //上传头像
+    //上传头像 //有问题
     func requestUploadHeadImg(data:Data)
     {
 //        let url = urlPrefix + "user/headImg"
@@ -42,12 +42,17 @@ class MyModel: BaseModel {
         print("url:",url)
         var param:Dictionary<String, Any> = Dictionary()
         param[kToken] = dataCenter.getToken()
-//        param["file"] = data
+        param["file"] = "http://www.bai.com/aaa.png"
         let array = ["text/html","text/plain","text/json"  ,"application/json","text/javascript"]
         let sets=NSSet(array: array) as! Set<AnyHashable>
         manager.responseSerializer = AFHTTPResponseSerializer()
         manager.responseSerializer.acceptableContentTypes = sets
-//        manager.requestSerializer = AFHTTPRequestSerializer()
+//        manager.get(url, parameters: param, success: { (oper, data) -> Void in
+//            print("success")
+//        }) { (opeation, error) -> Void in
+//            let data = ErrorData.initWithError(obj: error)
+//            self.delegate?.requestUploadHeadImgFail!(error: data)
+//        }
         
         
         manager.post(url, parameters: param, constructingBodyWith: { (formData:AFMultipartFormData?) in

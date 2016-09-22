@@ -68,6 +68,14 @@
 		009F18201D8C30F9000E2A41 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 009F181F1D8C30F9000E2A41 /* data.json */; };
 		00A4DC8E1D9380D300EAD3F0 /* MyInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A4DC8C1D9380D300EAD3F0 /* MyInfoController.swift */; };
 		00A4DC8F1D9380D300EAD3F0 /* MyInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A4DC8D1D9380D300EAD3F0 /* MyInfoController.xib */; };
+		00A4DCD41D93BF2400EAD3F0 /* LeaveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A4DCD21D93BF2400EAD3F0 /* LeaveCell.swift */; };
+		00A4DCD51D93BF2400EAD3F0 /* LeaveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A4DCD31D93BF2400EAD3F0 /* LeaveCell.xib */; };
+		00A4DCE31D93D89C00EAD3F0 /* JElasticPullToRefreshLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A4DCDA1D93D89C00EAD3F0 /* JElasticPullToRefreshLoadingView.m */; };
+		00A4DCE41D93D89C00EAD3F0 /* JElasticPullToRefreshLoadingViewCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A4DCDC1D93D89C00EAD3F0 /* JElasticPullToRefreshLoadingViewCircle.m */; };
+		00A4DCE51D93D89C00EAD3F0 /* JElasticPullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A4DCDE1D93D89C00EAD3F0 /* JElasticPullToRefreshView.m */; };
+		00A4DCE61D93D89C00EAD3F0 /* UIScrollView+JElasticPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A4DCE01D93D89C00EAD3F0 /* UIScrollView+JElasticPullToRefresh.m */; };
+		00A4DCE71D93D89C00EAD3F0 /* UIView+JElasticPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A4DCE21D93D89C00EAD3F0 /* UIView+JElasticPullToRefresh.m */; };
+		00A4DCE91D93DA9C00EAD3F0 /* YTOtherLibTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A4DCE81D93DA9C00EAD3F0 /* YTOtherLibTool.swift */; };
 		00C832DB1D86989900802D12 /* AdressListTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C832DA1D86989900802D12 /* AdressListTool.swift */; };
 		00C832E51D86AF1E00802D12 /* UIImage+YTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C832E41D86AF1E00802D12 /* UIImage+YTImage.m */; };
 		00DCEA3E1D8E722F000C51D8 /* YTCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCEA3D1D8E722F000C51D8 /* YTCore.swift */; };
@@ -154,6 +162,20 @@
 		009F181F1D8C30F9000E2A41 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		00A4DC8C1D9380D300EAD3F0 /* MyInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInfoController.swift; sourceTree = "<group>"; };
 		00A4DC8D1D9380D300EAD3F0 /* MyInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyInfoController.xib; sourceTree = "<group>"; };
+		00A4DCD21D93BF2400EAD3F0 /* LeaveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaveCell.swift; sourceTree = "<group>"; };
+		00A4DCD31D93BF2400EAD3F0 /* LeaveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaveCell.xib; sourceTree = "<group>"; };
+		00A4DCD81D93D89C00EAD3F0 /* JElasticPullToRefreshConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JElasticPullToRefreshConstants.h; sourceTree = "<group>"; };
+		00A4DCD91D93D89C00EAD3F0 /* JElasticPullToRefreshLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JElasticPullToRefreshLoadingView.h; sourceTree = "<group>"; };
+		00A4DCDA1D93D89C00EAD3F0 /* JElasticPullToRefreshLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JElasticPullToRefreshLoadingView.m; sourceTree = "<group>"; };
+		00A4DCDB1D93D89C00EAD3F0 /* JElasticPullToRefreshLoadingViewCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JElasticPullToRefreshLoadingViewCircle.h; sourceTree = "<group>"; };
+		00A4DCDC1D93D89C00EAD3F0 /* JElasticPullToRefreshLoadingViewCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JElasticPullToRefreshLoadingViewCircle.m; sourceTree = "<group>"; };
+		00A4DCDD1D93D89C00EAD3F0 /* JElasticPullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JElasticPullToRefreshView.h; sourceTree = "<group>"; };
+		00A4DCDE1D93D89C00EAD3F0 /* JElasticPullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JElasticPullToRefreshView.m; sourceTree = "<group>"; };
+		00A4DCDF1D93D89C00EAD3F0 /* UIScrollView+JElasticPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+JElasticPullToRefresh.h"; sourceTree = "<group>"; };
+		00A4DCE01D93D89C00EAD3F0 /* UIScrollView+JElasticPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+JElasticPullToRefresh.m"; sourceTree = "<group>"; };
+		00A4DCE11D93D89C00EAD3F0 /* UIView+JElasticPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JElasticPullToRefresh.h"; sourceTree = "<group>"; };
+		00A4DCE21D93D89C00EAD3F0 /* UIView+JElasticPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JElasticPullToRefresh.m"; sourceTree = "<group>"; };
+		00A4DCE81D93DA9C00EAD3F0 /* YTOtherLibTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTOtherLibTool.swift; sourceTree = "<group>"; };
 		00C832DA1D86989900802D12 /* AdressListTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdressListTool.swift; sourceTree = "<group>"; };
 		00C832E31D86AF1E00802D12 /* UIImage+YTImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YTImage.h"; sourceTree = "<group>"; };
 		00C832E41D86AF1E00802D12 /* UIImage+YTImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YTImage.m"; sourceTree = "<group>"; };
@@ -472,6 +494,7 @@
 		0095615B1D864BDE00EF0D5A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				00A4DCD11D93BF1800EAD3F0 /* LeaveCell */,
 				0055A4F81D92859800C3893C /* LeaveRecordCell */,
 				0055A4E41D92796600C3893C /* SettingCell */,
 				0095615C1D864BDE00EF0D5A /* AdressListCell */,
@@ -501,8 +524,9 @@
 		0095615F1D864C0F00EF0D5A /* YTCore */ = {
 			isa = PBXGroup;
 			children = (
-				0055A4DD1D923BAD00C3893C /* Extension_system */,
 				00DCEA3D1D8E722F000C51D8 /* YTCore.swift */,
+				00A4DCD61D93D89C00EAD3F0 /* OtherLib */,
+				0055A4DD1D923BAD00C3893C /* Extension_system */,
 				009561601D864C0F00EF0D5A /* Base */,
 				009561631D864C0F00EF0D5A /* Toos */,
 				009561681D864C0F00EF0D5A /* View */,
@@ -528,6 +552,7 @@
 				002CDF191D8C033B00BA0B6E /* YTView.swift */,
 				00C832E31D86AF1E00802D12 /* UIImage+YTImage.h */,
 				00C832E41D86AF1E00802D12 /* UIImage+YTImage.m */,
+				00A4DCE81D93DA9C00EAD3F0 /* YTOtherLibTool.swift */,
 			);
 			path = Toos;
 			sourceTree = "<group>";
@@ -570,6 +595,41 @@
 				00A4DC8D1D9380D300EAD3F0 /* MyInfoController.xib */,
 			);
 			path = MyInfo;
+			sourceTree = "<group>";
+		};
+		00A4DCD11D93BF1800EAD3F0 /* LeaveCell */ = {
+			isa = PBXGroup;
+			children = (
+				00A4DCD21D93BF2400EAD3F0 /* LeaveCell.swift */,
+				00A4DCD31D93BF2400EAD3F0 /* LeaveCell.xib */,
+			);
+			path = LeaveCell;
+			sourceTree = "<group>";
+		};
+		00A4DCD61D93D89C00EAD3F0 /* OtherLib */ = {
+			isa = PBXGroup;
+			children = (
+				00A4DCD71D93D89C00EAD3F0 /* JElasticPullToRefresh */,
+			);
+			path = OtherLib;
+			sourceTree = "<group>";
+		};
+		00A4DCD71D93D89C00EAD3F0 /* JElasticPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				00A4DCD81D93D89C00EAD3F0 /* JElasticPullToRefreshConstants.h */,
+				00A4DCD91D93D89C00EAD3F0 /* JElasticPullToRefreshLoadingView.h */,
+				00A4DCDA1D93D89C00EAD3F0 /* JElasticPullToRefreshLoadingView.m */,
+				00A4DCDB1D93D89C00EAD3F0 /* JElasticPullToRefreshLoadingViewCircle.h */,
+				00A4DCDC1D93D89C00EAD3F0 /* JElasticPullToRefreshLoadingViewCircle.m */,
+				00A4DCDD1D93D89C00EAD3F0 /* JElasticPullToRefreshView.h */,
+				00A4DCDE1D93D89C00EAD3F0 /* JElasticPullToRefreshView.m */,
+				00A4DCDF1D93D89C00EAD3F0 /* UIScrollView+JElasticPullToRefresh.h */,
+				00A4DCE01D93D89C00EAD3F0 /* UIScrollView+JElasticPullToRefresh.m */,
+				00A4DCE11D93D89C00EAD3F0 /* UIView+JElasticPullToRefresh.h */,
+				00A4DCE21D93D89C00EAD3F0 /* UIView+JElasticPullToRefresh.m */,
+			);
+			path = JElasticPullToRefresh;
 			sourceTree = "<group>";
 		};
 		2CF4CBC189F13995FAEB075A /* Pods */ = {
@@ -691,6 +751,7 @@
 				0055A4F71D9284A500C3893C /* MyLeaveRecordController.xib in Resources */,
 				001E6F971D8FBA070099999D /* LoginController.xib in Resources */,
 				009561771D864E3300EF0D5A /* LeaveListController.xib in Resources */,
+				00A4DCD51D93BF2400EAD3F0 /* LeaveCell.xib in Resources */,
 				45ADFA3B1D8D114600A58BE8 /* Assets.xcassets in Resources */,
 				0095618C1D86524300EF0D5A /* EditContactController.xib in Resources */,
 				009561801D8651D200EF0D5A /* ContactDetailController.xib in Resources */,
@@ -783,6 +844,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00A4DCE71D93D89C00EAD3F0 /* UIView+JElasticPullToRefresh.m in Sources */,
+				00A4DCE41D93D89C00EAD3F0 /* JElasticPullToRefreshLoadingViewCircle.m in Sources */,
 				0095616C1D864C0F00EF0D5A /* YTTabBarController.swift in Sources */,
 				0095619B1D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodeld in Sources */,
 				0034C90F1D87F9B100A8C4D4 /* CoreDataTools.swift in Sources */,
@@ -793,11 +856,15 @@
 				0055CCBA1D912419008C6D30 /* SuccessData.swift in Sources */,
 				0095615E1D864BDE00EF0D5A /* AppDelegate.swift in Sources */,
 				00C832DB1D86989900802D12 /* AdressListTool.swift in Sources */,
+				00A4DCE51D93D89C00EAD3F0 /* JElasticPullToRefreshView.m in Sources */,
 				0095618F1D86526400EF0D5A /* ApplyLeaveController.swift in Sources */,
 				00A4DC8E1D9380D300EAD3F0 /* MyInfoController.swift in Sources */,
 				0055A4F21D92837500C3893C /* SettingController.swift in Sources */,
 				0055CC421D90D009008C6D30 /* ContactRestultData.swift in Sources */,
+				00A4DCE91D93DA9C00EAD3F0 /* YTOtherLibTool.swift in Sources */,
+				00A4DCE61D93D89C00EAD3F0 /* UIScrollView+JElasticPullToRefresh.m in Sources */,
 				00DCEA3E1D8E722F000C51D8 /* YTCore.swift in Sources */,
+				00A4DCE31D93D89C00EAD3F0 /* JElasticPullToRefreshLoadingView.m in Sources */,
 				0095617F1D8651D200EF0D5A /* ContactDetailController.swift in Sources */,
 				452A60571D8D6C1C00B19BCA /* DataCenter.swift in Sources */,
 				0055A4EE1D92836300C3893C /* MyController.swift in Sources */,
@@ -822,6 +889,7 @@
 				001E6F921D8FB9A00099999D /* RequestTool.swift in Sources */,
 				0055A4FB1D9285B100C3893C /* LeaveRecordCell.swift in Sources */,
 				0055A4FE1D928FD400C3893C /* MyModel.swift in Sources */,
+				00A4DCD41D93BF2400EAD3F0 /* LeaveCell.swift in Sources */,
 				0055CC441D90E5AB008C6D30 /* ContactData.swift in Sources */,
 				0095618B1D86524300EF0D5A /* EditContactController.swift in Sources */,
 				0055A4F61D9284A500C3893C /* MyLeaveRecordController.swift in Sources */,

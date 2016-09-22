@@ -17,8 +17,7 @@ class LeaveListModel: BaseModel {
     {
         weak var blockSelf =  self
         let url = urlPrefix + "leave/list"
-        let token = dataCenter.getToken()
-        let param = [kToken:token]
+        let param = [kToken:dataCenter.getToken()]
         manager.get(url, parameters: param, success: { (oper, data) -> Void in
             let dic = data as! Dictionary<String, Any>
             let status = dic["status"] as! String

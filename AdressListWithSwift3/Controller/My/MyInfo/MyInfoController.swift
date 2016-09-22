@@ -128,10 +128,9 @@ class MyInfoController: UIViewController,MyModelDelegate,UIImagePickerController
     //MARK: -ContactModelDelegate
     func requestUploadHeadImgSucc(success: SuccessData) {
         self.messageView?.hideMessage()
-        
     }
     func requestUploadHeadImgFail(error: ErrorData) {
-        
+        self.messageView?.hideMessage()
     }
 
 }

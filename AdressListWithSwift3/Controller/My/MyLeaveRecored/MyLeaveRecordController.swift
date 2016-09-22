@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyLeaveRecordController: UIViewController,UITableViewDataSource,UITableViewDelegate ,MyModelDelegate{
+class MyLeaveRecordController: UIViewController,UITableViewDataSource,UITableViewDelegate ,MyModelDelegate,YTOtherLibToolDelegate{
 
     @IBOutlet weak var tableView: UITableView!
     let cellReuseIdentifier = "LeaveRecordCell"
@@ -16,6 +16,7 @@ class MyLeaveRecordController: UIViewController,UITableViewDataSource,UITableVie
     var dataSource:NSMutableArray?
     var messageView:MessageView?
     var myModel = MyModel()
+    var otherlibTool = YTOtherLibTool()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,15 +25,23 @@ class MyLeaveRecordController: UIViewController,UITableViewDataSource,UITableVie
         self.view.backgroundColor = PageGrayColor
         self.messageView = addMessageView(InView: self.view)
         self.myModel.delegate = self
+        self.otherlibTool.delegate = self
+        otherlibTool.addDownPullAnimate(InView: self.tableView!)
+        
         self.tableView.register(UINib(nibName: cellReuseIdentifier, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
         self.dataSource = NSMutableArray()
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        self.tableView.backgroundColor = PageGrayColor
         
         self.messageView?.setMessageLoading()
-        self.myModel.requestMyLeaveRecord()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
+        self.tableView?.stopLoading()
+        self.otherlibTool.delegate = nil
+    }
+    func downpullRequest() {
+        self.myModel.requestMyLeaveRecord()
     }
     func initNavibar()
     {
@@ -46,14 +55,6 @@ class MyLeaveRecordController: UIViewController,UITableViewDataSource,UITableVie
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 20
-    }
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headView = UITableViewHeaderFooterView.init(reuseIdentifier: headerIdentifier)
-        let view = UIView(frame:headView.bounds)
-        view.backgroundColor = ClearColor
-        headView.addSubview(view)
-        headView.backgroundColor = ClearColor
-        return headView
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -69,11 +70,13 @@ class MyLeaveRecordController: UIViewController,UITableViewDataSource,UITableVie
     //MARK: -MyModelDelegate
     func requestMyLeaveRecordSucc(result: LeaveListResultData) {
         self.messageView?.hideMessage()
+        self.tableView?.stopLoading()
         self.dataSource = result.data
         self.tableView.reloadData()
     }
     func requestMyLeaveRecordFail(error: ErrorData) {
         self.messageView?.hideMessage()
+        self.tableView?.stopLoading()
         self.messageView?.setMessage(Message: error.message!, Duration: 1)
     }
 

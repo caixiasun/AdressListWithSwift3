@@ -10,7 +10,7 @@ import UIKit
 
 let searchViewHeight:CGFloat = 45
 
-class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,ContactModelDelegate {
+class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,ContactModelDelegate ,YTOtherLibToolDelegate{
     
     var searchView:UIView?
     var textField:UITextField?
@@ -26,6 +26,7 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
     var messageView:MessageView?
     let contactModel:ContactModel = ContactModel()
     var localDataSource:NSMutableArray?
+    var otherlibTool = YTOtherLibTool()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +41,22 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
         
         self.messageView = addMessageView(InView: self.view)
         self.contactModel.delegate = self
+        self.otherlibTool.delegate = self
+        if dataCenter.isAlreadyLogin() {
+            self.messageView?.setMessageLoading()
+            self.downpullRequest()
+        }
+        
+        otherlibTool.addDownPullAnimate(InView: self.tableView!)
         
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
-        self.messageView?.setMessageLoading()
+        self.tableView?.stopLoading()
+        self.otherlibTool.delegate = nil
+    }
+    func downpullRequest() {
         //请求列表
         self.contactModel.requestContactList()
     }
@@ -199,7 +210,7 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
         return headView
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 35
+        return 40
     }
  
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -266,6 +277,7 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
     //MARK: -ContactModelDelegate
     func requestContactListSucc(result: ContactRestultData) {
         self.messageView?.hideMessage()
+        self.tableView?.stopLoading()
         if result.total == 0 {
         }else{
             //将列表存入coredata，记得卸载程序，抹掉假数据。
@@ -277,7 +289,8 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
     }
     func requestContactListFail(error: ErrorData) {
         self.messageView?.hideMessage()
-        self.messageView?.setMessage(Message: error.message!+"已为您加载本地数据！", Duration: 1)
+        self.tableView?.stopLoading()
+        self.messageView?.setMessage(Message: error.message!, Duration: 1)
         if error.code == kNetworkErrorCode {//网络连接问题，加载本地数据
             self.dataSource?.removeAllObjects()
             self.localDataSource = getDataFromCoreData()
