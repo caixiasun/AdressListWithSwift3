@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'BE168D9EDCA071F724266368'
+               BlueprintIdentifier = '24C3ABE2CC74D84DDFBBCB3B'
                BlueprintName = 'Pods-AdressListWithSwift3'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libPods-AdressListWithSwift3.a'>
+               BuildableName = 'Pods_AdressListWithSwift3.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

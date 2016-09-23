@@ -8,10 +8,8 @@
 
 import UIKit
 
-class ContactModel: NSObject {
-    let urlPrefix = "http://address.uduoo.com/"
+class ContactModel: BaseModel {
     var delegate:ContactModelDelegate?
-    let manager = AFHTTPRequestOperationManager()
     
     ////获取联系人列表
     func requestContactList()
@@ -19,6 +17,7 @@ class ContactModel: NSObject {
         weak var blockSelf =  self
         let url = urlPrefix + "user/list"
         let params = [kToken:dataCenter.getToken() as Any]
+        DebugLogTool.debugRequestLog(item: url, params: params)
         manager.get(url, parameters: params, success: { (oper, data) -> Void in
             let dic = data as! Dictionary<String, Any>
             let status = dic["status"] as! String
@@ -43,7 +42,7 @@ class ContactModel: NSObject {
     func requestNewConatct(param: Dictionary<String, Any>)
     {
         let url = urlPrefix + "user/add"
-        print("url:",url)
+        DebugLogTool.debugRequestLog(item: url, params: param)
         manager.get(url, parameters: param, success: { (oper, data) -> Void in
             let dic = data as! Dictionary<String, Any>
             let status = dic["status"] as! String
@@ -69,7 +68,7 @@ class ContactModel: NSObject {
     func requestEditContact(param: Dictionary<String, Any>)
     {
         let url = urlPrefix + "user/save"
-        print("url:",url)
+        DebugLogTool.debugRequestLog(item: url, params: param)
         manager.get(url, parameters: param, success: { (oper, data) -> Void in
             let dic = data as! Dictionary<String, Any>
             let status = dic["status"] as! String

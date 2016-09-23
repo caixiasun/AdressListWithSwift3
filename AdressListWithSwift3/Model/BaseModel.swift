@@ -10,5 +10,6 @@ import UIKit
 
 class BaseModel: NSObject {
     let urlPrefix = "http://address.uduoo.com/"
-    let manager = AFHTTPRequestOperationManager()
+    var manager = AFHTTPRequestOperationManager()
+    
 }

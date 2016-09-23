@@ -31,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
         self.loadLoginVC()
         
-//        printAllDataWithCoreData()
         
         return true
     }

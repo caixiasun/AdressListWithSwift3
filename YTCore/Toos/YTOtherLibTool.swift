@@ -26,7 +26,6 @@ class YTOtherLibTool: NSObject {
             }, loadingView: loadingViewCircle)
         view.setJElasticPullToRefreshFill(PageGrayColor)
         view.setJElasticPullToRefreshBackgroundColor(WhiteColor)
-        view.startLoading()
     }
 }
 

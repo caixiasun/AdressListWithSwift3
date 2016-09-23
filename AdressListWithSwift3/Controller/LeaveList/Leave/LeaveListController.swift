@@ -21,6 +21,9 @@ class LeaveListController: UIViewController ,UICollectionViewDelegate,UICollecti
     let leaveModel:LeaveListModel = LeaveListModel()
     var otherlibTool = YTOtherLibTool()
     
+    //标记 拖动手势是否可用，根据collectionView的contentSize来判断
+    var isAvailable:Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +35,10 @@ class LeaveListController: UIViewController ,UICollectionViewDelegate,UICollecti
         otherlibTool.addDownPullAnimate(InView: self.collectionView!)
         self.messageView?.setMessageLoading()
         self.downpullRequest()
+        
+        //解决无数据或数据少时 无法下拉刷新问题add by scx
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(LeaveListController.panAction(panGesture:)))
+        self.view.addGestureRecognizer(pan)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -54,8 +61,8 @@ class LeaveListController: UIViewController ,UICollectionViewDelegate,UICollecti
     
     func initSubviews()
     {
-        self.automaticallyAdjustsScrollViewInsets = false
-        self.collectionView.register(UINib(nibName: self.cellReuseIdentifier, bundle: nil), forCellWithReuseIdentifier: cellReuseIdentifier)        
+//        self.automaticallyAdjustsScrollViewInsets = false
+        self.collectionView.register(UINib(nibName: self.cellReuseIdentifier, bundle: nil), forCellWithReuseIdentifier: cellReuseIdentifier)
         
         self.dataSource = NSMutableArray()
         
@@ -97,10 +104,35 @@ class LeaveListController: UIViewController ,UICollectionViewDelegate,UICollecti
         self.collectionView.stopLoading()
         self.dataSource = result.data
         self.collectionView.reloadData()
+        
+        if self.collectionView.contentSize.height > kScreenHeight {
+            self.isAvailable = false
+        }else{
+            self.isAvailable = true
+        }
     }
     func requestLeaveListFail(error: ErrorData) {
         self.messageView?.hideMessage()
         self.collectionView.stopLoading()
         self.messageView?.setMessage(Message: error.message!, Duration: 1)
+        
+        if self.collectionView.contentSize.height > kScreenHeight {
+            self.isAvailable = false
+        }else{
+            self.isAvailable = true
+        }
+    }
+    /**
+     *  解决无数据或数据少时 无法下拉刷新问题
+     */
+    func panAction(panGesture:UIPanGestureRecognizer)
+    {
+        let translation = panGesture.translation(in: self.view).y
+        if translation > 0 {            
+            if self.isAvailable {
+                self.collectionView.startLoading()
+            }
+            self.isAvailable = false
+        }
     }
 }

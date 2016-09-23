@@ -15,9 +15,9 @@ class UserModel: NSObject {
     /*****登录********/
     func requestLogin(Params params:Dictionary<String,Any>) {
         let url = "http://address.uduoo.com/login"
+        DebugLogTool.debugRequestLog(item: url)
         let type="application/json"
         let sets=NSSet()
-        
         manager.responseSerializer.acceptableContentTypes = sets.adding(type)
         manager.get(url, parameters: params, success: { (oper, data) -> Void in
             let dic = data as! Dictionary<String, Any>

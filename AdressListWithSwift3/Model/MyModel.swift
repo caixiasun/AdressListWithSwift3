@@ -11,12 +11,14 @@ import UIKit
 class MyModel: BaseModel {
     var delegate:MyModelDelegate?
     
-    func requestMyLeaveRecord()
-    {
+    func requestMyLeaveRecord(status:Int)
+    {        
         weak var blockSelf =  self
         let url = urlPrefix + "leave/self"
-        let param = [kToken:dataCenter.getToken() as Any]
-        manager.get(url, parameters: param, success: { (oper, data) -> Void in
+        var params = [kToken:dataCenter.getToken() as Any]
+        params["status"] = status
+        DebugLogTool.debugRequestLog(item: url, params: params)
+        manager.get(url, parameters: params, success: { (oper, data) -> Void in
             let dic = data as! Dictionary<String, Any>
             let status = dic["status"] as! String
             if status == "ok" {
@@ -34,35 +36,63 @@ class MyModel: BaseModel {
             self.delegate?.requestMyLeaveRecordFail!(error: data)
         }
     }
-    //上传头像 //有问题
-    func requestUploadHeadImg(data:Data)
+    
+    //上传头像文件，获取头像url
+    func requestUploadFile(imageData:Data)
     {
-//        let url = urlPrefix + "user/headImg"
-        let url = "http://address.uduoo.com/user/headImg"
-        print("url:",url)
-        var param:Dictionary<String, Any> = Dictionary()
-        param[kToken] = dataCenter.getToken()
-        param["file"] = "http://www.bai.com/aaa.png"
+        let url = urlPrefix + "user/uploadsurl"
+//        let url = "http://meiyu-api.uduoo.com/a3/user/image/upload?sign=a0f99db5be3f611e8f8b4f6f557aeff3&ver=3.0.0,08082122&app=enjoytouch.com.cn.yushangUser"
+        DebugLogTool.debugRequestLog(item: url)
+        
         let array = ["text/html","text/plain","text/json"  ,"application/json","text/javascript"]
         let sets=NSSet(array: array) as! Set<AnyHashable>
         manager.responseSerializer = AFHTTPResponseSerializer()
         manager.responseSerializer.acceptableContentTypes = sets
-//        manager.get(url, parameters: param, success: { (oper, data) -> Void in
-//            print("success")
-//        }) { (opeation, error) -> Void in
-//            let data = ErrorData.initWithError(obj: error)
-//            self.delegate?.requestUploadHeadImgFail!(error: data)
-//        }
         
+//        //构造上传的参数
+//        let tokenStr = "token=\(dataCenter.getToken())"
+//        let tokenData = tokenStr.data(using: .utf8)
+//        var params = [kToken:dataCenter.getToken() as Any]
+//        params[kToken] = dataCenter.getToken()
+        /*
+        let params = ["file":""]
+        manager.get(url, parameters: params, success: { (oper, data) -> Void in
+            let dic = data as! Dictionary<String, Any>
+            let status = dic["status"] as! String
+            if status == "ok" {
+                let res = LeaveListResultData.mj_object(withKeyValues: dic)
+               
+            }else{//请求失败  status=error
+                //                let errorObj = dic["error"]
+                let data = ErrorData.initWithError(obj: nil)
+                
+            }
+            
+        }) { (opeation, error) -> Void in
+            let data = ErrorData.initWithError(obj: error)
+            
+        }
+        */
         
-        manager.post(url, parameters: param, constructingBodyWith: { (formData:AFMultipartFormData?) in
-            formData?.appendPart(withFileData: data, name: "head", fileName: "head.jpg", mimeType: "image/jpeg")
+        let token = "d8e225e091262ccbcb0cc3dc2c788b33"
+        let params = [kToken:token]
+        manager.post(url, parameters: nil, constructingBodyWith: { (formData:AFMultipartFormData?) in
+            formData?.appendPart(withFileData: imageData, name: "file[]", fileName: "file", mimeType: "image/jpeg")
+//            formData?.appendPart(withForm: tokenData, name: "token")
             
             }, success: { (oper, data) -> Void in
-                
-                let data = SuccessData.initData()
-                self.delegate?.requestUploadHeadImgSucc!(success: data)
-                
+                let dicData = data as! Data
+                let str =  String(data: dicData, encoding: .utf8)
+                print(str)
+//                let status = dic["status"] as! String
+//                if status == "ok" {
+//                    let data = SuccessData.initData()
+//                    self.delegate?.requestUploadHeadImgSucc!(success: data)
+//                }else{
+//                    let errorObj = dic["error"]
+//                    let data = ErrorData.initWithError(obj: errorObj)
+//                    self.delegate?.requestUploadHeadImgFail!(error: data)
+//                }                
                 
         }) { (opeation, error) -> Void in
             let data = ErrorData.initWithError(obj: error)

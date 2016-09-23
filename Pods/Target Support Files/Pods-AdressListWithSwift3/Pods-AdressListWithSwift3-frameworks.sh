@@ -82,3 +82,18 @@ strip_invalid_archs() {
   fi
 }
 
+
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-AdressListWithSwift3/AFNetworking.framework"
+  install_framework "Pods-AdressListWithSwift3/MJExtension.framework"
+  install_framework "Pods-AdressListWithSwift3/Masonry.framework"
+  install_framework "Pods-AdressListWithSwift3/Reachability.framework"
+  install_framework "Pods-AdressListWithSwift3/SDWebImage.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-AdressListWithSwift3/AFNetworking.framework"
+  install_framework "Pods-AdressListWithSwift3/MJExtension.framework"
+  install_framework "Pods-AdressListWithSwift3/Masonry.framework"
+  install_framework "Pods-AdressListWithSwift3/Reachability.framework"
+  install_framework "Pods-AdressListWithSwift3/SDWebImage.framework"
+fi

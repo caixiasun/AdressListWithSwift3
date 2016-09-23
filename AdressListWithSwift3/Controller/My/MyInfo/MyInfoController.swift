@@ -86,26 +86,9 @@ class MyInfoController: UIViewController,MyModelDelegate,UIImagePickerController
         {
             let img = info[UIImagePickerControllerOriginalImage] as? UIImage
             self.headImg.image = cropToBounds(image: img!)
-            
-            let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("head.jpg")
             let imgData = UIImageJPEGRepresentation(self.headImg.image!, 0.5)
-            do {
-                try imgData?.write(to: URL.init(fileURLWithPath: path))
-                print("图片保存成功！")
-            }catch{
-                print("图片保存失败！")
-            }
-            let newPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appending("/head.jpg")
-            do{
-                let newData = try Data.init(contentsOf: URL(fileURLWithPath: newPath))
-                self.messageView?.setMessageLoading()
-                self.myModel.requestUploadHeadImg(data: newData)
-                
-            }catch{
-                
-            }
-            
-            
+            self.messageView?.setMessageLoading()
+            self.myModel.requestUploadFile(imageData:imgData!)
             
             picker.dismiss(animated: true, completion: nil)
         }
@@ -128,9 +111,16 @@ class MyInfoController: UIViewController,MyModelDelegate,UIImagePickerController
     //MARK: -ContactModelDelegate
     func requestUploadHeadImgSucc(success: SuccessData) {
         self.messageView?.hideMessage()
+        self.messageView?.setMessage(Message: "头像上传成功！", Duration: 1)
+        /*
+         * 1、头像上传成功,更新本地的userdata的headImg
+         * 2、发通知到MyController，更新头像
+         */
+        
     }
     func requestUploadHeadImgFail(error: ErrorData) {
         self.messageView?.hideMessage()
+        self.messageView?.setMessage(Message: error.message!, Duration: 1)
     }
 
 }

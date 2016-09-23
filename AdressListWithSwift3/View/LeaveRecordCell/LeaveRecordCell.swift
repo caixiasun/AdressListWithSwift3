@@ -29,12 +29,12 @@ class LeaveRecordCell: UITableViewCell {
         self.startLab.text = data.started
         self.endLab.text = data.ended
         self.reasonLab.text = data.reason
+        
+//        self.deleteImg.isHidden = data.status == 1 ?false:true
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    
+    
+    
     
 }

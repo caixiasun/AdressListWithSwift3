@@ -17,8 +17,9 @@ class LeaveListModel: BaseModel {
     {
         weak var blockSelf =  self
         let url = urlPrefix + "leave/list"
-        let param = [kToken:dataCenter.getToken()]
-        manager.get(url, parameters: param, success: { (oper, data) -> Void in
+        let params = [kToken:dataCenter.getToken()]
+        DebugLogTool.debugRequestLog(item: url, params: params)
+        manager.get(url, parameters: params, success: { (oper, data) -> Void in
             let dic = data as! Dictionary<String, Any>
             let status = dic["status"] as! String
             if status == "ok" {
@@ -41,8 +42,9 @@ class LeaveListModel: BaseModel {
     {
         let url = urlPrefix + "leave/detail"
         let token = dataCenter.getToken()
-        let param = [kID:id,kToken:token] as [String : Any]
-        manager.get(url, parameters: param, success: { (oper, data) -> Void in
+        let params = [kID:id,kToken:token] as [String : Any]
+        DebugLogTool.debugRequestLog(item: url, params: params)
+        manager.get(url, parameters: params, success: { (oper, data) -> Void in
             let dic = data as! Dictionary<String, Any>            
             let res = LeaveListData.mj_object(withKeyValues: dic["data"])
             self.delegate?.requestLeaveDetailSucc!(result: res!)
@@ -54,8 +56,9 @@ class LeaveListModel: BaseModel {
     }
     //请假申请
     func requestLeaveApply(param:Dictionary<String, Any>)
-    {
+    {        
         let url = urlPrefix + "leave/add"
+        DebugLogTool.debugRequestLog(item: url, params: param)
         manager.get(url, parameters: param, success: { (oper, data) -> Void in
             let dic = data as! Dictionary<String, Any>
             let status = dic["status"] as! String
@@ -63,7 +66,6 @@ class LeaveListModel: BaseModel {
                 let data = SuccessData.initData()
                 self.delegate?.requestLeaveApplySucc!(success: data)
             }else{//请求失败  status=error
-//                let errorObj = dic["error"]
                 let data = ErrorData.initWithError(obj: nil)
                 self.delegate?.requestLeaveListFail!(error: data)
             }
