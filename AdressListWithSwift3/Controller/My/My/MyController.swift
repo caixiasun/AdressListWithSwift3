@@ -23,15 +23,34 @@ class MyController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
         super.viewDidLoad()
 
         self.initSubviews()
-        self.nameLab.text = dataCenter.getUserData().name
         
-    }    
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshContent), name: NSNotification.Name(rawValue: kNotification_refresh_my_index_from_myInfo), object: nil)
+        
+    }
+    func refreshContent()
+    {
+        let url = URL(string: dataCenter.getHeadImgUrlString()!)
+        self.headImg.sd_setImage(with: url, placeholderImage: kHeadImgObj)
+    }
+    
+    deinit {
+        //移除通知
+        NotificationCenter.default.removeObserver(self)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.nameLab.text = dataCenter.getUserData().name
+        self.refreshContent()
+        
+    }
     func initSubviews()
     {
         self.navigationItem.title = "更多"
         self.view.backgroundColor = PageGrayColor
         
         self.messageView = addMessageView(InView: self.view)
+        setCornerRadius(view: self.headImg, radius: kRadius_headImg_common)
         
         self.tableView.register(UINib(nibName: cellReuseIdentifier, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
         self.tableView.backgroundColor = PageGrayColor

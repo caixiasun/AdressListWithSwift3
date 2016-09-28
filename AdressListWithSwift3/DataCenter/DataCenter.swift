@@ -62,7 +62,8 @@ class DataCenter: AnyObject {
     //保存用户数据
     func saveUserData(Data user:UserData)
     {
-        NSKeyedArchiver.archiveRootObject(user, toFile: userdata_save_file_path)
+        NSKeyedArchiver.archiveRootObject(user, toFile: userdata_save_file_path)       
+        
         setToken(token: user.token!)
         
     }
@@ -81,6 +82,21 @@ class DataCenter: AnyObject {
     {
         let userDefault = UserDefaults.standard
         return userDefault.object(forKey: kToken) as! String
+    }
+    //用户头像
+    func setHeadImgUrlString(imageUrl:String)
+    {
+        let userDefault = UserDefaults.standard
+        userDefault.set(imageUrl, forKey: kHeadImgUrl)
+    }
+    func getHeadImgUrlString() -> String?
+    {
+        let userDefault = UserDefaults.standard
+        let url:String? = userDefault.object(forKey: kHeadImgUrl) as? String
+        if url == nil || (url?.isEmpty)! {
+            return ""
+        }
+        return url
     }
 }
 let dataCenter = DataCenter.shareInstance()

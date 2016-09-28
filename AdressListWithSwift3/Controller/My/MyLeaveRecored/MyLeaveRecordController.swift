@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyLeaveRecordController: UIViewController,UITableViewDataSource,UITableViewDelegate ,MyModelDelegate,YTOtherLibToolDelegate,UIScrollViewDelegate{
+class MyLeaveRecordController: UIViewController,UITableViewDataSource,UITableViewDelegate ,MyModelDelegate,YTOtherLibToolDelegate,UIScrollViewDelegate,LeaveRecordCellDelegate{
 
     @IBOutlet weak var nopassTableView: UITableView!
     @IBOutlet weak var alreadyPassTableView: UITableView!
@@ -24,7 +24,6 @@ class MyLeaveRecordController: UIViewController,UITableViewDataSource,UITableVie
     @IBOutlet weak var mainScrollView: UIScrollView!
     
     var status:Int = 0//请假状态
-    
     var preLab:UILabel?
     var preTableView:UITableView?
     
@@ -33,10 +32,26 @@ class MyLeaveRecordController: UIViewController,UITableViewDataSource,UITableVie
     var messageView:MessageView?
     var myModel = MyModel()
     var otherlibTool = YTOtherLibTool()
+    var deleteAlertController:UIAlertController?
+    var currentIndexPath:IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.initSubviews()
+        self.initAlertController()
+        
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.preTableView?.stopLoading()
+    }
+    func downpullRequest() {
+        self.myModel.requestMyLeaveRecord(status: self.status)
+    }
+    func initSubviews()
+    {
         self.initNavibar()
         self.view.backgroundColor = PageGrayColor
         self.messageView = addMessageView(InView: self.view)
@@ -64,20 +79,32 @@ class MyLeaveRecordController: UIViewController,UITableViewDataSource,UITableVie
         self.preTableView = nopassTableView
         self.status = 1 //未通过
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        self.preTableView?.stopLoading()
-        self.otherlibTool.delegate = nil
-    }
-    func downpullRequest() {
-        self.myModel.requestMyLeaveRecord(status: self.status)
-    }
     func initNavibar()
     {
         self.navigationItem.title = "我的请假记录"
         self.navigationController?.navigationBar.barStyle = UIBarStyle.default
         self.navigationController?.navigationBar.tintColor = WhiteColor
+    }
+    func initAlertController()
+    {
+        weak var blockSelf = self
+        self.deleteAlertController = UIAlertController(title: "温馨提示：", message: "您确定要删除这条记录么，亲？", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "取消", style: .cancel) { (action:UIAlertAction) in
+            blockSelf?.alertControllerAction(action: action)
+        }
+        let delete = UIAlertAction(title: "确定", style: .destructive) { (action:UIAlertAction) in
+            blockSelf?.alertControllerAction(action: action)
+        }
+        self.deleteAlertController?.addAction(cancel)
+        self.deleteAlertController?.addAction(delete)
+    }
+    func alertControllerAction(action:UIAlertAction)
+    {
+        if action.title == "确定" {
+            let data = self.dataSource?.object(at: (currentIndexPath?.section)!) as! LeaveListData
+            self.messageView?.setMessageLoading()
+            self.myModel.requestDeleteLeaveRecored(id: data.idNum)
+        }
     }
     //MARK: -UITableViewDataSource,UITableViewDelegate
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -95,6 +122,8 @@ class MyLeaveRecordController: UIViewController,UITableViewDataSource,UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! LeaveRecordCell
         cell.setContent(data: self.dataSource?.object(at: indexPath.section) as! LeaveListData)
+        cell.delegate = self
+        cell.indexPath = indexPath
         return cell
     }
     //MARK: -MyModelDelegate
@@ -153,5 +182,20 @@ class MyLeaveRecordController: UIViewController,UITableViewDataSource,UITableVie
             self.terminalTableView.startLoading()
             break
         }
+    }
+    //MARK: -LeaveRecordCellDelegate
+    func deleteRecord(indexPath: IndexPath) {
+        self.currentIndexPath = indexPath
+        present(self.deleteAlertController!, animated: true, completion: nil)
+    }
+    
+    func requestDeleteLeaveRecoredSucc() {
+        self.messageView?.hideMessage()
+        self.messageView?.setMessage(Message: "删除成功！", Duration: 1)
+        self.downpullRequest()
+    }
+    func requestDeleteLeaveRecoredFail(error: ErrorData) {
+        self.messageView?.hideMessage()
+        self.messageView?.setMessage(Message: error.message!, Duration: 1)
     }
 }

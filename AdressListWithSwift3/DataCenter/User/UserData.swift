@@ -12,7 +12,7 @@ class UserData: NSObject,NSCoding {
 
     var name:String?
     var tel:String?
-    var headImg:UIImage?
+    var headImgUrlStr:String?
     var email:String?
     var address:String?
     var birthDay:String?
@@ -54,7 +54,7 @@ class UserData: NSObject,NSCoding {
             model.birthDay = user.birthDay
         }
         if (user.headImg != nil) {
-            model.headImg = UIImage(data: user.headImg! as Data)
+            model.headImgUrlStr = user.headImg
         }
         return model
     }
@@ -72,7 +72,7 @@ class UserData: NSObject,NSCoding {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.name, forKey: "name")
         aCoder.encode(self.tel, forKey: "tel")
-        aCoder.encode(self.headImg, forKey: "headImg")
+        aCoder.encode(self.headImgUrlStr, forKey: "headImgUrlStr")
         aCoder.encode(self.email, forKey: "email")
         aCoder.encode(self.address, forKey: "address")
         aCoder.encode(self.birthDay, forKey: "birthDay")
@@ -92,7 +92,7 @@ class UserData: NSObject,NSCoding {
         
         self.name = aDecoder.decodeObject(forKey: "name") as! String?
         self.tel = aDecoder.decodeObject(forKey: "tel") as! String?
-        self.headImg = aDecoder.decodeObject(forKey: "headImg") as! UIImage?
+        self.headImgUrlStr = aDecoder.decodeObject(forKey: "headImgUrlStr") as! String?
         self.email = aDecoder.decodeObject(forKey: "email") as! String?
         self.address = aDecoder.decodeObject(forKey: "address") as! String?
         self.birthDay = aDecoder.decodeObject(forKey: "birthDay") as! String?

@@ -33,6 +33,9 @@ class MyInfoController: UIViewController,MyModelDelegate,UIImagePickerController
         
         self.messageView = addMessageView(InView: self.view)
         self.myModel.delegate = self
+        
+        self.headImg.sd_setImage(with: URL(string: dataCenter.getHeadImgUrlString()!), placeholderImage: kHeadImgObj)
+        setCornerRadius(view: self.headImg, radius: 15)
     }
     func initAlertController()
     {
@@ -109,13 +112,16 @@ class MyInfoController: UIViewController,MyModelDelegate,UIImagePickerController
     }
     
     //MARK: -ContactModelDelegate
-    func requestUploadHeadImgSucc(success: SuccessData) {
+    func requestUploadHeadImgSucc(result: URLData) {
+        
         self.messageView?.hideMessage()
         self.messageView?.setMessage(Message: "头像上传成功！", Duration: 1)
         /*
          * 1、头像上传成功,更新本地的userdata的headImg
          * 2、发通知到MyController，更新头像
          */
+        dataCenter.setHeadImgUrlString(imageUrl: result.url!)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: kNotification_refresh_my_index_from_myInfo), object: nil, userInfo: nil)
         
     }
     func requestUploadHeadImgFail(error: ErrorData) {

@@ -49,12 +49,21 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
         
         otherlibTool.addDownPullAnimate(InView: self.tableView!)
         
+        //登录成功后收到通知，刷新本界面
+        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: kNotification_refresh_contact_index_from_login), object: nil)
+        
+    }
+    func refresh()
+    {
+        self.downpullRequest()
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         self.tableView?.stopLoading()
-        self.otherlibTool.delegate = nil
+    }
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: kNotification_refresh_contact_index_from_login), object: nil)
     }
     func downpullRequest() {
         //请求列表

@@ -61,9 +61,9 @@ func getEntity(Model data:UserData) ->User
     if data.birthDay != nil && !((data.birthDay?.isEmpty)!) {
         entity.birthDay = data.birthDay
     }
-    if data.headImg != nil {
+    if data.headImgUrlStr != nil && !((data.headImgUrlStr?.isEmpty)!){
           //内存问题，等接口，暂时不存头像
-        entity.headImg = UIImageJPEGRepresentation(data.headImg!, kCompression_index_headImg) as NSData?
+        entity.headImg = data.headImgUrlStr
     }
     return entity
 }
@@ -173,9 +173,9 @@ func updateDataWithCoreData(Model userData:UserData, Where condiArray:NSArray)
             if userData.birthDay != nil && !((userData.birthDay?.isEmpty)!) {
                 user.birthDay = userData.birthDay
             }
-            if userData.headImg != nil {
+            if userData.headImgUrlStr != nil && !((userData.headImgUrlStr?.isEmpty)!) {
                 //内存问题，等接口，暂时不存头像
-                user.headImg = UIImageJPEGRepresentation(userData.headImg!, kCompression_index_headImg) as NSData?
+                user.headImg = userData.headImgUrlStr
             }
             try appDelegate.managedObjectContext.save()
             print("修改成功 ~ ~")
@@ -282,19 +282,6 @@ func getDataFromCoreData() -> NSMutableArray
 
 
 //  -----------------------  测试部分  ----------------------------
-///构建测试数据
-func initTestDataWithModel() -> UserData
-{
-    let data = UserData()
-    data.name = "丫头"
-    data.tel = "15921815736"
-    data.email = "123@456"
-    data.birthDay = "1990.02.03"
-    data.address = "中国上海普陀区"
-    data.headImg = UIImage(named: "head.png")
-    return data
-}
-
 //查询所有数据并输出
 func printAllDataWithCoreData()
 {

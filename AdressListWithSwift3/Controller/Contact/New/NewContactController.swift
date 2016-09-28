@@ -174,7 +174,7 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         userData.tel = mobile
         userData.email = email
         if self.loadImgBtn.title(for: .normal) == kTitle_headImg_change {
-            userData.headImg = self.headImg.image
+//            userData.headImgUrlStr = self.headImg.image
         }
         if !((self.nickNameTextField.text?.isEmpty)!) {
             userData.nickName = self.nickNameTextField.text

@@ -16,6 +16,9 @@ class LeaveRecordCell: UITableViewCell {
     @IBOutlet weak var endLab: UILabel!
     @IBOutlet weak var startLab: UILabel!
     
+    var delegate:LeaveRecordCellDelegate?
+    var indexPath:IndexPath?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -35,6 +38,16 @@ class LeaveRecordCell: UITableViewCell {
 
     
     
+    @IBAction func deleteAction(_ sender: AnyObject) {
+        if (self.delegate != nil) {
+            self.delegate?.deleteRecord!(indexPath: self.indexPath!)
+        }
+    }
     
     
+    
+}
+
+@objc protocol LeaveRecordCellDelegate {
+    @objc optional func deleteRecord(indexPath:IndexPath)
 }

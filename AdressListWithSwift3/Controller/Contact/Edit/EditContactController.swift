@@ -131,8 +131,8 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
     }
     func initData()
     {
-        if ((userData?.headImg) != nil) {
-            self.headImg.image = userData?.headImg
+        if ((userData?.headImgUrlStr) != nil) {
+            self.headImg.sd_setImage(with: URL(string:(userData?.headImgUrlStr)!), placeholderImage: kHeadImgObj)
             self.updateUploadHeadBtn(status: true)
         }
         
@@ -194,13 +194,12 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
             return
         }
         //如果所有字段都和原始的model相同，则不需要保存，
-        let headStatus = (userData?.headImg == self.headImg.image)
         let nameStatus = (userData?.name == self.nameTextFileld.text)
         let telStatus = (userData?.tel == self.telTextField.text)
         let emailStatus = (userData?.email == self.emailTextField.text)
         let birthStatus = (userData?.birthDay == self.birthDayTextField.text)
         let addressStatus = (userData?.address == self.addressTextField.text)
-        if headStatus && nameStatus && telStatus && emailStatus && birthStatus && addressStatus {
+        if nameStatus && telStatus && emailStatus && birthStatus && addressStatus {
             present(self.alerController!, animated: true, completion: nil)
             return ;
         }
@@ -210,7 +209,6 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
         whereArray.add(userData?.name)
         whereArray.add(userData?.tel)
         
-        userData?.headImg = self.headImg.image
         userData?.name = self.nameTextFileld.text
         userData?.tel = self.telTextField.text
         userData?.email = self.emailTextField.text
@@ -261,7 +259,7 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
         }else if action.title == "从相册选择" || action.title == "更换头像" {
             self.getImageFromPhotoLib(type: .photoLibrary)
         }else if action.title == "删除照片" {
-            self.headImg.image = UIImage(named: "head")
+            self.headImg.image = kHeadImgObj
             self.updateUploadHeadBtn(status: false)
         }
     }

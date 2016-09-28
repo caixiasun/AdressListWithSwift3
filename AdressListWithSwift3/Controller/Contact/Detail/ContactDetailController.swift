@@ -27,15 +27,17 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
         NotificationCenter.default.addObserver(self, selector: #selector(refreshContent(noti:)), name: NSNotification.Name(rawValue: kNotification_refresh_contact_detail_from_edit), object: nil)
         
         self.nameLab.text = userData?.name
-        if userData?.headImg != nil {
-            self.headImg.image = userData?.headImg
+        if userData?.headImgUrlStr != nil {
+            self.headImg.sd_setImage(with: URL(string: (userData?.headImgUrlStr)!), placeholderImage: kHeadImgObj)
         }
+        
+                
     }
     func refreshContent(noti:NSNotification)
     {
         self.nameLab.text = userData?.name
-        if userData?.headImg != nil {
-            self.headImg.image = userData?.headImg
+        if userData?.headImgUrlStr != nil {
+            self.headImg.sd_setImage(with: URL(string: (userData?.headImgUrlStr)!), placeholderImage: kHeadImgObj)
         }
         let model = noti.userInfo?["model"] as! UserData
         self.userData = model

@@ -14,6 +14,7 @@ class ContactModel: BaseModel {
     ////获取联系人列表
     func requestContactList()
     {
+        manager.requestSerializer.timeoutInterval = 10
         weak var blockSelf =  self
         let url = urlPrefix + "user/list"
         let params = [kToken:dataCenter.getToken() as Any]

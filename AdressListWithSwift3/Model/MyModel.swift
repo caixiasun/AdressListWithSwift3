@@ -11,6 +11,7 @@ import UIKit
 class MyModel: BaseModel {
     var delegate:MyModelDelegate?
     
+    //获取我的请假记录列表
     func requestMyLeaveRecord(status:Int)
     {        
         weak var blockSelf =  self
@@ -36,69 +37,83 @@ class MyModel: BaseModel {
             self.delegate?.requestMyLeaveRecordFail!(error: data)
         }
     }
-    
-    //上传头像文件，获取头像url
-    func requestUploadFile(imageData:Data)
+    //删除请假记录
+    func requestDeleteLeaveRecored(id:Int)
     {
-        let url = urlPrefix + "user/uploadsurl"
-//        let url = "http://meiyu-api.uduoo.com/a3/user/image/upload?sign=a0f99db5be3f611e8f8b4f6f557aeff3&ver=3.0.0,08082122&app=enjoytouch.com.cn.yushangUser"
-        DebugLogTool.debugRequestLog(item: url)
-        
-        let array = ["text/html","text/plain","text/json"  ,"application/json","text/javascript"]
-        let sets=NSSet(array: array) as! Set<AnyHashable>
-        manager.responseSerializer = AFHTTPResponseSerializer()
-        manager.responseSerializer.acceptableContentTypes = sets
-        
-//        //构造上传的参数
-//        let tokenStr = "token=\(dataCenter.getToken())"
-//        let tokenData = tokenStr.data(using: .utf8)
-//        var params = [kToken:dataCenter.getToken() as Any]
-//        params[kToken] = dataCenter.getToken()
-        /*
-        let params = ["file":""]
+        let url = urlPrefix + "leave/delete"
+        var params = [kToken:dataCenter.getToken() as Any]
+        params["id"] = id
+        DebugLogTool.debugRequestLog(item: url, params: params)
         manager.get(url, parameters: params, success: { (oper, data) -> Void in
             let dic = data as! Dictionary<String, Any>
             let status = dic["status"] as! String
             if status == "ok" {
-                let res = LeaveListResultData.mj_object(withKeyValues: dic)
-               
-            }else{//请求失败  status=error
-                //                let errorObj = dic["error"]
-                let data = ErrorData.initWithError(obj: nil)
-                
+                self.delegate?.requestDeleteLeaveRecoredSucc!()
+            }else{
+                let errorObj = dic["error"]
+                let data = ErrorData.initWithError(obj: errorObj)
+                self.delegate?.requestDeleteLeaveRecoredFail!(error: data)
             }
-            
-        }) { (opeation, error) -> Void in
-            let data = ErrorData.initWithError(obj: error)
-            
+            }) { (opeation, error) -> Void in
+                let data = ErrorData.initWithError(obj: nil)
+                self.delegate?.requestDeleteLeaveRecoredFail!(error: data)
         }
-        */
-        
-        let token = "d8e225e091262ccbcb0cc3dc2c788b33"
-        let params = [kToken:token]
+    }
+    
+    //上传头像文件，获取头像url
+    func requestUploadFile(imageData:Data)
+    {
+        let url = urlPrefix + "uploadsurl"
+        DebugLogTool.debugRequestLog(item: url)
+        let array = ["text/html","text/plain","text/json"  ,"application/json","text/javascript"]
+        let sets=NSSet(array: array) as! Set<AnyHashable>
+        manager.responseSerializer.acceptableContentTypes = sets
+        manager.requestSerializer = AFHTTPRequestSerializer()
+        weak var blockSelf = self
         manager.post(url, parameters: nil, constructingBodyWith: { (formData:AFMultipartFormData?) in
-            formData?.appendPart(withFileData: imageData, name: "file[]", fileName: "file", mimeType: "image/jpeg")
-//            formData?.appendPart(withForm: tokenData, name: "token")
+            formData?.appendPart(withFileData: imageData, name: "file[]", fileName: "file.jpg", mimeType: "image/jpeg")
             
             }, success: { (oper, data) -> Void in
-                let dicData = data as! Data
-                let str =  String(data: dicData, encoding: .utf8)
-                print(str)
-//                let status = dic["status"] as! String
-//                if status == "ok" {
-//                    let data = SuccessData.initData()
-//                    self.delegate?.requestUploadHeadImgSucc!(success: data)
-//                }else{
-//                    let errorObj = dic["error"]
-//                    let data = ErrorData.initWithError(obj: errorObj)
-//                    self.delegate?.requestUploadHeadImgFail!(error: data)
-//                }                
+                let dic = data as! Dictionary<String, Any>
+                let status = dic["status"] as! String
+                if status == "ok" {
+                    let arr = dic["data"] as? NSArray
+                    let urlData = URLData.createURLData(data: arr?.firstObject as! Dictionary<String, Any>)
+                    blockSelf?.requestUploadHeadImg(urlData: urlData)
+                }else{
+                    let errorObj = dic["error"]
+                    let data = ErrorData.initWithError(obj: errorObj)
+                    self.delegate?.requestUploadHeadImgFail!(error: data)
+                }
                 
         }) { (opeation, error) -> Void in
             let data = ErrorData.initWithError(obj: error)
             self.delegate?.requestUploadHeadImgFail!(error: data)
         }
     }
+    
+    //上传头像
+    func requestUploadHeadImg(urlData:URLData)
+    {
+        let url = urlPrefix + "user/saveHeadImg"
+        var params = [kToken:dataCenter.getToken() as Any]
+        params["url"] = urlData.relativeUrl as Any
+        manager.get(url, parameters: params, success: { (oper, data) -> Void in
+            let dic = data as! Dictionary<String, Any>
+            let status = dic["status"] as! String
+            if status == "ok" {
+                self.delegate?.requestUploadHeadImgSucc!(result: urlData)
+            }else{
+                let errorObj = dic["error"]
+                let data = ErrorData.initWithError(obj: errorObj)
+                self.delegate?.requestUploadHeadImgFail!(error: data)
+            }
+        }) { (opeation, error) -> Void in
+            let data = ErrorData.initWithError(obj: error)
+            self.delegate?.requestUploadHeadImgFail!(error: data)
+        }
+    }
+    
     
     //解析model
     func convertToModel(data:LeaveListResultData) ->LeaveListResultData
@@ -117,6 +132,9 @@ class MyModel: BaseModel {
     @objc optional func requestMyLeaveRecordSucc(result:LeaveListResultData)
     @objc optional func requestMyLeaveRecordFail(error:ErrorData)
     
-    @objc optional func requestUploadHeadImgSucc(success:SuccessData)
+    @objc optional func requestUploadHeadImgSucc(result:URLData)
     @objc optional func requestUploadHeadImgFail(error:ErrorData)
+    
+    @objc optional func requestDeleteLeaveRecoredSucc()
+    @objc optional func requestDeleteLeaveRecoredFail(error:ErrorData)
 }

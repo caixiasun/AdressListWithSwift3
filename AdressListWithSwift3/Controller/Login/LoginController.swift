@@ -39,9 +39,12 @@ class LoginController: UIViewController ,UserModelDelegate{
     {
         self.navigationItem.title = "登录"
         
+        //所有界面都需要token，则都需要是登录状态，取消按钮暂时不需要。
+        /*
         let cancelBtn = YTDrawButton(title: kTitle_cancel_button, TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(itemAction(_:)))
         cancelBtn.tag = 1
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: cancelBtn)
+         */
     }
     
     
@@ -83,6 +86,8 @@ class LoginController: UIViewController ,UserModelDelegate{
         self.messageView?.setMessage(Message: "登录成功", Duration: 1)
         dataCenter.setLogin()
         dataCenter.saveUserData(Data: userData)
+        //通知联系人列表刷新列表
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: kNotification_refresh_contact_index_from_login), object: nil)
         perform(#selector(exitThisController), with: nil, afterDelay: 1.5)
         
     }
