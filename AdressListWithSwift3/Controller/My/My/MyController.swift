@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
+class MyController: UIViewController ,UITableViewDelegate,UITableViewDataSource,MyModelDelegate{
     
     @IBOutlet weak var headImg: UIImageView!
     @IBOutlet weak var nameLab: UILabel!
@@ -16,6 +16,7 @@ class MyController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
     let cellReuseIdentifier = "SettingCell"
     let headerIdentifier = "headerIdentifier"
     var dataSource:NSMutableArray?
+    var myModel:MyModel = MyModel()
     
     var messageView:MessageView?
     
@@ -24,12 +25,14 @@ class MyController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
 
         self.initSubviews()
         
+        self.myModel.delegate = self
+        
         NotificationCenter.default.addObserver(self, selector: #selector(refreshContent), name: NSNotification.Name(rawValue: kNotification_refresh_my_index_from_myInfo), object: nil)
         
     }
     func refreshContent()
     {
-        let url = URL(string: dataCenter.getHeadImgUrlString()!)
+        let url = URL(string: dataCenter.getHeadImgUrlString())
         self.headImg.sd_setImage(with: url, placeholderImage: kHeadImgObj)
     }
     
@@ -40,8 +43,8 @@ class MyController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.nameLab.text = dataCenter.getUserData().name
-        self.refreshContent()
+        self.messageView?.setMessageLoading()
+        self.myModel.requestMyInfo()
         
     }
     func initSubviews()
@@ -94,5 +97,16 @@ class MyController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
         controller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(controller, animated: true)
     }
-   
+   //MARK: -MyModelDelegate
+    func requestMyInfoSucc(result: UserData) {
+        self.messageView?.hideMessage()
+        if result.headImgUrlStr != nil && (result.headImgUrlStr?.hasPrefix("http:"))!{
+            self.headImg.sd_setImage(with: URL(string:result.headImgUrlStr!), placeholderImage: kHeadImgObj)
+        }
+        self.nameLab.text = result.name
+    }
+    func requestMyInfoFail(error: ErrorData) {
+        self.messageView?.hideMessage()
+        self.messageView?.setMessage(Message: error.message!, Duration: 1)
+    }
 }

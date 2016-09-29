@@ -15,6 +15,8 @@
 		002CDF181D8C030B00BA0B6E /* YTTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002CDF171D8C030B00BA0B6E /* YTTools.swift */; };
 		002CDF1A1D8C033B00BA0B6E /* YTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002CDF191D8C033B00BA0B6E /* YTView.swift */; };
 		0034C90F1D87F9B100A8C4D4 /* CoreDataTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0034C90E1D87F9B100A8C4D4 /* CoreDataTools.swift */; };
+		00412B0A1D9D1808005337D1 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00412B081D9D1808005337D1 /* User+CoreDataClass.swift */; };
+		00412B0B1D9D1808005337D1 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00412B091D9D1808005337D1 /* User+CoreDataProperties.swift */; };
 		0055A4E31D923CA600C3893C /* YTExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055A4E21D923CA600C3893C /* YTExtension.swift */; };
 		0055A4E71D92797800C3893C /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0055A4E51D92797800C3893C /* SettingCell.swift */; };
 		0055A4E81D92797800C3893C /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0055A4E61D92797800C3893C /* SettingCell.xib */; };
@@ -38,8 +40,6 @@
 		006849831D94CD8900415C65 /* DebugLogTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006849821D94CD8900415C65 /* DebugLogTool.swift */; };
 		006849851D94FE2200415C65 /* AllEnumDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006849841D94FE2200415C65 /* AllEnumDefine.swift */; };
 		00724F9E1D9B86B60073604C /* URLData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00724F9D1D9B86B60073604C /* URLData.swift */; };
-		00724FA11D9BAAF70073604C /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00724F9F1D9BAAF70073604C /* User+CoreDataClass.swift */; };
-		00724FA21D9BAAF70073604C /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00724FA01D9BAAF70073604C /* User+CoreDataProperties.swift */; };
 		0090BFD01D8FCA4A00CAC075 /* UserResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFCF1D8FCA4A00CAC075 /* UserResultData.swift */; };
 		0090BFD21D8FCA5500CAC075 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFD11D8FCA5500CAC075 /* UserData.swift */; };
 		0090BFD51D8FD8E400CAC075 /* ErrorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFD41D8FD8E400CAC075 /* ErrorData.swift */; };
@@ -106,6 +106,8 @@
 		002CDF171D8C030B00BA0B6E /* YTTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTTools.swift; sourceTree = "<group>"; };
 		002CDF191D8C033B00BA0B6E /* YTView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTView.swift; sourceTree = "<group>"; };
 		0034C90E1D87F9B100A8C4D4 /* CoreDataTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTools.swift; sourceTree = "<group>"; };
+		00412B081D9D1808005337D1 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		00412B091D9D1808005337D1 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0055A4E21D923CA600C3893C /* YTExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTExtension.swift; sourceTree = "<group>"; };
 		0055A4E51D92797800C3893C /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		0055A4E61D92797800C3893C /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
@@ -129,8 +131,6 @@
 		006849821D94CD8900415C65 /* DebugLogTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugLogTool.swift; sourceTree = "<group>"; };
 		006849841D94FE2200415C65 /* AllEnumDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllEnumDefine.swift; sourceTree = "<group>"; };
 		00724F9D1D9B86B60073604C /* URLData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLData.swift; sourceTree = "<group>"; };
-		00724F9F1D9BAAF70073604C /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		00724FA01D9BAAF70073604C /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0090BFCF1D8FCA4A00CAC075 /* UserResultData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserResultData.swift; sourceTree = "<group>"; };
 		0090BFD11D8FCA5500CAC075 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		0090BFD41D8FD8E400CAC075 /* ErrorData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorData.swift; sourceTree = "<group>"; };
@@ -595,8 +595,8 @@
 			isa = PBXGroup;
 			children = (
 				009561991D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodeld */,
-				00724F9F1D9BAAF70073604C /* User+CoreDataClass.swift */,
-				00724FA01D9BAAF70073604C /* User+CoreDataProperties.swift */,
+				00412B081D9D1808005337D1 /* User+CoreDataClass.swift */,
+				00412B091D9D1808005337D1 /* User+CoreDataProperties.swift */,
 				0034C90E1D87F9B100A8C4D4 /* CoreDataTools.swift */,
 			);
 			path = CoreData;
@@ -900,7 +900,7 @@
 				002CDF141D8C007600BA0B6E /* YTColor.swift in Sources */,
 				0055CCB51D910CBE008C6D30 /* LeaveListData.swift in Sources */,
 				0055CCBA1D912419008C6D30 /* SuccessData.swift in Sources */,
-				00724FA21D9BAAF70073604C /* User+CoreDataProperties.swift in Sources */,
+				00412B0B1D9D1808005337D1 /* User+CoreDataProperties.swift in Sources */,
 				0095615E1D864BDE00EF0D5A /* AppDelegate.swift in Sources */,
 				00C832DB1D86989900802D12 /* AdressListTool.swift in Sources */,
 				00A4DCE51D93D89C00EAD3F0 /* JElasticPullToRefreshView.m in Sources */,
@@ -910,7 +910,7 @@
 				0055CC421D90D009008C6D30 /* ContactRestultData.swift in Sources */,
 				00A4DCE91D93DA9C00EAD3F0 /* YTOtherLibTool.swift in Sources */,
 				00A4DCE61D93D89C00EAD3F0 /* UIScrollView+JElasticPullToRefresh.m in Sources */,
-				00724FA11D9BAAF70073604C /* User+CoreDataClass.swift in Sources */,
+				00412B0A1D9D1808005337D1 /* User+CoreDataClass.swift in Sources */,
 				00DCEA3E1D8E722F000C51D8 /* YTCore.swift in Sources */,
 				00A4DCE31D93D89C00EAD3F0 /* JElasticPullToRefreshLoadingView.m in Sources */,
 				0095617F1D8651D200EF0D5A /* ContactDetailController.swift in Sources */,

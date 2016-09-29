@@ -34,7 +34,7 @@ class MyInfoController: UIViewController,MyModelDelegate,UIImagePickerController
         self.messageView = addMessageView(InView: self.view)
         self.myModel.delegate = self
         
-        self.headImg.sd_setImage(with: URL(string: dataCenter.getHeadImgUrlString()!), placeholderImage: kHeadImgObj)
+        self.headImg.sd_setImage(with: URL(string: dataCenter.getHeadImgUrlString()), placeholderImage: kHeadImgObj)
         setCornerRadius(view: self.headImg, radius: 15)
     }
     func initAlertController()

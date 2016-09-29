@@ -87,6 +87,59 @@ class ContactModel: BaseModel {
             self.delegate?.requestEditContactFail!(error: data)
         }
     }
+    //删除联系人
+    func requestDeleteContact(id:String)
+    {
+        let url = urlPrefix + "user/delete"
+        var params = [kToken:dataCenter.getToken()]
+        params["id"] = id
+        manager.get(url, parameters: params, success: { (oper, data) -> Void in
+            let dic = data as! Dictionary<String, Any>
+            let status = dic["status"] as! String
+            if status == "ok" {
+                self.delegate?.requestDeleteContactSucc!()
+            }else{//请求失败  status=error
+                let errorObj = dic["error"]
+                let data = ErrorData.initWithError(obj: errorObj)
+                self.delegate?.requestDeleteContactFail!(error: data)
+            }
+        }) { (opeation, error) -> Void in
+            let data = ErrorData.initWithError(obj: error)
+            self.delegate?.requestDeleteContactFail!(error: data)
+        }
+    }
+    //上传联系人头像
+    //上传头像文件，获取头像url
+    func requestUploadContactHeadImgFile(imageData:Data)
+    {
+        let url = urlPrefix + "uploadsurl"
+        DebugLogTool.debugRequestLog(item: url)
+        let array = ["text/html","text/plain","text/json"  ,"application/json","text/javascript"]
+        let sets=NSSet(array: array) as! Set<AnyHashable>
+        manager.responseSerializer.acceptableContentTypes = sets
+        manager.requestSerializer = AFHTTPRequestSerializer()
+        manager.post(url, parameters: nil, constructingBodyWith: { (formData:AFMultipartFormData?) in
+            formData?.appendPart(withFileData: imageData, name: "file[]", fileName: "file.jpg", mimeType: "image/jpeg")
+            
+            }, success: { (oper, data) -> Void in
+                let dic = data as! Dictionary<String, Any>
+                let status = dic["status"] as! String
+                if status == "ok" {
+                    let arr = dic["data"] as? NSArray
+                    let urlData = URLData.createURLData(data: arr?.firstObject as! Dictionary<String, Any>)
+                    self.delegate?.requestUploadContactHeadImgFileSucc!(result: urlData)
+                    
+                }else{
+                    let errorObj = dic["error"]
+                    let data = ErrorData.initWithError(obj: errorObj)
+                    self.delegate?.requestUploadContactHeadImgFileFail!(error: data)
+                }
+                
+        }) { (opeation, error) -> Void in
+            let data = ErrorData.initWithError(obj: error)
+            self.delegate?.requestUploadContactHeadImgFileFail!(error: data)
+        }
+    }
     
     //将请求到的数据转换成对应的数据类型
     func covertDataToArray(data:ContactRestultData) -> ContactRestultData
@@ -119,4 +172,10 @@ class ContactModel: BaseModel {
         
     @objc optional func requestEditContactSucc(success:SuccessData)
     @objc optional func requestEditContactFail(error:ErrorData)
+    
+    @objc optional func requestDeleteContactSucc()
+    @objc optional func requestDeleteContactFail(error:ErrorData)
+    
+    @objc optional func requestUploadContactHeadImgFileSucc(result:URLData)
+    @objc optional func requestUploadContactHeadImgFileFail(error:ErrorData)
 }

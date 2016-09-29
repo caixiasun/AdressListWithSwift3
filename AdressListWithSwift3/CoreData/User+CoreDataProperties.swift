@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  
 //
-//  Created by caixiasun on 16/9/28.
+//  Created by caixiasun on 16/9/29.
 //
 //
 
@@ -32,5 +32,6 @@ extension User {
     @NSManaged public var status: String?
     @NSManaged public var tel: String?
     @NSManaged public var token: String?
+    @NSManaged public var levelId: Int32
 
 }

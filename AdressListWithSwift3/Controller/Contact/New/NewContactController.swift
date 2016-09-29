@@ -31,8 +31,28 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var birthDayTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
-    
     @IBOutlet weak var nickNameTextField: UITextField!
+    //为修改UI而设置为全局的变量
+    @IBOutlet weak var departmentView: UIView!
+    @IBOutlet weak var levelView: UIView!
+    @IBOutlet weak var dongshiBtn: UIButton!
+    @IBOutlet weak var iOSBtn: UIButton!
+    @IBOutlet weak var phpBtn: UIButton!
+    @IBOutlet weak var qianduanBtn: UIButton!
+    @IBOutlet weak var androidBtn: UIButton!
+    @IBOutlet weak var hrBtn: UIButton!
+    @IBOutlet weak var bgBtn: UIButton!
+    @IBOutlet weak var testBtn: UIButton!
+    
+    @IBOutlet weak var level_jingliBtn: UIButton!
+    @IBOutlet weak var level_dashenBtn: UIButton!
+    @IBOutlet weak var level_coderBtn: UIButton!
+    @IBOutlet weak var level_hrBtn: UIButton!
+    @IBOutlet weak var level_testBtn: UIButton!
+    
+    //记录上次点击的按钮
+    var preBtn_department:UIButton?
+    var preBtn_level:UIButton?
     
     var uploadAlertController:UIAlertController!
     var modifyAlertController:UIAlertController!
@@ -40,6 +60,7 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
     var messageView:MessageView?
     var contactModel:ContactModel = ContactModel()
     let userData:UserData = UserData()
+    var imageData_global:Data?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,8 +98,52 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         
         self.messageView = addMessageView(InView: self.view)
         self.contactModel.delegate = self
+        
+        //修改外观
+        self.setupUI()
+        
+        self.preBtn_department = self.testBtn
+        self.preBtn_level = self.level_testBtn
     }
-    
+    //修改外观
+    func setupUI()
+    {
+        setCornerRadius(view: self.departmentView, radius: 5)
+        setBorder(view: self.departmentView)
+        
+        setCornerRadius(view: self.dongshiBtn, radius: 5)
+        setBorder(view: self.dongshiBtn)
+        setCornerRadius(view: self.iOSBtn, radius: 5)
+        setBorder(view: self.iOSBtn)
+        setCornerRadius(view: self.phpBtn, radius: 5)
+        setBorder(view: self.phpBtn)
+        setCornerRadius(view: self.qianduanBtn, radius: 5)
+        setBorder(view: self.qianduanBtn)
+        setCornerRadius(view: self.androidBtn, radius: 5)
+        setBorder(view: self.androidBtn)
+        setCornerRadius(view: self.hrBtn, radius: 5)
+        setBorder(view: self.hrBtn)
+        setCornerRadius(view: self.bgBtn, radius: 5)
+        setBorder(view: self.bgBtn)
+        setCornerRadius(view: self.testBtn, radius: 5)
+        setBorder(view: self.testBtn)
+        
+        
+        setCornerRadius(view: self.levelView, radius: 5)
+        setBorder(view: self.levelView)
+        
+        setCornerRadius(view: self.level_jingliBtn, radius: 5)
+        setBorder(view: self.level_jingliBtn)
+        setCornerRadius(view: self.level_dashenBtn, radius: 5)
+        setBorder(view: self.level_dashenBtn)
+        setCornerRadius(view: self.level_coderBtn, radius: 5)
+        setBorder(view: self.level_coderBtn)
+        setCornerRadius(view: self.level_hrBtn, radius: 5)
+        setBorder(view: self.level_hrBtn)
+        setCornerRadius(view: self.level_testBtn, radius: 5)
+        setBorder(view: self.level_testBtn)
+        
+    }
     func initNaviBar()
     {
         self.navigationItem.title = "新建联系人"
@@ -148,9 +213,12 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
             exitThisController()
             break
         case 2://导航上的done
-            if self.isCanSave() {
-                
-                self.saveData()
+            if (self.imageData_global != nil)  {
+                self.uploadHeadImg()
+            }else{
+                if self.isCanSave() {
+                    self.saveData(headImgUrl: "" )
+                }
             }
             break
         case 3://上传头像 或 更换头像
@@ -164,7 +232,40 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
             break
         }
     }
-    func saveData()
+    //部门item点击事件
+    @IBAction func departmentItemAction(_ sender: UIButton) {
+        
+        /*
+         * 1://董事部  2://iOS  3://php  4://前段  
+         * 5://安卓   7://人事  8://后台  6：//测试
+         */
+        self.preBtn_department?.backgroundColor = ClearColor
+        sender.backgroundColor = NewContactButtonBgColor
+        self.preBtn_department = sender
+      
+    }
+    
+    //级别item点击事件
+    @IBAction func levelItemAction(_ sender: UIButton) {
+        /*
+         * 1://经理  2://大神  3://程序员  4://人事
+         * 5://测试
+         */
+        self.preBtn_level?.backgroundColor = ClearColor
+        sender.backgroundColor = NewContactButtonBgColor
+        self.preBtn_level = sender
+    }
+    //先上传头像，获得url再新建该联系人
+    func uploadHeadImg()
+    {
+        self.view.endEditing(true)
+        if (self.imageData_global != nil)  {
+            self.messageView?.setMessageLoading()
+            self.contactModel.requestUploadContactHeadImgFile(imageData: self.imageData_global!)
+        }
+    }
+    
+    func saveData(headImgUrl:String)
     {
         let name = self.nameTextField.text
         let mobile = self.telTextField.text
@@ -173,9 +274,7 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         userData.name = name
         userData.tel = mobile
         userData.email = email
-        if self.loadImgBtn.title(for: .normal) == kTitle_headImg_change {
-//            userData.headImgUrlStr = self.headImg.image
-        }
+        
         if !((self.nickNameTextField.text?.isEmpty)!) {
             userData.nickName = self.nickNameTextField.text
         }
@@ -189,10 +288,12 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
             params["nickname"] = self.nickNameTextField.text
         }
         params[kToken] = dataCenter.getToken()
-        params["department_id"] = 5
+        params["department_id"] = self.preBtn_department?.tag
         params[kPassword] = kPassword_value
-        params["level_id"] = 4
-        self.messageView?.setMessageLoading()
+        params["level_id"] = self.preBtn_level?.tag
+        if !headImgUrl.isEmpty {
+            params["head_img"] = headImgUrl
+        }
         self.contactModel.requestNewConatct(param: params)
     }
     func exitThisController()
@@ -252,7 +353,7 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
         {
             let img = info[UIImagePickerControllerOriginalImage] as? UIImage
             self.headImg.image = cropToBounds(image: img!)
-            
+            self.imageData_global = UIImageJPEGRepresentation(self.headImg.image!, 0.5)
             //修改“上传头像”按钮的状态
             self.updateUploadHeadBtn(status: true)
             
@@ -290,5 +391,13 @@ class NewContactController: UIViewController ,UIImagePickerControllerDelegate,UI
     func requestNewConatctFail(error: ErrorData) {
         self.messageView?.hideMessage()
         self.messageView?.setMessage(Message: error.message!, Duration: 1)
+    }
+    func requestUploadContactHeadImgFileSucc(result: URLData) {
+        if self.isCanSave() {
+            self.saveData(headImgUrl: result.url!)
+        }
+    }
+    func requestUploadContactHeadImgFileFail(error: ErrorData) {
+        
     }
 }

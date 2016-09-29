@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,9 +11,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactDetailController" customModule="AdressListWithSwift3" customModuleProvider="target">
             <connections>
+                <outlet property="departmentImg" destination="I6F-nj-sRs" id="hTS-5Y-7bQ"/>
                 <outlet property="headImg" destination="Ok1-EI-WRr" id="bl7-aZ-DXP"/>
                 <outlet property="headImgTapBtn" destination="nBf-7q-M3y" id="alq-ro-MDl"/>
+                <outlet property="levelImg" destination="tBO-hg-Qz7" id="Hef-5h-DfL"/>
                 <outlet property="nameLab" destination="h7W-09-BvI" id="ASh-RT-oNN"/>
+                <outlet property="nickNameLab" destination="fbI-aq-Plt" id="a7x-aO-KiH"/>
                 <outlet property="tablView" destination="Y5X-Oq-O1T" id="xB2-Jb-zbr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -33,7 +37,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="丫头" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7W-09-BvI">
-                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -42,16 +46,36 @@
                                         <action selector="itemActionWithSender:" destination="-1" eventType="touchUpInside" id="hIU-BP-ccC"/>
                                     </connections>
                                 </button>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I6F-nj-sRs" userLabel="departmentImg">
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="56" id="ic0-BA-yG6"/>
+                                        <constraint firstAttribute="height" constant="20" id="sD6-g3-Ykw"/>
+                                    </constraints>
+                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tBO-hg-Qz7" userLabel="levelImg"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="该联系人没有昵称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbI-aq-Plt">
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <constraints>
+                                <constraint firstItem="I6F-nj-sRs" firstAttribute="height" secondItem="tBO-hg-Qz7" secondAttribute="height" id="2mK-PO-ThT"/>
+                                <constraint firstItem="fbI-aq-Plt" firstAttribute="top" secondItem="h7W-09-BvI" secondAttribute="bottom" constant="6" id="5vy-uE-4oY"/>
+                                <constraint firstItem="I6F-nj-sRs" firstAttribute="trailing" secondItem="tBO-hg-Qz7" secondAttribute="trailing" id="6NE-9l-1Cj"/>
                                 <constraint firstItem="Ok1-EI-WRr" firstAttribute="centerY" secondItem="qnW-lQ-RAO" secondAttribute="centerY" id="GaU-Bi-uey"/>
+                                <constraint firstItem="fbI-aq-Plt" firstAttribute="leading" secondItem="h7W-09-BvI" secondAttribute="leading" id="I8N-5K-hD1"/>
+                                <constraint firstItem="I6F-nj-sRs" firstAttribute="centerY" secondItem="h7W-09-BvI" secondAttribute="centerY" id="NPR-OC-w6I"/>
+                                <constraint firstItem="I6F-nj-sRs" firstAttribute="width" secondItem="tBO-hg-Qz7" secondAttribute="width" id="NZu-JO-pWj"/>
                                 <constraint firstItem="nBf-7q-M3y" firstAttribute="height" secondItem="Ok1-EI-WRr" secondAttribute="height" id="VdL-Jv-ejC"/>
+                                <constraint firstItem="fbI-aq-Plt" firstAttribute="centerY" secondItem="tBO-hg-Qz7" secondAttribute="centerY" id="XuQ-Kv-xal"/>
                                 <constraint firstAttribute="height" constant="100" id="ZEG-8j-qLe"/>
                                 <constraint firstItem="nBf-7q-M3y" firstAttribute="centerX" secondItem="Ok1-EI-WRr" secondAttribute="centerX" id="bqr-ic-O2R"/>
                                 <constraint firstItem="h7W-09-BvI" firstAttribute="leading" secondItem="Ok1-EI-WRr" secondAttribute="trailing" constant="24" id="fEX-cU-QcQ"/>
                                 <constraint firstItem="Ok1-EI-WRr" firstAttribute="leading" secondItem="qnW-lQ-RAO" secondAttribute="leading" constant="24" id="mMz-oQ-YfE"/>
-                                <constraint firstItem="h7W-09-BvI" firstAttribute="centerY" secondItem="Ok1-EI-WRr" secondAttribute="centerY" id="qmz-Pm-Jbt"/>
+                                <constraint firstItem="h7W-09-BvI" firstAttribute="bottom" secondItem="Ok1-EI-WRr" secondAttribute="centerY" constant="-3" id="qmz-Pm-Jbt"/>
                                 <constraint firstItem="nBf-7q-M3y" firstAttribute="centerY" secondItem="Ok1-EI-WRr" secondAttribute="centerY" id="tdb-m2-os8"/>
+                                <constraint firstAttribute="trailing" secondItem="I6F-nj-sRs" secondAttribute="trailing" constant="24" id="uj3-ao-od5"/>
                                 <constraint firstItem="nBf-7q-M3y" firstAttribute="width" secondItem="Ok1-EI-WRr" secondAttribute="width" id="wjS-39-pqo"/>
                             </constraints>
                         </view>

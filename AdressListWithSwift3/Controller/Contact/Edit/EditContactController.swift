@@ -22,6 +22,28 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var deleteBtn: UIButton!
     
+    //为修改UI而设置为全局的变量
+    @IBOutlet weak var departmentView: UIView!
+    @IBOutlet weak var levelView: UIView!
+    @IBOutlet weak var dongshiBtn: UIButton!
+    @IBOutlet weak var iOSBtn: UIButton!
+    @IBOutlet weak var phpBtn: UIButton!
+    @IBOutlet weak var qianduanBtn: UIButton!
+    @IBOutlet weak var androidBtn: UIButton!
+    @IBOutlet weak var hrBtn: UIButton!
+    @IBOutlet weak var bgBtn: UIButton!
+    @IBOutlet weak var testBtn: UIButton!
+    
+    @IBOutlet weak var level_jingliBtn: UIButton!
+    @IBOutlet weak var level_dashenBtn: UIButton!
+    @IBOutlet weak var level_coderBtn: UIButton!
+    @IBOutlet weak var level_hrBtn: UIButton!
+    @IBOutlet weak var level_testBtn: UIButton!
+    
+    //记录上次点击的按钮
+    var preBtn_department:UIButton?
+    var preBtn_level:UIButton?
+    
     //用于从详情界面接收数据
     var userData:UserData?
     var messageView:MessageView?
@@ -72,6 +94,47 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
         
         self.initAlertController()
         self.initImagePickerController()
+        //修改外观
+        self.setupUI()
+        
+    }
+    //修改外观
+    func setupUI()
+    {
+        setCornerRadius(view: self.departmentView, radius: 5)
+        setBorder(view: self.departmentView)
+        
+        setCornerRadius(view: self.dongshiBtn, radius: 5)
+        setBorder(view: self.dongshiBtn)
+        setCornerRadius(view: self.iOSBtn, radius: 5)
+        setBorder(view: self.iOSBtn)
+        setCornerRadius(view: self.phpBtn, radius: 5)
+        setBorder(view: self.phpBtn)
+        setCornerRadius(view: self.qianduanBtn, radius: 5)
+        setBorder(view: self.qianduanBtn)
+        setCornerRadius(view: self.androidBtn, radius: 5)
+        setBorder(view: self.androidBtn)
+        setCornerRadius(view: self.hrBtn, radius: 5)
+        setBorder(view: self.hrBtn)
+        setCornerRadius(view: self.bgBtn, radius: 5)
+        setBorder(view: self.bgBtn)
+        setCornerRadius(view: self.testBtn, radius: 5)
+        setBorder(view: self.testBtn)
+        
+        
+        setCornerRadius(view: self.levelView, radius: 5)
+        setBorder(view: self.levelView)
+        
+        setCornerRadius(view: self.level_jingliBtn, radius: 5)
+        setBorder(view: self.level_jingliBtn)
+        setCornerRadius(view: self.level_dashenBtn, radius: 5)
+        setBorder(view: self.level_dashenBtn)
+        setCornerRadius(view: self.level_coderBtn, radius: 5)
+        setBorder(view: self.level_coderBtn)
+        setCornerRadius(view: self.level_hrBtn, radius: 5)
+        setBorder(view: self.level_hrBtn)
+        setCornerRadius(view: self.level_testBtn, radius: 5)
+        setBorder(view: self.level_testBtn)
         
     }
     func initNaviBar()
@@ -141,6 +204,60 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
         self.emailTextField.text = userData?.email
         self.addressTextField.text = userData?.address
         self.birthDayTextField.text = userData?.birthDay
+        
+        /*
+         * 1://董事部  2://iOS  3://php  4://前段
+         * 5://安卓   7://人事  8://后台  6：//测试
+         */
+        switch (userData?.departmentId)! {
+        case 1:
+            self.preBtn_department = self.dongshiBtn
+            break
+        case 2:
+            self.preBtn_department = self.iOSBtn
+            break
+        case 3:
+            self.preBtn_department = self.phpBtn
+            break
+        case 4:
+            self.preBtn_department = self.qianduanBtn
+            break
+        case 5:
+            self.preBtn_department = self.androidBtn
+            break
+        case 6:
+            self.preBtn_department = self.testBtn
+            break
+        case 7:
+            self.preBtn_department = self.hrBtn
+            break
+        default:
+            self.preBtn_department = self.bgBtn
+            break
+        }
+        /*
+         * 1://经理  2://大神  3://程序员  4://人事
+         * 5://测试
+         */
+        switch (userData?.levelId)! {
+        case 1:
+            self.preBtn_level = self.level_jingliBtn
+            break
+        case 2:
+            self.preBtn_level = self.level_dashenBtn
+            break
+        case 3:
+            self.preBtn_level = self.level_coderBtn
+            break
+        case 4:
+            self.preBtn_level = self.level_hrBtn
+            break
+        default:
+            self.preBtn_level = self.level_testBtn
+            break
+        }
+        self.preBtn_level?.backgroundColor = NewContactButtonBgColor
+        self.preBtn_department?.backgroundColor = NewContactButtonBgColor
     }
     //MARK: -action method
     @IBAction func itemAction(sender:UIButton)
@@ -167,6 +284,29 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
         default:
             break
         }
+    }
+    //部门item点击事件
+    @IBAction func departmentItemAction(_ sender: UIButton) {
+        
+        /*
+         * 1://董事部  2://iOS  3://php  4://前段
+         * 5://安卓   7://人事  8://后台  6：//测试
+         */
+        self.preBtn_department?.backgroundColor = ClearColor
+        sender.backgroundColor = NewContactButtonBgColor
+        self.preBtn_department = sender
+        
+    }
+    
+    //级别item点击事件
+    @IBAction func levelItemAction(_ sender: UIButton) {
+        /*
+         * 1://经理  2://大神  3://程序员  4://人事
+         * 5://测试
+         */
+        self.preBtn_level?.backgroundColor = ClearColor
+        sender.backgroundColor = NewContactButtonBgColor
+        self.preBtn_level = sender
     }
     func exitThisController()
     {
@@ -245,9 +385,8 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
             if action.title == "取消" {
                 
             }else{
-                deleteCoreData(ConditionDic: ["tel":userData?.tel])
-                self.messageView?.setMessage(Message: "删除成功!", Duration: 1)
-                perform(#selector(returnRootViewController), with: nil, afterDelay: 2)
+                self.messageView?.setMessageLoading()
+                self.contactModel.requestDeleteContact(id: (userData?.idNum)!)
             }
         }
         
@@ -311,11 +450,25 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
         self.messageView?.hideMessage()
         self.messageView?.setMessage(Message: "修改成功！", Duration: 1)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: kNotification_refresh_contact_detail_from_edit), object: nil, userInfo: ["model":userData])
+        //联系人列表刷新
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: kNotification_refresh_contact_index_from_login), object: nil, userInfo: nil)
         perform(#selector(exitThisController), with: nil, afterDelay: 1.5)
         //将数据保存到本地 
         updateDataWithCoreData(Model: userData!, Where: whereArray)
     }
     func requestEditContactFail(error: ErrorData) {
+        self.messageView?.hideMessage()
+        self.messageView?.setMessage(Message: error.message!, Duration: 1)
+    }
+    func requestDeleteContactSucc() {
+        self.messageView?.hideMessage()
+        self.messageView?.setMessage(Message: "删除成功!", Duration: 1)
+        deleteCoreData(ConditionDic: ["tel":userData?.tel])
+        //联系人列表刷新
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: kNotification_refresh_contact_index_from_login), object: nil, userInfo: nil)
+        perform(#selector(returnRootViewController), with: nil, afterDelay: 2)
+    }
+    func requestDeleteContactFail(error: ErrorData) {
         self.messageView?.hideMessage()
         self.messageView?.setMessage(Message: error.message!, Duration: 1)
     }

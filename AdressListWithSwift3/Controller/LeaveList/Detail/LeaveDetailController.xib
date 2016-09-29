@@ -201,6 +201,11 @@
                                         <constraint firstItem="fZ2-fB-Me6" firstAttribute="centerY" secondItem="Vi9-Qe-GmO" secondAttribute="centerY" id="zgb-J3-d4p"/>
                                     </constraints>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMp-Ld-riv">
+                                    <frame key="frameInset" minX="106" minY="335" width="134" height="42"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button"/>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -242,6 +247,7 @@
                 <constraint firstItem="33F-CX-eyn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="UTm-KH-Ywc"/>
                 <constraint firstItem="33F-CX-eyn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XNx-hV-Mzk"/>
             </constraints>
+            <point key="canvasLocation" x="26.5" y="52.5"/>
         </view>
     </objects>
     <resources>

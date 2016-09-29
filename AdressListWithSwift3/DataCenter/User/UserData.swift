@@ -27,6 +27,7 @@ class UserData: NSObject,NSCoding {
     var status:Int = 0 //账号状态 0：启用；1：禁用
     var level:String?//联系人列表请求的：用户级别
     var departmentId:Int = 0//部门ID，用于 存储时标识
+    var levelId:Int = 0 //级别ID
     
     static func initWithUser(nUser user:User) -> UserData
     {
@@ -35,6 +36,7 @@ class UserData: NSObject,NSCoding {
         model.tel = user.tel
         model.isLeave = user.isLeave
         model.departmentId = Int(user.departmentId)
+        model.levelId = Int(user.levelId)
         if user.level != nil && !((user.level?.isEmpty)!) {
             model.position = user.level
         }
@@ -58,14 +60,30 @@ class UserData: NSObject,NSCoding {
         }
         return model
     }
+    
+    class func createUserData(dic:Dictionary<String, Any>) -> UserData
+    {
+        let data = UserData()
+        if dic.count != 0 {
+            data.name = dic["name"] as! String?
+            data.headImgUrlStr = dic["head_img"] as? String
+            data.levelId = (dic["level_id"] as! NSNumber).intValue
+            data.tel = dic["mobile"] as? String
+            data.token = dic["token"] as? String
+        }
+        return data
+    }
+    
     //重写MJExtension方法，对应本地属性名和服务器字段名
     override static func mj_replacedKeyFromPropertyName() -> [AnyHashable : Any]! {
         return [
             "tel":"mobile",
             "idNum":"id",
             "position":"level_name",
-            "headImg":"head_img",
-            "nickName":"nickname"
+            "headImgUrlStr":"head_img",
+            "nickName":"nickname",
+            "levelId":"level_id",
+            "departmentId":"department_id"
         ]
     }
     
@@ -86,6 +104,8 @@ class UserData: NSObject,NSCoding {
         aCoder.encode(self.status, forKey: "status")
         aCoder.encode(self.isLeave, forKey: "isLeave")
         aCoder.encode(self.level, forKey: "level")
+        aCoder.encode(self.levelId, forKey: "levelId")
+        aCoder.encode(self.departmentId, forKey: "departmentId")
     }
     required init?(coder aDecoder: NSCoder) {
         super.init()
@@ -106,6 +126,8 @@ class UserData: NSObject,NSCoding {
         self.idNum = aDecoder.decodeObject(forKey: "idNum") as! String?
         self.status = Int(aDecoder.decodeCInt(forKey: "status"))
         self.isLeave = aDecoder.decodeBool(forKey: "isLeave")
+        self.levelId = Int(aDecoder.decodeCInt(forKey: "levelId"))
+        self.departmentId = Int(aDecoder.decodeCInt(forKey: "departmentId"))
     }
     
     override init() {

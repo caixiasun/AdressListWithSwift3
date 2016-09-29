@@ -11,6 +11,30 @@ import UIKit
 class MyModel: BaseModel {
     var delegate:MyModelDelegate?
     
+    //获取个人信息
+    func requestMyInfo()
+    {
+        let url = urlPrefix + "user/self"
+        let params = [kToken:dataCenter.getToken() as Any]
+        DebugLogTool.debugRequestLog(item: url, params: params)
+        manager.get(url, parameters: params, success: { (oper, data) -> Void in
+            let dic = data as! Dictionary<String, Any>
+            let status = dic["status"] as! String
+            if status == "ok" {
+                let userData = UserData.createUserData(dic: dic["data"] as! Dictionary<String, Any>)
+                self.delegate?.requestMyInfoSucc!(result: userData)
+            }else{
+                let errorObj = dic["error"]
+                let data = ErrorData.initWithError(obj: errorObj)
+                self.delegate?.requestMyInfoFail!(error: data)
+            }
+        }) { (opeation, error) -> Void in
+            let data = ErrorData.initWithError(obj: error)
+            self.delegate?.requestMyInfoFail!(error: data)
+        }
+        
+    }
+    
     //获取我的请假记录列表
     func requestMyLeaveRecord(status:Int)
     {        
@@ -93,11 +117,11 @@ class MyModel: BaseModel {
     }
     
     //上传头像
-    func requestUploadHeadImg(urlData:URLData)
+    private func requestUploadHeadImg(urlData:URLData)
     {
         let url = urlPrefix + "user/saveHeadImg"
         var params = [kToken:dataCenter.getToken() as Any]
-        params["url"] = urlData.relativeUrl as Any
+        params["url"] = urlData.url
         manager.get(url, parameters: params, success: { (oper, data) -> Void in
             let dic = data as! Dictionary<String, Any>
             let status = dic["status"] as! String
@@ -137,4 +161,7 @@ class MyModel: BaseModel {
     
     @objc optional func requestDeleteLeaveRecoredSucc()
     @objc optional func requestDeleteLeaveRecoredFail(error:ErrorData)
+    
+    @objc optional func requestMyInfoSucc(result:UserData)
+    @objc optional func requestMyInfoFail(error:ErrorData)
 }

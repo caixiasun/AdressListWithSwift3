@@ -89,14 +89,14 @@ class DataCenter: AnyObject {
         let userDefault = UserDefaults.standard
         userDefault.set(imageUrl, forKey: kHeadImgUrl)
     }
-    func getHeadImgUrlString() -> String?
+    func getHeadImgUrlString() -> String
     {
         let userDefault = UserDefaults.standard
         let url:String? = userDefault.object(forKey: kHeadImgUrl) as? String
         if url == nil || (url?.isEmpty)! {
             return ""
         }
-        return url
+        return url!
     }
 }
 let dataCenter = DataCenter.shareInstance()
