@@ -34,6 +34,50 @@ class MyModel: BaseModel {
         }
         
     }
+    //编辑个人信息
+    func requestEditMyInfo(params: Dictionary<String, Any>)
+    {
+        let url = urlPrefix + "user/save"
+        DebugLogTool.debugRequestLog(item: url, params: params)
+        manager.get(url, parameters: params, success: { (oper, data) -> Void in
+            let dic = data as! Dictionary<String, Any>
+            let status = dic["status"] as! String
+            if status == "ok" {
+                let data = SuccessData.initData()
+                self.delegate?.requestEditMyInfoSucc!(success: data)
+            }else{//请求失败  status=error
+                let errorObj = dic["error"]
+                let data = ErrorData.initWithError(obj: errorObj)
+                self.delegate?.requestEditMyInfoFail!(error: data)
+            }
+            
+        }) { (opeation, error) -> Void in
+            let data = ErrorData.initWithError(obj: error)
+            self.delegate?.requestEditMyInfoFail!(error: data)
+        }
+    }
+    //修改密码
+    func requestModifyPassword(params: Dictionary<String, Any>)
+    {
+        let url = urlPrefix + "user/savePassword"
+        DebugLogTool.debugRequestLog(item: url, params: params)
+        manager.get(url, parameters: params, success: { (oper, data) -> Void in
+            let dic = data as! Dictionary<String, Any>
+            let status = dic["status"] as! String
+            if status == "ok" {
+                let data = SuccessData.initData()
+                self.delegate?.requestModifyPasswordSucc!(success: data)
+            }else{//请求失败  status=error
+                let errorObj = dic["error"]
+                let data = ErrorData.initWithError(obj: errorObj)
+                self.delegate?.requestModifyPasswordFail!(error: data)
+            }
+            
+        }) { (opeation, error) -> Void in
+            let data = ErrorData.initWithError(obj: error)
+            self.delegate?.requestModifyPasswordFail!(error: data)
+        }
+    }
     
     //获取我的请假记录列表
     func requestMyLeaveRecord(status:Int)
@@ -121,7 +165,7 @@ class MyModel: BaseModel {
     {
         let url = urlPrefix + "user/saveHeadImg"
         var params = [kToken:dataCenter.getToken() as Any]
-        params["url"] = urlData.url
+        params["url"] = urlData.relativeUrl
         manager.get(url, parameters: params, success: { (oper, data) -> Void in
             let dic = data as! Dictionary<String, Any>
             let status = dic["status"] as! String
@@ -164,4 +208,10 @@ class MyModel: BaseModel {
     
     @objc optional func requestMyInfoSucc(result:UserData)
     @objc optional func requestMyInfoFail(error:ErrorData)
+    
+    @objc optional func requestEditMyInfoSucc(success:SuccessData)
+    @objc optional func requestEditMyInfoFail(error:ErrorData)
+    
+    @objc optional func requestModifyPasswordSucc(success:SuccessData)
+    @objc optional func requestModifyPasswordFail(error:ErrorData)
 }

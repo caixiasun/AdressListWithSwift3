@@ -68,7 +68,7 @@ class ContactModel: BaseModel {
     //编辑联系人
     func requestEditContact(param: Dictionary<String, Any>)
     {
-        let url = urlPrefix + "user/save"
+        let url = urlPrefix + "user/levelSave"
         DebugLogTool.debugRequestLog(item: url, params: param)
         manager.get(url, parameters: param, success: { (oper, data) -> Void in
             let dic = data as! Dictionary<String, Any>

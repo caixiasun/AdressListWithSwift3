@@ -43,6 +43,9 @@ class UserData: NSObject,NSCoding {
         if user.department != nil && !((user.department?.isEmpty)!) {
             model.department = user.department
         }
+        if user.nickName != nil && !((user.nickName?.isEmpty)!) {
+            model.nickName = user.nickName
+        }
         if user.id != nil && !((user.id?.isEmpty)!) {
             model.idNum = user.id
         }

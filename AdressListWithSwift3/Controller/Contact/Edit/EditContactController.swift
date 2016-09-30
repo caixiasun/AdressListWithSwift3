@@ -40,6 +40,10 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
     @IBOutlet weak var level_hrBtn: UIButton!
     @IBOutlet weak var level_testBtn: UIButton!
     
+    @IBOutlet weak var departmentViewCoverView: UIView!
+    @IBOutlet weak var levelViewCoverView: UIView!
+    
+    
     //记录上次点击的按钮
     var preBtn_department:UIButton?
     var preBtn_level:UIButton?
@@ -136,6 +140,9 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
         setCornerRadius(view: self.level_testBtn, radius: 5)
         setBorder(view: self.level_testBtn)
         
+        setCornerRadius(view: self.departmentViewCoverView, radius: 5)
+        setCornerRadius(view: self.levelViewCoverView, radius: 5)
+        
     }
     func initNaviBar()
     {
@@ -197,6 +204,12 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
         if ((userData?.headImgUrlStr) != nil) {
             self.headImg.sd_setImage(with: URL(string:(userData?.headImgUrlStr)!), placeholderImage: kHeadImgObj)
             self.updateUploadHeadBtn(status: true)
+        }
+        
+        //如果有权限编辑部门则
+        if userData?.levelId == 1 {
+            self.departmentViewCoverView.isHidden = true
+            self.levelViewCoverView.isHidden = true
         }
         
         self.nameTextFileld.text = userData?.name
@@ -355,6 +368,8 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
         userData?.birthDay = self.birthDayTextField.text
         userData?.address = self.addressTextField.text
         userData?.nickName = self.nickNameTextField.text
+        userData?.levelId = (self.preBtn_level?.tag)!
+        userData?.departmentId = (self.preBtn_department?.tag)!
         
         self.view.endEditing(true)
         var params = Dictionary<String, Any>()
@@ -368,6 +383,11 @@ class EditContactController: UIViewController ,UIImagePickerControllerDelegate,U
         if !(userData?.nickName?.isEmpty)! {
             params["nickname"] = userData?.nickName
         }
+        if userData?.levelId == 1 {//如果有权限修改
+            params["department_id"] = self.preBtn_department?.tag
+            params["level_id"] = self.preBtn_level?.tag
+        }
+        
         self.messageView?.setMessageLoading()
         self.contactModel.requestEditContact(param: params)
     }

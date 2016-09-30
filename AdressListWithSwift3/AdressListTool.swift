@@ -28,6 +28,8 @@ let kTitle_cancel_button = "Cancel"
 let kTitle_done_button = "Done"
 let kTitle_submit_button = "Submit"
 let kTitle_edit_button = "Edit"
+let kTitle_save_button = "Save"
+let kTitle_modify_button = "Modify"
 
 ///头像压缩指数
 let kCompression_index_headImg:CGFloat = 0.5

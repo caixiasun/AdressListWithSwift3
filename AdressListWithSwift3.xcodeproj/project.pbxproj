@@ -78,6 +78,10 @@
 		00A4DCE61D93D89C00EAD3F0 /* UIScrollView+JElasticPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A4DCE01D93D89C00EAD3F0 /* UIScrollView+JElasticPullToRefresh.m */; };
 		00A4DCE71D93D89C00EAD3F0 /* UIView+JElasticPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A4DCE21D93D89C00EAD3F0 /* UIView+JElasticPullToRefresh.m */; };
 		00A4DCE91D93DA9C00EAD3F0 /* YTOtherLibTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A4DCE81D93DA9C00EAD3F0 /* YTOtherLibTool.swift */; };
+		00C555C71D9E19A200CBDDE8 /* ModifyMyInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C555C51D9E19A200CBDDE8 /* ModifyMyInfoController.swift */; };
+		00C555C81D9E19A200CBDDE8 /* ModifyMyInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C555C61D9E19A200CBDDE8 /* ModifyMyInfoController.xib */; };
+		00C555CB1D9E423000CBDDE8 /* ModifyPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C555C91D9E423000CBDDE8 /* ModifyPasswordController.swift */; };
+		00C555CC1D9E423000CBDDE8 /* ModifyPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C555CA1D9E423000CBDDE8 /* ModifyPasswordController.xib */; };
 		00C832DB1D86989900802D12 /* AdressListTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C832DA1D86989900802D12 /* AdressListTool.swift */; };
 		00C832E51D86AF1E00802D12 /* UIImage+YTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C832E41D86AF1E00802D12 /* UIImage+YTImage.m */; };
 		00DCEA3E1D8E722F000C51D8 /* YTCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCEA3D1D8E722F000C51D8 /* YTCore.swift */; };
@@ -180,6 +184,10 @@
 		00A4DCE11D93D89C00EAD3F0 /* UIView+JElasticPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JElasticPullToRefresh.h"; sourceTree = "<group>"; };
 		00A4DCE21D93D89C00EAD3F0 /* UIView+JElasticPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JElasticPullToRefresh.m"; sourceTree = "<group>"; };
 		00A4DCE81D93DA9C00EAD3F0 /* YTOtherLibTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTOtherLibTool.swift; sourceTree = "<group>"; };
+		00C555C51D9E19A200CBDDE8 /* ModifyMyInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyMyInfoController.swift; sourceTree = "<group>"; };
+		00C555C61D9E19A200CBDDE8 /* ModifyMyInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifyMyInfoController.xib; sourceTree = "<group>"; };
+		00C555C91D9E423000CBDDE8 /* ModifyPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyPasswordController.swift; sourceTree = "<group>"; };
+		00C555CA1D9E423000CBDDE8 /* ModifyPasswordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifyPasswordController.xib; sourceTree = "<group>"; };
 		00C832DA1D86989900802D12 /* AdressListTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdressListTool.swift; sourceTree = "<group>"; };
 		00C832E31D86AF1E00802D12 /* UIImage+YTImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YTImage.h"; sourceTree = "<group>"; };
 		00C832E41D86AF1E00802D12 /* UIImage+YTImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YTImage.m"; sourceTree = "<group>"; };
@@ -277,6 +285,8 @@
 			children = (
 				0055A4F01D92837500C3893C /* SettingController.swift */,
 				0055A4F11D92837500C3893C /* SettingController.xib */,
+				00C555C91D9E423000CBDDE8 /* ModifyPasswordController.swift */,
+				00C555CA1D9E423000CBDDE8 /* ModifyPasswordController.xib */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -607,6 +617,8 @@
 			children = (
 				00A4DC8C1D9380D300EAD3F0 /* MyInfoController.swift */,
 				00A4DC8D1D9380D300EAD3F0 /* MyInfoController.xib */,
+				00C555C51D9E19A200CBDDE8 /* ModifyMyInfoController.swift */,
+				00C555C61D9E19A200CBDDE8 /* ModifyMyInfoController.xib */,
 			);
 			path = MyInfo;
 			sourceTree = "<group>";
@@ -762,6 +774,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0095613A1D86436000EF0D5A /* LaunchScreen.storyboard in Resources */,
+				00C555C81D9E19A200CBDDE8 /* ModifyMyInfoController.xib in Resources */,
 				00A4DC8F1D9380D300EAD3F0 /* MyInfoController.xib in Resources */,
 				0055A4E81D92797800C3893C /* SettingCell.xib in Resources */,
 				0055A4F71D9284A500C3893C /* MyLeaveRecordController.xib in Resources */,
@@ -773,6 +786,7 @@
 				009561801D8651D200EF0D5A /* ContactDetailController.xib in Resources */,
 				0055A4EF1D92836300C3893C /* MyController.xib in Resources */,
 				009561841D8651F500EF0D5A /* AdressListCell.xib in Resources */,
+				00C555CC1D9E423000CBDDE8 /* ModifyPasswordController.xib in Resources */,
 				009561881D86522000EF0D5A /* ContactDetailCell.xib in Resources */,
 				0055A4F31D92837500C3893C /* SettingController.xib in Resources */,
 				009F18201D8C30F9000E2A41 /* data.json in Resources */,
@@ -930,6 +944,8 @@
 				006849831D94CD8900415C65 /* DebugLogTool.swift in Sources */,
 				009561871D86522000EF0D5A /* ContactDetailCell.swift in Sources */,
 				0095616B1D864C0F00EF0D5A /* YTNavigationController.swift in Sources */,
+				00C555CB1D9E423000CBDDE8 /* ModifyPasswordController.swift in Sources */,
+				00C555C71D9E19A200CBDDE8 /* ModifyMyInfoController.swift in Sources */,
 				006849851D94FE2200415C65 /* AllEnumDefine.swift in Sources */,
 				0095617B1D86503800EF0D5A /* NewContactController.swift in Sources */,
 				0055A4E71D92797800C3893C /* SettingCell.swift in Sources */,

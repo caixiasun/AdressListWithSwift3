@@ -17,12 +17,14 @@
                 <outlet property="birthDayTextField" destination="M1a-3k-1LL" id="IsT-AO-crv"/>
                 <outlet property="deleteBtn" destination="uWF-yr-sMg" id="3iK-mv-LCH"/>
                 <outlet property="departmentView" destination="bnU-t9-KZT" id="oxG-gn-XtO"/>
+                <outlet property="departmentViewCoverView" destination="de5-mp-Qsr" id="dPc-zw-MaR"/>
                 <outlet property="dongshiBtn" destination="vr1-tB-5in" id="Nki-X1-7Kk"/>
                 <outlet property="emailTextField" destination="LIU-D4-ofR" id="bAq-th-K7G"/>
                 <outlet property="headImg" destination="H11-1R-Ifu" id="04j-xB-DdW"/>
                 <outlet property="hrBtn" destination="Mb0-aH-Tvx" id="v6z-io-HZx"/>
                 <outlet property="iOSBtn" destination="DRo-wm-5S6" id="h1d-9T-tOb"/>
                 <outlet property="levelView" destination="pyF-2h-xuh" id="i5D-7s-PTH"/>
+                <outlet property="levelViewCoverView" destination="tgl-Ou-a4u" id="2wG-zO-Qce"/>
                 <outlet property="level_coderBtn" destination="xej-Hh-i4D" id="fyv-rO-5cW"/>
                 <outlet property="level_dashenBtn" destination="C8a-Ar-B5v" id="YGU-2E-1o3"/>
                 <outlet property="level_hrBtn" destination="giS-2J-Hzy" id="Pjg-RC-WXV"/>
@@ -431,6 +433,20 @@
                                 <constraint firstItem="x1S-Ig-KzP" firstAttribute="width" secondItem="3dk-se-49a" secondAttribute="width" id="xiB-Y5-GjA"/>
                             </constraints>
                         </view>
+                        <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="de5-mp-Qsr" userLabel="departmentCoverV">
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="抱歉！您没有权限编辑该模块！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9si-vX-2nF">
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <color key="textColor" red="0.18823529410000001" green="0.77647058820000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="9si-vX-2nF" firstAttribute="centerY" secondItem="de5-mp-Qsr" secondAttribute="centerY" id="Lpx-WM-285"/>
+                                <constraint firstItem="9si-vX-2nF" firstAttribute="centerX" secondItem="de5-mp-Qsr" secondAttribute="centerX" id="Y7h-hY-afj"/>
+                            </constraints>
+                        </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="级别：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWK-Mf-w1e">
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -560,6 +576,20 @@
                                 <constraint firstItem="Ygl-rf-w6w" firstAttribute="leading" secondItem="63D-UP-BRB" secondAttribute="trailing" id="syK-Ek-fkI"/>
                             </constraints>
                         </view>
+                        <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgl-Ou-a4u" userLabel="levelCoverV">
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="抱歉！您没有权限编辑该模块！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siO-Yw-d8J">
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <color key="textColor" red="0.18823529410000001" green="0.77647058820000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="siO-Yw-d8J" firstAttribute="centerX" secondItem="tgl-Ou-a4u" secondAttribute="centerX" id="WJZ-gl-mXI"/>
+                                <constraint firstItem="siO-Yw-d8J" firstAttribute="centerY" secondItem="tgl-Ou-a4u" secondAttribute="centerY" id="bgL-gK-6EV"/>
+                            </constraints>
+                        </view>
                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWF-yr-sMg">
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="S3G-zH-hym"/>
@@ -575,6 +605,7 @@
                     </subviews>
                     <constraints>
                         <constraint firstItem="pyF-2h-xuh" firstAttribute="top" secondItem="NWK-Mf-w1e" secondAttribute="bottom" constant="15" id="5Ge-Fu-XLm"/>
+                        <constraint firstItem="bnU-t9-KZT" firstAttribute="height" secondItem="de5-mp-Qsr" secondAttribute="height" id="5tw-p5-jJ1"/>
                         <constraint firstAttribute="trailing" secondItem="uWF-yr-sMg" secondAttribute="trailing" constant="24" id="6gi-9N-gJu"/>
                         <constraint firstItem="rWJ-g8-k7y" firstAttribute="leading" secondItem="Yao-Sw-8Wd" secondAttribute="leading" constant="24" id="6wF-dR-f7a"/>
                         <constraint firstItem="mSA-KV-u4C" firstAttribute="top" secondItem="Rzm-dc-8fE" secondAttribute="bottom" constant="20" id="7VX-RD-ryx"/>
@@ -585,12 +616,17 @@
                         <constraint firstItem="pyF-2h-xuh" firstAttribute="centerX" secondItem="uWF-yr-sMg" secondAttribute="centerX" id="G87-Ir-TJz"/>
                         <constraint firstItem="Rzm-dc-8fE" firstAttribute="centerX" secondItem="Yao-Sw-8Wd" secondAttribute="centerX" id="LV1-DP-ndO"/>
                         <constraint firstItem="Rzm-dc-8fE" firstAttribute="top" secondItem="Yao-Sw-8Wd" secondAttribute="top" id="Ly2-KL-vbT"/>
+                        <constraint firstItem="pyF-2h-xuh" firstAttribute="centerX" secondItem="tgl-Ou-a4u" secondAttribute="centerX" id="Msq-2Q-Ld6"/>
                         <constraint firstItem="NWK-Mf-w1e" firstAttribute="trailing" secondItem="J2Y-0p-leV" secondAttribute="leading" constant="-20" id="SHS-dd-fdQ"/>
+                        <constraint firstItem="bnU-t9-KZT" firstAttribute="centerX" secondItem="de5-mp-Qsr" secondAttribute="centerX" id="Spw-lg-NgJ"/>
                         <constraint firstAttribute="trailing" secondItem="bnU-t9-KZT" secondAttribute="trailing" constant="24" id="ThI-th-qND"/>
                         <constraint firstItem="bnU-t9-KZT" firstAttribute="centerX" secondItem="pyF-2h-xuh" secondAttribute="centerX" id="W2E-VM-03v"/>
+                        <constraint firstItem="pyF-2h-xuh" firstAttribute="centerY" secondItem="tgl-Ou-a4u" secondAttribute="centerY" id="Zix-Dy-0fX"/>
                         <constraint firstItem="uWF-yr-sMg" firstAttribute="leading" secondItem="Yao-Sw-8Wd" secondAttribute="leading" constant="24" id="aKu-Nx-YUm"/>
                         <constraint firstItem="uWF-yr-sMg" firstAttribute="top" secondItem="pyF-2h-xuh" secondAttribute="bottom" constant="30" id="b2B-d5-oV2"/>
+                        <constraint firstItem="bnU-t9-KZT" firstAttribute="width" secondItem="de5-mp-Qsr" secondAttribute="width" id="gwN-Do-tM3"/>
                         <constraint firstItem="mSA-KV-u4C" firstAttribute="height" secondItem="Rzm-dc-8fE" secondAttribute="height" multiplier="2:1" id="i1S-cT-FPO"/>
+                        <constraint firstItem="bnU-t9-KZT" firstAttribute="centerY" secondItem="de5-mp-Qsr" secondAttribute="centerY" id="kH5-4G-c6K"/>
                         <constraint firstItem="bnU-t9-KZT" firstAttribute="height" secondItem="pyF-2h-xuh" secondAttribute="height" multiplier="2:1" id="nXU-Ke-4Hj"/>
                         <constraint firstItem="NWK-Mf-w1e" firstAttribute="leading" secondItem="Yao-Sw-8Wd" secondAttribute="leading" constant="24" id="oYM-Rt-n3i"/>
                         <constraint firstItem="bnU-t9-KZT" firstAttribute="leading" secondItem="pyF-2h-xuh" secondAttribute="leading" id="pc8-ZR-3ZW"/>
@@ -599,8 +635,10 @@
                         <constraint firstAttribute="bottom" secondItem="uWF-yr-sMg" secondAttribute="bottom" constant="50" id="quV-ok-eIY"/>
                         <constraint firstItem="NWK-Mf-w1e" firstAttribute="centerY" secondItem="J2Y-0p-leV" secondAttribute="centerY" id="rkb-yv-Bjc"/>
                         <constraint firstItem="Rzm-dc-8fE" firstAttribute="width" secondItem="Yao-Sw-8Wd" secondAttribute="width" id="snr-Hj-RA3"/>
+                        <constraint firstItem="pyF-2h-xuh" firstAttribute="width" secondItem="tgl-Ou-a4u" secondAttribute="width" id="vOg-9w-ttr"/>
                         <constraint firstItem="rWJ-g8-k7y" firstAttribute="top" secondItem="mSA-KV-u4C" secondAttribute="bottom" constant="15" id="vjm-v8-1fF"/>
                         <constraint firstItem="rWJ-g8-k7y" firstAttribute="bottom" secondItem="bnU-t9-KZT" secondAttribute="top" constant="-15" id="ykS-vR-fhw"/>
+                        <constraint firstItem="pyF-2h-xuh" firstAttribute="height" secondItem="tgl-Ou-a4u" secondAttribute="height" id="zNQ-ah-cnK"/>
                     </constraints>
                 </scrollView>
             </subviews>

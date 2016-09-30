@@ -10,19 +10,42 @@ import UIKit
 
 class MyInfoController: UIViewController,MyModelDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
+    @IBOutlet weak var headImg: UIImageView!
+    @IBOutlet weak var nameLab: UILabel!
+    @IBOutlet weak var telLab: UILabel!
+    @IBOutlet weak var nickNameLab: UILabel!    
+    @IBOutlet weak var emailLab: UILabel!
+    
     var myModel = MyModel()
     var uploadAlertController:UIAlertController!
     var imagePickerController:UIImagePickerController!
     var messageView:MessageView?
-    @IBOutlet weak var headImg: UIImageView!
+    var data:UserData?
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.initSubviews()
         self.initAlertController()
         self.initImagePickerController()
+        self.initContentData()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.messageView?.setMessageLoading()
+        self.myModel.requestMyInfo()
+    }
+    func initContentData()
+    {
+        if data?.headImgUrlStr != nil {
+            self.headImg.sd_setImage(with: URL(string: (data?.headImgUrlStr)!), placeholderImage: kHeadImgObj)
+        }
+        self.nameLab.text = data?.name
+        self.nickNameLab.text = data?.nickName
+        self.telLab.text = data?.tel
+        self.emailLab.text = data?.email
+        
     }
     func initSubviews()
     {
@@ -34,7 +57,6 @@ class MyInfoController: UIViewController,MyModelDelegate,UIImagePickerController
         self.messageView = addMessageView(InView: self.view)
         self.myModel.delegate = self
         
-        self.headImg.sd_setImage(with: URL(string: dataCenter.getHeadImgUrlString()), placeholderImage: kHeadImgObj)
         setCornerRadius(view: self.headImg, radius: 15)
     }
     func initAlertController()
@@ -100,15 +122,45 @@ class MyInfoController: UIViewController,MyModelDelegate,UIImagePickerController
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
         picker.dismiss(animated: true, completion: nil)
     }
+
     
-    //tapGesture
-    
-    @IBAction func telTapGesture(_ sender: AnyObject) {
-        
-    }
-    
-    @IBAction func headImgTapGesture(_ sender: AnyObject) {
-        present(self.uploadAlertController, animated: true, completion: nil)
+    @IBAction func tapGesture(_ tap: UITapGestureRecognizer) {
+        var titleString = ""
+        var text = ""
+        switch (tap.view?.tag)! {
+        case 1://头像
+            present(self.uploadAlertController, animated: true, completion: nil)
+            break
+        case 2://姓名
+            titleString = "姓名"
+            if data?.name != nil && !(data?.name?.isEmpty)! {
+                text = self.nameLab.text!
+            }
+            break
+        case 3://昵称
+            titleString = "昵称"
+            if data?.nickName != nil && !(data?.nickName?.isEmpty)! {
+                text = self.nickNameLab.text!
+            }
+            
+            break
+        case 4://电话
+            titleString = "电话"
+            if data?.tel != nil && !(data?.tel?.isEmpty)! {
+                text = self.telLab.text!
+            }
+            break
+        default://邮箱
+            titleString = "邮箱"
+            if data?.email != nil && !(data?.email?.isEmpty)! {
+                text = self.emailLab.text!
+            }
+            break
+        }
+        let controller = ModifyMyInfoController()
+        controller.naviTitle = titleString
+        controller.textFieldText = text
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     //MARK: -ContactModelDelegate
@@ -125,6 +177,15 @@ class MyInfoController: UIViewController,MyModelDelegate,UIImagePickerController
         
     }
     func requestUploadHeadImgFail(error: ErrorData) {
+        self.messageView?.hideMessage()
+        self.messageView?.setMessage(Message: error.message!, Duration: 1)
+    }
+    func requestMyInfoSucc(result: UserData) {
+        self.messageView?.hideMessage()
+        self.data = result
+        self.initContentData()
+    }
+    func requestMyInfoFail(error: ErrorData) {
         self.messageView?.hideMessage()
         self.messageView?.setMessage(Message: error.message!, Duration: 1)
     }

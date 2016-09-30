@@ -75,6 +75,27 @@ class LeaveListModel: BaseModel {
             self.delegate?.requestLeaveListFail!(error: data)
         }
     }
+    //请假审核：通过、拒绝
+    func requestLeaveAudit(params:Dictionary<String, Any>)
+    {
+        let url = urlPrefix + "leave/save"
+        DebugLogTool.debugRequestLog(item: url, params: params)
+        manager.get(url, parameters: params, success: { (oper, data) -> Void in
+            let dic = data as! Dictionary<String, Any>
+            let status = dic["status"] as! String
+            if status == "ok" {
+                let data = SuccessData.initData()
+                self.delegate?.requestLeaveAuditSucc!(success: data)
+            }else{//请求失败  status=error
+                let data = ErrorData.initWithError(obj: nil)
+                self.delegate?.requestLeaveAuditFail!(error: data)
+            }
+            
+        }) { (opeation, error) -> Void in
+            let data = ErrorData.initWithError(obj: error)
+            self.delegate?.requestLeaveAuditFail!(error: data)
+        }
+    }
     
     //解析model
     func convertToModel(data:LeaveListResultData) ->LeaveListResultData
@@ -99,4 +120,8 @@ class LeaveListModel: BaseModel {
     
     @objc optional func requestLeaveApplySucc(success:SuccessData)
     @objc optional func requestLeaveApplyFail(error:ErrorData)
+    
+    @objc optional func requestLeaveAuditSucc(success:SuccessData)
+    @objc optional func requestLeaveAuditFail(error:ErrorData)
+    
 }
