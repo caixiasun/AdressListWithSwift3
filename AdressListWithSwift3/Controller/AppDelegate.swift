@@ -29,9 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
 //        self.registerNotification(alerTime: 3)
         
-//        self.loadLoginVC()
-        
-//        printAllDataWithCoreData()
+        self.loadLoginVC()
         
         return true
     }
@@ -125,7 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     //当推送注册成功时 系统会回调以下方法 会得到一个 deviceToken
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = String(data: deviceToken, encoding: .utf8)
-        print("token = ",token)
+        print("push_token = ",token)
         
     }
     //当推送注册失败时 系统会回调

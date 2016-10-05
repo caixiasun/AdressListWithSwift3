@@ -16,6 +16,9 @@ class LeaveRecordCell: UITableViewCell {
     @IBOutlet weak var endLab: UILabel!
     @IBOutlet weak var startLab: UILabel!
     
+    var delegate:LeaveRecordCellDelegate?
+    var indexPath:IndexPath?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,12 +32,22 @@ class LeaveRecordCell: UITableViewCell {
         self.startLab.text = data.started
         self.endLab.text = data.ended
         self.reasonLab.text = data.reason
+        
+//        self.deleteImg.isHidden = data.status == 1 ?false:true
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    
+    @IBAction func deleteAction(_ sender: AnyObject) {
+        if (self.delegate != nil) {
+            self.delegate?.deleteRecord!(indexPath: self.indexPath!)
+        }
     }
     
+    
+    
+}
+
+@objc protocol LeaveRecordCellDelegate {
+    @objc optional func deleteRecord(indexPath:IndexPath)
 }

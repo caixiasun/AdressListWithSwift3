@@ -46,6 +46,7 @@ func getEntity(Model data:UserData) ->User
     entity.tel = data.tel
     entity.id = data.idNum
     entity.departmentId = Int16(data.departmentId)
+    entity.levelId = Int32(data.levelId)
     if data.level != nil && !((data.level?.isEmpty)!) {
         entity.level = data.level
     }
@@ -61,9 +62,9 @@ func getEntity(Model data:UserData) ->User
     if data.birthDay != nil && !((data.birthDay?.isEmpty)!) {
         entity.birthDay = data.birthDay
     }
-    if data.headImg != nil {
+    if data.headImgUrlStr != nil && !((data.headImgUrlStr?.isEmpty)!){
           //内存问题，等接口，暂时不存头像
-        entity.headImg = UIImageJPEGRepresentation(data.headImg!, kCompression_index_headImg) as NSData?
+        entity.headImg = data.headImgUrlStr
     }
     return entity
 }
@@ -73,11 +74,11 @@ func addCoreData(Model data:UserData)
     do
     {
         try appDelegate.managedObjectContext.save()
-        print("添加成功 ~ ~ ")
+        print("向数据库中 添加成功 ~ ~ ")
         dataCenter.setFirstLaunch()
     }catch
     {
-        print("添加失败！！")
+        print("向数据库中 添加失败！！")
     }
 }
 //添加多条数据
@@ -126,12 +127,12 @@ func deleteCoreData(ConditionDic conditionDic:NSMutableDictionary)
         if resultsList.count != 0 {
             appDelegate.managedObjectContext.delete(resultsList[0] as! NSManagedObject)
             try appDelegate.managedObjectContext.save()
-            print("delete success ~ ~")
+            print("从数据库中删除成功~ ~")
         }else{
-            print("删除失败！ 没有符合条件的联系人！")
+            print("从数据库中删除失败！ 没有符合条件的联系人！")
         }
     }catch{
-        print("delete fail !")
+        print("从数据库中删除失败！")
     }
 }
 //修改数据  
@@ -153,11 +154,11 @@ func updateDataWithCoreData(Model userData:UserData, Where condiArray:NSArray)
         let userList = try appDelegate.managedObjectContext.fetch(request) as! [User] as NSArray
         if userList.count != 0 {
             let user = userList[0] as! User
-            //内存问题，等接口，暂时不存头像
             user.name = userData.name
             user.tel = userData.tel
             user.id = userData.idNum
             user.departmentId = Int16(userData.departmentId)
+            user.levelId = Int32(userData.levelId)
             if userData.level != nil && !((userData.level?.isEmpty)!) {
                 user.level = userData.level
             }
@@ -173,17 +174,16 @@ func updateDataWithCoreData(Model userData:UserData, Where condiArray:NSArray)
             if userData.birthDay != nil && !((userData.birthDay?.isEmpty)!) {
                 user.birthDay = userData.birthDay
             }
-            if userData.headImg != nil {
-                //内存问题，等接口，暂时不存头像
-                user.headImg = UIImageJPEGRepresentation(userData.headImg!, kCompression_index_headImg) as NSData?
+            if userData.headImgUrlStr != nil && !((userData.headImgUrlStr?.isEmpty)!) {
+                user.headImg = userData.headImgUrlStr
             }
             try appDelegate.managedObjectContext.save()
-            print("修改成功 ~ ~")
+            print("从数据库中修改成功 ~ ~")
         }else{
-            print("修改失败，没有符合条件的联系人！")
+            print("从数据库中修改失败，没有符合条件的联系人！")
         }
     }catch{
-        print("修改失败 ~ ~")
+        print("从数据库中修改失败 ~ ~")
     }
     
 }
@@ -282,19 +282,6 @@ func getDataFromCoreData() -> NSMutableArray
 
 
 //  -----------------------  测试部分  ----------------------------
-///构建测试数据
-func initTestDataWithModel() -> UserData
-{
-    let data = UserData()
-    data.name = "丫头"
-    data.tel = "15921815736"
-    data.email = "123@456"
-    data.birthDay = "1990.02.03"
-    data.address = "中国上海普陀区"
-    data.headImg = UIImage(named: "head.png")
-    return data
-}
-
 //查询所有数据并输出
 func printAllDataWithCoreData()
 {

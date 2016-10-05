@@ -35,15 +35,27 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfK-ww-rIH" userLabel="deleteBtn">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ZfK-ww-rIH" secondAttribute="height" multiplier="12:15" id="5sk-8s-3DE"/>
+                                    <constraint firstAttribute="width" constant="12" id="UJb-wL-0E4"/>
+                                </constraints>
+                                <state key="normal" image="delete"/>
+                                <connections>
+                                    <action selector="deleteAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hYk-rL-lzJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iT6-Ke-pYm" firstAttribute="centerY" secondItem="1Lx-2p-hGa" secondAttribute="centerY" id="B5U-uk-Wjh"/>
                             <constraint firstItem="1Lx-2p-hGa" firstAttribute="centerY" secondItem="aLF-WT-JxC" secondAttribute="centerY" id="BPW-V1-V7E"/>
                             <constraint firstItem="iT6-Ke-pYm" firstAttribute="leading" secondItem="1Lx-2p-hGa" secondAttribute="trailing" constant="10" id="BqP-nQ-Ado"/>
+                            <constraint firstAttribute="trailing" secondItem="ZfK-ww-rIH" secondAttribute="trailing" id="eoy-ZG-PbD"/>
+                            <constraint firstItem="ZfK-ww-rIH" firstAttribute="centerY" secondItem="aLF-WT-JxC" secondAttribute="centerY" id="ihC-Yb-W9q"/>
                             <constraint firstItem="bGT-eb-edb" firstAttribute="centerY" secondItem="aLF-WT-JxC" secondAttribute="centerY" id="lwQ-Tl-6yb"/>
                             <constraint firstItem="1Lx-2p-hGa" firstAttribute="leading" secondItem="aLF-WT-JxC" secondAttribute="leading" id="te9-El-geK"/>
-                            <constraint firstAttribute="trailing" secondItem="bGT-eb-edb" secondAttribute="trailing" id="w7z-0E-LJJ"/>
+                            <constraint firstItem="ZfK-ww-rIH" firstAttribute="leading" secondItem="bGT-eb-edb" secondAttribute="trailing" constant="15" id="w10-JX-PlJ"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wuB-fk-1H5" userLabel="startV">
@@ -139,6 +151,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="delete" width="19" height="20"/>
         <image name="leaved" width="56" height="20"/>
     </resources>
 </document>

@@ -3,12 +3,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingController" customModule="AdressListWithSwift3" customModuleProvider="target">
             <connections>
                 <outlet property="loginoutBtn" destination="1h8-Sy-2qY" id="oP2-3N-PO7"/>
+                <outlet property="modifyPasswordBtn" destination="Zeo-96-ce5" id="4mQ-oa-9eL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,12 +28,24 @@
                         <action selector="itemAction:" destination="-1" eventType="touchUpInside" id="l9m-on-tii"/>
                     </connections>
                 </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zeo-96-ce5">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="修改密码">
+                        <color key="titleColor" red="0.20784313730000001" green="0.77647058820000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="itemAction:" destination="-1" eventType="touchUpInside" id="pRn-Qw-80G"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="1h8-Sy-2qY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="EGk-74-23W"/>
-                <constraint firstItem="1h8-Sy-2qY" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="RUh-1j-App"/>
+                <constraint firstItem="1h8-Sy-2qY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="10" id="RUh-1j-App"/>
+                <constraint firstItem="Zeo-96-ce5" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-10" id="TNA-G9-XZK"/>
+                <constraint firstItem="Zeo-96-ce5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="d44-at-npk"/>
                 <constraint firstAttribute="trailing" secondItem="1h8-Sy-2qY" secondAttribute="trailing" constant="24" id="fSH-yF-vtl"/>
+                <constraint firstAttribute="trailing" secondItem="Zeo-96-ce5" secondAttribute="trailing" constant="24" id="sPZ-La-wer"/>
             </constraints>
         </view>
     </objects>

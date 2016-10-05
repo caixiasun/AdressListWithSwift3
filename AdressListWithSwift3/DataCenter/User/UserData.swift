@@ -12,7 +12,7 @@ class UserData: NSObject,NSCoding {
 
     var name:String?
     var tel:String?
-    var headImg:UIImage?
+    var headImgUrlStr:String?
     var email:String?
     var address:String?
     var birthDay:String?
@@ -27,6 +27,7 @@ class UserData: NSObject,NSCoding {
     var status:Int = 0 //账号状态 0：启用；1：禁用
     var level:String?//联系人列表请求的：用户级别
     var departmentId:Int = 0//部门ID，用于 存储时标识
+    var levelId:Int = 0 //级别ID
     
     static func initWithUser(nUser user:User) -> UserData
     {
@@ -35,11 +36,15 @@ class UserData: NSObject,NSCoding {
         model.tel = user.tel
         model.isLeave = user.isLeave
         model.departmentId = Int(user.departmentId)
+        model.levelId = Int(user.levelId)
         if user.level != nil && !((user.level?.isEmpty)!) {
             model.position = user.level
         }
         if user.department != nil && !((user.department?.isEmpty)!) {
             model.department = user.department
+        }
+        if user.nickName != nil && !((user.nickName?.isEmpty)!) {
+            model.nickName = user.nickName
         }
         if user.id != nil && !((user.id?.isEmpty)!) {
             model.idNum = user.id
@@ -54,25 +59,41 @@ class UserData: NSObject,NSCoding {
             model.birthDay = user.birthDay
         }
         if (user.headImg != nil) {
-            model.headImg = UIImage(data: user.headImg! as Data)
+            model.headImgUrlStr = user.headImg
         }
         return model
     }
+    
+    class func createUserData(dic:Dictionary<String, Any>) -> UserData
+    {
+        let data = UserData()
+        if dic.count != 0 {
+            data.name = dic["name"] as! String?
+            data.headImgUrlStr = dic["head_img"] as? String
+            data.levelId = (dic["level_id"] as! NSNumber).intValue
+            data.tel = dic["mobile"] as? String
+            data.token = dic["token"] as? String
+        }
+        return data
+    }
+    
     //重写MJExtension方法，对应本地属性名和服务器字段名
     override static func mj_replacedKeyFromPropertyName() -> [AnyHashable : Any]! {
         return [
             "tel":"mobile",
             "idNum":"id",
             "position":"level_name",
-            "headImg":"head_img",
-            "nickName":"nickname"
+            "headImgUrlStr":"head_img",
+            "nickName":"nickname",
+            "levelId":"level_id",
+            "departmentId":"department_id"
         ]
     }
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.name, forKey: "name")
         aCoder.encode(self.tel, forKey: "tel")
-        aCoder.encode(self.headImg, forKey: "headImg")
+        aCoder.encode(self.headImgUrlStr, forKey: "headImgUrlStr")
         aCoder.encode(self.email, forKey: "email")
         aCoder.encode(self.address, forKey: "address")
         aCoder.encode(self.birthDay, forKey: "birthDay")
@@ -86,13 +107,15 @@ class UserData: NSObject,NSCoding {
         aCoder.encode(self.status, forKey: "status")
         aCoder.encode(self.isLeave, forKey: "isLeave")
         aCoder.encode(self.level, forKey: "level")
+        aCoder.encode(self.levelId, forKey: "levelId")
+        aCoder.encode(self.departmentId, forKey: "departmentId")
     }
     required init?(coder aDecoder: NSCoder) {
         super.init()
         
         self.name = aDecoder.decodeObject(forKey: "name") as! String?
         self.tel = aDecoder.decodeObject(forKey: "tel") as! String?
-        self.headImg = aDecoder.decodeObject(forKey: "headImg") as! UIImage?
+        self.headImgUrlStr = aDecoder.decodeObject(forKey: "headImgUrlStr") as! String?
         self.email = aDecoder.decodeObject(forKey: "email") as! String?
         self.address = aDecoder.decodeObject(forKey: "address") as! String?
         self.birthDay = aDecoder.decodeObject(forKey: "birthDay") as! String?
@@ -106,6 +129,8 @@ class UserData: NSObject,NSCoding {
         self.idNum = aDecoder.decodeObject(forKey: "idNum") as! String?
         self.status = Int(aDecoder.decodeCInt(forKey: "status"))
         self.isLeave = aDecoder.decodeBool(forKey: "isLeave")
+        self.levelId = Int(aDecoder.decodeCInt(forKey: "levelId"))
+        self.departmentId = Int(aDecoder.decodeCInt(forKey: "departmentId"))
     }
     
     override init() {

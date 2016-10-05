@@ -13,8 +13,13 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
     @IBOutlet weak var headImg: UIImageView!
     @IBOutlet weak var nameLab: UILabel!
     @IBOutlet weak var headImgTapBtn: UIButton!
-    
     @IBOutlet weak var tablView: UITableView!
+    @IBOutlet weak var departmentImg: UIImageView!
+    @IBOutlet weak var levelImg: UIImageView!
+    @IBOutlet weak var nickNameLab: UILabel!
+    
+    
+    
     let cellIdentifier = "ContactDetailCell"
     var dataSource:NSDictionary?
     var userData:UserData?
@@ -27,15 +32,18 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
         NotificationCenter.default.addObserver(self, selector: #selector(refreshContent(noti:)), name: NSNotification.Name(rawValue: kNotification_refresh_contact_detail_from_edit), object: nil)
         
         self.nameLab.text = userData?.name
-        if userData?.headImg != nil {
-            self.headImg.image = userData?.headImg
+        if userData?.headImgUrlStr != nil {
+            self.headImg.sd_setImage(with: URL(string: (userData?.headImgUrlStr)!), placeholderImage: kHeadImgObj)
         }
+        //设置部门职位 flagimg
+        self.setFlagImg()
+                
     }
     func refreshContent(noti:NSNotification)
     {
         self.nameLab.text = userData?.name
-        if userData?.headImg != nil {
-            self.headImg.image = userData?.headImg
+        if userData?.headImgUrlStr != nil {
+            self.headImg.sd_setImage(with: URL(string: (userData?.headImgUrlStr)!), placeholderImage: kHeadImgObj)
         }
         let model = noti.userInfo?["model"] as! UserData
         self.userData = model
@@ -69,6 +77,67 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
         let editBtn = YTDrawButton(title: kTitle_edit_button, TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(ContactDetailController.itemAction(sender:)))
         editBtn.tag = 1
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: editBtn)
+    }
+    
+    //设置部门职位 flagimg
+    func setFlagImg()
+    {
+        /*
+         * 1://董事部  2://iOS  3://php  4://前段
+         * 5://安卓   7://人事  8://后台  6：//测试
+         */
+        var departmentImageString:String = ""
+        switch (userData?.departmentId)! {
+        case 1:
+            departmentImageString = "dongshibu.png"
+            break
+        case 2:
+            departmentImageString = "ios.png"
+            break
+        case 3:
+            departmentImageString = "php.png"
+            break
+        case 4:
+            departmentImageString = "qianduan.png"
+            break
+        case 5:
+            departmentImageString = "android.png"
+            break
+        case 6:
+            departmentImageString = "test.png"
+            break
+        case 7:
+            departmentImageString = "hr.png"
+            break
+        default:
+            departmentImageString = "bg.png"
+            break
+        }
+        self.departmentImg.image = UIImage(named: departmentImageString)
+        
+        /*
+         * 1://经理  2://大神  3://程序员  4://人事
+         * 5://测试
+         */
+        var levelImageString:String = ""
+        switch (userData?.levelId)! {
+        case 1:
+            levelImageString = "jingli.png"
+            break
+        case 2:
+            levelImageString = "dashen.png"
+            break
+        case 3:
+            levelImageString = "coder.png"
+            break
+        case 4:
+            levelImageString = "hr.png"
+            break
+        default:
+            levelImageString = "test.png"
+            break
+        }
+        self.levelImg.image = UIImage(named: levelImageString)
     }
     
     //MARK:- action method

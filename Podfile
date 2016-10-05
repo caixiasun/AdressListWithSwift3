@@ -1,3 +1,6 @@
+
+use_frameworks!
+
 target 'AdressListWithSwift3' do
 pod 'Reachability','~> 3.0'
 pod ‘Masonry’

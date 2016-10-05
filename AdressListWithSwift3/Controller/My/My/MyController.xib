@@ -52,6 +52,9 @@
                                 <constraint firstItem="UQ4-Ld-RBL" firstAttribute="leading" secondItem="GVC-lj-QVQ" secondAttribute="leading" constant="24" id="Bml-Kn-pgU"/>
                                 <constraint firstItem="fHY-eP-Iv1" firstAttribute="bottom" secondItem="GVC-lj-QVQ" secondAttribute="centerY" constant="-3" id="C2u-Vd-bxN"/>
                             </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="AzF-aX-hxd" appends="YES" id="1eA-I5-iGk"/>
+                            </connections>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3wa-dn-vYJ">
                             <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
@@ -83,6 +86,11 @@
                 <constraint firstAttribute="bottom" secondItem="zbR-55-IjD" secondAttribute="bottom" id="rMt-Gn-64B"/>
             </constraints>
         </view>
+        <tapGestureRecognizer id="AzF-aX-hxd" userLabel="infoTap">
+            <connections>
+                <action selector="myInfoGesture:" destination="-1" id="mqC-ki-ous"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="head" width="87" height="87"/>

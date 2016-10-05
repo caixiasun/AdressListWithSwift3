@@ -8,16 +8,15 @@
 
 import UIKit
 
-class UserModel: NSObject {
+class UserModel: BaseModel {
     var delegate:UserModelDelegate?
-    let manager = AFHTTPRequestOperationManager()
     
     /*****登录********/
     func requestLogin(Params params:Dictionary<String,Any>) {
-        let url = "http://address.uduoo.com/login"
+        let url = urlPrefix + "/login"
+        DebugLogTool.debugRequestLog(item: url)
         let type="application/json"
         let sets=NSSet()
-        
         manager.responseSerializer.acceptableContentTypes = sets.adding(type)
         manager.get(url, parameters: params, success: { (oper, data) -> Void in
             let dic = data as! Dictionary<String, Any>

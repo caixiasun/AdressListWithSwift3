@@ -36,6 +36,8 @@ class ApplyLeaveController: UIViewController ,UITextFieldDelegate,LeaveListModel
         
         self.messageView = addMessageView(InView: self.view)
         self.leaveModel.delegate = self
+        
+        self.startTextField.becomeFirstResponder()
     }
     func initNaviBar()
     {
