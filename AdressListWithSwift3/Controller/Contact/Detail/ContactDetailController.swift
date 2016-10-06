@@ -58,11 +58,10 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
     //MARK:- init method
     func initSubviews()
     {
-        self.view.backgroundColor = WhiteColor
-        
         self.initNaviBar()
         
         self.tablView.register(UINib(nibName: self.cellIdentifier, bundle: nil), forCellReuseIdentifier: self.cellIdentifier)
+        self.tablView.sectionIndexTrackingBackgroundColor = ClearColor
         self.dataSource = NSDictionary()
         
         setCornerRadius(view: self.headImg, radius: kRadius_headImg_common)
@@ -183,6 +182,7 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! ContactDetailCell
+        cell.backgroundColor = ClearColor
         if indexPath.section == 0 {
             cell.telLab.isHidden = false
             switch indexPath.row {

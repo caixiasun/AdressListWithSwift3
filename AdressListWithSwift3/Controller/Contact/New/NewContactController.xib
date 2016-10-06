@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -42,7 +42,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GT4-yB-FWe">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list_bg" translatesAutoresizingMaskIntoConstraints="NO" id="1Ys-6q-ii6"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GT4-yB-FWe">
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G4i-Br-NOP" userLabel="TopV">
                             <subviews>
@@ -149,7 +150,6 @@
                                             </connections>
                                         </textField>
                                     </subviews>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="4bg-fu-0e6" firstAttribute="width" secondItem="qeQ-KE-64E" secondAttribute="width" multiplier="0.55:1" id="0eQ-WJ-7NY"/>
                                         <constraint firstItem="4bg-fu-0e6" firstAttribute="centerY" secondItem="qeQ-KE-64E" secondAttribute="centerY" id="8rF-IG-Ova"/>
@@ -181,7 +181,6 @@
                                             </connections>
                                         </textField>
                                     </subviews>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="BWK-JP-hi0" firstAttribute="height" secondItem="LZl-m8-ltv" secondAttribute="height" multiplier="0.3:1" id="9kZ-mc-A1G"/>
                                         <constraint firstAttribute="trailing" secondItem="ner-yU-RG0" secondAttribute="trailing" constant="24" id="C0c-mo-8cB"/>
@@ -213,7 +212,6 @@
                                             </connections>
                                         </textField>
                                     </subviews>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="qaN-TW-1Z6" firstAttribute="centerY" secondItem="9e0-Ml-diR" secondAttribute="centerY" id="B0d-hm-Q5e"/>
                                         <constraint firstItem="9e0-Ml-diR" firstAttribute="leading" secondItem="gMP-f5-FQ7" secondAttribute="leading" constant="24" id="DL7-xN-dMR"/>
@@ -226,7 +224,6 @@
                                     </constraints>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="gMP-f5-FQ7" firstAttribute="leading" secondItem="LZl-m8-ltv" secondAttribute="leading" id="0Ws-gi-afJ"/>
                                 <constraint firstItem="qeQ-KE-64E" firstAttribute="width" secondItem="mFb-Kr-vWT" secondAttribute="width" id="Aow-Q8-1JG"/>
@@ -626,15 +623,20 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="1Ys-6q-ii6" secondAttribute="bottom" id="15L-SK-q2A"/>
                 <constraint firstAttribute="bottom" secondItem="GT4-yB-FWe" secondAttribute="bottom" id="IXh-kL-4jb"/>
+                <constraint firstItem="1Ys-6q-ii6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OaC-GG-1em"/>
+                <constraint firstItem="1Ys-6q-ii6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="U3z-ac-q6I"/>
                 <constraint firstAttribute="trailing" secondItem="GT4-yB-FWe" secondAttribute="trailing" id="Zaq-ue-yPX"/>
                 <constraint firstItem="GT4-yB-FWe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eDk-go-J8z"/>
                 <constraint firstItem="GT4-yB-FWe" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eXt-1Y-C5A"/>
+                <constraint firstAttribute="trailing" secondItem="1Ys-6q-ii6" secondAttribute="trailing" id="zVA-MB-mHz"/>
             </constraints>
         </view>
     </objects>
     <resources>
         <image name="add_blue" width="260" height="260"/>
         <image name="head" width="87" height="87"/>
+        <image name="list_bg" width="700" height="1186"/>
     </resources>
 </document>

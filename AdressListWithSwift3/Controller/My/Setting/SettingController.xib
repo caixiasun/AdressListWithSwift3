@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -19,17 +19,18 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_bg" translatesAutoresizingMaskIntoConstraints="NO" id="NiE-79-dhv"/>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1h8-Sy-2qY">
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="退出登录">
-                        <color key="titleColor" red="0.20784313730000001" green="0.77647058820000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="itemAction:" destination="-1" eventType="touchUpInside" id="l9m-on-tii"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zeo-96-ce5">
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="修改密码">
                         <color key="titleColor" red="0.20784313730000001" green="0.77647058820000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -40,13 +41,20 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="NiE-79-dhv" secondAttribute="trailing" id="3dY-NH-zIv"/>
                 <constraint firstItem="1h8-Sy-2qY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="EGk-74-23W"/>
+                <constraint firstAttribute="bottom" secondItem="NiE-79-dhv" secondAttribute="bottom" id="Ql3-Ah-55Y"/>
                 <constraint firstItem="1h8-Sy-2qY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="10" id="RUh-1j-App"/>
                 <constraint firstItem="Zeo-96-ce5" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-10" id="TNA-G9-XZK"/>
                 <constraint firstItem="Zeo-96-ce5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="d44-at-npk"/>
                 <constraint firstAttribute="trailing" secondItem="1h8-Sy-2qY" secondAttribute="trailing" constant="24" id="fSH-yF-vtl"/>
                 <constraint firstAttribute="trailing" secondItem="Zeo-96-ce5" secondAttribute="trailing" constant="24" id="sPZ-La-wer"/>
+                <constraint firstItem="NiE-79-dhv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wMS-PR-K8P"/>
+                <constraint firstItem="NiE-79-dhv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="x7R-Gr-HWG"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="my_bg" width="700" height="980"/>
+    </resources>
 </document>

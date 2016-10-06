@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -21,6 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leavelist_bg" translatesAutoresizingMaskIntoConstraints="NO" id="5bf-ga-91p"/>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fiv-dH-IJl" userLabel="startV">
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开始时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4c-b5-exA" userLabel="lab">
@@ -37,7 +38,6 @@
                             </connections>
                         </textField>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="Y4c-b5-exA" firstAttribute="centerY" secondItem="fiv-dH-IJl" secondAttribute="centerY" id="LUO-dD-cDf"/>
                         <constraint firstItem="Y4c-b5-exA" firstAttribute="centerY" secondItem="OzQ-R2-CKx" secondAttribute="centerY" id="R0o-Vm-3KB"/>
@@ -64,7 +64,6 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="LcN-0U-vof" firstAttribute="width" secondItem="YLX-Bb-3S2" secondAttribute="width" multiplier="0.65:1" id="35C-0U-muJ"/>
                         <constraint firstAttribute="trailing" secondItem="LcN-0U-vof" secondAttribute="trailing" constant="24" id="Lf5-3f-1oy"/>
@@ -89,7 +88,6 @@
                             </connections>
                         </textField>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="cKB-p7-7u5" firstAttribute="width" secondItem="7nW-Aa-V6r" secondAttribute="width" multiplier="0.65:1" id="8WF-va-bYl"/>
                         <constraint firstAttribute="trailing" secondItem="cKB-p7-7u5" secondAttribute="trailing" constant="24" id="DUr-SF-fo6"/>
@@ -115,7 +113,6 @@
                             </connections>
                         </textView>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="awX-ym-ra2" firstAttribute="width" secondItem="uRb-jk-eer" secondAttribute="width" multiplier="0.65:1" id="7wq-Cp-0Sv"/>
                         <constraint firstItem="awX-ym-ra2" firstAttribute="top" secondItem="Ezx-69-q5K" secondAttribute="top" id="ClZ-dm-Hp4"/>
@@ -131,14 +128,18 @@
                 <constraint firstItem="fiv-dH-IJl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="3Xp-TM-c8S"/>
                 <constraint firstItem="uRb-jk-eer" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9Qi-cN-EjC"/>
                 <constraint firstItem="YLX-Bb-3S2" firstAttribute="centerX" secondItem="fiv-dH-IJl" secondAttribute="centerX" id="CTD-mQ-H6L"/>
+                <constraint firstAttribute="bottom" secondItem="5bf-ga-91p" secondAttribute="bottom" id="Dzb-16-spu"/>
                 <constraint firstItem="YLX-Bb-3S2" firstAttribute="height" secondItem="fiv-dH-IJl" secondAttribute="height" id="I7e-xI-51H"/>
                 <constraint firstItem="uRb-jk-eer" firstAttribute="width" secondItem="7nW-Aa-V6r" secondAttribute="width" id="Ls7-mn-zgH"/>
+                <constraint firstAttribute="trailing" secondItem="5bf-ga-91p" secondAttribute="trailing" id="TMa-ht-HY6"/>
                 <constraint firstItem="uRb-jk-eer" firstAttribute="height" secondItem="7nW-Aa-V6r" secondAttribute="height" multiplier="2:1" id="VgT-k0-A4g"/>
                 <constraint firstItem="7nW-Aa-V6r" firstAttribute="height" secondItem="YLX-Bb-3S2" secondAttribute="height" id="WZb-Rf-axk"/>
                 <constraint firstItem="7nW-Aa-V6r" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WzW-K4-k6e"/>
+                <constraint firstItem="5bf-ga-91p" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Xny-6F-9aq"/>
                 <constraint firstItem="YLX-Bb-3S2" firstAttribute="top" secondItem="fiv-dH-IJl" secondAttribute="bottom" id="aua-iW-Qsc"/>
                 <constraint firstItem="7nW-Aa-V6r" firstAttribute="centerX" secondItem="YLX-Bb-3S2" secondAttribute="centerX" id="epf-by-w5R"/>
                 <constraint firstItem="YLX-Bb-3S2" firstAttribute="width" secondItem="fiv-dH-IJl" secondAttribute="width" id="fA7-kI-PNx"/>
+                <constraint firstItem="5bf-ga-91p" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hEx-T3-fbH"/>
                 <constraint firstItem="7nW-Aa-V6r" firstAttribute="width" secondItem="YLX-Bb-3S2" secondAttribute="width" id="nBJ-lb-dF6"/>
                 <constraint firstItem="uRb-jk-eer" firstAttribute="top" secondItem="7nW-Aa-V6r" secondAttribute="bottom" id="prF-Ji-Tie"/>
                 <constraint firstItem="7nW-Aa-V6r" firstAttribute="top" secondItem="YLX-Bb-3S2" secondAttribute="bottom" id="u13-vH-emd"/>
@@ -147,4 +148,7 @@
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="leavelist_bg" width="123" height="220"/>
+    </resources>
 </document>

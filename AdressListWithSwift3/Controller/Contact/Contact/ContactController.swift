@@ -174,10 +174,14 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
     
     func initSubviews()
     {
+        let bgView = UIImageView(frame: CGRect(x: 0, y: searchViewHeight, width: kScreenWidth, height: kScreenHeight-searchViewHeight))
+        bgView.image = UIImage(named: "list_bg.png")
+        self.view.addSubview(bgView)
         let tableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.plain)
         tableView.register(UINib(nibName: self.cellReuseIdentifier, bundle: nil), forCellReuseIdentifier: self.cellReuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.backgroundColor = ClearColor
         self.view.addSubview(tableView)
         self.tableView = tableView;
         
@@ -214,7 +218,7 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headView = UITableViewHeaderFooterView.init(reuseIdentifier: headerIdentifier)
         let view = UIView(frame:headView.bounds)
-        view.backgroundColor = PageGrayColor
+        view.backgroundColor = ClearColor
         headView.addSubview(view)
         return headView
     }
@@ -242,6 +246,7 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
         }else{
             data = (self.dataSource?.object(at: indexPath.section) as! ContactData).member?.object(at: indexPath.row) as! UserData
         }
+        cell.backgroundColor = ClearColor
         cell.setContent(data: data)
         return cell
     }

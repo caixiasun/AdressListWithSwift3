@@ -61,9 +61,8 @@ class LeaveListController: UIViewController ,UICollectionViewDelegate,UICollecti
     
     func initSubviews()
     {
-//        self.automaticallyAdjustsScrollViewInsets = false
         self.collectionView.register(UINib(nibName: self.cellReuseIdentifier, bundle: nil), forCellWithReuseIdentifier: cellReuseIdentifier)
-        
+        self.collectionView.backgroundColor = ClearColor
         self.dataSource = NSMutableArray()
         
         self.messageView = addMessageView(InView: self.view)

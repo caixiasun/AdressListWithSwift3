@@ -25,11 +25,20 @@
                         <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UNF-lo-sAT">
+                        <color key="backgroundColor" red="0.78823529411764703" green="0.7803921568627451" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="cFS-92-hhT"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="UNF-lo-sAT" secondAttribute="bottom" id="3IW-Mh-cIT"/>
                     <constraint firstItem="flF-NQ-dKE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7dC-FT-K10"/>
                     <constraint firstItem="flF-NQ-dKE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="IVc-Ib-8E1"/>
                     <constraint firstAttribute="trailing" secondItem="4Tm-ig-57r" secondAttribute="trailing" constant="24" id="LBf-Nw-mvN"/>
+                    <constraint firstItem="UNF-lo-sAT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="aSr-GR-VOl"/>
+                    <constraint firstAttribute="trailing" secondItem="UNF-lo-sAT" secondAttribute="trailing" id="hXM-Tc-5e6"/>
                     <constraint firstItem="4Tm-ig-57r" firstAttribute="centerY" secondItem="flF-NQ-dKE" secondAttribute="centerY" id="tDp-Ns-v5N"/>
                 </constraints>
             </tableViewCellContentView>

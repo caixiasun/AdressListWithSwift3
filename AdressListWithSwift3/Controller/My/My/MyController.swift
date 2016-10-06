@@ -50,37 +50,31 @@ class MyController: UIViewController ,UITableViewDelegate,UITableViewDataSource,
     func initSubviews()
     {
         self.navigationItem.title = "更多"
-        self.view.backgroundColor = PageGrayColor
         
         self.messageView = addMessageView(InView: self.view)
         setCornerRadius(view: self.headImg, radius: kRadius_headImg_common)
         
         self.tableView.register(UINib(nibName: cellReuseIdentifier, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
-        self.tableView.backgroundColor = PageGrayColor
+//        self.tableView.backgroundColor = PageGrayColor
         self.dataSource = NSMutableArray()
-        self.dataSource?.addObjects(from: [["image":"leave.png","title":"我的请假记录"],["image":"leave","title":"设置"]])
+        self.dataSource?.addObjects(from: [["image":"leave.png","title":"我的请假记录"],["image":"setting.png","title":"设置"]])
     }
     
     //MARK: - UITableViewDelegate,UITableViewDataSource
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return (self.dataSource?.count)!
-    }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 35
-    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return (self.dataSource?.count)!
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! SettingCell
-        cell.setContent(dic: self.dataSource?.object(at: indexPath.section) as! Dictionary<String, Any>)
+        cell.backgroundColor = ClearColor
+        cell.setContent(dic: self.dataSource?.object(at: indexPath.row) as! Dictionary<String, Any>)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {//请假记录
+        if indexPath.row == 0 {//请假记录
             let controller = MyLeaveRecordController()
             controller.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(controller, animated: true)
