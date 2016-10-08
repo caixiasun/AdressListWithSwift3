@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -275,11 +275,11 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="33F-CX-eyn" secondAttribute="trailing" id="03t-SK-IY5"/>
                 <constraint firstItem="1j6-M9-4AJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="048-BX-H3y"/>
+                <constraint firstAttribute="bottom" secondItem="1j6-M9-4AJ" secondAttribute="bottom" id="5ig-Pb-9YU"/>
                 <constraint firstAttribute="trailing" secondItem="eRg-NR-KtV" secondAttribute="trailing" id="7eH-dP-tdo"/>
                 <constraint firstItem="eRg-NR-KtV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="88o-Cf-p0B"/>
                 <constraint firstItem="1j6-M9-4AJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KN3-Os-UB4"/>
                 <constraint firstAttribute="bottom" secondItem="33F-CX-eyn" secondAttribute="bottom" id="MkK-LH-9U0"/>
-                <constraint firstItem="eRg-NR-KtV" firstAttribute="top" secondItem="1j6-M9-4AJ" secondAttribute="bottom" id="Nl5-UF-JP1"/>
                 <constraint firstItem="33F-CX-eyn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="UTm-KH-Ywc"/>
                 <constraint firstItem="33F-CX-eyn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XNx-hV-Mzk"/>
                 <constraint firstAttribute="trailing" secondItem="1j6-M9-4AJ" secondAttribute="trailing" id="l5W-EC-SGX"/>

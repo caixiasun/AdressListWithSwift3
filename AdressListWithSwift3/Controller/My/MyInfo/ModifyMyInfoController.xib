@@ -17,6 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_bg" translatesAutoresizingMaskIntoConstraints="NO" id="0Ng-MG-wJR"/>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zhn-aC-cf0">
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="在此处输入内容" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YnF-mE-H6y">
@@ -25,7 +26,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="Enf-66-ybx"/>
                         <constraint firstItem="YnF-mE-H6y" firstAttribute="leading" secondItem="Zhn-aC-cf0" secondAttribute="leading" constant="24" id="NRO-HG-6RL"/>
@@ -36,10 +37,17 @@
             </subviews>
             <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="0Ng-MG-wJR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="50e-M9-A1k"/>
                 <constraint firstItem="Zhn-aC-cf0" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="F5I-y0-GMt"/>
+                <constraint firstItem="0Ng-MG-wJR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GN5-3k-bdZ"/>
                 <constraint firstItem="Zhn-aC-cf0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Iew-kQ-72S"/>
+                <constraint firstAttribute="bottom" secondItem="0Ng-MG-wJR" secondAttribute="bottom" id="K2F-zq-oQY"/>
+                <constraint firstAttribute="trailing" secondItem="0Ng-MG-wJR" secondAttribute="trailing" id="bMO-VB-gQt"/>
                 <constraint firstItem="Zhn-aC-cf0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="e1F-W8-tq2"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="my_bg" width="700" height="980"/>
+    </resources>
 </document>
