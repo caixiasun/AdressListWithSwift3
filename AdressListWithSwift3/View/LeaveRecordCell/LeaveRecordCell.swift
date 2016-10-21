@@ -23,7 +23,8 @@ class LeaveRecordCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         setCornerRadius(view: self, radius: 10)
-        setBorder(view: self)
+        self.layer.borderColor = MainColor.cgColor
+        self.layer.borderWidth = 0.5
     }
     
     func setContent(data:LeaveListData)

@@ -16,6 +16,7 @@ class YTNavigationController: UINavigationController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //self.navigationBar.isTranslucent = true
     }
 
     func setNavigationBarBackImg(img:UIImage!) -> ()
@@ -35,7 +36,7 @@ class YTNavigationController: UINavigationController {
     
     func initNavigationBar() -> ()
     {
-        setNavigationBarBackImg(img: UIImage(named: "navi_bg.png"))
+        setNavigationBarBackImg(img: UIImage(named: "navi_bg-1.png"))
         setNavigationBarFont(fontColor: WhiteColor)
     }
     

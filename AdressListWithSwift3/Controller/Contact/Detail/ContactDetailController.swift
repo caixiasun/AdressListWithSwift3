@@ -180,6 +180,10 @@ class ContactDetailController: UIViewController, UITableViewDelegate,UITableView
             return 50
         }
     }
+    //设置区头背景色
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = ClearColor
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! ContactDetailCell
         cell.backgroundColor = ClearColor

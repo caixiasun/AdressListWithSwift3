@@ -23,9 +23,11 @@ class SettingController: UIViewController ,MyModelDelegate{
         
         self.view.backgroundColor = PageGrayColor
         setCornerRadius(view: self.loginoutBtn, radius: 5)
-        setBorder(view: self.loginoutBtn)
+        self.loginoutBtn.layer.borderWidth = 0.5
+        self.loginoutBtn.layer.borderColor = MainColor.cgColor;
         setCornerRadius(view: self.modifyPasswordBtn, radius: 5)
-        setBorder(view: self.modifyPasswordBtn)
+        self.modifyPasswordBtn.layer.borderWidth = 0.5
+        self.modifyPasswordBtn.layer.borderColor = MainColor.cgColor;
         self.messageView = addMessageView(InView: self.view)
         self.myModel.delegate = self
     }

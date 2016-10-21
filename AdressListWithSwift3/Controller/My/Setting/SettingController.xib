@@ -1,9 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11535.1" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11523"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,8 +23,39 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_bg" translatesAutoresizingMaskIntoConstraints="NO" id="NiE-79-dhv"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_bg" translatesAutoresizingMaskIntoConstraints="NO" id="NiE-79-dhv">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4y5-Qa-EKk">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="EhH-0i-5xU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XmW-mM-boe">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="SPw-C3-4Zj">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <vibrancyEffect>
+                                    <blurEffect style="light"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                        </subviews>
+                    </view>
+                    <blurEffect style="light"/>
+                </visualEffectView>
+                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo1" translatesAutoresizingMaskIntoConstraints="NO" id="zfm-mF-NRu">
+                    <rect key="frame" x="175" y="587" width="200" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="CdY-zS-lsT"/>
+                        <constraint firstAttribute="width" secondItem="zfm-mF-NRu" secondAttribute="height" multiplier="5:1" id="S95-1B-wwu"/>
+                    </constraints>
+                </imageView>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1h8-Sy-2qY">
+                    <rect key="frame" x="24" y="343.5" width="327" height="32"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="退出登录">
                         <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -30,6 +65,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zeo-96-ce5">
+                    <rect key="frame" x="24" y="291.5" width="327" height="32"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="修改密码">
                         <color key="titleColor" red="0.20784313730000001" green="0.77647058820000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -41,13 +77,21 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="zfm-mF-NRu" firstAttribute="width" secondItem="zfm-mF-NRu" secondAttribute="height" multiplier="5:1" id="2fL-D4-f13"/>
                 <constraint firstAttribute="trailing" secondItem="NiE-79-dhv" secondAttribute="trailing" id="3dY-NH-zIv"/>
+                <constraint firstItem="4y5-Qa-EKk" firstAttribute="height" secondItem="NiE-79-dhv" secondAttribute="height" id="5PL-bb-MeL"/>
+                <constraint firstAttribute="trailing" secondItem="zfm-mF-NRu" secondAttribute="trailing" id="AR8-qS-JNN"/>
                 <constraint firstItem="1h8-Sy-2qY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="EGk-74-23W"/>
+                <constraint firstItem="4y5-Qa-EKk" firstAttribute="centerX" secondItem="NiE-79-dhv" secondAttribute="centerX" id="INg-0B-vYL"/>
                 <constraint firstAttribute="bottom" secondItem="NiE-79-dhv" secondAttribute="bottom" id="Ql3-Ah-55Y"/>
+                <constraint firstItem="zfm-mF-NRu" firstAttribute="width" secondItem="zfm-mF-NRu" secondAttribute="height" multiplier="5:1" id="R08-PY-nhH"/>
                 <constraint firstItem="1h8-Sy-2qY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="10" id="RUh-1j-App"/>
                 <constraint firstItem="Zeo-96-ce5" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-10" id="TNA-G9-XZK"/>
                 <constraint firstItem="Zeo-96-ce5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="d44-at-npk"/>
+                <constraint firstAttribute="bottom" secondItem="zfm-mF-NRu" secondAttribute="bottom" constant="40" id="duy-4W-4fC"/>
+                <constraint firstItem="4y5-Qa-EKk" firstAttribute="centerY" secondItem="NiE-79-dhv" secondAttribute="centerY" id="f02-ZB-LrI"/>
                 <constraint firstAttribute="trailing" secondItem="1h8-Sy-2qY" secondAttribute="trailing" constant="24" id="fSH-yF-vtl"/>
+                <constraint firstItem="4y5-Qa-EKk" firstAttribute="width" secondItem="NiE-79-dhv" secondAttribute="width" id="pj9-XK-euG"/>
                 <constraint firstAttribute="trailing" secondItem="Zeo-96-ce5" secondAttribute="trailing" constant="24" id="sPZ-La-wer"/>
                 <constraint firstItem="NiE-79-dhv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wMS-PR-K8P"/>
                 <constraint firstItem="NiE-79-dhv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="x7R-Gr-HWG"/>
@@ -55,6 +99,7 @@
         </view>
     </objects>
     <resources>
+        <image name="logo1" width="500" height="100"/>
         <image name="my_bg" width="700" height="980"/>
     </resources>
 </document>

@@ -24,12 +24,12 @@ let kPassword_value = "11111"
 let kHeadImgUrl = "head_image_url"
 
 //按钮标题
-let kTitle_cancel_button = "Cancel"
-let kTitle_done_button = "Done"
-let kTitle_submit_button = "Submit"
-let kTitle_edit_button = "Edit"
-let kTitle_save_button = "Save"
-let kTitle_modify_button = "Modify"
+let kTitle_cancel_button = "取消"
+let kTitle_done_button = "完成"
+let kTitle_submit_button = "提交"
+let kTitle_edit_button = "编辑"
+let kTitle_save_button = "保存"
+let kTitle_modify_button = "修改"
 
 ///头像压缩指数
 let kCompression_index_headImg:CGFloat = 0.5

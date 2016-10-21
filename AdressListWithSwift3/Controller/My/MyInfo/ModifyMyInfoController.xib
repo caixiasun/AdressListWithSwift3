@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11535.1" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11523"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,37 +20,73 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_bg" translatesAutoresizingMaskIntoConstraints="NO" id="0Ng-MG-wJR"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_bg" translatesAutoresizingMaskIntoConstraints="NO" id="0Ng-MG-wJR">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rxO-aY-AKG">
+                    <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bFT-wh-GP2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="in1-1k-uEV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="UZm-ym-J8J">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <vibrancyEffect>
+                                    <blurEffect style="light"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                        </subviews>
+                    </view>
+                    <blurEffect style="light"/>
+                </visualEffectView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zhn-aC-cf0">
+                    <rect key="frame" x="0.0" y="20" width="375" height="50"/>
                     <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_border" translatesAutoresizingMaskIntoConstraints="NO" id="bD4-M3-0tS">
+                            <rect key="frame" x="6" y="0.0" width="363" height="50"/>
+                        </imageView>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="在此处输入内容" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YnF-mE-H6y">
+                            <rect key="frame" x="24" y="15.5" width="339" height="19"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                     </subviews>
-                    <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstItem="bD4-M3-0tS" firstAttribute="height" secondItem="Zhn-aC-cf0" secondAttribute="height" id="0b4-ZP-UpY"/>
                         <constraint firstAttribute="height" constant="50" id="Enf-66-ybx"/>
                         <constraint firstItem="YnF-mE-H6y" firstAttribute="leading" secondItem="Zhn-aC-cf0" secondAttribute="leading" constant="24" id="NRO-HG-6RL"/>
+                        <constraint firstItem="bD4-M3-0tS" firstAttribute="centerY" secondItem="Zhn-aC-cf0" secondAttribute="centerY" id="YDo-xb-OUT"/>
                         <constraint firstAttribute="trailing" secondItem="YnF-mE-H6y" secondAttribute="trailing" constant="12" id="aNc-ut-Scs"/>
+                        <constraint firstItem="bD4-M3-0tS" firstAttribute="leading" secondItem="Zhn-aC-cf0" secondAttribute="leading" constant="6" id="mav-tc-zdU"/>
                         <constraint firstItem="YnF-mE-H6y" firstAttribute="centerY" secondItem="Zhn-aC-cf0" secondAttribute="centerY" id="onX-Ou-8en"/>
+                        <constraint firstAttribute="trailing" secondItem="bD4-M3-0tS" secondAttribute="trailing" constant="6" id="xF2-VY-1Ic"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="0Ng-MG-wJR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="50e-M9-A1k"/>
+                <constraint firstItem="rxO-aY-AKG" firstAttribute="centerY" secondItem="0Ng-MG-wJR" secondAttribute="centerY" id="DbE-C5-2Vx"/>
                 <constraint firstItem="Zhn-aC-cf0" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="F5I-y0-GMt"/>
                 <constraint firstItem="0Ng-MG-wJR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GN5-3k-bdZ"/>
                 <constraint firstItem="Zhn-aC-cf0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Iew-kQ-72S"/>
                 <constraint firstAttribute="bottom" secondItem="0Ng-MG-wJR" secondAttribute="bottom" id="K2F-zq-oQY"/>
+                <constraint firstItem="rxO-aY-AKG" firstAttribute="width" secondItem="0Ng-MG-wJR" secondAttribute="width" id="Q7J-z7-SL5"/>
                 <constraint firstAttribute="trailing" secondItem="0Ng-MG-wJR" secondAttribute="trailing" id="bMO-VB-gQt"/>
                 <constraint firstItem="Zhn-aC-cf0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="e1F-W8-tq2"/>
+                <constraint firstItem="rxO-aY-AKG" firstAttribute="height" secondItem="0Ng-MG-wJR" secondAttribute="height" id="pq3-2J-u1D"/>
+                <constraint firstItem="rxO-aY-AKG" firstAttribute="centerX" secondItem="0Ng-MG-wJR" secondAttribute="centerX" id="zfi-vI-uBC"/>
             </constraints>
         </view>
     </objects>
     <resources>
+        <image name="common_border" width="375" height="40"/>
         <image name="my_bg" width="700" height="980"/>
     </resources>
 </document>

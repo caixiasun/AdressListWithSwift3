@@ -11,6 +11,7 @@ import UIKit
 class LeaveCell: UICollectionViewCell {
     
     
+    @IBOutlet weak var headImgHeight: NSLayoutConstraint!
     @IBOutlet weak var headImg: UIImageView!
     @IBOutlet weak var nameLab: UILabel!
     @IBOutlet weak var flagImg: UIImageView!
@@ -19,7 +20,9 @@ class LeaveCell: UICollectionViewCell {
         super.awakeFromNib()
         
         setCornerRadius(view: self, radius: 10)
-        setBorder(view: self)
+        self.layer.borderColor = MainColor.cgColor;
+        self.layer.borderWidth = 0.5
+        setCornerRadius(view: headImg, radius: 10)
     }
     
     func setContent(data:LeaveListData)

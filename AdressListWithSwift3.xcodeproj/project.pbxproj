@@ -40,10 +40,12 @@
 		006849831D94CD8900415C65 /* DebugLogTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006849821D94CD8900415C65 /* DebugLogTool.swift */; };
 		006849851D94FE2200415C65 /* AllEnumDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006849841D94FE2200415C65 /* AllEnumDefine.swift */; };
 		00724F9E1D9B86B60073604C /* URLData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00724F9D1D9B86B60073604C /* URLData.swift */; };
+		0086B84F1DB8CA3B00CBE59F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 009561381D86436000EF0D5A /* LaunchScreen.storyboard */; };
+		008DEDD01DB9E26A00050C30 /* ContactController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 008DEDCF1DB9E26A00050C30 /* ContactController.xib */; };
+		008DEDD21DB9F9B700050C30 /* YTLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008DEDD11DB9F9B700050C30 /* YTLayer.swift */; };
 		0090BFD01D8FCA4A00CAC075 /* UserResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFCF1D8FCA4A00CAC075 /* UserResultData.swift */; };
 		0090BFD21D8FCA5500CAC075 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFD11D8FCA5500CAC075 /* UserData.swift */; };
 		0090BFD51D8FD8E400CAC075 /* ErrorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090BFD41D8FD8E400CAC075 /* ErrorData.swift */; };
-		0095613A1D86436000EF0D5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 009561381D86436000EF0D5A /* LaunchScreen.storyboard */; };
 		009561451D86436100EF0D5A /* AdressListWithSwift3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561441D86436100EF0D5A /* AdressListWithSwift3Tests.swift */; };
 		0095615E1D864BDE00EF0D5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561501D864BDE00EF0D5A /* AppDelegate.swift */; };
 		0095616B1D864C0F00EF0D5A /* YTNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009561611D864C0F00EF0D5A /* YTNavigationController.swift */; };
@@ -135,6 +137,9 @@
 		006849821D94CD8900415C65 /* DebugLogTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugLogTool.swift; sourceTree = "<group>"; };
 		006849841D94FE2200415C65 /* AllEnumDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllEnumDefine.swift; sourceTree = "<group>"; };
 		00724F9D1D9B86B60073604C /* URLData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLData.swift; sourceTree = "<group>"; };
+		0086B84E1DB8C66600CBE59F /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		008DEDCF1DB9E26A00050C30 /* ContactController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactController.xib; sourceTree = "<group>"; };
+		008DEDD11DB9F9B700050C30 /* YTLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTLayer.swift; sourceTree = "<group>"; };
 		0090BFCF1D8FCA4A00CAC075 /* UserResultData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserResultData.swift; sourceTree = "<group>"; };
 		0090BFD11D8FCA5500CAC075 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		0090BFD41D8FD8E400CAC075 /* ErrorData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorData.swift; sourceTree = "<group>"; };
@@ -150,7 +155,6 @@
 		009561721D864E1600EF0D5A /* ContactController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactController.swift; sourceTree = "<group>"; };
 		009561741D864E3300EF0D5A /* LeaveListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaveListController.swift; sourceTree = "<group>"; };
 		009561751D864E3300EF0D5A /* LeaveListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaveListController.xib; sourceTree = "<group>"; };
-		009561781D864EA100EF0D5A /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
 		009561791D86503800EF0D5A /* NewContactController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewContactController.swift; sourceTree = "<group>"; };
 		0095617A1D86503800EF0D5A /* NewContactController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewContactController.xib; sourceTree = "<group>"; };
 		0095617D1D8651D200EF0D5A /* ContactDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailController.swift; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				0055A4E21D923CA600C3893C /* YTExtension.swift */,
+				008DEDD11DB9F9B700050C30 /* YTLayer.swift */,
 			);
 			path = Extension_system;
 			sourceTree = "<group>";
@@ -433,6 +438,7 @@
 			isa = PBXGroup;
 			children = (
 				009561721D864E1600EF0D5A /* ContactController.swift */,
+				008DEDCF1DB9E26A00050C30 /* ContactController.xib */,
 			);
 			path = Contact;
 			sourceTree = "<group>";
@@ -594,9 +600,9 @@
 				45ADFA3A1D8D114600A58BE8 /* Assets.xcassets */,
 				009561381D86436000EF0D5A /* LaunchScreen.storyboard */,
 				0095613B1D86436000EF0D5A /* Info.plist */,
-				009561781D864EA100EF0D5A /* Bridge-Header.h */,
 				00C832DA1D86989900802D12 /* AdressListTool.swift */,
 				006849841D94FE2200415C65 /* AllEnumDefine.swift */,
+				0086B84E1DB8C66600CBE59F /* Header.h */,
 			);
 			name = Other_files;
 			sourceTree = "<group>";
@@ -773,10 +779,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0095613A1D86436000EF0D5A /* LaunchScreen.storyboard in Resources */,
+				0086B84F1DB8CA3B00CBE59F /* LaunchScreen.storyboard in Resources */,
 				00C555C81D9E19A200CBDDE8 /* ModifyMyInfoController.xib in Resources */,
 				00A4DC8F1D9380D300EAD3F0 /* MyInfoController.xib in Resources */,
 				0055A4E81D92797800C3893C /* SettingCell.xib in Resources */,
+				008DEDD01DB9E26A00050C30 /* ContactController.xib in Resources */,
 				0055A4F71D9284A500C3893C /* MyLeaveRecordController.xib in Resources */,
 				001E6F971D8FBA070099999D /* LoginController.xib in Resources */,
 				009561771D864E3300EF0D5A /* LeaveListController.xib in Resources */,
@@ -906,6 +913,7 @@
 			files = (
 				00A4DCE71D93D89C00EAD3F0 /* UIView+JElasticPullToRefresh.m in Sources */,
 				00A4DCE41D93D89C00EAD3F0 /* JElasticPullToRefreshLoadingViewCircle.m in Sources */,
+				008DEDD21DB9F9B700050C30 /* YTLayer.swift in Sources */,
 				0095616C1D864C0F00EF0D5A /* YTTabBarController.swift in Sources */,
 				0095619B1D8678BE00EF0D5A /* AdressListWithSwift3.xcdatamodeld in Sources */,
 				0034C90F1D87F9B100A8C4D4 /* CoreDataTools.swift in Sources */,
@@ -1104,8 +1112,10 @@
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.enjoytouch.AdressListWithSwift3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/Enjoytouch/Desktop/AdressList/AdressListWithSwift3/AdressListWithSwift3/Header.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				WARNING_CFLAGS = (
 					"-Wno-deprecated-declarations",
 					"-Wenum-conversion",
@@ -1128,7 +1138,9 @@
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.enjoytouch.AdressListWithSwift3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/Enjoytouch/Desktop/AdressList/AdressListWithSwift3/AdressListWithSwift3/Header.h;
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				WARNING_CFLAGS = (
 					"-Wno-deprecated-declarations",
 					"-Wenum-conversion",

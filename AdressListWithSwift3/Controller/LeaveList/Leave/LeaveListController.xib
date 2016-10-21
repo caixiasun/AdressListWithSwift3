@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11535.1" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11523"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,8 +21,39 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leavelist_bg" translatesAutoresizingMaskIntoConstraints="NO" id="CTv-2N-9qW"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_bg" translatesAutoresizingMaskIntoConstraints="NO" id="CTv-2N-9qW">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Epm-bh-3eH">
+                    <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="eIs-ai-M29">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IWZ-kv-Y81">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="heN-wr-fHT">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <vibrancyEffect>
+                                    <blurEffect style="light"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                        </subviews>
+                    </view>
+                    <blurEffect style="light"/>
+                </visualEffectView>
+                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo1" translatesAutoresizingMaskIntoConstraints="NO" id="PlA-PK-r4q">
+                    <rect key="frame" x="175" y="587" width="200" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="OIv-xc-GKS"/>
+                        <constraint firstAttribute="width" secondItem="PlA-PK-r4q" secondAttribute="height" multiplier="5:1" id="wnf-k4-8Cr"/>
+                    </constraints>
+                </imageView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="bU7-W6-qhD">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sIn-DC-v0t">
                         <size key="itemSize" width="100" height="130"/>
                         <size key="headerReferenceSize" width="1" height="20"/>
@@ -33,18 +68,26 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="PlA-PK-r4q" secondAttribute="bottom" constant="40" id="2Ke-Up-ehZ"/>
+                <constraint firstItem="Epm-bh-3eH" firstAttribute="centerY" secondItem="CTv-2N-9qW" secondAttribute="centerY" id="4ic-uq-rgH"/>
                 <constraint firstAttribute="trailing" secondItem="bU7-W6-qhD" secondAttribute="trailing" id="73o-Gj-K3X"/>
                 <constraint firstAttribute="trailing" secondItem="CTv-2N-9qW" secondAttribute="trailing" id="Ao5-IH-o1q"/>
+                <constraint firstItem="PlA-PK-r4q" firstAttribute="width" secondItem="PlA-PK-r4q" secondAttribute="height" multiplier="5:1" id="F99-8N-dZi"/>
                 <constraint firstItem="bU7-W6-qhD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LAd-Vg-0g7"/>
+                <constraint firstItem="Epm-bh-3eH" firstAttribute="centerX" secondItem="CTv-2N-9qW" secondAttribute="centerX" id="M0p-IE-FBJ"/>
                 <constraint firstItem="CTv-2N-9qW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="N7K-UG-fcU"/>
                 <constraint firstItem="bU7-W6-qhD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YNy-xq-nQb"/>
                 <constraint firstAttribute="bottom" secondItem="CTv-2N-9qW" secondAttribute="bottom" id="bm8-mz-6oW"/>
+                <constraint firstItem="Epm-bh-3eH" firstAttribute="height" secondItem="CTv-2N-9qW" secondAttribute="height" id="i1r-0o-Y1Z"/>
                 <constraint firstAttribute="bottom" secondItem="bU7-W6-qhD" secondAttribute="bottom" id="jFq-xF-fFZ"/>
                 <constraint firstItem="CTv-2N-9qW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kGy-xb-G7a"/>
+                <constraint firstItem="Epm-bh-3eH" firstAttribute="width" secondItem="CTv-2N-9qW" secondAttribute="width" id="nXJ-Ek-4u5"/>
+                <constraint firstAttribute="trailing" secondItem="PlA-PK-r4q" secondAttribute="trailing" id="ybd-qD-uB2"/>
             </constraints>
         </view>
     </objects>
     <resources>
-        <image name="leavelist_bg" width="123" height="220"/>
+        <image name="logo1" width="500" height="100"/>
+        <image name="my_bg" width="700" height="980"/>
     </resources>
 </document>

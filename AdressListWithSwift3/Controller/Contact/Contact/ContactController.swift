@@ -9,6 +9,8 @@
 import UIKit
 
 let searchViewHeight:CGFloat = 45
+let ContactCellHeight:CGFloat = 70
+let ContactSectionHeight:CGFloat = 50
 
 class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,ContactModelDelegate ,YTOtherLibToolDelegate{
     
@@ -34,7 +36,7 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
         self.initNaviBar()
         
         self.initSearchView()
-        
+
         self.initSubviews()
         
         self.view.bringSubview(toFront: searchCoverView!)
@@ -92,16 +94,9 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
     func initSearchView()
     {
         let searchColor = colorWithHexString(hex: "E0E0E0")
-        let bgView = UIView()
+        let bgView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: searchViewHeight))
         bgView.backgroundColor = searchColor
         self.view.addSubview(bgView)
-        
-        bgView.mas_makeConstraints { (make) in
-            make?.top.equalTo()(self.view)?.setOffset(0)
-            make?.left.equalTo()(self.view)?.setOffset(0)
-            make?.right.equalTo()(self.view)?.setOffset(0)
-            make?.height.equalTo()(self.view)?.setOffset(searchViewHeight)
-        }
         
         let searchView = UIView()
         searchView.frame = CGRect(x:6, y:7.5, width:kScreenWidth-12, height:30)
@@ -174,10 +169,8 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
     
     func initSubviews()
     {
-        let bgView = UIImageView(frame: CGRect(x: 0, y: searchViewHeight, width: kScreenWidth, height: kScreenHeight-searchViewHeight))
-        bgView.image = UIImage(named: "list_bg.png")
-        self.view.addSubview(bgView)
         let tableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.plain)
+        tableView.separatorColor = MainColor
         tableView.register(UINib(nibName: self.cellReuseIdentifier, bundle: nil), forCellReuseIdentifier: self.cellReuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
@@ -218,16 +211,35 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headView = UITableViewHeaderFooterView.init(reuseIdentifier: headerIdentifier)
         let view = UIView(frame:headView.bounds)
-        view.backgroundColor = ClearColor
         headView.addSubview(view)
         return headView
     }
+    //设置区脚背景色
+    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        view.tintColor = ClearColor
+    }
+    //设置区头背景色
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.tintColor = UIColor(patternImage: UIImage(named: "navi_bg-2")!)
+        header.layer.borderColor = MainColor.cgColor
+        header.layer.borderWidth = 0.5
+        header.textLabel?.textColor = WhiteColor
+    }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return ContactSectionHeight
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if self.dataSource?.count != 0 {
+            if section == (self.dataSource?.count)!-1 {
+                return 49
+            }
+        }
+        return 0
     }
  
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return ContactCellHeight
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.dataSource?.count == 0

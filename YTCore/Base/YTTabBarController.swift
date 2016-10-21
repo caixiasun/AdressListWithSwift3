@@ -2,7 +2,7 @@
 //  YTTabBarController.swift
 //  AdressListWithSwift2
 //
-//  Created by caixiasun on 16/9/7.
+//  Created by yatou on 16/9/7.
 //  Copyright © 2016年 yatou. All rights reserved.
 //
 
@@ -20,7 +20,7 @@ class YTTabBarController: UITabBarController {
     {
         let tabBarTintColor = colorWithHexString(hex:"2CA6D7")
         self.tabBar.tintColor = tabBarTintColor
-        self.tabBar.backgroundImage = UIImage(named: "white.png")
+        self.tabBar.backgroundImage = UIImage(named: "clear.png")
         let height = getYTHeight(obj: self.tabBar)
         
         let blurtEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)

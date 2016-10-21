@@ -10,6 +10,8 @@ import UIKit
 
 class MyController: UIViewController ,UITableViewDelegate,UITableViewDataSource,MyModelDelegate{
     
+    
+    @IBOutlet weak var bgImgV: UIImageView!
     @IBOutlet weak var headImg: UIImageView!
     @IBOutlet weak var nameLab: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -55,7 +57,6 @@ class MyController: UIViewController ,UITableViewDelegate,UITableViewDataSource,
         setCornerRadius(view: self.headImg, radius: kRadius_headImg_common)
         
         self.tableView.register(UINib(nibName: cellReuseIdentifier, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
-//        self.tableView.backgroundColor = PageGrayColor
         self.dataSource = NSMutableArray()
         self.dataSource?.addObjects(from: [["image":"leave.png","title":"我的请假记录"],["image":"setting.png","title":"设置"]])
     }

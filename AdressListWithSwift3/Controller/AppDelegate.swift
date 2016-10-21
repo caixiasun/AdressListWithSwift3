@@ -42,9 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         self.window?.makeKeyAndVisible()
         
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
-        
-        print(UIDevice.current.identifierForVendor)
-        
+//        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES]; 
     }
     
     func loadLoginVC()
