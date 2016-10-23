@@ -33,18 +33,22 @@ class LoginController: UIViewController ,UserModelDelegate{
         setCornerRadius(view: self.loginBtn, radius: 10)
         
         self.messageView = addMessageView(InView: self.view)
+        
+        let loginBtn = YTButton()
+        loginBtn.setPosition(top: kScreenHeight*0.35, left: 25, right: 25)
+        loginBtn.setTitle(title: "登录")
+        
+        weak var blockSelf = self
+        loginBtn.callBack = {
+            print("button clicked......")
+            blockSelf?.loginAction()
+        }
+        self.view.addSubview(loginBtn)
     }
     
     func initNaviBar()
     {
         self.navigationItem.title = "登录"
-        
-        //所有界面都需要token，则都需要是登录状态，取消按钮暂时不需要。
-        /*
-        let cancelBtn = YTDrawButton(title: kTitle_cancel_button, TitleColor: WhiteColor, FontSize: kFontSize_navigationBar_button, Target: self, Action: #selector(itemAction(_:)))
-        cancelBtn.tag = 1
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: cancelBtn)
-         */
     }
     
     

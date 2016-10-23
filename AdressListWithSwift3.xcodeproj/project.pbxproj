@@ -91,6 +91,7 @@
 		1E52A184C9B4E97FA9D2DAD1 /* Pods_AdressListWithSwift3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC267DCB444B761D60975034 /* Pods_AdressListWithSwift3.framework */; };
 		452A60571D8D6C1C00B19BCA /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452A60561D8D6C1C00B19BCA /* DataCenter.swift */; };
 		45ADFA3B1D8D114600A58BE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45ADFA3A1D8D114600A58BE8 /* Assets.xcassets */; };
+		5B4F1FEF1DBC946200081906 /* YTButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F1FEE1DBC946200081906 /* YTButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,6 +202,7 @@
 		0D876DD66BFC90101C9907BC /* Pods-AdressListWithSwift3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdressListWithSwift3.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AdressListWithSwift3/Pods-AdressListWithSwift3.debug.xcconfig"; sourceTree = "<group>"; };
 		452A60561D8D6C1C00B19BCA /* DataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCenter.swift; sourceTree = "<group>"; };
 		45ADFA3A1D8D114600A58BE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5B4F1FEE1DBC946200081906 /* YTButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTButton.swift; sourceTree = "<group>"; };
 		CBA5475F49F78B881E861EDE /* Pods-AdressListWithSwift3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdressListWithSwift3.release.xcconfig"; path = "Pods/Target Support Files/Pods-AdressListWithSwift3/Pods-AdressListWithSwift3.release.xcconfig"; sourceTree = "<group>"; };
 		FC267DCB444B761D60975034 /* Pods_AdressListWithSwift3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdressListWithSwift3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -590,6 +592,7 @@
 			isa = PBXGroup;
 			children = (
 				00168B701D87A0D400DB858D /* MessageView.swift */,
+				5B4F1FEE1DBC946200081906 /* YTButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -945,6 +948,7 @@
 				0055CCB31D910C90008C6D30 /* LeaveListResultData.swift in Sources */,
 				001E6F961D8FBA070099999D /* LoginController.swift in Sources */,
 				0090BFD51D8FD8E400CAC075 /* ErrorData.swift in Sources */,
+				5B4F1FEF1DBC946200081906 /* YTButton.swift in Sources */,
 				009561831D8651F500EF0D5A /* AdressListCell.swift in Sources */,
 				009561931D86527500EF0D5A /* LeaveDetailController.swift in Sources */,
 				0090BFD21D8FCA5500CAC075 /* UserData.swift in Sources */,
@@ -1112,7 +1116,7 @@
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.enjoytouch.AdressListWithSwift3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/Enjoytouch/Desktop/AdressList/AdressListWithSwift3/AdressListWithSwift3/Header.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AdressListWithSwift3/Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
@@ -1138,7 +1142,7 @@
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.enjoytouch.AdressListWithSwift3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/Enjoytouch/Desktop/AdressList/AdressListWithSwift3/AdressListWithSwift3/Header.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AdressListWithSwift3/Header.h";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				WARNING_CFLAGS = (
