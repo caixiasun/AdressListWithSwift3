@@ -63,13 +63,9 @@ class MyLeaveRecordController: UIViewController,UITableViewDataSource,UITableVie
         self.nopassTableView.startLoading()
         
         self.nopassTableView.register(UINib(nibName: cellReuseIdentifier, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
-        //self.nopassTableView.backgroundColor = PageGrayColor
         self.alreadyPassTableView.register(UINib(nibName: cellReuseIdentifier, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
-//        self.alreadyPassTableView.backgroundColor = PageGrayColor
         self.refusedTableView.register(UINib(nibName: cellReuseIdentifier, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
-//        self.refusedTableView.backgroundColor = PageGrayColor
         self.terminalTableView.register(UINib(nibName: cellReuseIdentifier, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
-//        self.terminalTableView.backgroundColor = PageGrayColor
         self.dataSource = NSMutableArray()
         self.messageView?.setMessageLoading()
         

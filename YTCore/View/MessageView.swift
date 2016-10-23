@@ -17,9 +17,9 @@ class MessageView: UIView {
     var _loadingView:UIActivityIndicatorView?
 
     override init(frame: CGRect) {
-        super.init(frame: CGRect(x: 0, y: 0, width: _viewW, height: 50))
+        super.init(frame: CGRect(x: 0, y: 0, width: _viewW, height: 60))
         
-        self.backgroundColor = BlackColor
+        self.backgroundColor = MainColor
         self.alpha = 0.8
         self.isHidden = true
         setCornerRadius(view: self, radius: 15)

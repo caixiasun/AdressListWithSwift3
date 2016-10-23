@@ -29,29 +29,23 @@ class LoginController: UIViewController ,UserModelDelegate{
     
     func initSubviews()
     {
-        setBorder(view: self.loginBtn)
-        setCornerRadius(view: self.loginBtn, radius: 10)
-        
-        self.messageView = addMessageView(InView: self.view)
-        
         let loginBtn = YTButton()
         loginBtn.setPosition(top: kScreenHeight*0.35, left: 25, right: 25)
         loginBtn.setTitle(title: "登录")
         
         weak var blockSelf = self
-        loginBtn.callBack = {
-            print("button clicked......")
+        loginBtn.callBack = {(tag) in
             blockSelf?.loginAction()
         }
         self.view.addSubview(loginBtn)
+        
+        self.messageView = addMessageView(InView: self.view)
     }
     
     func initNaviBar()
     {
         self.navigationItem.title = "登录"
     }
-    
-    
     
     @IBAction func itemAction(_ sender: UIButton) {
         switch sender.tag {

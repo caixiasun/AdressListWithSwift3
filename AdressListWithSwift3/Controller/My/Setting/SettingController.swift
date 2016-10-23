@@ -10,9 +10,6 @@ import UIKit
 
 class SettingController: UIViewController ,MyModelDelegate{
 
-    
-    @IBOutlet weak var modifyPasswordBtn: UIButton!
-    @IBOutlet weak var loginoutBtn: UIButton!
     var messageView:MessageView?
     var myModel = MyModel()
     
@@ -21,13 +18,28 @@ class SettingController: UIViewController ,MyModelDelegate{
 
         self.initNavibar()
         
-        self.view.backgroundColor = PageGrayColor
-        setCornerRadius(view: self.loginoutBtn, radius: 5)
-        self.loginoutBtn.layer.borderWidth = 0.5
-        self.loginoutBtn.layer.borderColor = MainColor.cgColor;
-        setCornerRadius(view: self.modifyPasswordBtn, radius: 5)
-        self.modifyPasswordBtn.layer.borderWidth = 0.5
-        self.modifyPasswordBtn.layer.borderColor = MainColor.cgColor;
+        self.setupUI()
+    }
+    func setupUI() {
+        weak var blockSelf = self
+        let modifyBtn = YTButton()
+        modifyBtn.setPosition(top: kScreenHeight*0.3, left: 45, right: 45)
+        modifyBtn.tag = 2
+        modifyBtn.setTitle(title: "修改密码")
+        modifyBtn.callBack = {(tag) in
+            blockSelf?.buttonAction(tag: tag)
+        }
+        self.view.addSubview(modifyBtn)
+        let loginoutBtn = YTButton()
+        loginoutBtn.setPosition(top: getYTBottom(obj: modifyBtn)+30, left: 45, right: 45)
+        loginoutBtn.tag = 1
+        loginoutBtn.setTitle(title: "退出登录")
+        loginoutBtn.setTitleColor(color:RedColor)
+        loginoutBtn.callBack = {(tag) in
+            blockSelf?.buttonAction(tag: tag)
+        }
+        self.view.addSubview(loginoutBtn)
+        
         self.messageView = addMessageView(InView: self.view)
         self.myModel.delegate = self
     }
@@ -38,8 +50,8 @@ class SettingController: UIViewController ,MyModelDelegate{
         self.navigationController?.navigationBar.tintColor = WhiteColor
     }
     
-    @IBAction func itemAction(_ sender: UIButton) {
-        if sender.tag == 1 {
+    func buttonAction(tag:Int) {
+        if tag == 1 {
             //tag=1：退出登录
             self.messageView?.setMessage(Message: "退出登录成功！", Duration: 1)
             dataCenter.setLoginout()
@@ -47,8 +59,8 @@ class SettingController: UIViewController ,MyModelDelegate{
         }else{//修改密码
             self.navigationController?.pushViewController(ModifyPasswordController(), animated: true)
         }
-        
     }
+
     func changeTabBarController()
     {
         dismiss(animated: true) { 

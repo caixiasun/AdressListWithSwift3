@@ -11,7 +11,7 @@ import UIKit
  *  可以通过block回调，也可以通过delegate，看个人喜好
  */
 let YTButton_Height:CGFloat = 40
-typealias YTButtonCallBack = () -> Void//通过block回调
+typealias YTButtonCallBack = (_ index:Int) -> Void//通过block回调
 
 class YTButton: UIView {
     
@@ -58,6 +58,9 @@ class YTButton: UIView {
     func setTitle(title:String) {
         self.titleLab.text = title
     }
+    func setTitleColor(color:UIColor) {
+        self.titleLab.textColor = color
+    }
     
     //MARK:- action method
     func tapAction() {
@@ -80,7 +83,7 @@ class YTButton: UIView {
                                     return
                                 }
                                 if (self.callBack != nil) {
-                                    self.callBack!()
+                                    self.callBack!(self.tag)
                                     return
                                 }
                         })
