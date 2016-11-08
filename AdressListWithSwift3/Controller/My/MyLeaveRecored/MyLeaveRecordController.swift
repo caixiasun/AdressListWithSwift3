@@ -16,7 +16,7 @@ class MyLeaveRecordController: UIViewController,UITableViewDataSource,UITableVie
     @IBOutlet weak var terminalTableView: UITableView!
     
     
-    //label
+    //label  
     @IBOutlet weak var nopassLab: UILabel!
     @IBOutlet weak var alreadyPassLab: UILabel!
     @IBOutlet weak var refusedLab: UILabel!
