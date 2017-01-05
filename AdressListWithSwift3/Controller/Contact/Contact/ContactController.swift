@@ -78,17 +78,6 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
         self.navigationItem.title = "所有联系人"
         let addBtn = YTDrawButton(frame: CGRect(x:0, y:0, width:kNavigationBar_button_w, height:kNavigationBar_button_w), Img: UIImage(named: "add.png"), Target: self, Action: #selector(ContactController.addAction))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addBtn)
-    }    
-    
-    func addAction()
-    {
-        if !dataCenter.isAlreadyLogin() {
-            appDelegate.loadLoginVC()
-            return
-        }
-        let navi = YTNavigationController(rootViewController: NewContactController())
-        navi.initNavigationBar()
-        self.present(navi, animated: false, completion: nil)
     }
     
     func initSearchView()
@@ -189,6 +178,22 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
         self.localDataSource = NSMutableArray()
     }
     
+    //MARK: - Action method
+    func addAction()
+    {
+        if !dataCenter.isAlreadyLogin() {
+            appDelegate.loadLoginVC()
+            return
+        }
+        let navi = YTNavigationController(rootViewController: NewContactController())
+        navi.initNavigationBar()
+        self.present(navi, animated: false, completion: nil)
+    }
+    func callAction(phone: String) {
+        
+        application.open(URL(string: "tel:\(phone)")!, options: [:], completionHandler: nil)
+    }
+    
     //MARK:- UITableViewDelegate,UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
         if self.dataSource?.count != 0 {
@@ -277,13 +282,21 @@ class ContactController: UIViewController ,UITableViewDelegate,UITableViewDataSo
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let cell = tableView.cellForRow(at: indexPath) as! AdressListCell
+        weak var weakSelf = self
+        let callAction = UITableViewRowAction(style: .normal, title: "拨打") { (action:UITableViewRowAction, indexPath:IndexPath) in
+            weakSelf?.callAction(phone: cell.phone!)
+        }
+        callAction.backgroundColor = MainColor
+        return [callAction]
+    }
+    
     //MARK: -UITextFieldDelegate
     func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.3) { 
             self.setSearchViewPosition()
         }
-        
-        
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.3) {
