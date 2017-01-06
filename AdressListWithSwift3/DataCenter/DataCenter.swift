@@ -15,11 +15,10 @@ let kUserData = "UserDataKey"
 class DataCenter: AnyObject {
     //单例
     static let center:DataCenter = DataCenter()
+    private init() {}
+    
     var userdata_save_file_path = UserData().getFilePath()
      var dataCenter:NSMutableDictionary = NSMutableDictionary()
-    class func shareInstance() ->DataCenter {
-        return center
-    }
     func isFirstLaunch() -> Bool
     {
         let userDefault = UserDefaults.standard
@@ -99,7 +98,7 @@ class DataCenter: AnyObject {
         return url!
     }
 }
-let dataCenter = DataCenter.shareInstance()
+let dataCenter = DataCenter.center
 
 //获取本地json数据
 func getContactFromLocal() -> NSMutableArray
